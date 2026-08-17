@@ -278,11 +278,15 @@ export default async function RoomPage({
       {related.length > 0 && (
         <Section ground="sun" size="md">
           <Container>
-            <p className="label mb-8 text-[color:var(--fg-3)]">
+            {/* An h2, not a styled paragraph. The experience titles below are
+                h3s, and without a level between them and the page's h1 the
+                heading order jumps — which axe flags and a screen-reader user
+                hears as a missing section. It still looks like a label. */}
+            <h2 className="label mb-8 text-[color:var(--fg-3)]">
               {room.kind === "suite"
                 ? m.rooms.oftenArranged
                 : m.rooms.oftenArrangedRoom}
-            </p>
+            </h2>
             <ul className="grid gap-x-[clamp(1.5rem,3vw,3rem)] gap-y-8 sm:grid-cols-3">
               {related.map((exp) => (
                 <li key={exp.slug}>
