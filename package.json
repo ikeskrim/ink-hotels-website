@@ -13,7 +13,8 @@
     "cms:check": "node scripts/i18n-coverage.mjs",
     "prestart": "node scripts/check-build.mjs",
     "smoke": "node scripts/smoke.mjs",
-    "test": "node --import tsx --test \"src/**/*.test.ts\""
+    "test": "node --import tsx --test \"src/**/*.test.ts\"",
+    "headings": "node scripts/heading-check.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

@@ -255,6 +255,13 @@ export function Hero() {
               >
                 {line}
               </span>
+              {/* The two lines are separate blocks so the design breaks where
+                  it wants to, but a block boundary is not whitespace: the DOM
+                  text stream ran them together and the accessible name — and
+                  the string Google indexes — read "Seven suitesin the old
+                  town." A space between the blocks costs nothing visually and
+                  is the only thing that separates the words. */}
+              {i === 0 ? " " : null}
             </span>
           ))}
         </h1>
