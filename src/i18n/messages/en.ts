@@ -225,6 +225,7 @@ export const en = {
       pool: "The heated private plunge pool in the interior courtyard of the Harmony suite",
       lighthouse: "The Egyptian lighthouse at the Venetian harbour at dusk",
     },
+    guestsTitle: "What guests said",
   },
 
   arrival: {
@@ -415,6 +416,12 @@ export const en = {
     ratesInEngine: "Availability and rates are handled in our reservation system.",
     stillWondering: "Still wondering",
     weAnswerIn: "We answer in {languages}, usually within a day.",
+    offersTitle: "Offers, a few times a year",
+    offersPlaceholder: "Your email",
+    offersSubmit: "Sign up",
+    offersConsent: "A few emails a year about rooms and quiet seasons. Nothing else, never shared, and one click to leave.",
+    offersThanks: "Thank you — you are on the list.",
+    offersError: "That did not send. Please write to us instead.",
   },
 
   /* Structural strings from content/site.ts, keyed by their English

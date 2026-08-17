@@ -12,6 +12,7 @@ import { TheOpenDoor } from "@/components/home/the-open-door";
 import { WhatWeArrange } from "@/components/home/what-we-arrange";
 import { TheFamily } from "@/components/home/the-family";
 import { TheFeed } from "@/components/home/the-feed";
+import { WhatGuestsSaid } from "@/components/home/what-guests-said";
 import { PlainFacts } from "@/components/home/plain-facts";
 import { NowTheDates } from "@/components/home/now-the-dates";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -67,6 +68,7 @@ export default async function HomePage({
       <TheArrival locale={locale} />
       <WhatWeArrange locale={locale} />
       <TheFamily locale={locale} />
+      <WhatGuestsSaid locale={locale} />
       <TheFeed locale={locale} />
       <PlainFacts locale={locale} />
       <NowTheDates locale={locale} />

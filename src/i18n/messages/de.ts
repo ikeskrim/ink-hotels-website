@@ -209,6 +209,7 @@ export const de: Messages = {
       pool: "Der beheizte eigene Tauchpool im Innenhof der Suite Harmony",
       lighthouse: "Der ägyptische Leuchtturm am venezianischen Hafen in der Dämmerung",
     },
+    guestsTitle: "Was Gäste gesagt haben",
   },
 
   arrival: {
@@ -398,6 +399,12 @@ export const de: Messages = {
     ratesInEngine: "Verfügbarkeit und Preise werden in unserem Reservierungssystem verwaltet.",
     stillWondering: "Noch Fragen offen",
     weAnswerIn: "Wir antworten auf {languages}, in der Regel innerhalb eines Tages.",
+    offersTitle: "Angebote, ein paar Mal im Jahr",
+    offersPlaceholder: "Ihre E-Mail",
+    offersSubmit: "Anmelden",
+    offersConsent: "Ein paar E-Mails im Jahr über Zimmer und ruhige Jahreszeiten. Nichts sonst, nie weitergegeben, Abmeldung mit einem Klick.",
+    offersThanks: "Danke — Sie stehen auf der Liste.",
+    offersError: "Das ging nicht durch. Schreiben Sie uns bitte direkt.",
   },
 
   /* Structural strings from content/site.ts, keyed by their English

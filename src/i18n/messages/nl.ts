@@ -209,6 +209,7 @@ export const nl: Messages = {
       pool: "Het verwarmde eigen dompelbad op de binnenplaats van de suite Harmony",
       lighthouse: "De Egyptische vuurtoren aan de Venetiaanse haven in de schemering",
     },
+    guestsTitle: "Wat gasten zeiden",
   },
 
   arrival: {
@@ -398,6 +399,12 @@ export const nl: Messages = {
     ratesInEngine: "Beschikbaarheid en tarieven worden beheerd in ons reserveringssysteem.",
     stillWondering: "Nog vragen",
     weAnswerIn: "Wij antwoorden in het {languages}, meestal binnen een dag.",
+    offersTitle: "Aanbiedingen, een paar keer per jaar",
+    offersPlaceholder: "Uw e-mailadres",
+    offersSubmit: "Aanmelden",
+    offersConsent: "Een paar e-mails per jaar over kamers en rustige seizoenen. Niets anders, nooit gedeeld, en één klik om te vertrekken.",
+    offersThanks: "Dank u — u staat op de lijst.",
+    offersError: "Dat is niet verzonden. Schrijf ons rechtstreeks.",
   },
 
   /* Structural strings from content/site.ts, keyed by their English

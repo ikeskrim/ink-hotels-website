@@ -209,6 +209,7 @@ export const fr: Messages = {
       pool: "La petite piscine privée chauffée dans la cour intérieure de la suite Harmony",
       lighthouse: "Le phare égyptien du port vénitien au crépuscule",
     },
+    guestsTitle: "Ce qu'ont dit nos hôtes",
   },
 
   arrival: {
@@ -398,6 +399,12 @@ export const fr: Messages = {
     ratesInEngine: "La disponibilité et les tarifs sont gérés dans notre système de réservation.",
     stillWondering: "Encore une question",
     weAnswerIn: "Nous répondons en {languages}, généralement sous un jour.",
+    offersTitle: "Des offres, quelques fois par an",
+    offersPlaceholder: "Votre e-mail",
+    offersSubmit: "S'inscrire",
+    offersConsent: "Quelques e-mails par an sur les chambres et les saisons calmes. Rien d'autre, jamais transmis, et un clic pour partir.",
+    offersThanks: "Merci — vous êtes sur la liste.",
+    offersError: "L'envoi a échoué. Écrivez-nous directement.",
   },
 
   /* Structural strings from content/site.ts, keyed by their English

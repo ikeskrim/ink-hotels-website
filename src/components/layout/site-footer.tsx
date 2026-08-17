@@ -4,6 +4,7 @@ import { contact, legal, nav, reception, site } from "@/content/site";
 import { spokenLanguages } from "@/i18n/languages";
 import { getMessages } from "@/i18n";
 import { label } from "@/i18n/labels";
+import { OffersSignup } from "@/components/layout/offers-signup";
 import { localePath, type Locale } from "@/i18n/config";
 import { houses } from "@/content/rooms";
 import { Wordmark } from "@/components/layout/wordmark";
@@ -33,7 +34,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               rel="noopener noreferrer"
               className="label group mt-10 inline-flex h-13 items-center gap-3 bg-paper px-7 py-4 text-ink transition-colors duration-500 ease-settle hover:bg-sea hover:text-paper"
             >
-              Book now
+              {m.actions.bookNow}
               <ArrowUpRight
                 className="h-4 w-4 transition-transform duration-500 ease-settle group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 strokeWidth={1.25}
@@ -78,6 +79,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                     )}
                   </p>
                 ))}
+                <OffersSignup className="pb-2 pt-4" />
                 <p className="pt-1 text-paper/50">
                   {m.common.receptionUntil.replace("{time}", reception.openUntil)}
                 </p>

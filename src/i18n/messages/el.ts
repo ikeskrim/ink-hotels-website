@@ -208,6 +208,7 @@ export const el: Messages = {
       pool: "Η θερμαινόμενη ιδιωτική μικρή πισίνα στην εσωτερική αυλή της σουίτας Harmony",
       lighthouse: "Ο αιγυπτιακός φάρος στο ενετικό λιμάνι το σούρουπο",
     },
+    guestsTitle: "Τι είπαν οι επισκέπτες",
   },
 
   arrival: {
@@ -396,6 +397,12 @@ export const el: Messages = {
     ratesInEngine: "Η διαθεσιμότητα και οι τιμές διαχειρίζονται στο σύστημα κρατήσεών μας.",
     stillWondering: "Έχετε ακόμη απορίες",
     weAnswerIn: "Απαντάμε στα {languages}, συνήθως μέσα σε μία ημέρα.",
+    offersTitle: "Προσφορές, λίγες φορές τον χρόνο",
+    offersPlaceholder: "Το email σας",
+    offersSubmit: "Εγγραφή",
+    offersConsent: "Λίγα email τον χρόνο για δωμάτια και ήσυχες εποχές. Τίποτε άλλο, δεν δίνονται πουθενά, και φεύγετε με ένα κλικ.",
+    offersThanks: "Ευχαριστούμε — είστε στη λίστα.",
+    offersError: "Δεν στάλθηκε. Γράψτε μας απευθείας.",
   },
 
   /* Structural strings from content/site.ts, keyed by their English
