@@ -612,6 +612,13 @@ export const rooms: Room[] = [
     bookingId: "4418",
     slug: "superior-room-with-balcony-phos",
     name: "Superior Room with Balcony - Phos",
+    /* NAME COLLISION — see PROPOSALS.md #1, awaiting the owner.
+       Booking id 4076 is called "Superior Room With Balcony - Phos": the same
+       string with one capital letter changed. A guest who wants this room —
+       20 m², sleeps four — can book that one, which is 18 m² and sleeps three,
+       and find out at check-in. Renaming this one "Family Room with Balcony"
+       would fix it in a single field without touching the URL, the engine name
+       or the deep link. Not applied: room names are the owner's to decide. */
     displayName: "Superior Room with Balcony",
     house: "phos",
     kind: "room",
