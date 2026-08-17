@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { defaultLocale, isLocale, locales } from "@/i18n/config";
+import { defaultLocale, isLocale } from "@/i18n/config";
 
 /**
  * Locale routing.
@@ -77,7 +77,10 @@ export const config = {
   ],
 };
 
-export const runtime = "nodejs";
-
-/** Exported for tests and for the sitemap. */
-export { locales };
+/* No `runtime` and no re-exports here.
+   A middleware module is not an ordinary module: the bundler treats every
+   export as part of the middleware contract, and anything it does not
+   recognise ends up in the routing manifest it hands the platform. This file
+   used to `export { locales }` for convenience — nothing imported it, and the
+   sitemap and tests take `locales` from `@/i18n/config`, which is where it
+   lives. Import it from there. */

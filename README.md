@@ -376,6 +376,44 @@ every route.
 
 ---
 
+## Deploying
+
+Connect the GitHub repository to Vercel and let Vercel build. Every push then
+gets a preview URL and `main` gets the production one.
+
+**Do not deploy with `vercel deploy` from a Windows machine.** The CLI builds
+locally and then fails in its own post-processing:
+
+    Error: Unable to find lambda for route: /de/accessibility
+
+It names a different locale route on each run — `/de/gallery`, `/de/location`,
+`/de/accessibility` — which is the signature of a failed lookup over an
+unordered map rather than a real problem with any one page. It is not the
+project path (reproduced from an ASCII path and from a Greek one), and it is
+not the app: `npm run build` prerenders all 295 pages cleanly, including every
+route the CLI cannot find. The five locales live under `app/[locale]/`, and the
+bracketed segment plus Windows path handling is the most likely culprit.
+
+Vercel's own builders run on Linux and do not hit it. Build there.
+
+### Environment
+
+Nothing is required. Booking is an external deep link to
+`inkhotels.reserve-online.net`, and the content layer falls back to
+`src/content/` when Sanity is not configured.
+
+When the contact form gets a mail provider, `RESEND_API_KEY`, `CONTACT_FROM`
+and `CONTACT_TO` go into **Vercel's environment variables**, never into the
+repository — it is public. Until then `/api/contact` returns an honest 503 and
+the form shows the address and phone rather than faking a success message.
+
+### The domain
+
+`inkhotels.gr` is deliberately **not** attached. Preview URLs only, until the
+owner says otherwise.
+
+---
+
 ## Things you need to act on
 
 0. **From this pass, in order of how much they matter:**
