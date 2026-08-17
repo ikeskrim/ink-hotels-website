@@ -5,8 +5,8 @@
 // index 0 is the frame that becomes the card and the detail-page hero.
 
 export const EVEXIA_IMAGES: readonly string[] = [
-  "/media/dcb87a424b86c470c712806568076533.webp", // EVEXIA_3-8 · 1920×1280
   "/media/c1d3015d10dbf89fdc5a854450a3d4c2.webp", // EVEXIA_3-16 · 1920×1280
+  "/media/dcb87a424b86c470c712806568076533.webp", // EVEXIA_3-8 · 1920×1280
   "/media/4ad86bba304ba9312b446378b005be3d.webp", // EVEXIA_3-9 · 1920×1280
   "/media/1fa2fc836e2496f84aed327f806baea5.webp", // EVEXIA_3-7 · 1920×1280
   "/media/5ddc7f739aeae37c4ebb4ca1bb7a5bfb.webp", // EVEXIA_3-15 · 1067×1600
@@ -27,6 +27,7 @@ export const EVEXIA_IMAGES: readonly string[] = [
 ];
 
 export const EROS_IMAGES: readonly string[] = [
+  "/media/c0a38a892dbed31350857c9c38c71097.webp", // eros-1-new · 1920×1080
   "/media/30492ae8c18483102f4d79f00f39fad7.webp", // EROS_2-3 · 1920×1280
   "/media/f783cb09433e7db6ee50413a61f2f6c8.webp", // eros-5-new · 1920×1080
   "/media/7642af2960327fcd8b374a6883e58ac7.webp", // eros-6-new · 1920×1080
@@ -35,7 +36,6 @@ export const EROS_IMAGES: readonly string[] = [
   "/media/ab26d72686d1c4b7271d21136aab9c4e.webp", // eros-10-new · 1920×1080
   "/media/26fbfb0d72cf5238e61ad426996cf9a3.webp", // EROS_2-4 · 1920×1280
   "/media/e7cfafc7dffcfd6f8733ce0ff20687e0.webp", // eros-3-new · 1920×1080
-  "/media/c0a38a892dbed31350857c9c38c71097.webp", // eros-1-new · 1920×1080
   "/media/bef84636acf74eca6328b141ff232f9a.webp", // EROS_2-5 · 1920×1280
   "/media/7a29ab74eb91ac1fc509e5eebaf08848.webp", // EROS_2-6 · 1920×1280
   "/media/26f6d3ae870f6a4eaf6cf9f3e268d72e.webp", // EROS_2-7 · 1920×1280

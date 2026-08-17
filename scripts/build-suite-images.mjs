@@ -23,7 +23,12 @@ const ORDER = {
   EVEXIA_IMAGES: {
     group: "evexia",
     files: [
-      "EVEXIA_3-8", "EVEXIA_3-16", "EVEXIA_3-9", "EVEXIA_3-7", "EVEXIA_3-15",
+      /* EVEXIA_3-16 leads: the tub with the sea running the full width behind
+         it. The list used to open with EVEXIA_3-8 — the same tub against
+         painted tiles and sky, a fine photograph with no sea in it — while the
+         suite's own copy promises exactly the view that frame does not show.
+         The card was contradicting the sentence under it. */
+      "EVEXIA_3-16", "EVEXIA_3-8", "EVEXIA_3-9", "EVEXIA_3-7", "EVEXIA_3-15",
       "EVEXIA_3-5", "EVEXIA_3-3", "EVEXIA_3-2", "EVEXIA_3-1", "EVEXIA_3-21",
       "EVEXIA_3-14", "EVEXIA_3-4", "EVEXIA_3-10", "EVEXIA_3-19", "EVEXIA",
       "EVEXIA_3-13", "EVEXIA_3-12", "EVEXIA_3-20", "EVEXIA_3-18",
@@ -32,8 +37,12 @@ const ORDER = {
   EROS_IMAGES: {
     group: "eros",
     files: [
-      "EROS_2-3", "eros-5-new", "eros-6-new", "eros-8-new", "eros-2-new",
-      "eros-10-new", "EROS_2-4", "eros-3-new", "eros-1-new", "EROS_2-5",
+      /* eros-1-new leads: the patio tub close, with the wooden screen and the
+         grass — which is the suite's whole argument. EROS_2-3 is the same
+         patio seen from across the courtyard, where the tub is small in frame
+         and reads as furniture. */
+      "eros-1-new", "EROS_2-3", "eros-5-new", "eros-6-new", "eros-8-new",
+      "eros-2-new", "eros-10-new", "EROS_2-4", "eros-3-new", "EROS_2-5",
       "EROS_2-6", "EROS_2-7", "EROS_2-8", "EROS_2-9", "EROS_2-10", "EROS_2-1",
     ],
   },
