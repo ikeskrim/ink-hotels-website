@@ -251,6 +251,8 @@ export const rooms: Room[] = [
     images: ROOM_IMAGES["30918"] ?? [],
     renovated: null,
     plungePool: true,
+    tourUrl:
+      "https://vtours.pepita.io/spitogatos/7f8301cb-b853-4ff5-95e4-0a7d0be2ddf7",
     featureOrder: 2,
   },
   {
@@ -287,6 +289,8 @@ export const rooms: Room[] = [
     images: ROOM_IMAGES["30919"] ?? [],
     renovated: null,
     accessible: true,
+    tourUrl:
+      "https://vtours.pepita.io/spitogatos/b0940633-9df2-406c-b4ff-97772cdb3377",
     featureOrder: 4,
   },
   {
@@ -322,6 +326,8 @@ export const rooms: Room[] = [
     images: ROOM_IMAGES["30874"] ?? [],
     renovated: null,
     adultsOnly: true,
+    tourUrl:
+      "https://momento360.com/e/uc/1091cc936a674660bd1a349e78d91c06?utm_campaign=embed&utm_source=other&size=medium&display-plan=true",
     featureOrder: 5,
   },
   {
