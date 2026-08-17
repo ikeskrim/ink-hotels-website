@@ -21,6 +21,7 @@
  *   BASE=http://localhost:3000 node scripts/locale-roundtrip.mjs
  */
 import { chromium } from "playwright";
+import { goto } from "./lib/goto.mjs";
 
 const BASE = (process.env.BASE ?? "http://localhost:3000").replace(/\/$/, "");
 const LOCALES = ["el", "de", "fr", "nl"];
@@ -46,7 +47,7 @@ for (const locale of LOCALES) {
   const page = await ctx.newPage();
 
   for (const path of PAGES) {
-    const res = await page.goto(`${BASE}/${locale}${path}`, {
+    const res = await goto(page, `${BASE}/${locale}${path}`, {
       waitUntil: "domcontentloaded",
     });
     const where = path || "/";
@@ -81,7 +82,7 @@ for (const locale of LOCALES) {
   }
 
   /* The control a guest actually touches. */
-  await page.goto(BASE + "/", { waitUntil: "domcontentloaded" });
+  await goto(page, BASE + "/", { waitUntil: "domcontentloaded" });
   await page.locator('button[aria-haspopup="listbox"]').first().click();
   const box = page.locator('[role="listbox"]').first();
   await box.waitFor({ state: "visible" });

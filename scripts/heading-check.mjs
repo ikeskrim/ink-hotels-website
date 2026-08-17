@@ -14,6 +14,7 @@
  *   BASE=http://localhost:3000 node scripts/heading-check.mjs
  */
 import { chromium } from "playwright";
+import { goto } from "./lib/goto.mjs";
 
 const BASE = (process.env.BASE ?? "http://localhost:3000").replace(/\/$/, "");
 
@@ -31,7 +32,7 @@ const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
 const problems = [];
 
 for (const route of ROUTES) {
-  const res = await page.goto(BASE + route, { waitUntil: "domcontentloaded" });
+  const res = await goto(page, BASE + route, { waitUntil: "domcontentloaded" });
   if (!res || res.status() !== 200) {
     problems.push({ route, heading: "(page)", text: `HTTP ${res?.status()}` });
     continue;

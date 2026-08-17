@@ -14,6 +14,7 @@
  * the other half of the complaint: not invisible, just very far apart.
  */
 import { chromium } from "playwright";
+import { goto } from "./lib/goto.mjs";
 
 const BASE = process.env.BASE ?? "http://localhost:3000";
 const ROUTES = process.argv.slice(2).length
@@ -26,7 +27,7 @@ let failures = 0;
 for (const route of ROUTES) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await ctx.newPage();
-  await page.goto(BASE + route, { waitUntil: "networkidle" });
+  await goto(page, BASE + route, { waitUntil: "networkidle" });
 
   const height = await page.evaluate(() => document.documentElement.scrollHeight);
   for (let y = 0; y < height; y += 500) {
