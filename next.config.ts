@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+import { buildRedirects } from "./redirects.mjs";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
@@ -51,6 +53,13 @@ const nextConfig: NextConfig = {
        16.5 kB to every HTML response. The 1,250 ms is an estimate the profile
        does not actually pay. */
   },
+  /* The launch redirect map — see redirects.mjs.
+     Inert until the domain switch: these sources are the old inkhotels.gr
+     paths, and nothing requests them while the site lives on another host. */
+  async redirects() {
+    return buildRedirects();
+  },
+
   async headers() {
     return [
       {

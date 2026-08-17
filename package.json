@@ -2,7 +2,7 @@
   "name": "ink-hotels",
   "version": "1.0.0",
   "private": true,
-  "description": "Ink Hotels β€” House of Europe & Phos, Rethymno, Crete",
+  "description": "Ink Hotels \u03b2\u20ac\u201d House of Europe & Phos, Rethymno, Crete",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,7 +14,9 @@
     "prestart": "node scripts/check-build.mjs",
     "smoke": "node scripts/smoke.mjs",
     "test": "node --import tsx --test \"src/**/*.test.ts\"",
-    "headings": "node scripts/heading-check.mjs"
+    "headings": "node scripts/heading-check.mjs",
+    "redirects": "node scripts/redirect-check.mjs",
+    "redirects:doc": "node scripts/write-redirects-doc.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

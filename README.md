@@ -405,6 +405,7 @@ and the rest run against it:
 | `heading-check` | a heading whose words run together in its accessible name |
 | `locale-roundtrip` | an internal link that drops the reader's language |
 | `reveal-check` | a scroll entrance that never becomes visible |
+| `redirect-check` | a launch redirect that loops, duplicates, chains, 404s, or points at an anchor that is not there |
 
 ---
 

@@ -40,6 +40,9 @@ jobs:
       - name: Secrets — nothing credential-shaped in the tree
         run: node scripts/secret-scan.mjs
 
+      - name: Redirects — table parses, no duplicates, no loops
+        run: node scripts/redirect-check.mjs
+
       - name: Typecheck
         run: npm run typecheck
 
@@ -93,6 +96,11 @@ jobs:
 
       - name: Locale — language survives a switch, two clicks and a reload
         run: node scripts/locale-roundtrip.mjs
+        env:
+          BASE: http://localhost:3000
+
+      - name: Redirects — every destination and anchor resolves
+        run: node scripts/redirect-check.mjs
         env:
           BASE: http://localhost:3000
 

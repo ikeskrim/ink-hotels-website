@@ -185,7 +185,13 @@ export default async function RethymnoPage({
             {places.map((place, i) => (
               <div
                 key={place.slug}
-                className="grid gap-4 border-b border-[color:var(--hairline)] py-8 lg:grid-cols-12 lg:gap-8"
+                /* Anchorable. The old site gave each landmark its own page —
+                   /en/article/1351 was Arkadi Monastery — and those URLs are
+                   indexed. The launch redirects send them to `#arkadi-monastery`
+                   here, which only lands correctly if the id exists.
+                   `scroll-mt` keeps the fixed header off the heading. */
+                id={place.slug}
+                className="grid scroll-mt-28 gap-4 border-b border-[color:var(--hairline)] py-8 lg:grid-cols-12 lg:gap-8"
               >
                 <dt className="lg:col-span-4">
                   <span
