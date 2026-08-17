@@ -91,10 +91,13 @@ export default async function FaqPage({
             <aside className="lg:col-span-4">
               <div className="border border-[color:var(--border)] p-7">
                 <p className="label mb-4 text-[color:var(--fg-3)]">
-                  Still wondering
+                  {m.common.stillWondering}
                 </p>
                 <p className="measure text-[color:var(--fg-2)]">
-                  We answer in {spokenLanguages(locale)}, usually within a day.
+                  {m.common.weAnswerIn.replace(
+                    "{languages}",
+                    spokenLanguages(locale),
+                  )}
                 </p>
                 <div className="mt-6 space-y-2">
                   <p>

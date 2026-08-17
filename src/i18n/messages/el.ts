@@ -378,6 +378,8 @@ export const el: Messages = {
     gntoLicence: "Άδεια ΕΟΤ",
     vat: "ΑΦΜ",
     ratesInEngine: "Η διαθεσιμότητα και οι τιμές διαχειρίζονται στο σύστημα κρατήσεών μας.",
+    stillWondering: "Έχετε ακόμη απορίες",
+    weAnswerIn: "Απαντάμε στα {languages}, συνήθως μέσα σε μία ημέρα.",
   },
 
   /* Structural strings from content/site.ts, keyed by their English

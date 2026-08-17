@@ -380,6 +380,8 @@ export const de: Messages = {
     gntoLicence: "GNTO-Lizenz",
     vat: "USt-IdNr.",
     ratesInEngine: "Verfügbarkeit und Preise werden in unserem Reservierungssystem verwaltet.",
+    stillWondering: "Noch Fragen offen",
+    weAnswerIn: "Wir antworten auf {languages}, in der Regel innerhalb eines Tages.",
   },
 
   /* Structural strings from content/site.ts, keyed by their English

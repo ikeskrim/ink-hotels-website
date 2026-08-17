@@ -8,7 +8,7 @@ import { roomsInHouse } from "@/content/rooms";
 import { Gk } from "@/components/ui/greek";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/i18n/provider";
-import { localeTags } from "@/i18n/config";
+import { localePath, localeTags } from "@/i18n/config";
 
 /**
  * A house, presented photograph-first.
@@ -59,7 +59,7 @@ export function RoomGroupCard({
 
   return (
     <Link
-      href={`/rooms#${house.id}`}
+      href={localePath(locale, `/rooms#${house.id}`)}
       className={cn("group block focus-visible:outline-offset-4", className)}
     >
       {/* The library is almost entirely landscape. Forcing a portrait crop

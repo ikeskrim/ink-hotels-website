@@ -397,6 +397,8 @@ export const en = {
     gntoLicence: "GNTO licence",
     vat: "VAT",
     ratesInEngine: "Availability and rates are handled in our reservation system.",
+    stillWondering: "Still wondering",
+    weAnswerIn: "We answer in {languages}, usually within a day.",
   },
 
   /* Structural strings from content/site.ts, keyed by their English

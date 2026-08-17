@@ -380,6 +380,8 @@ export const nl: Messages = {
     gntoLicence: "GNTO-vergunning",
     vat: "Btw-nummer",
     ratesInEngine: "Beschikbaarheid en tarieven worden beheerd in ons reserveringssysteem.",
+    stillWondering: "Nog vragen",
+    weAnswerIn: "Wij antwoorden in het {languages}, meestal binnen een dag.",
   },
 
   /* Structural strings from content/site.ts, keyed by their English

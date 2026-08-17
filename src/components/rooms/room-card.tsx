@@ -8,6 +8,7 @@ import { houses } from "@/content/rooms";
 import { cn } from "@/lib/utils";
 import { RoomBadges } from "@/components/rooms/room-badges";
 import { useI18n } from "@/i18n/provider";
+import { localePath } from "@/i18n/config";
 import { roomSpecs } from "@/i18n/specs";
 
 /**
@@ -49,7 +50,7 @@ export function RoomCard({
   return (
     <article className={cn("group", className)}>
       <Link
-        href={`/rooms/${room.slug}`}
+        href={localePath(locale, `/rooms/${room.slug}`)}
         className="block focus-visible:outline-offset-4"
       >
         <div className="relative aspect-[3/2] overflow-hidden bg-[color:var(--bg-lift)]">

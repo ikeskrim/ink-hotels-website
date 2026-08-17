@@ -25,9 +25,16 @@ import { cn } from "@/lib/utils";
  * language is written in its own script, because a German speaker is looking
  * for "Deutsch", not "German".
  *
- * Every option is a real <a> to the same page in the other language, so it is
- * crawlable, works without JavaScript, and keeps the reader where they were
- * instead of dumping them on a translated homepage.
+ * Every option is a real <a> to the same page in the other language, so the
+ * reader is kept where they were instead of being dumped on a translated
+ * homepage.
+ *
+ * Those anchors live inside the open dropdown, which means that without
+ * JavaScript there is no way to change language at all — the panel never
+ * opens. The `<noscript>` block below is the fallback: the same five links, in
+ * the markup, needing nothing to work. Search engines find the translations
+ * through the hreflang alternates in `<head>` either way, so this is about the
+ * reader rather than the crawler.
  */
 export function LanguageSwitcher({
   tone = "auto",
@@ -71,6 +78,32 @@ export function LanguageSwitcher({
 
   return (
     <div ref={ref} className={cn("relative", className)}>
+      {/* Without JavaScript the dropdown never opens, so these are the only
+          way to change language. Rendered as plain anchors with no dependency
+          on state; the styled control below replaces them when scripting is
+          available. */}
+      <noscript>
+        <ul className="label flex items-center gap-3">
+          {locales.map((code) => (
+            <li key={code}>
+              <a
+                href={localePath(code, path)}
+                hrefLang={code}
+                lang={code}
+                aria-current={code === locale ? "true" : undefined}
+                className={
+                  code === locale
+                    ? "text-[color:var(--fg)]"
+                    : "text-[color:var(--fg-3)] underline"
+                }
+              >
+                {localeNames[code].short}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </noscript>
+
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
