@@ -409,6 +409,28 @@ and the rest run against it:
 
 ---
 
+## Analytics
+
+Plausible, wired in `src/components/seo/analytics.tsx`. It ships **only** when
+`NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is set **and** the build is production, so a
+developer's page views and every preview deployment stay out of the owner's
+numbers. Set it in Vercel's environment variables to the live hostname, without
+a protocol: `inkhotels.gr`.
+
+**There is no cookie banner on this site, and that is correct.** Consent under
+GDPR and ePrivacy is required for storing or reading information on a visitor's
+device. Plausible does neither — no cookies, no personal data, no
+cross-site identifier. A banner would be asking permission for something the
+site is not doing, and every guest would pay two clicks for it.
+
+**If the owner prefers GA4**, the swap is one component body plus a
+`NEXT_PUBLIC_GA_ID`. Know what comes with it: GA4 sets cookies and processes
+personal data, so a consent banner becomes legally necessary, the CSP and
+robots rules need review, and the numbers are not comparable to whatever
+Plausible has already collected. It is a product decision, not a script swap.
+
+---
+
 ## Deploying
 
 Connect the GitHub repository to Vercel and let Vercel build. Every push then

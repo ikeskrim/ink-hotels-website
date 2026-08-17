@@ -17,6 +17,7 @@ import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { BookingDock } from "@/components/booking/booking-dock";
+import { Analytics } from "@/components/seo/analytics";
 import { JsonLd } from "@/components/seo/json-ld";
 import { hotelSchema } from "@/lib/schema";
 
@@ -186,6 +187,7 @@ export default async function RootLayout({
       </head>
       <body data-ground="paper" className="antialiased">
         <JsonLd data={hotelSchema()} />
+        <Analytics />
 
         <I18nProvider locale={locale} messages={messages}>
           <a
