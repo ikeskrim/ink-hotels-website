@@ -45,15 +45,37 @@ export function bedPhrase(
   return `${n} ${count === 1 ? forms.one : forms.other}`;
 }
 
-/** The one-line spec used on cards and in the detail table. */
+/**
+ * The one-line spec used on cards and in the detail table.
+ *
+ * The reservation system records a bedroom count in two places: `bedrooms`, and
+ * again as a `beds` entry labelled "Bedroom" — the same fact stated twice,
+ * because the engine has no separate field for "this unit has rooms rather than
+ * beds". Eros, Zoi and the Residence all carry both, and the card read
+ * "30 m² · 2 bedrooms · 4 guests · 2 bedrooms".
+ *
+ * Rather than special-case that one label, every part is pushed through a
+ * de-duplicating collector. Two parts that render to the same words are the
+ * same fact whatever produced them, and saying a fact twice on a card that has
+ * room for four makes the room look thinner, not fuller.
+ */
 export function roomSpecs(room: Room, m: Messages, locale: Locale): string[] {
   const nf = new Intl.NumberFormat(localeTags[locale]);
   const out: string[] = [];
+  const seen = new Set<string>();
 
-  if (room.sizeSqm) out.push(`${nf.format(room.sizeSqm)} m²`);
+  /** Add a part unless something rendering identically is already there. */
+  const push = (part: string) => {
+    const key = part.trim().toLowerCase();
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    out.push(part);
+  };
+
+  if (room.sizeSqm) push(`${nf.format(room.sizeSqm)} m²`);
 
   if (room.bedrooms && room.bedrooms > 1) {
-    out.push(
+    push(
       `${nf.format(room.bedrooms)} ${room.bedrooms === 1 ? m.rooms.bedroomCount.one : m.rooms.bedroomCount.other}`,
     );
   }
@@ -62,14 +84,22 @@ export function roomSpecs(room: Room, m: Messages, locale: Locale): string[] {
     const max = room.maxGuests && room.maxGuests > room.guests ? room.maxGuests : null;
     const n = max ? `${nf.format(room.guests)}–${nf.format(max)}` : nf.format(room.guests);
     const plural = (max ?? room.guests) === 1 ? m.booking.guest_one : m.booking.guest_other;
-    out.push(plural.replace("{count}", n));
+    push(plural.replace("{count}", n));
   }
 
-  const beds = room.beds
-    .map((b) => bedPhrase(b.label, b.count, m, locale))
-    .filter(Boolean)
-    .join(", ");
-  if (beds) out.push(beds);
+  /* Bed phrases are de-duplicated among themselves first, so a room listing
+     the same bed twice does not produce "1 double bed, 1 double bed" inside
+     what is meant to read as one clause. */
+  const bedParts: string[] = [];
+  const bedSeen = new Set<string>();
+  for (const b of room.beds) {
+    const phrase = bedPhrase(b.label, b.count, m, locale);
+    const key = phrase.trim().toLowerCase();
+    if (!phrase || bedSeen.has(key) || seen.has(key)) continue;
+    bedSeen.add(key);
+    bedParts.push(phrase);
+  }
+  if (bedParts.length) push(bedParts.join(", "));
 
   return out;
 }

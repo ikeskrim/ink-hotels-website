@@ -12,7 +12,8 @@
     "cms:seed": "tsx --env-file=.env.local scripts/cms-seed.mts",
     "cms:check": "node scripts/i18n-coverage.mjs",
     "prestart": "node scripts/check-build.mjs",
-    "smoke": "node scripts/smoke.mjs"
+    "smoke": "node scripts/smoke.mjs",
+    "test": "node --import tsx --test \"src/**/*.test.ts\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
