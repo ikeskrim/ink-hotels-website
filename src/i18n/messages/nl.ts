@@ -199,6 +199,16 @@ export const nl: Messages = {
     harbourTitle: "De haven, aan het eind van de dag",
     landmarksEyebrow: "Wat er om u heen staat",
     landmarksTitle: "Vijf dingen die de wandeling waard zijn",
+    feedEyebrow: "Van het account",
+    feedHandle: "@ink_hotels",
+    feedAlts: {
+      evexiaTub: "Het eigen bubbelbad op het terras van Evexia, de zee erachter",
+      harbour: "De Venetiaanse haven van Rethymno met haar Egyptische vuurtoren",
+      zoiYard: "Het bubbelbad op de omheinde binnenplaats van de suite Zoi",
+      lane: "Een smal steegje in de oude stad, houten Venetiaanse balkons erboven",
+      pool: "Het verwarmde eigen dompelbad op de binnenplaats van de suite Harmony",
+      lighthouse: "De Egyptische vuurtoren aan de Venetiaanse haven in de schemering",
+    },
   },
 
   arrival: {

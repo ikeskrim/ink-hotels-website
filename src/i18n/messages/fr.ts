@@ -199,6 +199,16 @@ export const fr: Messages = {
     harbourTitle: "Le port, à la fin du jour",
     landmarksEyebrow: "Ce qui vous entoure",
     landmarksTitle: "Cinq choses qui valent la marche",
+    feedEyebrow: "Depuis le compte",
+    feedHandle: "@ink_hotels",
+    feedAlts: {
+      evexiaTub: "Le bain à remous privé sur la terrasse d'Evexia, la mer derrière",
+      harbour: "Le port vénitien de Réthymnon et son phare égyptien",
+      zoiYard: "Le bain à remous dans la cour clôturée de la suite Zoi",
+      lane: "Une ruelle étroite de la vieille ville, balcons vénitiens en bois au-dessus",
+      pool: "La petite piscine privée chauffée dans la cour intérieure de la suite Harmony",
+      lighthouse: "Le phare égyptien du port vénitien au crépuscule",
+    },
   },
 
   arrival: {

@@ -199,6 +199,16 @@ export const de: Messages = {
     harbourTitle: "Der Hafen, am Ende des Tages",
     landmarksEyebrow: "Was um Sie herum steht",
     landmarksTitle: "Fünf Dinge, für die sich der Weg lohnt",
+    feedEyebrow: "Aus dem Account",
+    feedHandle: "@ink_hotels",
+    feedAlts: {
+      evexiaTub: "Der eigene Whirlpool auf der Terrasse der Evexia, dahinter das Meer",
+      harbour: "Der venezianische Hafen von Rethymno mit seinem ägyptischen Leuchtturm",
+      zoiYard: "Der Whirlpool im eingefriedeten Hof der Suite Zoi",
+      lane: "Eine schmale Gasse der Altstadt, darüber hölzerne venezianische Balkone",
+      pool: "Der beheizte eigene Tauchpool im Innenhof der Suite Harmony",
+      lighthouse: "Der ägyptische Leuchtturm am venezianischen Hafen in der Dämmerung",
+    },
   },
 
   arrival: {

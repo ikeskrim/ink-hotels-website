@@ -215,6 +215,16 @@ export const en = {
     harbourTitle: "The harbour, at the end of the day",
     landmarksEyebrow: "What stands around you",
     landmarksTitle: "Five things worth the walk",
+    feedEyebrow: "From the account",
+    feedHandle: "@ink_hotels",
+    feedAlts: {
+      evexiaTub: "The private hot tub on the Evexia terrace, the sea behind it",
+      harbour: "The Venetian harbour of Rethymno with its Egyptian lighthouse",
+      zoiYard: "The hot tub in the fenced backyard of the Zoi suite",
+      lane: "A narrow lane of the old town, wooden Venetian balconies overhead",
+      pool: "The heated private plunge pool in the interior courtyard of the Harmony suite",
+      lighthouse: "The Egyptian lighthouse at the Venetian harbour at dusk",
+    },
   },
 
   arrival: {
