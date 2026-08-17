@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { blurFor } from "@/content/generated/blur";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -184,6 +185,12 @@ export function Hero() {
               >
                 <Image
                   src={frame.src}
+                  /* Only the first frame. Frames two to four cross-fade in over a
+                     photograph that has already painted, so nobody ever waits
+                     on their placeholder — and three unused base64 strings in
+                     the HTML of the busiest page is a cost with no return. */
+                  placeholder={i === 0 && blurFor(frame.src) ? "blur" : "empty"}
+                  blurDataURL={i === 0 ? blurFor(frame.src) : undefined}
                   alt={i === 0 ? frame.alt : ""}
                   aria-hidden={i !== 0}
                   fill

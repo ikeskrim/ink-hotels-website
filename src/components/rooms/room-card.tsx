@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { blurFor } from "@/content/generated/blur";
 import Link from "next/link";
 
 import type { Room } from "@/content/rooms";
@@ -57,6 +58,8 @@ export function RoomCard({
           {cover && (
             <Image
               src={cover}
+              placeholder={blurFor(cover) ? "blur" : "empty"}
+              blurDataURL={blurFor(cover)}
               alt={`${room.name} at Ink Hotels`}
               fill
               priority={priority}

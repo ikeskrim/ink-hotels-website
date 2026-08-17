@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { blurFor } from "@/content/generated/blur";
 
 import { Heading, Section } from "@/components/ui/section";
 import { Reveal } from "@/components/motion/reveal";
@@ -50,6 +51,8 @@ export function TheWater({ locale = defaultLocale }: { locale?: Locale }) {
           <div key={plate.name} className="relative aspect-[4/5] sm:aspect-[3/4]">
             <Image
               src={plate.src}
+              placeholder={blurFor(plate.src) ? "blur" : "empty"}
+              blurDataURL={blurFor(plate.src)}
               alt={plate.alt}
               fill
               sizes="(min-width: 640px) 50vw, 100vw"

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { blurFor } from "@/content/generated/blur";
 
 import { Container, Heading, Section } from "@/components/ui/section";
 import { MaskReveal, Reveal } from "@/components/motion/reveal";
@@ -24,6 +25,10 @@ export function TheOldTown({ locale = defaultLocale }: { locale?: Locale }) {
             <MaskReveal className="aspect-[3/4]">
               <Image
                 src="/media/0dc83ffb4bd879a312c00e50c8bda2fc.webp"
+
+                placeholder={blurFor("/media/0dc83ffb4bd879a312c00e50c8bda2fc.webp") ? "blur" : "empty"}
+
+                blurDataURL={blurFor("/media/0dc83ffb4bd879a312c00e50c8bda2fc.webp")}
                 alt="A narrow lane of the old town, wooden Venetian balconies overhead"
                 width={900}
                 height={1200}
@@ -61,6 +66,10 @@ export function TheOldTown({ locale = defaultLocale }: { locale?: Locale }) {
             <MaskReveal className="aspect-[4/5]" delay={0.12}>
               <Image
                 src="/media/05c09d32efa814812ba4598083de9b4c.webp"
+
+                placeholder={blurFor("/media/05c09d32efa814812ba4598083de9b4c.webp") ? "blur" : "empty"}
+
+                blurDataURL={blurFor("/media/05c09d32efa814812ba4598083de9b4c.webp")}
                 alt="The Venetian harbour of Rethymno with its Egyptian lighthouse"
                 width={900}
                 height={1125}

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { blurFor } from "@/content/generated/blur";
 import Link from "next/link";
 
 import type { House } from "@/content/rooms";
@@ -68,6 +69,8 @@ export function RoomGroupCard({
       <div className="relative aspect-[3/2] overflow-hidden">
         <Image
           src={image}
+          placeholder={blurFor(image) ? "blur" : "empty"}
+          blurDataURL={blurFor(image)}
           alt={`${house.name} at Ink Hotels`}
           fill
           priority={priority}

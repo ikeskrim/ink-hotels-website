@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { blurFor } from "@/content/generated/blur";
 import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
@@ -41,6 +42,8 @@ export function PageHero({
       <div className="absolute inset-0 -z-10" data-decorative>
         <Image
           src={image}
+          placeholder={blurFor(image) ? "blur" : "empty"}
+          blurDataURL={blurFor(image)}
           alt={imageAlt}
           fill
           priority

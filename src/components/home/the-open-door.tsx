@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { blurFor } from "@/content/generated/blur";
 
 import { Container, Heading, Section } from "@/components/ui/section";
 import { MaskReveal, Reveal } from "@/components/motion/reveal";
@@ -77,6 +78,10 @@ export function TheOpenDoor({ locale = defaultLocale }: { locale?: Locale }) {
             <MaskReveal className="aspect-[4/3]">
               <Image
                 src="/media/d61ede4f5d00cd6b090beb09df8b5c5c.webp"
+
+                placeholder={blurFor("/media/d61ede4f5d00cd6b090beb09df8b5c5c.webp") ? "blur" : "empty"}
+
+                blurDataURL={blurFor("/media/d61ede4f5d00cd6b090beb09df8b5c5c.webp")}
                 alt="The Agapi suite at Ink, with marble floor and step-free access"
                 width={1400}
                 height={1050}

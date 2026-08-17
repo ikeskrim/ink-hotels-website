@@ -2,6 +2,7 @@
 
 import { type ReactNode, useRef } from "react";
 import Image from "next/image";
+import { blurFor } from "@/content/generated/blur";
 import {
   motion,
   useReducedMotion,
@@ -94,6 +95,8 @@ export function DepthImage({
       >
         <Image
           src={src}
+          placeholder={blurFor(src) ? "blur" : "empty"}
+          blurDataURL={blurFor(src)}
           alt={alt}
           fill
           sizes={sizes}
@@ -205,6 +208,8 @@ export function CinematicFrame({
         >
           <Image
             src={src}
+            placeholder={blurFor(src) ? "blur" : "empty"}
+            blurDataURL={blurFor(src)}
             alt={alt}
             fill
             sizes="100vw"

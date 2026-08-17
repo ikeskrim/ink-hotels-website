@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { blurFor } from "@/content/generated/blur";
 
 import { Container, Heading, Section } from "@/components/ui/section";
 import { MaskReveal, Reveal } from "@/components/motion/reveal";
@@ -35,6 +36,10 @@ export function TheFamily({ locale = defaultLocale }: { locale?: Locale }) {
             <MaskReveal className="aspect-[4/3]">
               <Image
                 src="/media/5c8561282159b358b4e7a2270cc972d9.webp"
+
+                placeholder={blurFor("/media/5c8561282159b358b4e7a2270cc972d9.webp") ? "blur" : "empty"}
+
+                blurDataURL={blurFor("/media/5c8561282159b358b4e7a2270cc972d9.webp")}
                 alt="The family team behind Ink Hotels and Crete Holiday Home"
                 width={1200}
                 height={900}
