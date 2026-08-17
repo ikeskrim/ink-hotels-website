@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
 
 import { contact } from "@/content/site";
+import { useI18n } from "@/i18n/provider";
 import { Concierge, ConciergeButton, useConcierge } from "./concierge";
 import { EASE } from "@/components/motion/reveal";
 
@@ -24,6 +25,7 @@ export function BookingDock() {
   const [atBookingSection, setAtBookingSection] = useState(false);
   const { open, setOpen } = useConcierge();
   const reduced = useReducedMotion();
+  const { m } = useI18n();
 
   useEffect(() => {
     const onScroll = () => {
@@ -64,20 +66,31 @@ export function BookingDock() {
               data-ground="ink"
               className="flex items-stretch border-t border-paper/15"
             >
-              <button
-                type="button"
-                onClick={() => setOpen(true)}
-                className="label flex w-[40%] items-center justify-center py-4 text-paper"
+              {/* WhatsApp rather than the concierge panel, on small screens
+                  only. A guest on a phone in a foreign old town wants the
+                  thread they already have open, not a panel inside a website;
+                  and unlike the panel it survives them closing the tab.
+                  The desktop dock keeps the concierge. */}
+              <a
+                href={contact.whatsapp.url(m.concierge.whatsappGreeting)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="label flex w-[40%] items-center justify-center gap-2 py-4 text-paper"
               >
-                Ask us
-              </button>
+                <MessageCircle
+                  className="h-3.5 w-3.5"
+                  strokeWidth={1.75}
+                  aria-hidden="true"
+                />
+                WhatsApp
+              </a>
               <a
                 href={contact.bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="label flex flex-1 items-center justify-center gap-2 bg-sea py-4 text-paper"
               >
-                Book now
+                {m.actions.bookNow}
                 <ArrowUpRight
                   className="h-3.5 w-3.5"
                   strokeWidth={1.75}
@@ -111,7 +124,7 @@ export function BookingDock() {
                 aria-hidden="true"
                 className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-paper-lit/70 to-transparent transition-transform duration-[900ms] ease-settle group-hover/cta:translate-x-full"
               />
-              <span className="label relative">Book now</span>
+              <span className="label relative">{m.actions.bookNow}</span>
               <ArrowUpRight
                 className="relative h-4 w-4 transition-transform duration-500 ease-settle group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
                 strokeWidth={1.75}
