@@ -469,6 +469,47 @@ owner says otherwise.
 
 ---
 
+## Waiting on owner
+
+Everything below is built and waiting on one thing from you. Nothing here is
+blocking the site; each is a switch that stays off until the input arrives.
+
+| what | why it is waiting | where it lands |
+| --- | --- | --- |
+| **Reservation ids** for Evexia, Eros and Zoi | Their Book buttons open the engine's front page instead of deep-linking | `bookingId` in `content/rooms.ts` |
+| **`RESEND_API_KEY`** | `/api/contact` returns an honest 503; the footer offers sign-up stays hidden | Vercel env vars, then `NEXT_PUBLIC_OFFERS_SIGNUP=1` |
+| **Xenia chatbot embed** | The concierge slot is built and hidden | `NEXT_PUBLIC_CHAT_*` |
+| **A photograph of the fleet Fiat** | The current one is a licensed placeholder, flagged in `content/experiences.ts` | one line in that file |
+| **Six to ten real guest quotes** | `content/reviews.ts` is empty, so the homepage strip and the per-suite quote render nothing. First name, country, platform, year — verbatim, never paraphrased | `content/reviews.ts` |
+| **Phos rename decision** | Two categories differ by one capital letter; a guest can book the wrong room | `PROPOSALS.md` #1 — site **and** WebHotelier admin together |
+| **A lawyer's pass on Terms and Privacy** | Written from scratch, both `noindex` | `/terms`, `/privacy` |
+| **A best-rate line, if it is true** | The Book Direct block deliberately makes no rate claim | `booking.bookDirect*` |
+
+### Two photographs worth shooting
+
+**Agapi's courtyard and the old well.** The suite's own copy names "a serene
+inner courtyard with a picturesque old well", and the set has no usable frame
+of it — the one shot that appears to include the wellhead has a guest's face in
+it, and a recognisable stranger does not go on a commercial page. Agapi
+currently leads with an unpeopled interior, which is honest but is not the
+thing being sold. One unpeopled frame of the courtyard fixes it.
+
+**Harmony and Pathos leads.** Both draw from `ROOM_IMAGES` rather than the
+mirrored sets and were not re-ordered when the other five were. Harmony's
+signature is the heated pool, Pathos's is the glass shower cabin beside the
+bed.
+
+### One thing deliberately not built
+
+**"Breakfast in the room" is not an experience page.** It is a real service and
+a published fact in the FAQ, and it is the obvious fourth entry in the
+"often arranged with this suite" strip. It stays out: giving it a page purely
+to fill a slot would be inventing content to fit a layout. If the owner wants
+it sold there, it needs its own photograph and its own description — then it
+becomes a real entry rather than a fabricated one.
+
+---
+
 ## Things you need to act on
 
 0. **From this pass, in order of how much they matter:**
