@@ -68,7 +68,9 @@ export function RoomCard({
           {/* The facts a guest filters on, said on the plate rather than three
               clicks in: the hot tub, the plunge pool, step-free access, and
               whether the room takes children. */}
-          <RoomBadges room={room} className="absolute left-3 top-3" />
+          {/* One badge, not four. A card answers one question; the detail
+              page carries the full set. */}
+          <RoomBadges room={room} limit={1} className="absolute left-3 top-3" />
           {room.images.length > 1 && (
             <span className="spec absolute bottom-3 right-3 bg-ink/70 px-2 py-1 text-paper backdrop-blur-sm">
               {room.images.length}

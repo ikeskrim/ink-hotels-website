@@ -21,14 +21,31 @@ export function RoomBadges({
   room,
   className,
   tone = "over-photo",
+  limit,
 }: {
   room: Room;
   className?: string;
   /** `over-photo` sits on an image; `inline` sits on the page ground. */
   tone?: "over-photo" | "inline";
+  /**
+   * How many to show. A card passes 1; the detail page passes nothing and
+   * gets the lot.
+   *
+   * Four badges stacked on a photograph stop being information and become
+   * decoration — the eye reads a row of chips rather than the one thing that
+   * distinguishes this room from the nineteen others. On a card there is
+   * exactly one question worth answering, so only the first is shown, and the
+   * order below is the answer to it.
+   */
+  limit?: number;
 }) {
   const { m } = useI18n();
 
+  /* Ordered by how much each fact decides a booking, not alphabetically.
+     A private hot tub or a heated plunge pool is why someone chooses this
+     hotel at all. Step-free access is not a luxury but a requirement: for the
+     guest who needs it, it outranks everything except the water they came
+     for. Adults-only is last because it excludes rather than attracts. */
   const badges: { key: string; label: string; icon: typeof Waves }[] = [];
   if (room.hotTub) badges.push({ key: "hotTub", label: m.rooms.badgeHotTub, icon: Waves });
   if (room.plungePool)
@@ -40,9 +57,11 @@ export function RoomBadges({
 
   if (!badges.length) return null;
 
+  const shown = typeof limit === "number" ? badges.slice(0, limit) : badges;
+
   return (
     <ul className={cn("flex flex-wrap gap-1.5", className)}>
-      {badges.map(({ key, label, icon: Icon }) => (
+      {shown.map(({ key, label, icon: Icon }) => (
         <li
           key={key}
           className={cn(
