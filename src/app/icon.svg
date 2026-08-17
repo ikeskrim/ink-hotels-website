@@ -1,0 +1,22 @@
+<!--
+  The Ink mark, redrawn for a 16px tab.
+
+  Same lockup as the header: concentric rings pressed off-centre, the way a
+  thumb leaves them. The header draws eight; a favicon that draws eight puts
+  them a fifth of a pixel apart and they alias into a grey disc, so this keeps
+  five and widens the stroke until each one survives.
+
+  The core is the brand teal — at 32px and above the bookmark reads as Ink
+  rather than as a generic target.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#1a1512"/>
+  <g fill="none" stroke="#faf5ea" stroke-width="6.5">
+    <circle cx="47.6" cy="48.6" r="15.4"/>
+    <circle cx="45.8" cy="47.5" r="26.2"/>
+    <circle cx="43.6" cy="46.2" r="37.4"/>
+  </g>
+  <g fill="none" stroke="#5fbecf" stroke-width="6.5">
+    <circle cx="49.4" cy="49.6" r="5.4"/>
+  </g>
+</svg>

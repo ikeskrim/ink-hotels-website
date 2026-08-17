@@ -1,0 +1,307 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+
+import { bookingUrlFor, houses, rooms, roomsBySlug } from "@/content/rooms";
+import { getHouses, getRooms } from "@/lib/sanity/content";
+import { getMessages } from "@/i18n";
+import { bedPhrase } from "@/i18n/specs";
+import { defaultLocale, isLocale } from "@/i18n/config";
+import { contact } from "@/content/site";
+import { Container, Heading, Rule, Section } from "@/components/ui/section";
+import { RoomGallery } from "@/components/rooms/room-gallery";
+import { RoomCard } from "@/components/rooms/room-card";
+import { RoomBadges } from "@/components/rooms/room-badges";
+import { TourFacade } from "@/components/rooms/tour-facade";
+import { AvailabilityForm } from "@/components/booking/availability-form";
+import { InkAnchor, InkLink } from "@/components/ui/ink-link";
+import { JsonLd } from "@/components/seo/json-ld";
+import { breadcrumbSchema, roomSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/seo";
+
+export function generateStaticParams() {
+  return rooms.map((r) => ({ slug: r.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const room = roomsBySlug.get(slug);
+  if (!room) return {};
+
+  const house = houses.find((h) => h.id === room.house);
+  const facts = [
+    room.sizeSqm ? `${room.sizeSqm} m²` : null,
+    room.guests ? `sleeps ${room.maxGuests ?? room.guests}` : null,
+    room.outlook,
+    room.outdoor,
+  ]
+    .filter(Boolean)
+    .join(", ");
+
+  return pageMetadata({
+    title: `${room.displayName} — ${house?.name}`,
+    description: `${room.description.slice(0, 150)}… ${facts}. Ink Hotels, Rethymno.`,
+    path: `/rooms/${room.slug}`,
+    image: room.images[0] ?? "/opengraph-image",
+  });
+}
+
+export default async function RoomPage({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: string }>;
+}) {
+  const { slug, locale: raw } = await params;
+  const locale = isLocale(raw) ? raw : defaultLocale;
+
+  const m = getMessages(locale);
+  const localised = await getRooms(locale);
+  const room = localised.find((r) => r.slug === slug);
+  if (!room) notFound();
+
+  const house = (await getHouses(locale)).find((h) => h.id === room.house);
+  const siblings = localised
+    .filter((r) => r.house === room.house && r.slug !== room.slug)
+    .slice(0, 3);
+
+  const specs: { term: string; value: string }[] = [
+    ...(room.sizeSqm ? [{ term: m.rooms.size, value: `${room.sizeSqm} m²` }] : []),
+    ...(room.bedrooms && room.bedrooms > 1
+      ? [{ term: m.rooms.bedrooms, value: String(room.bedrooms) }]
+      : []),
+    ...(room.bathrooms && room.bathrooms > 1
+      ? [{ term: m.rooms.bathrooms, value: String(room.bathrooms) }]
+      : []),
+    ...(room.guests
+      ? [
+          {
+            term: m.rooms.sleeps,
+            value: room.maxGuests
+              ? `${room.guests} · ${room.maxGuests}`
+              : `${room.guests}`,
+          },
+        ]
+      : []),
+    {
+      term: m.rooms.beds,
+      value: room.beds.map((b) => bedPhrase(b.label, b.count, m, locale)).join(", "),
+    },
+    ...(room.outlook ? [{ term: m.rooms.outlook, value: room.outlook }] : []),
+    ...(room.outdoor ? [{ term: m.rooms.outdoor, value: room.outdoor }] : []),
+    ...(room.level ? [{ term: m.rooms.level, value: room.level }] : []),
+    ...(room.renovated ? [{ term: m.rooms.renovated, value: room.renovated }] : []),
+  ];
+
+  return (
+    <>
+      <JsonLd
+        data={[
+          roomSchema(room),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Rooms", path: "/rooms" },
+            { name: room.displayName, path: `/rooms/${room.slug}` },
+          ]),
+        ]}
+      />
+
+      {/* ── Masthead ───────────────────────────────────────────────────── */}
+      <Section ground="paper" size="none" className="pt-[clamp(7rem,12vh,9rem)]">
+        <Container>
+          <nav aria-label="Breadcrumb" className="label mb-8 text-[color:var(--fg-3)]">
+            <Link href="/rooms" className="hover:text-[color:var(--fg)]">
+              {m.nav.rooms}
+            </Link>
+            <span aria-hidden="true" className="mx-3">
+              /
+            </span>
+            <span>{house?.name}</span>
+          </nav>
+
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <Heading level={1} size="d1" className="mb-5">
+                {room.displayName}
+              </Heading>
+              {/* The official name, verbatim — so what is browsed here matches
+                  what is reserved in the engine, with nothing lost at handoff. */}
+              <p className="spec text-[color:var(--fg-3)]">{room.name}</p>
+              <RoomBadges room={room} tone="inline" className="mt-6" />
+            </div>
+            <div className="lg:col-span-5">
+              <p className="measure text-lg text-[color:var(--fg-2)]">
+                {room.description}
+              </p>
+              {/* The property publishes its own walkthrough for some suites.
+                  It is embedded behind a facade rather than linked away: the
+                  tour is several megabytes of third-party viewer, so nothing
+                  is fetched until a guest asks — and when they do, they stay
+                  on the page with the booking rail rather than losing it to
+                  another tab. */}
+              {room.tourUrl && room.images[0] && (
+                <TourFacade
+                  url={room.tourUrl}
+                  poster={room.images[0]}
+                  posterAlt={`${room.displayName} — ${m.rooms.tour360}`}
+                  className="mt-8"
+                />
+              )}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ── Photographs and the booking rail ───────────────────────────── */}
+      <Section ground="paper" size="none" className="pt-[clamp(2.5rem,5vw,4rem)]">
+        <Container>
+          <div className="grid gap-[clamp(2.5rem,5vw,4rem)] lg:grid-cols-12">
+            <div className="lg:col-span-8">
+              <RoomGallery images={room.images} roomName={room.name} />
+            </div>
+
+            <aside className="lg:col-span-4">
+              <div className="lg:sticky lg:top-28">
+                <div className="border border-[color:var(--border)] p-6 lg:p-7">
+                  <p className="label mb-2 text-[color:var(--fg-3)]">
+                    {m.booking.reservingAs}
+                  </p>
+                  <p className="spec mb-6 leading-relaxed">{room.name}</p>
+                  <Rule className="mb-6" />
+                  <AvailabilityForm
+                    tone="dark"
+                    layout="stack"
+                    roomId={room.bookingId ?? undefined}
+                  />
+                </div>
+
+                {/* Where the engine has no id for this room yet, the button
+                    can only open its front page. Saying so, with a way to
+                    reserve the suite by name right beside it, is the
+                    difference between a handoff and a dead end. Remove this
+                    the moment `bookingId` is filled in. */}
+                {!room.bookingId && (
+                  <p className="mt-5 border-l-2 border-[color:var(--link)] pl-4 text-sm text-[color:var(--fg-2)]">
+                    {m.booking.byNameNote}{" "}
+                    <InkAnchor href={`mailto:${contact.emails.general}`}>
+                      {contact.emails.general}
+                    </InkAnchor>{" "}
+                    <span aria-hidden="true">·</span>{" "}
+                    <InkAnchor href={contact.phones[1].href}>
+                      {contact.phones[1].value}
+                    </InkAnchor>
+                  </p>
+                )}
+
+                <p className="mt-5 text-sm text-[color:var(--fg-2)]">
+                  {m.booking.speakToSomeone.split("{phone}")[0]}
+                  <InkAnchor href={contact.phones[1].href}>
+                    {contact.phones[1].value}
+                  </InkAnchor>
+                  {m.booking.speakToSomeone.split("{phone}")[1]}
+                </p>
+              </div>
+            </aside>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ── Specification and amenities ────────────────────────────────── */}
+      <Section ground="shade" size="md" className="mt-[clamp(3rem,6vw,5rem)]">
+        <Container>
+          <div className="grid gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <p className="label mb-7 text-[color:var(--fg-3)]">{m.rooms.theRoom}</p>
+              <dl className="border-t border-[color:var(--hairline)]">
+                {specs.map((s) => (
+                  <div
+                    key={s.term}
+                    className="flex items-baseline justify-between gap-6 border-b border-[color:var(--hairline)] py-4"
+                  >
+                    <dt className="label text-[color:var(--fg-3)]">{s.term}</dt>
+                    <dd className="spec text-right">{s.value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              {room.notes.length > 0 && (
+                <div className="mt-8 space-y-2">
+                  {room.notes.map((n) => (
+                    <p key={n} className="text-sm text-[color:var(--fg-2)]">
+                      {n}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="lg:col-span-7">
+              <p className="label mb-7 text-[color:var(--fg-3)]">
+                {m.rooms.whatIsInIt}
+              </p>
+              <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                {room.amenities.map((a) => (
+                  <li
+                    key={a}
+                    className="flex items-baseline gap-3 border-b border-[color:var(--hairline)] pb-3 text-[color:var(--fg-2)]"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="block h-px w-3 shrink-0 translate-y-[-0.35em] bg-[color:var(--border)]"
+                    />
+                    {a}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ── The rest of the house ──────────────────────────────────────── */}
+      {siblings.length > 0 && (
+        <Section ground="paper" size="md">
+          <Container>
+            <div className="mb-10 flex items-end justify-between gap-6 border-b border-[color:var(--hairline)] pb-6">
+              <Heading size="d3">
+                {m.rooms.alsoInHouse.replace("{house}", house?.name ?? "")}
+              </Heading>
+              <InkLink href="/rooms" className="label whitespace-nowrap">
+                {m.actions.allRooms.replace("{count}", String(rooms.length))} →
+              </InkLink>
+            </div>
+            <div className="grid gap-x-[clamp(1.5rem,2.5vw,2.5rem)] gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+              {siblings.map((r) => (
+                <RoomCard key={r.slug} room={r} />
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
+
+      {/* ── Handoff ────────────────────────────────────────────────────── */}
+      <Section ground="ink" size="md">
+        <Container className="flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="label mb-5 text-phos">{m.rooms.readyWhenYouAre}</p>
+            <Heading size="d3" className="max-w-[16ch] text-paper">
+              {room.displayName}, at Ink
+            </Heading>
+          </div>
+          <a
+            href={bookingUrlFor(room)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="label inline-flex h-14 items-center justify-center bg-paper px-9 text-ink transition-colors duration-500 ease-settle hover:bg-sea hover:text-paper"
+            aria-label={`${m.actions.bookNow} — ${room.name}`}
+          >
+            {m.actions.bookNow}
+          </a>
+        </Container>
+      </Section>
+    </>
+  );
+}

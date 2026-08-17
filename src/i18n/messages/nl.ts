@@ -1,0 +1,419 @@
+import type { Messages } from "./en";
+
+export const nl: Messages = {
+  meta: {
+    tagline: "Klein hotel. Lang verhaal.",
+  },
+
+  nav: {
+    rooms: "Kamers",
+    staying: "Verblijven",
+    rethymno: "Rethymno",
+    gallery: "Galerij",
+    story: "Verhaal",
+    arrival: "Aankomst",
+    contact: "Contact",
+    home: "Home",
+    faq: "Veelgestelde vragen",
+    accessibility: "Toegankelijkheid",
+    careers: "Vacatures",
+    privacy: "Privacybeleid",
+    terms: "Gebruiksvoorwaarden",
+    location: "Locatie",
+  },
+
+  actions: {
+    bookNow: "Nu boeken",
+    askUs: "Vraag het ons",
+    seeRooms: "Waar u slaapt",
+    allRooms: "Alle {count} kamers",
+    allExperiences: "Alle {count} ervaringen",
+    readStory: "Lees het hele verhaal",
+    writeToUs: "Schrijf ons",
+    directions: "Routebeschrijving",
+    directionsAndContact: "Route en contact",
+    openInMaps: "Openen in Google Maps",
+    loadMap: "Kaart laden",
+    scroll: "Scroll",
+    close: "Sluiten",
+    clear: "Wissen",
+    everythingElse: "Al het andere",
+    seeTheSuite: "Bekijk de suite",
+    theWholeArrival: "De hele aankomst",
+    seeCollection: "Bekijk de hele collectie",
+    more: "Meer",
+  },
+
+  booking: {
+    arriving: "Aankomst",
+    leaving: "Vertrek",
+    guests: "Gasten",
+    rooms: "Kamers",
+    guest_one: "{count} gast",
+    guest_other: "{count} gasten",
+    previousMonth: "Vorige maand",
+    nextMonth: "Volgende maand",
+    reservingAs: "Reserveren als",
+    findYourDates: "Zoek uw datums",
+    opensInNewTab:
+      "Opent ons reserveringssysteem in een nieuw tabblad. Of bel {phone}.",
+    handoffNote:
+      "Datums en tarieven openen in ons boekingssysteem, inkhotels.reserve-online.net, in een nieuw tabblad.",
+    orCall: "Of bel {phone} of {phone2}. Wij spreken {languages}.",
+    speakToSomeone: "Liever iemand spreken? Bel {phone}.",
+    byNameNote: "Deze suite wordt op naam gereserveerd en niet via de zoekfunctie — schrijf of bel en wij houden hem voor u vast:",
+  },
+
+  concierge: {
+    title: "Vraag ons alles",
+    eyebrow: "De balie",
+    intro:
+      "Een kamer, een boot, een tafel, een drempelloze route door de oude stad. Wij antwoorden in {languages}.",
+    callReception: "Bel de receptie",
+    mobile: "Mobiel",
+    whatsapp: "WhatsApp",
+    whatsappGreeting:
+      "Hallo — ik bekijk de site van Ink Hotels en heb een vraag.",
+    whatsappNote: "Gratis vanuit het buitenland",
+    writeToUs: "Schrijf ons",
+    greekTime: "Rethymno, Griekse tijd",
+    urgent: "Voor dringende zaken",
+    withinADay: "Wij antwoorden binnen een dag",
+    orFindDates: "Of zoek uw datums",
+    villasLine: "Villa's en huizen op heel Kreta — {group}",
+  },
+
+  home: {
+    heroEyebrow: "Rethymno · Kreta",
+    heroTitleLine1: "Zeven suites",
+    heroTitleLine2: "in de oude stad.",
+    heroLede:
+      "Alle zeven liggen in House of Europe aan de Nikolaou Plastira — drie met een eigen bubbelbad, één met een plunge pool op een eigen binnenplaats. Phos, een paar stappen verderop, heeft zeven eigen kamers. Beide zijn huizen uit de jaren 1700, onder de Fortezza, minuten van de Venetiaanse haven. Een ervan was een drukkerij: daar dankt het hotel zijn naam aan.",
+
+    pressEyebrow: "De naam",
+    pressTitle: "Een hotel vernoemd naar wat het gebouw ooit maakte",
+    pressLede: "Hier zat een drukkerij.",
+    pressImprint: "Gezet, geïnkt en gedrukt · Rethymno, Kreta",
+    pressBody1:
+      "In dit gebouw stond een pers die een krant drukte met de naam ΑΓΩΝ — Agon, “Strijd”. Uitgever was Fotakis, een advocaat die later parlementslid en officier van justitie in Athene werd.",
+    pressBody2:
+      "Het middelste huis heet House of Europe sinds het dienstdeed als gastenverblijf van de Universiteit van Kreta. Hoogleraren en onderzoekers verbleven hier tussen colleges door. Kunsttentoonstellingen horen er nog altijd bij.",
+    pressPull:
+      "Ink is hier geen kleur. Het is waar dit gebouw zijn brood mee verdiende.",
+
+    markEyebrow: "Het teken",
+    markTitle: "Een vingerafdruk, in papier geperst",
+    markBody1:
+      "Het teken van het hotel is een duimafdruk — ringen die in een oppervlak zijn geperst, uitwaaierend vanuit één punt van contact. Het is dezelfde handeling die dit gebouw als beroep verrichtte: letter, druk, een afdruk die achterblijft.",
+    markBody2:
+      "Het is ook de oudste manier om te zeggen: dit was van mij, ik ben hier geweest. En daar is een verblijf uiteindelijk voor.",
+
+    lightEyebrow: "Het tweede gebouw",
+    lightBody1:
+      "Het tweede gebouw heet Phos. Dat is het Griekse woord voor licht, en het is het stillere van de twee — zeven kamers, genummerd van één tot zeven, op loopafstand van de receptie en het ontbijt in House of Europe.",
+    lightBody2:
+      "Inkt en licht zijn dezelfde handeling. Een teken wordt in een oppervlak geperst; pas licht dat er onder een lage hoek overheen valt maakt het teken leesbaar. Het ene gebouw is vernoemd naar het teken, het andere naar wat het toont.",
+    lightSpec: "Zeven kamers · Gerenoveerd juni 2019",
+
+    settingEyebrow: "De ligging",
+    settingTitle: "In de schaduw van de Fortezza",
+    settingBody1:
+      "Ink ligt onder de Fortezza — het fort dat de piraat Barbarossa ooit binnenviel — en op een paar stappen van de zee en de middeleeuwse Venetiaanse haven, waar kooplieden handelden in goederen uit de hele wereld.",
+    settingBody2:
+      "Loop door de straten rond Ink en u vindt de stegen waar ooit ridders doorheen reden, kleine lokale eethuizen met goed eten, en een wijk die tot lang na zonsondergang levendig blijft.",
+    settingCaption1: "De steegjes, vier minuten van de deur",
+    settingCaption2: "De Venetiaanse haven en haar vuurtoren",
+
+    roomsEyebrow: "Waar u slaapt",
+    roomsTitle: "Twintig manieren om te verblijven",
+    roomsLede:
+      "Zeven suites in House of Europe, zeven kamers in Phos en één heel woonhuis bij de haven — van twaalf vierkante meter onder het dak tot veertig met een zwembad op de binnenplaats.",
+    promiseHouseOfEurope:
+      "Het eerste gebouw, en de receptie. Alle zeven suites liggen hier — één met een eigen bubbelbad boven het water, één met een plunge pool op een eigen binnenplaats — samen met de kamers aan zeezijde en het ontbijt.",
+    promisePhos:
+      "Het stillere gebouw. Zeven kamers, genummerd van één tot zeven, en terrassen die uitkomen boven de daken van de oude stad.",
+    promiseResidence:
+      "Een eigen huis met twee slaapkamers, honderd meter van de Venetiaanse haven, met keuken en eigen parkeerplaats.",
+    roomsRenovated: "Gerenoveerd 2019 · 2020",
+
+    waterEyebrow: "Het water",
+    waterTitle: "Vier van de zeven hebben hun eigen water.",
+    waterBody:
+      "Evexia heeft een eigen bubbelbad, verzonken in het terras, met de zee over de volle breedte van het uitzicht erachter. Eros en Zoi hebben er elk een, op een eigen binnenplaats. Harmony heeft een plunge pool op een besloten binnenplaats — veertig vierkante meter op de begane grond, met een kingsize bed, een zithoek en marmer onder de voet. Geen van alle wordt gedeeld.",
+    waterSpec: "Drie eigen bubbelbaden · één eigen plunge pool",
+
+    agapiEyebrow: "Agapi",
+    agapiMeaning: "liefde",
+    agapiTitle: "Een suite waarin de deur nooit het probleem is",
+    agapiBody1:
+      "Agapi is vernoemd naar de zorg die in het ontwerp is gestoken, in het bijzonder voor mensen met een beperking. De suite ligt op de begane grond, met een eigen ingang aan de zijstraat. De badkamer is gebouwd volgens de normen voor veilige en comfortabele verzorging, voor rolstoelgebruikers.",
+    agapiBody2:
+      "Dertig vierkante meter, marmeren vloeren, een Coco-Mat matras en een rustige binnenplaats met een schilderachtige oude waterput — het soort plek waar een Kretenzische buurt altijd al buiten heeft gezeten.",
+
+    stayingEyebrow: "De kunst van het verblijven",
+    stayingTitle: "Een kamer verkopen kan iedereen",
+    stayingLede:
+      "Het verschil zit in de uren die u erbuiten doorbrengt. Eenentwintig arrangementen — een eigen boot, een kok op de kamer, een ochtend waar niemand anders van weet.",
+
+    familyEyebrow: "Crete Holiday Home",
+    familyTitle: "Een familie, geen keten",
+    familyBody1:
+      "Ink wordt gerund door Crete Holiday Home — een familiebedrijf in boutiquehotels en villa's dat al jaren kamers, huizen en villa's aan deze kust verhuurt. Zij staan voor echte Griekse gastvrijheid, en daarom kan de balie hier vragen beantwoorden die een receptie doorgaans niet kan.",
+    familyBody2:
+      "Welk strand leeg is op een zondag in augustus. Welke taverna in februari nog de moeite waard is. Welke steeg onderloopt na regen. Die kennis staat in geen enkele reisgids, en dat is het werkelijke verschil tussen een kamer en een verblijf.",
+
+    factsEyebrow: "Goed om te weten",
+    factsTitle: "De feiten, voordat u het vraagt",
+    whereEyebrow: "Waar wij zijn",
+    whereTitle: "Midden in de middeleeuwse stad",
+
+    datesEyebrow: "Nu de datums",
+    datesTitle: "Kom logeren",
+    settingP1: "Ink ligt onder de Fortezza — het fort waar de piraat Barbarossa ooit binnenviel — en op een paar passen van de zee en de middeleeuwse Venetiaanse haven, waar kooplieden goederen uit de hele wereld verhandelden.",
+    settingP2: "Loop door de straten rond Ink en u vindt de steegjes waar ooit ridders doorheen reden, kleine plaatselijke eethuisjes met goed eten, en een wijk die nog lang na donker levendig blijft.",
+    settingCaptionLanes: "De steegjes, vier minuten van de deur",
+    settingCaptionHarbour: "De Venetiaanse haven en haar vuurtoren",
+    arrangeEyebrow: "De kunst van het verblijven",
+    arrangeTitle: "Een kamer kan iedereen u verkopen",
+    arrangeLede: "Het verschil zijn de uren die u erbuiten doorbrengt. Eenentwintig arrangementen — een eigen boot, een kok op de kamer, een ochtend waar niemand anders van weet.",
+    agapiP1: "Agapi is genoemd naar de zorg die in het ontwerp is gestoken, in het bijzonder voor mensen met een beperking. De suite ligt op de begane grond, met een eigen ingang aan de zijstraat. De badkamer is gebouwd volgens de normen voor veilige en comfortabele hygiënezorg, voor rolstoelgebruikers.",
+    agapiP2: "Dertig vierkante meter, marmeren vloeren, een Coco-Mat-matras, en een serene binnenplaats met een schilderachtige oude put — precies het soort plek waar een Kretenzische buurt altijd al buiten zat.",
+    agapiFeatureEntrance: "Drempelloze eigen ingang",
+    agapiFeatureShower: "Inloopdouche",
+    agapiFeatureRails: "Toilet met steunbeugels",
+    agapiFeatureGround: "Volledig op de begane grond",
+    familyP1: "Ink wordt gerund door Crete Holiday Home — een familiebedrijf in boutiquehotels en villa's dat al jaren kamers, huizen en villa's aan deze kust verhuurt. Hun belofte is authentieke Griekse gastvrijheid en het toppunt van eenvoudige, moeiteloze charme — en daarom kan de receptie hier vragen beantwoorden die een receptie doorgaans niet kan beantwoorden.",
+    familyP2: "Welk strand leeg is op een zondag in augustus. Welke taverne in februari nog de moeite waard is. Welk steegje na regen onderloopt. Die kennis staat in geen enkele reisgids, en dat is het echte verschil tussen een kamer en een verblijf.",
+    familyProofVillasTerm: "Villa's en hotels",
+    familyProofVillasBody: "Thalasses Villas, Villa Thetis, Villa Mavi en een dozijn andere aan deze kust — dezelfde familie, dezelfde maatstaven.",
+    familyProofOfficesTerm: "Drie kantoren",
+    familyProofOfficesBody: "Rethymno, het Verenigd Koninkrijk en Nederland. U kunt vóór uw reis iemand in uw eigen tijdzone bellen.",
+    familyProofLocalTerm: "Lokaal, geen keten",
+    familyProofLocalBody: "Niemand hier volgt een merkhandboek. Het advies dat u aan de balie krijgt, is het advies dat ze een vriend zouden geven.",
+    rethymnoPremise: "U reist er niet naartoe. U stapt de deur uit en bent er.",
+    harbourEyebrow: "Vier minuten van de deur",
+    harbourTitle: "De haven, aan het eind van de dag",
+    landmarksEyebrow: "Wat er om u heen staat",
+    landmarksTitle: "Vijf dingen die de wandeling waard zijn",
+  },
+
+  arrival: {
+    eyebrow: "Aankomst",
+    title: "U wordt bij één deur ontvangen",
+    lede: "Het hotel beslaat twee gebouwen in de oude stad, plus een woonhuis bij de haven. U komt naar één deur — House of Europe, het eerste gebouw, Nikolaou Plastira 4 — en van daaruit brengt iemand u naar uw kamer.",
+    receptionLabel: "Eerste gebouw · Receptie",
+    howItGoes: "Hoe het gaat",
+    fromAirport: "Van het vliegveld tot de sleutel",
+    worthKnowing: "Goed om te weten voor u vertrekt",
+    whoMeetsYou: "Wie u ontvangt",
+  },
+
+  rooms: {
+    eyebrow: "{count} manieren om te verblijven · Zeven suites · Twee gebouwen",
+    title: "Twintig manieren om te verblijven",
+    theSuites: "De zeven suites",
+    theRooms: "De kamers",
+    whoIsComing: "Wie er komt",
+    whatYouWakeTo: "Waar u op wakker wordt",
+    any: "Alle",
+    two: "Twee",
+    three: "Drie",
+    four: "Vier",
+    everything: "Alles",
+    seaView: "Zeezicht",
+    balcony: "Balkon",
+    terrace: "Terras",
+    hotTub: "Jacuzzi / bubbelbad",
+    plungePool: "Eigen plunge pool",
+    wheelchair: "Ontworpen voor rolstoelgebruikers",
+    badgeHotTub: "Eigen bubbelbad",
+    badgePlungePool: "Eigen plunge pool",
+    badgeAccessible: "Drempelvrij",
+    badgeAdultsOnly: "Alleen volwassenen",
+    tour360: "Bekijk het in 360°",
+    tour360Note: "Opent de virtuele rondleiding van het pand in een nieuw tabblad.",
+    tour360Facade: "Laadt niets tot u het opent — de rondleiding draait in de eigen viewer van het pand.",
+    tour360Live: "De 360°-rondleiding van het pand, in deze pagina.",    allCount: "Alle {count} kamers",
+    matchCount_one: "{count} kamer voldoet hieraan",
+    matchCount_other: "{count} kamers voldoen hieraan",
+    noMatch: "Niets voldoet aan die combinatie",
+    noMatchBody:
+      "Probeer het wat ruimer — of schrijf ons en wij vinden de juiste kamer voor u.",
+    theRoom: "De kamer",
+    whatIsInIt: "Wat erin zit",
+    alsoInHouse: "Ook in {house}",
+    size: "Oppervlakte",
+    bedrooms: "Slaapkamers",
+    bathrooms: "Badkamers",
+    sleeps: "Slaapplaatsen",
+    beds: "Bedden",
+    outlook: "Uitzicht",
+    outdoor: "Buiten",
+    level: "Verdieping",
+    renovated: "Gerenoveerd",
+    oneResidence: "Één residentie",
+    roomTypesCount: "{count} kamertypes",
+    bedKing: { one: "kingsize bed", other: "kingsize bedden" },
+    bedDouble: { one: "tweepersoonsbed", other: "tweepersoonsbedden" },
+    bedSingle: { one: "eenpersoonsbed", other: "eenpersoonsbedden" },
+    bedSofa: { one: "slaapbank", other: "slaapbanken" },
+    bedBunk: { one: "stapelbed", other: "stapelbedden" },
+    bedRoom: { one: "slaapkamer", other: "slaapkamers" },
+    bedroomCount: { one: "slaapkamer", other: "slaapkamers" },    readyWhenYouAre: "Klaar wanneer u dat bent",
+  },
+
+  story: {
+    figureCaption: "De gebouwen vormen een historische plek in het leven van Rethymno",
+    madeOfEyebrow: "Waar Ink uit bestaat",
+    madeOfTitle: "Drie afzonderlijke historische gebouwen",
+    seeTheRooms: "Bekijk de kamers",
+    quarterEyebrow: "De wijk",
+    whatIsAround: "Wat er om u heen ligt",
+  },
+  gallery: {
+    title: "De hele plek",
+    lede: "De huizen, de kamers, de binnenplaatsen en de stad waarin ze staan.",
+    count: "{count} foto's",
+    everything: "Alles",
+    water: "Zwembad & bubbelbad",
+    suites: "De suites",
+    houseOfEurope: "House of Europe",
+    phos: "Phos",
+    residence: "The Residence",
+    breakfast: "Ontbijt",
+    collections: "Collecties",    roomsSuites: "Kamers & suites",
+    houses: "De huizen",
+    town: "Rethymno",
+    experiences: "Ervaringen",
+  },
+
+  contact: {
+    eyebrow: "Contact",
+    title: "Waarmee kunnen wij helpen?",
+    lede: "Vraag ons alles — een kamer, een rustige verdieping, een kok, een boot, een rolstoelroute door de oude stad. Wij antwoorden in {languages}.",
+    firstName: "Voornaam",
+    lastName: "Achternaam",
+    email: "E-mail",
+    message: "Bericht",
+    send: "Bericht versturen",
+    sending: "Versturen",
+    received: "Ontvangen",
+    thanks: "Dank u — uw bericht is bij ons aangekomen.",
+    thanksBody:
+      "Wij antwoorden in {languages}, meestal binnen een dag. Is het dringend, bel dan {phone}.",
+    privacyNote:
+      "Wij bewaren wat u ons stuurt om u te antwoorden, en niets anders.",
+    reachDirectly: "Of bereik ons direct",
+    findUs: "Waar u ons vindt",
+    bookingDirect: "Direct boeken",
+    reception: "Receptie",
+    general: "Algemeen",
+    reservations: "Reserveringen",
+    errFirstName: "Vul uw voornaam in",
+    errLastName: "Vul uw achternaam in",
+    errEmail: "Dit lijkt geen e-mailadres",
+    errEmailRequired: "Wij hebben een adres nodig om te kunnen antwoorden",
+    errMessage: "Iets meer toelichting helpt ons u goed te antwoorden",
+    errTooLong: "Dat is langer dan wij kunnen opslaan",
+    failed: "Wij konden dat nu niet versturen.",
+    failedBody: "Schrijf naar {email} of bel {phone}.",
+  },
+
+  common: {
+    language: "Taal",
+    chooseLanguage: "Kies een taal",
+    skipToContent: "Naar de inhoud",
+    menu: "Menu",
+    openMenu: "Menu openen",
+    closeMenu: "Menu sluiten",
+    error404: "Fout 404",
+    notFoundTitle: "Deze pagina is door de inkt heen.",
+    notFoundBody:
+      "De pagina die u zoekt bestaat niet — misschien is die verplaatst, of is de link waarmee u hier kwam verkeerd getypt.",
+    tryInstead: "Probeer dit",
+    theHotel: "Het hotel",
+    stay: "Verblijf",
+    information: "Informatie",
+    elsewhere: "Elders",
+    arriveHere: "Hier komt u aan",
+    alsoOccupies:
+      "Het hotel beslaat ook {streets}. Vanaf de receptie loopt iemand met u mee naar uw kamer.",
+    licence:
+      "Dit hotel wordt geëxploiteerd onder vergunning nr. {licence} van de Griekse Nationale Toeristenorganisatie · Btw {vat}.",
+    allRights: "Alle rechten voorbehouden.",
+    photographOf: "Foto {n} van {total}",
+    previousPhoto: "Vorige foto",
+    nextPhoto: "Volgende foto",
+    ext: "toestel",
+    factReceptionTerm: "Receptie",
+    factReception:
+      "Open tot {time}. Latere aankomsten regelen we vooraf — geef uw vlucht door en er is iemand aanwezig.",
+    factBreakfastTerm: "Ontbijt",
+    factBreakfast:
+      "Ontbijtbuffet in House of Europe, ook voor gasten die in Phos verblijven. Tegen een toeslag wordt het ook op de kamer geserveerd.",
+    factNoiseTerm: "Geluid",
+    factNoise:
+      "De oude stad leeft, en dat is een groot deel van haar charme. Kamers aan zeezijde liggen het dichtst bij de cafés en bars. Alle kamers hebben geluidsisolerende ramen; laat het ons weten als u licht slaapt.",
+    factParkingTerm: "Parkeren",
+    factParking:
+      "Gratis, buiten het pand, binnen 100 meter. The Residence of the Old Port heeft een eigen parkeerplaats.",
+    factHousekeepingTerm: "Schoonmaak",
+    factHousekeeping: "Om de twee dagen.",
+    factPetsTerm: "Huisdieren",
+    factPets: "Niet mogelijk.",
+    factLanguagesTerm: "Talen",
+    factLanguages: "Wij spreken {languages}.",
+    factEcoTerm: "Duurzaamheid",
+    factEco:
+      "Bioklimatische architectuur, laag energieverbruik en overal milieuvriendelijke schoonmaakmiddelen.",
+    footerBlurb:
+      "Zeven suites, zeven kamers en een woonhuis in de middeleeuwse oude stad van Rethymno — tussen de Venetiaanse haven en de Fortezza.",
+    receptionUntil: "De receptie is open tot {time}",
+    breakfastFact:
+      "Ontbijtbuffet in House of Europe, en tegen een kleine toeslag ook op uw kamer.",
+    lede: "Alles waarvoor u anders een recensiesite zou openen. Ontbreekt er iets, vraag het ons.",
+    accessHeading: "Aankomen met toegankelijkheidsbehoeften",
+    accessBody: "De suite Agapi is ontworpen voor rolstoelgebruikers.",
+    general: "Algemeen",
+    reservations: "Reserveringen",
+    reservationsEmail: "E-mail voor reserveringen",
+    gntoLicence: "GNTO-vergunning",
+    vat: "Btw-nummer",
+    ratesInEngine: "Beschikbaarheid en tarieven worden beheerd in ons reserveringssysteem.",
+  },
+
+  /* Structural strings from content/site.ts, keyed by their English
+     value so site.ts stays the single record of fact. */
+  labels: {
+    "House of Europe · first building": "House of Europe · eerste gebouw",
+    "Phos · second building": "Phos · tweede gebouw",
+    "Also in the old town": "Ook in de oude stad",
+    "Reception": "Receptie",
+    "Mobile": "Mobiel",
+    "Seven rooms": "Zeven kamers",
+    "Reception · all seven suites": "Receptie · alle zeven suites",
+    "The garden at Thalasses Villas": "De tuin bij Thalasses Villas",
+  },
+
+  /* Page <title> and <meta description>, per route.
+     hreflang already pointed Google at all five versions; without these it
+     followed the pointer and found an English title on a German page.
+     `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
+     content/site.ts, which stays the record of those facts. */
+  pageMeta: {
+    home: { t: "Ink Hotels — Een klein hotel in de oude stad van Rethymno, Kreta", d: "Klein hotel. Lang verhaal. Zeven suites in House of Europe — één met eigen bubbelbad, één met dompelbad — zeven kamers in Phos, en een residentie bij de Venetiaanse haven, midden in de middeleeuwse oude stad van Rethymno." },
+    rooms: { t: "Kamers", d: "Twintig manieren om in de oude stad van Rethymno te verblijven — zeven suites in House of Europe, één met eigen bubbelbad en één met dompelbad, zeven kamers in Phos, en een hele residentie bij de Venetiaanse haven." },
+    experiences: { t: "De kunst van het verblijven", d: "Een eigen boot, een kok op de kamer, wijn in de heuvels boven Rethymno, een therapeut, een stille ochtend. Eenentwintig dingen die de receptie van Ink regelt — de meeste een telefoontje dat we al honderd keer hebben gepleegd." },
+    gallery: { t: "Galerij", d: "{count} foto's van Ink Hotels — het eigen bubbelbad en het dompelbad, de zeven suites, de twee huizen, de Residence of the Old Port, en de middeleeuwse oude stad van Rethymno eromheen." },
+    story: { t: "Het verhaal", d: "Ink is genoemd naar een drukpers. Vanuit dit gebouw verscheen de krant ΑΓΩΝ — Strijd. Het middelste huis was het gastenverblijf van de Universiteit van Kreta. Twee historische huizen uit de 18e eeuw in de middeleeuwse oude stad van Rethymno, en een residentie bij de haven." },
+    rethymno: { t: "Rethymno", d: "De oude stad, de Venetiaanse haven, de Fortezza, de stranden, het eten en de bergen daarachter — hoe een week in Rethymno er werkelijk uitziet, vanuit een hotel midden in de middeleeuwse wijk." },
+    arrival: { t: "Aankomst", d: "Ink Hotels beslaat twee gebouwen in de oude stad van Rethymno, plus een residentie bij de haven. U komt aan bij één deur — House of Europe, het eerste gebouw, Nikolaou Plastira 4 — waar iemand u opwacht en naar uw kamer brengt. De receptie is open tot 23.00 uur." },
+    location: { t: "Ligging", d: "Ink Hotels ligt midden in de middeleeuwse oude stad van Rethymno, Kreta — een paar minuten van de Venetiaanse haven en onder de Fortezza. Twee gebouwen en een residentie: adressen, coördinaten en routes." },
+    contact: { t: "Contact", d: "Schrijf naar Ink Hotels in de oude stad van Rethymno, Kreta, of bel {phone} (toestel {ext}). De receptie is open tot {time}. Wij antwoorden in het Engels, Grieks, Nederlands en Frans." },
+    faq: { t: "Veelgestelde vragen", d: "Ontbijt, parkeren, geluid, toegankelijkheid, huisdieren, talen en hoe u Ink Hotels in de oude stad van Rethymno bereikt — eenvoudig beantwoord." },
+    accessibility: { t: "Toegankelijkheid", d: "De suite Agapi in Ink Hotels is ontworpen voor rolstoelgebruikers: drempelloze eigen ingang, inloopdouche, toilet met steunbeugels, dertig vierkante meter op de begane grond, in de oude stad van Rethymno." },
+    careers: { t: "Werken bij ons", d: "Word een van ons. Ink Hotels in Rethymno, Kreta — een team dat meer deelt dan dezelfde werkgever." },
+    privacy: { t: "Privacybeleid", d: "Welke persoonsgegevens Ink Hotels verzamelt, waarom, hoe lang ze worden bewaard, en uw rechten onder de AVG." },
+    terms: { t: "Gebruiksvoorwaarden", d: "Gebruiksvoorwaarden voor de website van Ink Hotels en voor reserveringen die daarvia worden gemaakt." },
+  },
+} as const;

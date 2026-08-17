@@ -1,0 +1,729 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════════════════════════
+   INK HOTELS — DESIGN TOKENS
+
+   THE IDEA — Ink and light are the same act. A mark is pressed into a surface;
+   light thrown across it at a low angle is what makes the mark readable.
+   That is not a metaphor we chose: the hotel's two houses are named INK (the
+   printing press that published ΑΓΩΝ) and ΦΩΣ (light). So the site is one
+   sheet of warm Cretan limewash under a single fixed raking light, and every
+   element earns its form from the short, sky-blue shadow it casts.
+
+   COLOUR LAWS
+   1. Never #FFFFFF and never #000000. Paper is warm; ink is warm.
+   2. Warm grounds, cool brand. Every surface is limewash, plaster or ink;
+      the one saturated colour in the interface is the teal of the hotel's own
+      spiral mark, and it is spent only on the brand and on the action we want
+      taken. Teal on warm plaster is the sea against the town.
+   3. Brass is light, not brand. It belongs on dark grounds only — the ΑΓΩΝ
+      masthead, eyebrows over photography — where it reads as the raking light
+      the whole site is built around.
+   4. Photographs are otherwise the only saturated objects on the page.
+   5. There are no cast shadows on dark grounds — separation comes from
+      --color-ink-lift and hairlines.
+
+   Every contrast ratio below was computed with the WCAG 2 relative-luminance
+   formula, not estimated. Nothing that carries text falls below AA.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Pigments & stocks ─────────────────────────────────────────────────────
+     Warmed and lifted for Mediterranean light: the paper is brighter and more
+     golden than plain limewash, and a fourth ground — `sun` — carries the
+     sections that should feel like plaster in afternoon light.
+     Every ratio recomputed; nothing carrying text is below AA. ───────────── */
+  --color-paper: #faf5ea; /* primary light ground — sunlit warm white       */
+  --color-paper-lit: #fffcf5; /* the lit surface — raised states on light       */
+  --color-paper-shade: #f0e6d2; /* secondary light ground — alternating sections  */
+  --color-sun: #f0e4cd; /* the warmest ground — arrival, welcome          */
+
+  --color-ink: #1a1512; /* 16.65:1 on paper — text, and the dark ground   */
+  --color-ink-lift: #26201a; /* raised surface on dark                         */
+
+  /* The second dark: wet ink rather than dry. Warm ink is the pigment on the
+     page; this is the colour of the bottle, and of the sea after sunset. It
+     exists so the site's dark grounds are not one flat black repeated six
+     times — and it is spent only where water is the subject.
+     Measured on it: paper 15.14:1 · phos 10.60:1 · sea-light 7.65:1 ·
+     olive 6.96:1. Nothing carrying text falls below AA. */
+  --color-night: #16202b;
+  --color-night-lift: #1e2b39;
+
+  --color-shadow: #33414e; /*  9.62:1 on paper — secondary text + shadow tint */
+  --color-stone: #6a5f4c; /*  5.76:1 on paper, 4.97:1 on sun — captions     */
+
+  /* ── The brand ────────────────────────────────────────────────────────────
+     Teal, taken from the hotel's own signage — the spiral mark on the door at
+     the Residence of the Old Port is this colour, not the brass this site
+     first guessed at. Deepened from the sign's cyan until it holds AA as text
+     and as a button fill on all three warm grounds.
+     Teal against warm limewash is also simply the correct Mediterranean
+     pairing: it is the sea against the plaster, four minutes down the lane. */
+  --color-sea: #0b6f7e; /*  5.38:1 on paper — the brand. Links and the CTA */
+  --color-sea-light: #5fbecf; /*  8.41:1 on ink   — the brand on dark grounds    */
+
+  --color-accent: #8f521e; /*  5.69:1 on paper — reserved, rarely used        */
+  --color-olive: #a3ac93; /*  7.66:1 on ink   — metadata on dark             */
+  --color-phos: #f5c97b; /* 11.66:1 on ink   — light itself. ΑΓΩΝ, Φως.     */
+
+  --color-rule: #c8bba2; /* decorative hairline. Carries no meaning.       */
+  --color-rule-strong: #7e7260; /* ≥3:1 on every ground — stateful borders        */
+
+  /* ── Type ──────────────────────────────────────────────────────────────── */
+  /* EB Garamond is a garalde — the book face a compositor in an 18th-century
+     printing shop would have had in the case — and it carries real Greek, so
+     ΑΓΩΝ, Φως, Πάθος, Αρμονία, Αγάπη and Ελπίδα set in family.
+     Commissioner is by Kostas Bartsokas and has a native Greek design rather
+     than Greek glyphs bolted to a Latin skeleton.
+     IBM Plex Mono has NO Greek subset — it is used for Latin, digits and
+     units only. Every Greek codepoint on this site is set in EB Garamond. */
+  --font-display: var(--font-garamond), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-commissioner), ui-sans-serif, system-ui, sans-serif;
+  /* Commissioner sits second in the mono stack deliberately: it carries Greek,
+     so any Greek codepoint that reaches a mono context falls to a face that
+     was designed for it rather than to an arbitrary system font. Without this,
+     "ΑΡΜΟΝΙΑ" renders as "ΑΡΜΟΝ1Α". Greek that is part of the design is set
+     explicitly with <Gk>, which uses the display face. */
+  --font-mono: var(--font-plex-mono), var(--font-commissioner), ui-monospace,
+    "SFMono-Regular", monospace;
+
+  /* Fluid scale. Every clamp is set so the largest size cannot overflow at
+     320px, and the smallest never drops below 15px for body copy. */
+  --text-2xs: 0.6875rem;
+  --text-xs: 0.75rem;
+  --text-spec: 0.8125rem;
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.72vw, 1.75rem);
+  --text-d4: clamp(1.5rem, 1.25rem + 1.2vw, 2.25rem);
+  --text-d3: clamp(1.875rem, 1.45rem + 2vw, 3.25rem);
+  --text-d2: clamp(2.25rem, 1.55rem + 3.4vw, 4.5rem);
+  --text-d1: clamp(2.75rem, 1.6rem + 5.6vw, 6.75rem);
+  --text-masthead: clamp(4.5rem, 1.5rem + 15vw, 17rem);
+
+  /* ── Rhythm ──────────────────────────────────────────────────────────────
+     Tightened by roughly a third. The old scale put 240px above and 240px
+     below every `lg` section, so two of them in a row left the reader nearly
+     500px of empty paper — half a laptop screen of nothing — before the next
+     thing arrived. White space is the argument here, but at that size it stops
+     reading as composure and starts reading as a page that has not loaded. */
+  --spacing-section: clamp(4rem, 2.5rem + 5.5vw, 7.5rem);
+  --spacing-section-lg: clamp(5rem, 3rem + 7.5vw, 10rem);
+  --spacing-section-sm: clamp(3rem, 2rem + 3.5vw, 5rem);
+
+  /* ── Motion ────────────────────────────────────────────────────────────── */
+  /* settle — fast to respond, long to come to rest. The house curve. */
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  /* state — a firm, symmetrical stroke, for hovers and toggles. */
+  --ease-state: cubic-bezier(0.65, 0, 0.35, 1);
+  /* lift — for things leaving. */
+  --ease-lift: cubic-bezier(0.7, 0, 0.84, 0);
+
+  --radius-none: 0px;
+
+  /* ── Shadows — always sky-blue, never neutral grey, and light grounds only.
+     One fixed light source: above and slightly left, so every shadow falls
+     down and to the right by the same ratio. ──────────────────────────── */
+  --shadow-1: 2px 3px 0 rgb(46 58 70 / 0.05);
+  --shadow-2: 4px 7px 22px -8px rgb(46 58 70 / 0.16);
+  --shadow-3: 8px 14px 44px -12px rgb(46 58 70 / 0.22);
+
+  /* ── Keyframes ─────────────────────────────────────────────────────────── */
+
+  /* Hero photography drifts a fraction over its dwell — alive, never a zoom. */
+  @keyframes heroDrift {
+    from {
+      transform: scale(1.05) translate3d(0, 0, 0);
+    }
+    to {
+      transform: scale(1.11) translate3d(-1.1%, -0.7%, 0);
+    }
+  }
+
+  /* The same drift, mirrored, so a pair of plates side by side do not move in
+     lockstep — two photographs sliding identically read as one broken image. */
+  @keyframes heroDriftAlt {
+    from {
+      transform: scale(1.06) translate3d(0, 0, 0);
+    }
+    to {
+      transform: scale(1.12) translate3d(1.2%, -0.8%, 0);
+    }
+  }
+
+  /* ── The hero's entrance, in CSS rather than JavaScript ────────────────────
+     These three were Framer animations with `initial={{ opacity: 0 }}`, which
+     means the element does not paint until React has hydrated and the delay
+     has elapsed. The lede is the largest text on the first screen, so it was
+     the LCP element — and it was arriving 2.1 SECONDS after first paint on a
+     throttled phone, purely waiting for JavaScript.
+
+     A CSS animation starts at first paint. Same motion, same curve, same
+     delays, no hydration on the critical path. `backwards` fill applies the
+     start state during the delay; `motion-safe` means a reader who asks for
+     reduced motion simply gets the finished text with no animation at all. */
+  @keyframes heroRise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* The same 16px settle, without the fade.
+     `heroRise` is correct for anything below the largest element, but the hero
+     lede IS the largest element on every measured route, and an element at
+     `opacity: 0` has not been painted: Lighthouse reported its render delay as
+     1683 ms against a 0.5s delay plus a 1s fade. Sliding without fading paints
+     the text on the first frame and still lands it in the same place at the
+     same moment — the rule the headline already follows two comments above. */
+  @keyframes heroSettle {
+    from {
+      transform: translate3d(0, 16px, 0);
+    }
+    to {
+      transform: none;
+    }
+  }
+
+  /* The headline lines are clipped by an `overflow-hidden` parent and slide
+     up into it. No opacity: type that fades in cannot be the LCP a moment
+     sooner, and the wipe reads better without it. */
+  @keyframes heroLine {
+    from {
+      transform: translate3d(0, 104%, 0);
+    }
+    to {
+      transform: none;
+    }
+  }
+
+  /* The scroll cue: a rule that grows and retracts, like a compositor's rule. */
+  @keyframes scrollCue {
+    0%,
+    100% {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    45% {
+      transform: scaleY(1);
+      transform-origin: top;
+    }
+    46% {
+      transform-origin: bottom;
+    }
+    99% {
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
+  }
+
+  /* Disclosure. Radix publishes the measured height as a custom property, so
+     the panel can animate to its real size rather than to a guess. */
+  @keyframes accordionOpen {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+      opacity: 1;
+    }
+  }
+  @keyframes accordionClose {
+    from {
+      height: var(--radix-accordion-content-height);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  /* The mark's rings settle outward once on load — an impression spreading
+     into paper, then holding still. Never loops. */
+  @keyframes markSettle {
+    from {
+      transform: scale(0.82);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* The impression: a cast shadow shortening once, as the light rises a notch. */
+  @keyframes impression {
+    from {
+      transform: translate3d(22px, 30px, 0);
+    }
+    to {
+      transform: translate3d(9px, 12px, 0);
+    }
+  }
+  @keyframes impressionSm {
+    from {
+      transform: translate3d(14px, 19px, 0);
+    }
+    to {
+      transform: translate3d(6px, 8px, 0);
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SEMANTIC GROUNDS
+
+   Components never name a pigment. They use --fg / --bg / --link / --border /
+   --hairline / --focus, and a `data-ground` attribute on the section decides
+   which pigments those resolve to. That is what makes the contrast guarantees
+   structural rather than a matter of remembering.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  [data-ground="paper"],
+  [data-ground="shade"],
+  [data-ground="sun"] {
+    --fg: var(--color-ink);
+    --fg-2: var(--color-shadow);
+    --fg-3: var(--color-stone);
+    --link: var(--color-sea);
+    --hairline: var(--color-rule);
+    --border: var(--color-rule-strong);
+    --focus: var(--color-sea);
+  }
+  [data-ground="paper"] {
+    --bg: var(--color-paper);
+    --bg-lift: var(--color-paper-lit);
+  }
+  [data-ground="shade"] {
+    --bg: var(--color-paper-shade);
+    --bg-lift: var(--color-paper-lit);
+  }
+  [data-ground="sun"] {
+    --bg: var(--color-sun);
+    --bg-lift: var(--color-paper-lit);
+  }
+  [data-ground="ink"],
+  [data-ground="night"] {
+    --fg: var(--color-paper);
+    --fg-2: var(--color-olive);
+    --fg-3: var(--color-olive);
+    --link: var(--color-sea-light);
+    --hairline: rgb(242 237 227 / 0.18);
+    --border: var(--color-rule-strong);
+    --focus: var(--color-phos);
+  }
+  [data-ground="ink"] {
+    --bg: var(--color-ink);
+    --bg-lift: var(--color-ink-lift);
+  }
+  [data-ground="night"] {
+    --bg: var(--color-night);
+    --bg-lift: var(--color-night-lift);
+  }
+
+  [data-ground] {
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   BASE
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    /* Square corners throughout. A press does not round its edges. */
+    border-radius: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    /* The header is 72–80px; anchored sections must clear it. */
+    scroll-padding-top: 6rem;
+  }
+
+  /* Lenis drives scrolling on fine pointers; stop the two fighting. */
+  html.lenis {
+    scroll-behavior: auto;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: 350;
+    line-height: 1.62;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    /* Never below 400: a hairline serif at poster size reads as wedding
+       stationery. A sturdy garalde reads as a book's title page. */
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.017em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Generous, always visible, never removed. */
+  :focus-visible {
+    outline: 2px solid var(--focus, var(--color-ink));
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  img,
+  video,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Native controls should inherit the page's warmth, not the OS blue. */
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  /* ── Entrances must never be able to hide content ──────────────────────────
+     Every scroll entrance is inline `opacity: 0` until its observer fires. If
+     scripting is unavailable — off, blocked, or a bundle that failed — that
+     inline style is the final word and the page is legibly empty. These rules
+     force every entrance to its finished state.
+
+     `scripting: none` covers modern browsers with JS disabled; the identical
+     block inside <noscript> in the layout covers the rest, and both are needed
+     because neither is universal on its own. */
+  @media (scripting: none) {
+    [data-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+      clip-path: none !important;
+    }
+  }
+
+  /* In forced-colors, decoration steps aside and the system palette wins. */
+  @media (forced-colors: active) {
+    .grain::after,
+    .wash::before,
+    .plaster::before,
+    .ink-drop::after,
+    .register-mark,
+    [data-decorative] {
+      display: none !important;
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   UTILITIES
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@layer utilities {
+  /* The printer's marginalia: eyebrows, folios, specs, control labels. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    line-height: 1.2;
+  }
+
+  .spec {
+    font-family: var(--font-mono);
+    font-size: var(--text-spec);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+  }
+
+  /* Reading measures: ~62 and ~82 characters. */
+  .measure {
+    max-width: 34rem;
+  }
+  .measure-wide {
+    max-width: 46rem;
+  }
+
+  /* Editorial body — set in the display face, for story passages. */
+  .prose-ink p {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    line-height: 1.62;
+    letter-spacing: 0;
+  }
+  .prose-ink p + p {
+    margin-top: 1.15em;
+  }
+
+  /* Paper grain — one inline SVG turbulence, no network request. */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ── Grounds with something in them ───────────────────────────────────────
+     Flat colour reads as cheap at this size. Each of these is a single CSS
+     gradient — no image, no request, no repaint — laid under the content so a
+     section has depth without anything to look at. ────────────────────────── */
+
+  /* Raking light across the section, from the same fixed source as everything
+     else: above and slightly left. Used on warm grounds. */
+  .lit {
+    position: relative;
+    isolation: isolate;
+  }
+  .lit::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        90% 60% at 12% 0%,
+        color-mix(in oklab, var(--color-paper-lit) 92%, transparent) 0%,
+        transparent 62%
+      ),
+      radial-gradient(
+        60% 50% at 100% 100%,
+        color-mix(in oklab, var(--color-sun) 70%, transparent) 0%,
+        transparent 70%
+      );
+  }
+
+  /* Limewash: the faint vertical banding a brushed plaster wall has. Two
+     repeating gradients at very low contrast — invisible until you look. */
+  .limewash::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image:
+      repeating-linear-gradient(
+        94deg,
+        color-mix(in oklab, var(--color-stone) 4%, transparent) 0px,
+        transparent 2px,
+        transparent 9px
+      ),
+      repeating-linear-gradient(
+        86deg,
+        color-mix(in oklab, var(--color-stone) 3%, transparent) 0px,
+        transparent 3px,
+        transparent 17px
+      );
+  }
+
+  /* A single hairline rule bleeding in from the outer margin — the printer's
+     trim mark, at section scale. */
+  .trim::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: clamp(3rem, 8vw, 9rem);
+    height: 1px;
+    background: var(--hairline);
+    pointer-events: none;
+  }
+
+  /* ── Ink wash ─────────────────────────────────────────────────────────────
+     The edge where one ground meets the next, softened as ink softens when it
+     meets damp paper: a shallow bleed of the incoming colour, with the grain
+     of the fibre showing through it. Two gradients and one turbulence — no
+     image, no request. Set `--wash` to the colour that is bleeding in. */
+  .wash {
+    position: relative;
+  }
+  .wash::before {
+    content: "";
+    position: absolute;
+    inset: -1px 0 auto 0;
+    height: clamp(3rem, 6vw, 5.5rem);
+    z-index: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        to bottom,
+        var(--wash, var(--color-ink)) 0%,
+        color-mix(in oklab, var(--wash, var(--color-ink)) 55%, transparent) 38%,
+        transparent 100%
+      );
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='120'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.05' numOctaves='3' seed='7'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='38'/%3E%3C/filter%3E%3Crect width='600' height='120' fill='%23fff' filter='url(%23w)'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='120'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.05' numOctaves='3' seed='7'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='38'/%3E%3C/filter%3E%3Crect width='600' height='120' fill='%23fff' filter='url(%23w)'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+
+  /* ── Plaster ──────────────────────────────────────────────────────────────
+     A wall rather than a fill. Coarse trowel grain at one scale, fine pore at
+     another, and a shallow lit corner — the same fixed light as everything
+     else. Layered under the content, so nothing here can catch a pointer. */
+  .plaster {
+    position: relative;
+    isolation: isolate;
+  }
+  .plaster::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.55;
+    background-image:
+      radial-gradient(
+        120% 90% at 8% -10%,
+        color-mix(in oklab, var(--color-paper-lit) 85%, transparent) 0%,
+        transparent 55%
+      ),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7 0.9' numOctaves='4' seed='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='420' height='420' filter='url(%23p)' opacity='0.5'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='q'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.014 0.028' numOctaves='2' seed='11'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='900' height='900' filter='url(%23q)' opacity='0.34'/%3E%3C/svg%3E");
+    background-blend-mode: normal, multiply, multiply;
+  }
+
+  /* ── Ink drop ─────────────────────────────────────────────────────────────
+     A hover state that behaves like ink meeting paper: the colour spreads
+     from the point of contact rather than switching on. One scale transform
+     on a pseudo-element, so it costs a composite and nothing else. */
+  .ink-drop {
+    position: relative;
+    isolation: isolate;
+  }
+  .ink-drop::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.12em;
+    z-index: -1;
+    height: 0.55em;
+    width: 100%;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 520ms var(--ease-settle);
+    background: color-mix(in oklab, var(--link) 16%, transparent);
+  }
+  .ink-drop:hover::after,
+  .ink-drop:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  /* Registration marks — the crosshair used to align one plate over another. */
+  .register-mark {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  .register-mark::before,
+  .register-mark::after {
+    content: "";
+    position: absolute;
+    background: currentColor;
+  }
+  .register-mark::before {
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+  .register-mark::after {
+    top: 50%;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    transform: translateY(-50%);
+  }
+
+  /* Editorial photography grade.
+     The library was shot over several years by different hands, so colour
+     temperature and saturation vary a lot. A light, consistent grade knits it
+     into the palette without draining the Cretan light out of it. Applied to
+     in-page figures; the gallery is left ungraded, because someone browsing
+     130 photographs wants to see the rooms as they are. */
+  .graded {
+    filter: saturate(0.88) contrast(1.02);
+  }
+
+  .ease-settle {
+    transition-timing-function: var(--ease-settle);
+  }
+  .ease-state {
+    transition-timing-function: var(--ease-state);
+  }
+
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}

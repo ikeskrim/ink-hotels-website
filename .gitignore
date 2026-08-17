@@ -1,0 +1,96 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# THIS REPOSITORY IS PUBLIC.
+#
+# A credential pushed once is compromised even if the next commit removes it —
+# it stays in the history, in every clone, and in GitHub's fork network. The
+# env rules below are therefore deny-first: everything matching .env is
+# excluded, and .env.example is re-admitted by name because it is deliberately
+# all empty keys.
+#
+# `node scripts/secret-scan.mjs` checks the actual bytes rather than trusting
+# that this file was written correctly. Run it before any commit that touches
+# configuration.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Credentials ──────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*secret*
+*credential*
+!scripts/secret-scan.mjs
+
+# ── Dependencies and build products ──────────────────────────────────────────
+node_modules/
+.next/
+out/
+build/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
+# ── QA and audit OUTPUT ──────────────────────────────────────────────────────
+# The instruments are committed — scripts/*.mjs is how every claim in the
+# README was measured, and a claim whose measurement cannot be re-run is an
+# assertion. It is only what they print that is excluded: those numbers are
+# specific to one machine at one moment, and a stale committed report is worse
+# than no report.
+lighthouse/
+reports/
+*.lhr.json
+lh-*.json
+lighthouse-*.json
+.lighthouseci/
+a11y-*.json
+reveal-*.json
+meta-*.json
+i18n-*.json
+*-report.json
+*-report.md
+!MEDIA-MANIFEST.md
+
+# ── Photo-search harvests ────────────────────────────────────────────────────
+# Output of scripts/car-pool.mjs and scripts/car-finalists.mjs: preview frames
+# pulled from Pexels, Unsplash and Pixabay while choosing the car placeholder.
+# Third-party photographs that were looked at and rejected have no business in
+# this repository. The one frame actually chosen is committed, in public/media.
+candidates/
+car-pool/
+car-candidates/
+fiat-finalists.png
+contact-sheet*.png
+contact-sheet*.jpg
+
+# ── Screenshots and scratch ──────────────────────────────────────────────────
+/shots/
+/screens/
+*.local
+
+# ── Editor and OS ────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# ── Unreferenced photography ─────────────────────────────────────────────────
+# The library was mirrored wholesale from the property's own sites, so public/
+# holds more than the site renders. The referenced set — including the mirrored
+# suite photographs — is committed; these are duplicates at other crops and
+# frames that lost their edit. Regenerate this list with
+# `node scripts/media-manifest.mjs`, which resolves references from src/,
+# sanity/ and scripts/, including the generated maps components index into.
+# See MEDIA-MANIFEST.md.
+/public/media/1d15d8544b80b9780aa76665a6ebab60.webp
+/public/media/539843e1947b4911ffbb344d074ad3d1.webp
+/public/media/6838240023f27d1dfbe9bf539e458d02.webp
+/public/media/7d159bbd00f3a06c3982ad3dfaa76cca.webp
+/public/media/94dce1948a5167baeb0bc848894477cf.webp
+/public/media/a7c7c8cb46171d21151836d335e55b3a.webp
+/public/media/c4be1a238eab273f5cebc725d306a4cb.webp
+/public/media/d16518235dd4d28125a771445ca67988.webp
+/public/media/e7684dae57efc05b520aa96da1fd547c.webp
