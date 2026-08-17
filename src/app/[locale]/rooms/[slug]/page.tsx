@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 
-import { bookingUrlFor, houses, rooms, roomsBySlug } from "@/content/rooms";
-import { getHouses, getRooms } from "@/lib/sanity/content";
+import { bookingUrlFor, houses, relatedFor, rooms, roomsBySlug } from "@/content/rooms";
+import { getExperiences, getHouses, getRooms } from "@/lib/sanity/content";
 import { getMessages } from "@/i18n";
 import { bedPhrase } from "@/i18n/specs";
 import { defaultLocale, isLocale } from "@/i18n/config";
@@ -65,6 +66,15 @@ export default async function RoomPage({
   if (!room) notFound();
 
   const house = (await getHouses(locale)).find((h) => h.id === room.house);
+
+  /* Cross-sell, resolved through the content layer so the titles are the
+     reader's language and a slug that no longer exists simply drops out
+     rather than rendering a link to nothing. */
+  const wanted = relatedFor(room);
+  const allExperiences = await getExperiences(locale);
+  const related = wanted
+    .map((slug) => allExperiences.find((e) => e.slug === slug))
+    .filter((e): e is NonNullable<typeof e> => Boolean(e));
   const siblings = localised
     .filter((r) => r.house === room.house && r.slug !== room.slug)
     .slice(0, 3);
@@ -263,6 +273,54 @@ export default async function RoomPage({
           </div>
         </Container>
       </Section>
+
+      {/* ── Often arranged with it ─────────────────────────────────────── */}
+      {related.length > 0 && (
+        <Section ground="sun" size="md">
+          <Container>
+            <p className="label mb-8 text-[color:var(--fg-3)]">
+              {room.kind === "suite"
+                ? m.rooms.oftenArranged
+                : m.rooms.oftenArrangedRoom}
+            </p>
+            <ul className="grid gap-x-[clamp(1.5rem,3vw,3rem)] gap-y-8 sm:grid-cols-3">
+              {related.map((exp) => (
+                <li key={exp.slug}>
+                  <Link
+                    href={`/experiences/${exp.slug}`}
+                    className="group block focus-visible:outline-offset-4"
+                  >
+                    {exp.image && (
+                      <div className="relative aspect-[4/3] overflow-hidden">
+                        <Image
+                          src={exp.image}
+                          alt={exp.title}
+                          fill
+                          sizes="(min-width: 640px) 30vw, 100vw"
+                          quality={70}
+                          className="object-cover transition-transform duration-[1200ms] ease-settle group-hover:scale-[1.04]"
+                        />
+                      </div>
+                    )}
+                    <h3 className="mt-4 font-display text-[length:var(--text-d4)] leading-tight">
+                      <span className="relative inline-block">
+                        {exp.title}
+                        <span
+                          aria-hidden="true"
+                          className="absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-[600ms] ease-settle group-hover:origin-left group-hover:scale-x-100"
+                        />
+                      </span>
+                    </h3>
+                    <p className="measure mt-2 text-sm text-[color:var(--fg-2)]">
+                      {exp.summary}
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </Section>
+      )}
 
       {/* ── The rest of the house ──────────────────────────────────────── */}
       {siblings.length > 0 && (

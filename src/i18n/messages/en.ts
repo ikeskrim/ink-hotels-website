@@ -280,6 +280,8 @@ export const en = {
     bedBunk: { one: "bunk bed", other: "bunk beds" },
     bedRoom: { one: "bedroom", other: "bedrooms" },
     bedroomCount: { one: "bedroom", other: "bedrooms" },    readyWhenYouAre: "Ready when you are",
+    oftenArranged: "Often arranged with this suite",
+    oftenArrangedRoom: "Often arranged with this room",
   },
 
   story: {

@@ -263,6 +263,8 @@ export const el: Messages = {
     bedBunk: { one: "κουκέτα", other: "κουκέτες" },
     bedRoom: { one: "υπνοδωμάτιο", other: "υπνοδωμάτια" },
     bedroomCount: { one: "υπνοδωμάτιο", other: "υπνοδωμάτια" },    readyWhenYouAre: "Όποτε είστε έτοιμοι",
+    oftenArranged: "Συχνά κανονίζονται με αυτή τη σουίτα",
+    oftenArrangedRoom: "Συχνά κανονίζονται με αυτό το δωμάτιο",
   },
 
   story: {

@@ -264,6 +264,8 @@ export const nl: Messages = {
     bedBunk: { one: "stapelbed", other: "stapelbedden" },
     bedRoom: { one: "slaapkamer", other: "slaapkamers" },
     bedroomCount: { one: "slaapkamer", other: "slaapkamers" },    readyWhenYouAre: "Klaar wanneer u dat bent",
+    oftenArranged: "Vaak geregeld bij deze suite",
+    oftenArrangedRoom: "Vaak geregeld bij deze kamer",
   },
 
   story: {

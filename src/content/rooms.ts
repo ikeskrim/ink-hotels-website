@@ -130,6 +130,18 @@ export interface Room {
   adultsOnly?: boolean;
   /** External 360° walkthrough, where the property has published one. */
   tourUrl?: string;
+  /**
+   * What the desk most often arranges alongside this room.
+   *
+   * Experience slugs, so the strip can only ever link to a page that exists —
+   * an invented cross-sell is a dead end with a price attached. Left unset,
+   * `relatedFor()` falls back to the three the desk arranges for everybody.
+   *
+   * Breakfast in the room is deliberately absent. It is a real service and a
+   * published fact in the FAQ, but it has no experience page, and giving it one
+   * purely to fill a fourth slot would be inventing content to fit a layout.
+   */
+  relatedExperiences?: readonly string[];
   /** Position in the featured run. Lower is earlier; unset is not featured. */
   featureOrder?: number;
 }
@@ -796,6 +808,32 @@ export const suites = rooms.filter((r) => r.kind === "suite");
  * The featured run, in the order the property wants it read: the hot tub
  * first, then the plunge pool, then the best sea view, then the rest.
  */
+/**
+ * What is arranged alongside a room.
+ *
+ * The default is what the desk arranges for everybody: getting here, getting
+ * about, and the therapist who comes to the room. Suites deviate only where
+ * the room itself suggests it — the adults-only pair lean to the private and
+ * the unhurried; the two that sleep four lean to the boat and the jeep, which
+ * are the things a family actually asks for.
+ */
+const RELATED_DEFAULT = ["chauffeur", "rent-a-car", "massage"] as const;
+
+const RELATED_BY_SLUG: Record<string, readonly string[]> = {
+  evexia: ["chauffeur", "private-chef", "massage"],
+  harmony: ["chauffeur", "private-chef", "massage"],
+  agapi: ["chauffeur", "rent-a-car", "therapist"],
+  pathos: ["private-chef", "massage", "private-boat-trip"],
+  elpida: ["private-chef", "massage", "wine-tasting"],
+  eros: ["chauffeur", "private-boat-trip", "massage"],
+  zoi: ["chauffeur", "jeep-safari", "rent-a-car"],
+};
+
+/** The slugs to offer beside a room, in order. */
+export function relatedFor(room: Room): readonly string[] {
+  return room.relatedExperiences ?? RELATED_BY_SLUG[room.slug] ?? RELATED_DEFAULT;
+}
+
 export const featuredRooms = rooms
   .filter((r) => r.featureOrder !== undefined)
   .sort((a, b) => (a.featureOrder ?? 99) - (b.featureOrder ?? 99));

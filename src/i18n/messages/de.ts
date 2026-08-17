@@ -264,6 +264,8 @@ export const de: Messages = {
     bedBunk: { one: "Etagenbett", other: "Etagenbetten" },
     bedRoom: { one: "Schlafzimmer", other: "Schlafzimmer" },
     bedroomCount: { one: "Schlafzimmer", other: "Schlafzimmer" },    readyWhenYouAre: "Bereit, wenn Sie es sind",
+    oftenArranged: "Häufig zu dieser Suite arrangiert",
+    oftenArrangedRoom: "Häufig zu diesem Zimmer arrangiert",
   },
 
   story: {
