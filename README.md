@@ -1,5 +1,7 @@
 # Ink Hotels — Rethymno, Crete
 
+[![CI](https://github.com/ikeskrim/ink-hotels-website/actions/workflows/ci.yml/badge.svg)](https://github.com/ikeskrim/ink-hotels-website/actions/workflows/ci.yml)
+
 A new website for **Ink Hotels — House of Europe & Phos**, a small hotel set in three
 historic buildings in the medieval old town of Rethymno.
 
@@ -373,6 +375,36 @@ Three things are worth writing down, because each cost a build to learn:
 `/rooms` is 95, `/rooms/harmony` 96, `/gallery` 88, `/contact` 88,
 `/experiences` 85, `/` 87. Accessibility, best practices and SEO are 100 across
 every route.
+
+---
+
+## What CI checks
+
+Every push and pull request runs [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
+The numbers quoted in this README come from these steps, on a clean machine,
+from a clean clone — which is the only way a README claim stays true.
+
+Cheapest first, so an obvious break fails in seconds rather than after a build:
+
+| step | what it refuses to let through |
+| --- | --- |
+| `encoding-check` | mojibake, U+FFFD, or a BOM in content and messages — the PowerShell `Set-Content` damage |
+| `secret-scan` | anything credential-shaped in a **tracked** file |
+| `typecheck` · `lint` | the usual |
+| `npm test` | a room's bedroom count stated twice; a hot-tub count that disagrees with the records, in any of five languages |
+| `npm run build` | a build that does not build |
+
+Then the site is actually started — `prestart` refuses a half-written build —
+and the rest run against it:
+
+| step | what it refuses to let through |
+| --- | --- |
+| `smoke` | any of the sitemap's URLs not returning 200, a 200 that renders not-found, or the indexing rules being wrong in either direction |
+| `meta-check` | a locale served an English title or description |
+| `i18n-leakage` | untranslated blocks above the committed ceiling |
+| `heading-check` | a heading whose words run together in its accessible name |
+| `locale-roundtrip` | an internal link that drops the reader's language |
+| `reveal-check` | a scroll entrance that never becomes visible |
 
 ---
 

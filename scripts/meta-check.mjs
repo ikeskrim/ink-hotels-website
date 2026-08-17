@@ -36,3 +36,7 @@ for (const route of ROUTES) {
   if (sameD.length) console.log(`        description identical to English in: ${sameD.join(", ")}`);
 }
 console.log(`\n${leaks}/${ROUTES.length} routes still serve English metadata to another locale.`);
+
+/* CI depends on this exiting non-zero. A check that only prints is
+   decoration: it stays green while the thing it watches rots. */
+process.exitCode = leaks ? 1 : 0;

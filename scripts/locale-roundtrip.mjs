@@ -1,14 +1,22 @@
 /**
  * Does a chosen language survive the next click?
  *
- * The classic failure in a locale-prefixed Next site is a switcher that sets a
- * cookie but hands back a URL without the prefix, or a middleware that reads
- * the cookie on one route and the prefix on another. The guest picks German,
- * clicks Rooms, and is back in English — which is worse than never offering
- * German, because they have already told you what they want.
+ * The failure this guards is real and was measured here. Internal links were
+ * written as plain site paths, and the middleware inferred the language from an
+ * `ink_locale` cookie. That works for someone who used the switcher — and fails
+ * for the reader most likely to be on /de, who arrived from a search result
+ * through the hreflang alternates and has no cookie at all:
  *
- * This drives a real browser: switch language, then navigate by clicking the
- * site's own links, and assert the language holds at every step.
+ *   no cookie:   /rooms/evexia -> /rooms/evexia    lang=en-GB
+ *   with cookie: /rooms/evexia -> /de/rooms/evexia lang=de-DE
+ *
+ * So this asserts the property rather than a click path: on a localised page,
+ * with no cookie, every internal link already carries the prefix. That is the
+ * thing which makes the language survive, and unlike "click the second link in
+ * the header" it does not break when the layout moves.
+ *
+ * The switcher itself is still exercised once per locale, because it is the
+ * control a guest actually touches.
  *
  *   BASE=http://localhost:3000 node scripts/locale-roundtrip.mjs
  */
@@ -16,8 +24,9 @@ import { chromium } from "playwright";
 
 const BASE = (process.env.BASE ?? "http://localhost:3000").replace(/\/$/, "");
 const LOCALES = ["el", "de", "fr", "nl"];
+const PAGES = ["", "/rooms", "/story"];
 
-/** A word that must appear on the homepage in that language and no other. */
+/** Words that must appear on the homepage in that language. */
 const FINGERPRINT = {
   el: /σουίτες|δωμάτια/i,
   de: /Suiten|Zimmer/,
@@ -25,82 +34,87 @@ const FINGERPRINT = {
   nl: /suites|kamers/i,
 };
 
+/* Unprefixed paths that are legitimately not localised pages. */
+const EXEMPT = "^(/$|/(el|de|fr|nl)(/|$)|/studio|/api|/media|/#|/opengraph|/icon|/apple-icon|/robots|/sitemap)";
+
 const browser = await chromium.launch();
 const problems = [];
 
 for (const locale of LOCALES) {
+  /* A fresh context each time: no cookie, exactly like arriving from Google. */
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
   const page = await ctx.newPage();
 
-  /* Arrive in English, as a real visitor does. */
-  await page.goto(BASE + "/", { waitUntil: "domcontentloaded" });
+  for (const path of PAGES) {
+    const res = await page.goto(`${BASE}/${locale}${path}`, {
+      waitUntil: "domcontentloaded",
+    });
+    const where = path || "/";
 
-  /* Use the site's own switcher rather than typing the URL — the point is to
-     test the mechanism the guest actually touches. The options live inside a
-     dropdown, so open it first; a guest has to as well. */
-  const trigger = page.locator('button[aria-haspopup="listbox"]').first();
-  if ((await trigger.count()) > 0) await trigger.click();
-
-  const link = page.locator(`a[href^="/${locale}"]`).first();
-  if ((await link.count()) === 0) {
-    problems.push({ locale, step: "switcher", detail: `no link to /${locale} after opening the switcher` });
-    await ctx.close();
-    continue;
-  }
-  await link.click();
-  await page.waitForLoadState("domcontentloaded");
-
-  const afterSwitch = new URL(page.url()).pathname;
-  if (!afterSwitch.startsWith(`/${locale}`)) {
-    problems.push({ locale, step: "switch", detail: `landed on ${afterSwitch}` });
-  }
-  const html = await page.content();
-  if (!FINGERPRINT[locale].test(html)) {
-    problems.push({ locale, step: "switch", detail: "page did not render in that language" });
-  }
-
-  /* Now click through the site's own navigation, twice, and check it holds. */
-  for (const label of ["rooms", "story"]) {
-    const nav = page.locator(`a[href="/${locale}/${label}"]`).first();
-    if ((await nav.count()) === 0) {
-      problems.push({
-        locale,
-        step: `nav→/${label}`,
-        detail: `no /${locale}/${label} link on the page — nav may drop the prefix`,
-      });
+    if (!res || res.status() !== 200) {
+      problems.push({ locale, where, what: `HTTP ${res?.status()}` });
       continue;
     }
-    await nav.click();
-    await page.waitForLoadState("domcontentloaded");
-    const p = new URL(page.url()).pathname;
-    if (!p.startsWith(`/${locale}`)) {
-      problems.push({ locale, step: `nav→/${label}`, detail: `fell back to ${p}` });
-    }
+
     const lang = await page.getAttribute("html", "lang");
-    if (!lang || !lang.toLowerCase().startsWith(locale)) {
-      problems.push({ locale, step: `nav→/${label}`, detail: `html lang="${lang}"` });
+    if (!lang?.toLowerCase().startsWith(locale)) {
+      problems.push({ locale, where, what: `html lang="${lang}"` });
     }
-    await page.goBack({ waitUntil: "domcontentloaded" });
+
+    if (path === "" && !FINGERPRINT[locale].test(await page.content())) {
+      problems.push({ locale, where, what: "page did not render in that language" });
+    }
+
+    const bare = await page.evaluate(
+      (ex) =>
+        [...document.querySelectorAll("a[href]")]
+          .map((a) => a.getAttribute("href"))
+          .filter((h) => h && h.startsWith("/") && !h.startsWith("//"))
+          .filter((h) => !new RegExp(ex).test(h))
+          .filter((h, i, all) => all.indexOf(h) === i)
+          .slice(0, 6),
+      EXEMPT,
+    );
+    for (const href of bare) {
+      problems.push({ locale, where, what: `unprefixed link ${href}` });
+    }
   }
 
-  /* And a hard reload, which is where a cookie-only implementation fails. */
-  await page.goto(`${BASE}/${locale}/rooms`, { waitUntil: "domcontentloaded" });
-  const reloadLang = await page.getAttribute("html", "lang");
-  if (!reloadLang || !reloadLang.toLowerCase().startsWith(locale)) {
-    problems.push({ locale, step: "reload", detail: `html lang="${reloadLang}"` });
+  /* The control a guest actually touches. */
+  await page.goto(BASE + "/", { waitUntil: "domcontentloaded" });
+  await page.locator('button[aria-haspopup="listbox"]').first().click();
+  const box = page.locator('[role="listbox"]').first();
+  await box.waitFor({ state: "visible" });
+  /* Scoped to the listbox: a bare selector also matches the <noscript>
+     fallback anchors, which are inert while scripting is on — clicking one
+     goes nowhere and reports a site fault that is really a fault here. */
+  await box.locator(`a[href^="/${locale}"]`).first().click();
+  /* waitForLoadState is wrong here: the switcher is a next/link, so this is a
+     client-side navigation with no new document load and the state resolves
+     immediately — leaving page.url() still on the page we came from, which
+     reads as the switcher having failed. Wait for the URL itself. */
+  let after;
+  try {
+    await page.waitForURL(new RegExp(`/${locale}(/|$)`), { timeout: 8000 });
+    after = new URL(page.url()).pathname;
+  } catch {
+    after = new URL(page.url()).pathname;
+  }
+  if (!after.startsWith(`/${locale}`)) {
+    problems.push({ locale, where: "switcher", what: `landed on ${after}` });
   }
 
   await ctx.close();
-  console.log(`  ${locale}: switched, navigated twice, reloaded`);
+  console.log(`  ${locale}: ${PAGES.length} pages, switcher exercised`);
 }
 
 await browser.close();
 
 console.log(`\nchecked ${LOCALES.length} locales`);
 if (!problems.length) {
-  console.log("language survives the switch, two clicks and a reload");
+  console.log("every internal link keeps the reader's language, with no cookie");
   process.exit(0);
 }
 console.error(`\n${problems.length} FAILURE(S):`);
-for (const p of problems) console.error(`  ${p.locale}  ${p.step}  →  ${p.detail}`);
+for (const p of problems) console.error(`  ${p.locale}  ${p.where}  →  ${p.what}`);
 process.exit(1);

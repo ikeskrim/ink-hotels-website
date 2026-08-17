@@ -1,0 +1,106 @@
+name: CI
+
+# Every push and every pull request. The point of this file is that a claim in
+# the README can be trusted: each number quoted there is produced by a step
+# below, on a clean machine, from a clean clone.
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+# A second push to the same branch cancels the first: the older answer is not
+# worth the minutes once it is already stale.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      # ── Static checks — no server needed ────────────────────────────────
+      # Ordered cheapest-first so an obvious break fails in seconds rather
+      # than after a four-minute build.
+
+      - name: Encoding — no mojibake, no U+FFFD, no BOM
+        run: node scripts/encoding-check.mjs
+
+      - name: Secrets — nothing credential-shaped in the tree
+        run: node scripts/secret-scan.mjs
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      # ── Everything below needs the site actually running ────────────────
+      # `npm start` runs `prestart`, which refuses to serve a build whose
+      # prerendered routes are missing from disk.
+
+      - name: Install Chromium for the browser checks
+        run: npx playwright install --with-deps chromium
+
+      - name: Start the production server
+        run: |
+          npm start > /tmp/server.log 2>&1 &
+          for i in $(seq 1 60); do
+            if curl -sf -o /dev/null http://localhost:3000/; then
+              echo "up after ${i}s"; exit 0
+            fi
+            sleep 1
+          done
+          echo "server never came up:"; cat /tmp/server.log; exit 1
+
+      - name: Routes — every sitemap URL returns 200
+        run: node scripts/smoke.mjs
+        env:
+          BASE: http://localhost:3000
+          EXPECT: production
+
+      - name: Metadata — no locale served English title or description
+        run: node scripts/meta-check.mjs
+        env:
+          BASE: http://localhost:3000
+
+      - name: Translation — leakage within the ceiling
+        run: node scripts/i18n-leakage.mjs
+        env:
+          BASE: http://localhost:3000
+
+      - name: Headings — no run-together accessible names
+        run: node scripts/heading-check.mjs
+        env:
+          BASE: http://localhost:3000
+
+      - name: Locale — language survives a switch, two clicks and a reload
+        run: node scripts/locale-roundtrip.mjs
+        env:
+          BASE: http://localhost:3000
+
+      - name: Reveals — nothing stays invisible
+        run: node scripts/reveal-check.mjs
+        env:
+          BASE: http://localhost:3000
+
+      - name: Server log on failure
+        if: failure()
+        run: tail -60 /tmp/server.log || true

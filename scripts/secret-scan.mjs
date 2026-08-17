@@ -11,8 +11,31 @@
  * whose value is obviously a template) are not hits — .env.example is meant to
  * be committed and is all empty keys.
  */
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, extname } from "node:path";
+
+/**
+ * What can actually be committed.
+ *
+ * Walking the filesystem was wrong. `vercel link` writes a real OIDC token into
+ * .env.local, which is git-ignored and can never be pushed — but the walk found
+ * it and failed, on every developer machine, for a file the repository is
+ * already protected from. A check that cries wolf teaches people to skip it.
+ *
+ * Inside a git repository the tracked set is the honest question: these are the
+ * bytes that leave the machine. Outside one, fall back to the walk.
+ */
+function trackedFiles() {
+  if (!existsSync(".git")) return null;
+  try {
+    return execFileSync("git", ["ls-files", "-z"], { encoding: "utf8" })
+      .split("\0")
+      .filter(Boolean);
+  } catch {
+    return null;
+  }
+}
 
 const ROOTS = process.argv.slice(2).length ? process.argv.slice(2) : ["."];
 const SKIP_DIR = new Set(["node_modules", ".next", ".git", "candidates", "out", "build"]);
@@ -44,6 +67,30 @@ const PLACEHOLDER = /(=\s*$)|(=\s*["']?(your|xxx|<|\.\.\.|changeme|placeholder))
 const hits = [];
 let scanned = 0;
 
+/** Read one file and record anything credential-shaped in it. */
+function scanFile(path) {
+  let text;
+  try {
+    text = readFileSync(path, "utf8");
+  } catch {
+    return;
+  }
+  text.split("\n").forEach((line, i) => {
+    if (PLACEHOLDER.test(line)) return;
+    for (const [re, what] of RULES) {
+      if (re.test(line)) {
+        hits.push({
+          file: path,
+          line: i + 1,
+          what,
+          sample: line.trim().slice(0, 70),
+        });
+        break;
+      }
+    }
+  });
+}
+
 function walk(dir) {
   for (const entry of readdirSync(dir)) {
     if (SKIP_DIR.has(entry)) continue;
@@ -55,22 +102,25 @@ function walk(dir) {
     const ext = extname(entry);
     if (ext && !TEXT.has(ext) && !entry.startsWith(".env")) continue;
     scanned += 1;
-
-    let text;
-    try { text = readFileSync(p, "utf8"); } catch { continue; }
-    text.split("\n").forEach((line, i) => {
-      if (PLACEHOLDER.test(line)) return;
-      for (const [re, what] of RULES) {
-        if (re.test(line)) {
-          hits.push({ file: p, line: i + 1, what, sample: line.trim().slice(0, 70) });
-          break;
-        }
-      }
-    });
+    scanFile(p);
   }
 }
 
-for (const r of ROOTS) walk(r);
+/* Prefer the tracked set; fall back to walking when there is no git. */
+const tracked = trackedFiles();
+if (tracked) {
+  for (const f of tracked) {
+    const ext = extname(f);
+    if (ext && !TEXT.has(ext) && !f.split("/").pop().startsWith(".env")) continue;
+    let st;
+    try { st = statSync(f); } catch { continue; }
+    if (st.size > 2_000_000) continue;
+    scanned += 1;
+    scanFile(f);
+  }
+} else {
+  for (const r of ROOTS) walk(r);
+}
 
 console.log(`scanned ${scanned} text files`);
 if (!hits.length) {

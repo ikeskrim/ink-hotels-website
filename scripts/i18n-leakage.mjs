@@ -82,3 +82,31 @@ console.log(`\n${worst.size} DISTINCT untranslated blocks:`);
 for (const [text, count] of [...worst].sort((a, b) => b[1] - a[1])) {
   console.log(`  ×${count}  ${text.slice(0, 100)}`);
 }
+
+/* ── The ceiling ───────────────────────────────────────────────────────────
+   Leakage never reaches zero, and should not. What remains is the building
+   name "The Residence of the Old Port", postal addresses, an email address and
+   phone numbers, all of which are meant to read the same in every language.
+   The measured floor is 11-12 blocks per locale.
+
+   The ceiling sits a little above that floor rather than on it, so moving an
+   address around does not fail a build while a genuinely untranslated new
+   section does. Raise it only with a reason. */
+const CEILING = 16;
+
+const over = LOCALES.map((locale) => ({
+  locale,
+  leaked: rows
+    .filter((r) => r.locale === locale)
+    .reduce((n, r) => n + r.leaked, 0),
+})).filter((r) => r.leaked > CEILING);
+
+if (over.length) {
+  console.error(`
+FAIL - the ceiling is ${CEILING} untranslated blocks per locale:`);
+  for (const o of over) console.error(`  ${o.locale}: ${o.leaked} (${o.leaked - CEILING} over)`);
+  process.exitCode = 1;
+} else {
+  console.log(`
+all locales within the ceiling of ${CEILING} untranslated blocks`);
+}
