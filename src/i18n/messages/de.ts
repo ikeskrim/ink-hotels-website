@@ -62,6 +62,10 @@ export const de: Messages = {
     orCall: "Oder rufen Sie {phone} oder {phone2} an. Wir sprechen {languages}.",
     speakToSomeone: "Sprechen Sie lieber mit jemandem? Rufen Sie {phone} an.",
     byNameNote: "Diese Suite wird namentlich reserviert, nicht über die Suche — schreiben Sie oder rufen Sie an, und sie ist für Sie reserviert:",
+    bookDirectTitle: "Direkt buchen",
+    bookDirectKeys: "Sie haben es mit der Familie zu tun, die die Schlüssel hat, nicht mit einem Callcenter.",
+    bookDirectArrange: "Alles wird vor Ihrer Ankunft arrangiert — ein Transfer, der Fiat, ein Kinderbett, eine ruhigere Etage.",
+    bookDirectAnswer: "Eine direkte Frage bekommt eine direkte Antwort, telefonisch oder per WhatsApp, bis 23:00 Uhr.",
   },
 
   concierge: {

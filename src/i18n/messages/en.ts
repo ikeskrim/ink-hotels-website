@@ -72,6 +72,10 @@ export const en = {
        directly, so the button never lands a guest on a front page with no
        way forward. */
     byNameNote: "This suite is reserved by name rather than through the search — write or call and it is held for you:",
+    bookDirectTitle: "Booking direct",
+    bookDirectKeys: "You are dealing with the family who hold the keys, not a call centre.",
+    bookDirectArrange: "Arrangements are made before you arrive — a transfer, the Fiat, a cot, a quieter floor.",
+    bookDirectAnswer: "A direct question gets a direct answer, by phone or WhatsApp, until 23:00.",
   },
 
   concierge: {

@@ -62,6 +62,10 @@ export const fr: Messages = {
     orCall: "Ou appelez le {phone} ou le {phone2}. Nous parlons {languages}.",
     speakToSomeone: "Vous préférez parler à quelqu'un ? Appelez le {phone}.",
     byNameNote: "Cette suite se réserve par son nom plutôt que par la recherche — écrivez-nous ou appelez-nous, et elle vous est réservée :",
+    bookDirectTitle: "Réserver en direct",
+    bookDirectKeys: "Vous avez affaire à la famille qui détient les clés, pas à un centre d'appels.",
+    bookDirectArrange: "Tout s'organise avant votre arrivée — un transfert, la Fiat, un lit bébé, un étage plus calme.",
+    bookDirectAnswer: "Une question directe reçoit une réponse directe, par téléphone ou WhatsApp, jusqu'à 23h00.",
   },
 
   concierge: {

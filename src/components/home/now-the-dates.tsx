@@ -1,5 +1,6 @@
 import { Container, Heading, Section } from "@/components/ui/section";
 import { AvailabilityForm } from "@/components/booking/availability-form";
+import { BookDirect } from "@/components/booking/book-direct";
 import { InkAnchor } from "@/components/ui/ink-link";
 import { Reveal } from "@/components/motion/reveal";
 import { contact, reception } from "@/content/site";
@@ -41,6 +42,8 @@ export function NowTheDates({ locale = defaultLocale }: { locale?: Locale }) {
               <div className="border-t border-paper/25 pt-8">
                 <AvailabilityForm tone="light" />
               </div>
+
+              <BookDirect tone="ink" className="mt-8" />
 
               <p className="mt-8 text-paper/70">
                 {fill(m.booking.orCall, {

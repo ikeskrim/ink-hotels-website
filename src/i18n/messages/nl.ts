@@ -62,6 +62,10 @@ export const nl: Messages = {
     orCall: "Of bel {phone} of {phone2}. Wij spreken {languages}.",
     speakToSomeone: "Liever iemand spreken? Bel {phone}.",
     byNameNote: "Deze suite wordt op naam gereserveerd en niet via de zoekfunctie — schrijf of bel en wij houden hem voor u vast:",
+    bookDirectTitle: "Direct boeken",
+    bookDirectKeys: "U heeft te maken met de familie die de sleutels heeft, niet met een callcenter.",
+    bookDirectArrange: "Alles wordt geregeld voordat u aankomt — een transfer, de Fiat, een kinderbedje, een rustigere verdieping.",
+    bookDirectAnswer: "Een directe vraag krijgt een direct antwoord, telefonisch of via WhatsApp, tot 23.00 uur.",
   },
 
   concierge: {

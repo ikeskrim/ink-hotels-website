@@ -14,6 +14,7 @@ import { RoomCard } from "@/components/rooms/room-card";
 import { RoomBadges } from "@/components/rooms/room-badges";
 import { TourFacade } from "@/components/rooms/tour-facade";
 import { AvailabilityForm } from "@/components/booking/availability-form";
+import { BookDirect } from "@/components/booking/book-direct";
 import { InkAnchor, InkLink } from "@/components/ui/ink-link";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema, roomSchema } from "@/lib/schema";
@@ -195,6 +196,8 @@ export default async function RoomPage({
                     </InkAnchor>
                   </p>
                 )}
+
+                <BookDirect className="mt-7" />
 
                 <p className="mt-5 text-sm text-[color:var(--fg-2)]">
                   {m.booking.speakToSomeone.split("{phone}")[0]}
