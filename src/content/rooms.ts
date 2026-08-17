@@ -329,7 +329,7 @@ export const rooms: Room[] = [
     kind: "suite",
     collection: "gateway",
     guests: 2,
-    sizeSqm: null,
+    sizeSqm: 30,
     bedrooms: 1,
     bathrooms: 1,
     beds: [{ label: "King bed", count: 1 }],
