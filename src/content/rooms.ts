@@ -241,7 +241,12 @@ export const rooms: Room[] = [
       "Heated private plunge pool / jacuzzi",
       "Kitchenette with electric stove & microwave",
       "Lounge area",
-      "Terrace",
+      /* A courtyard, not a terrace. The record said "Terrace" while every
+         other field on this suite — outlook, outdoor, the description and
+         the photographs — describes an enclosed interior courtyard at
+         ground level. A guest who books a terrace expects to be outside
+         and above, and would arrive to find neither. */
+      "Private interior courtyard",
     ],
     images: ROOM_IMAGES["30918"] ?? [],
     renovated: null,
