@@ -13,6 +13,7 @@ import {
 import { getMessages } from "@/i18n";
 import { I18nProvider } from "@/i18n/provider";
 import { SITE_URL, site } from "@/content/site";
+import { Preloader } from "@/components/motion/preloader";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -197,6 +198,7 @@ export default async function RootLayout({
             {messages.common.skipToContent}
           </a>
 
+          <Preloader />
           <SmoothScroll />
           <SiteHeader />
 
