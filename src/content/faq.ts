@@ -28,7 +28,7 @@ export const faqs: Faq[] = [
   {
     question: "Do any of the rooms have a pool or a hot tub?",
     answer:
-      "Four of the seven suites have their own water. Evexia has a private hot tub set into its terrace, above the waterfront; Eros and Zoi each have one in a courtyard of their own. Harmony has a private plunge pool in its own secluded interior courtyard. There is no communal pool — the sea is a short walk away.",
+      "Four of the seven suites have their own water. Evexia has a private hot tub set into its terrace, above the waterfront; Eros and Zoi each have one in a courtyard of their own. Harmony has a heated private plunge pool in its own secluded interior courtyard, so the water is warm whatever the month. There is no communal pool — the sea is a short walk away.",
   },
   {
     question: "Is the hotel accessible?",

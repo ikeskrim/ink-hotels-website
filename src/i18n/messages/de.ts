@@ -139,8 +139,8 @@ export const de: Messages = {
     waterEyebrow: "Das Wasser",
     waterTitle: "Vier der sieben haben ihr eigenes Wasser.",
     waterBody:
-      "Evexia hat einen eigenen Whirlpool, in die Terrasse eingelassen, mit dem Meer über die ganze Breite des Blicks dahinter. Eros und Zoi haben je einen im eigenen Innenhof. Harmony hat einen Plunge Pool in einem geschützten Innenhof — vierzig Quadratmeter im Erdgeschoss, mit Kingsize-Bett, Wohnbereich und Marmor unter den Füßen. Keiner von ihnen wird geteilt.",
-    waterSpec: "Drei eigene Whirlpools · ein eigener Plunge Pool",
+      "Evexia hat einen eigenen Whirlpool in der Terrasse, mit dem Meer über die ganze Breite des Blicks dahinter. Eros und Zoi haben je einen in einem eigenen Innenhof. Harmony hat einen beheizten Tauchpool in einem abgeschiedenen Innenhof — das Wasser ist warm, in welchem Monat auch immer — vierzig Quadratmeter im Erdgeschoss, mit Kingsize-Bett, Lounge und Marmor unter den Füßen. Keiner davon wird mit irgendjemandem geteilt.",
+    waterSpec: "Drei eigene Whirlpools · ein beheizter eigener Tauchpool",
 
     agapiEyebrow: "Agapi",
     agapiMeaning: "Liebe",
@@ -224,10 +224,10 @@ export const de: Messages = {
     balcony: "Balkon",
     terrace: "Terrasse",
     hotTub: "Jacuzzi / Whirlpool",
-    plungePool: "Eigener Plunge Pool",
+    plungePool: "Beheizter eigener Tauchpool",
     wheelchair: "Für Rollstuhlfahrer gestaltet",
     badgeHotTub: "Eigener Whirlpool",
-    badgePlungePool: "Eigener Plunge Pool",
+    badgePlungePool: "Beheizter Tauchpool",
     badgeAccessible: "Stufenlos",
     badgeAdultsOnly: "Nur Erwachsene",
     tour360: "In 360° durchgehen",

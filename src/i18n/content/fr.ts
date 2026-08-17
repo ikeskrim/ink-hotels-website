@@ -559,7 +559,7 @@ export const fr: ContentText = {
     {
       question: "Y a-t-il des chambres avec piscine ou bain à remous ?",
       answer:
-        "Quatre des sept suites ont leur propre eau. Evexia dispose d'un bain à remous privé encastré dans sa terrasse, au-dessus du front de mer ; Eros et Zoi en ont chacune un, dans une cour à elles. Harmony dispose d'un bassin privé dans sa propre cour intérieure, à l'abri des regards. Il n'y a pas de piscine commune — la mer est à quelques minutes à pied.",
+        "Quatre des sept suites ont leur propre eau. Evexia dispose d'un bain à remous privé encastré dans sa terrasse, au-dessus du front de mer ; Eros et Zoi en ont chacune un, dans une cour à elles. Harmony dispose d'un bassin privé chauffé — l'eau est chaude quel que soit le mois — dans sa propre cour intérieure, à l'abri des regards. Il n'y a pas de piscine commune — la mer est à quelques minutes à pied.",
     },
     {
       question: "L'hôtel est-il accessible ?",
@@ -701,5 +701,7 @@ export const fr: ContentText = {
     "Two bathrooms": "Deux salles de bains",
     "Two bedrooms": "Deux chambres",
     "Waterfront position": "Situation en bord de mer",
+    "Heated private plunge pool / jacuzzi": "Petite piscine privée chauffée avec jacuzzi",
+    "Private interior courtyard": "Cour intérieure privée",
   },
 };

@@ -231,14 +231,14 @@ export const rooms: Room[] = [
       { label: "Sofa bed", count: 2 },
     ],
     outlook: "Private interior courtyard",
-    outdoor: "Courtyard with a private plunge pool",
+    outdoor: "Courtyard with a heated private plunge pool",
     level: "Ground floor",
     description:
-      "The largest of the suites. A secluded interior courtyard with a private plunge pool — a jacuzzi at one end of the day and a place to lie in water at the other — for relaxation without distraction or disruption: the day flowing on beside running water, under a bright blue sky, or by moonlight with a glass of Greek wine. Inside: a lounge area, a king-size bed of 1.80m, a 55-inch television with HDMI, two armchairs that convert to beds, and elegant marble underfoot. The kitchenette holds every kind of coffee maker, a kettle, an electric stove and a microwave.",
+      "The largest of the suites. A secluded interior courtyard with a private plunge pool, heated, so the water is warm whatever the month — a jacuzzi at one end of the day and a place to lie in water at the other — for relaxation without distraction or disruption: the day flowing on beside running water, under a bright blue sky, or by moonlight with a glass of Greek wine. Inside: a lounge area, a king-size bed of 1.80m, a 55-inch television with HDMI, two armchairs that convert to beds, and elegant marble underfoot. The kitchenette holds every kind of coffee maker, a kettle, an electric stove and a microwave.",
     notes: ["All bathroom amenities are eco-friendly."],
     amenities: [
       ...SUITE_AMENITIES,
-      "Private plunge pool / jacuzzi",
+      "Heated private plunge pool / jacuzzi",
       "Kitchenette with electric stove & microwave",
       "Lounge area",
       "Terrace",

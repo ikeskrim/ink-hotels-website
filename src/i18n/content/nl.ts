@@ -568,7 +568,7 @@ export const nl: ContentText = {
     {
       question: "Heeft een van de kamers een zwembad of bubbelbad?",
       answer:
-        "Vier van de zeven suites hebben hun eigen water. Evexia heeft een eigen bubbelbad, verzonken in het terras, boven de boulevard; Eros en Zoi hebben er elk een, op een eigen binnenplaats. Harmony heeft een eigen plunge pool op een afgeschermde binnenplaats. Een gemeenschappelijk zwembad is er niet — de zee ligt op korte loopafstand.",
+        "Vier van de zeven suites hebben hun eigen water. Evexia heeft een eigen bubbelbad, verzonken in het terras, boven de boulevard; Eros en Zoi hebben er elk een, op een eigen binnenplaats. Harmony heeft een verwarmd eigen dompelbad op een afgeschermde binnenplaats, dus het water is warm welke maand het ook is. Een gemeenschappelijk zwembad is er niet — de zee ligt op korte loopafstand.",
     },
     {
       question: "Is het hotel toegankelijk?",
@@ -710,5 +710,7 @@ export const nl: ContentText = {
     "Two bathrooms": "Twee badkamers",
     "Two bedrooms": "Twee slaapkamers",
     "Waterfront position": "Ligging aan het water",
+    "Heated private plunge pool / jacuzzi": "Verwarmd eigen dompelbad met jacuzzi",
+    "Private interior courtyard": "Eigen binnenplaats",
   },
 };

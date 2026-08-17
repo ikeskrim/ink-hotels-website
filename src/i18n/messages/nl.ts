@@ -139,8 +139,8 @@ export const nl: Messages = {
     waterEyebrow: "Het water",
     waterTitle: "Vier van de zeven hebben hun eigen water.",
     waterBody:
-      "Evexia heeft een eigen bubbelbad, verzonken in het terras, met de zee over de volle breedte van het uitzicht erachter. Eros en Zoi hebben er elk een, op een eigen binnenplaats. Harmony heeft een plunge pool op een besloten binnenplaats — veertig vierkante meter op de begane grond, met een kingsize bed, een zithoek en marmer onder de voet. Geen van alle wordt gedeeld.",
-    waterSpec: "Drie eigen bubbelbaden · één eigen plunge pool",
+      "Evexia heeft een eigen bubbelbad in het terras, met de zee over de volle breedte van het uitzicht erachter. Eros en Zoi hebben er elk een in een eigen binnenplaats. Harmony heeft een verwarmd dompelbad op een afgelegen binnenplaats — het water is warm, welke maand het ook is — veertig vierkante meter op de begane grond, met een kingsize bed, een zithoek en marmer onder de voeten. Geen ervan wordt met iemand gedeeld.",
+    waterSpec: "Drie eigen bubbelbaden · één verwarmd eigen dompelbad",
 
     agapiEyebrow: "Agapi",
     agapiMeaning: "liefde",
@@ -224,10 +224,10 @@ export const nl: Messages = {
     balcony: "Balkon",
     terrace: "Terras",
     hotTub: "Jacuzzi / bubbelbad",
-    plungePool: "Eigen plunge pool",
+    plungePool: "Verwarmd eigen dompelbad",
     wheelchair: "Ontworpen voor rolstoelgebruikers",
     badgeHotTub: "Eigen bubbelbad",
-    badgePlungePool: "Eigen plunge pool",
+    badgePlungePool: "Verwarmd dompelbad",
     badgeAccessible: "Drempelvrij",
     badgeAdultsOnly: "Alleen volwassenen",
     tour360: "Bekijk het in 360°",

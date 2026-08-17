@@ -29,7 +29,7 @@ const PLATES = [
   },
   {
     src: "/media/9053c1c0aa924fb16769460a7c06ae29.webp",
-    alt: "The private plunge pool in the interior courtyard of the Harmony suite",
+    alt: "The heated private plunge pool in the interior courtyard of the Harmony suite",
     name: "Harmony",
     href: "/rooms/harmony",
   },

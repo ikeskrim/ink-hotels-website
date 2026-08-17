@@ -90,7 +90,7 @@ function build(): GalleryItem[] {
   PLUNGE_POOL.forEach((src) =>
     push(
       src,
-      "The private plunge pool in the interior courtyard of the Harmony suite",
+      "The heated private plunge pool in the interior courtyard of the Harmony suite",
       "water",
     ),
   );

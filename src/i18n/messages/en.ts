@@ -155,8 +155,8 @@ export const en = {
     waterEyebrow: "The water",
     waterTitle: "Four of the seven come with their own water.",
     waterBody:
-      "Evexia has a private hot tub set into its terrace, with the sea running the full width of the view behind it. Eros and Zoi each have one in a courtyard of their own. Harmony has a plunge pool in a secluded interior courtyard — forty square metres on the ground floor, with a king bed, a lounge and marble underfoot. Not one of them is shared with anybody.",
-    waterSpec: "Three private hot tubs · one private plunge pool",
+      "Evexia has a private hot tub set into its terrace, with the sea running the full width of the view behind it. Eros and Zoi each have one in a courtyard of their own. Harmony has a heated plunge pool in a secluded interior courtyard — the water is warm whatever the month — forty square metres on the ground floor, with a king bed, a lounge and marble underfoot. Not one of them is shared with anybody.",
+    waterSpec: "Three private hot tubs · one heated private plunge pool",
 
     agapiEyebrow: "Agapi",
     agapiMeaning: "love",
@@ -240,10 +240,10 @@ export const en = {
     balcony: "Balcony",
     terrace: "Terrace",
     hotTub: "Jacuzzi / hot tub",
-    plungePool: "Private plunge pool",
+    plungePool: "Heated private plunge pool",
     wheelchair: "Designed for wheelchair users",
     badgeHotTub: "Private hot tub",
-    badgePlungePool: "Private plunge pool",
+    badgePlungePool: "Heated plunge pool",
     badgeAccessible: "Step-free",
     badgeAdultsOnly: "Adults only",
     tour360: "Walk through it in 360°",

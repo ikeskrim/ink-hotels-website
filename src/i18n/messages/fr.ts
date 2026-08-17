@@ -139,8 +139,8 @@ export const fr: Messages = {
     waterEyebrow: "L'eau",
     waterTitle: "Quatre des sept ont leur propre eau.",
     waterBody:
-      "Evexia possède un bain à remous privé encastré dans sa terrasse, la mer occupant toute la largeur de la vue derrière lui. Eros et Zoi en ont chacune un, dans une cour à elles. Harmony possède un bassin dans une cour intérieure abritée — quarante mètres carrés au rez-de-chaussée, avec un lit king size, un salon et du marbre au sol. Aucun d'eux ne se partage.",
-    waterSpec: "Trois bains à remous privés · un bassin privé",
+      "Evexia a un bain à remous privé encastré dans sa terrasse, la mer occupant toute la largeur de la vue derrière. Eros et Zoi en ont chacun un dans une cour qui leur est propre. Harmony a une petite piscine chauffée dans une cour intérieure retirée — l'eau est chaude quel que soit le mois — quarante mètres carrés au rez-de-chaussée, avec un lit king-size, un salon et du marbre au sol. Aucun d'eux n'est partagé avec qui que ce soit.",
+    waterSpec: "Trois bains à remous privés · une petite piscine privée chauffée",
 
     agapiEyebrow: "Agapi",
     agapiMeaning: "amour",
@@ -224,10 +224,10 @@ export const fr: Messages = {
     balcony: "Balcon",
     terrace: "Terrasse",
     hotTub: "Jacuzzi / bain à remous",
-    plungePool: "Bassin privé",
+    plungePool: "Petite piscine privée chauffée",
     wheelchair: "Conçue pour les personnes en fauteuil roulant",
     badgeHotTub: "Bain à remous privé",
-    badgePlungePool: "Bassin privé",
+    badgePlungePool: "Piscine privée chauffée",
     badgeAccessible: "De plain-pied",
     badgeAdultsOnly: "Adultes uniquement",
     tour360: "Visiter en 360°",

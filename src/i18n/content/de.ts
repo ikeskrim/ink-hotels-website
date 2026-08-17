@@ -572,7 +572,7 @@ export const de: ContentText = {
     {
       question: "Hat eines der Zimmer einen Pool oder Whirlpool?",
       answer:
-        "Vier der sieben Suiten haben ihr eigenes Wasser. Evexia hat einen eigenen Whirlpool, in die Terrasse eingelassen, oberhalb der Uferstraße; Eros und Zoi haben je einen im eigenen Innenhof. Harmony hat einen privaten Tauchpool im eigenen geschützten Innenhof. Einen gemeinsamen Pool gibt es nicht — das Meer liegt wenige Schritte entfernt.",
+        "Vier der sieben Suiten haben ihr eigenes Wasser. Evexia hat einen eigenen Whirlpool, in die Terrasse eingelassen, oberhalb der Uferstraße; Eros und Zoi haben je einen im eigenen Innenhof. Harmony hat einen beheizten privaten Tauchpool im eigenen geschützten Innenhof, das Wasser ist also in jedem Monat warm. Einen gemeinsamen Pool gibt es nicht — das Meer liegt wenige Schritte entfernt.",
     },
     {
       question: "Ist das Hotel barrierefrei?",
@@ -714,5 +714,7 @@ export const de: ContentText = {
     "Two bathrooms": "Zwei Badezimmer",
     "Two bedrooms": "Zwei Schlafzimmer",
     "Waterfront position": "Lage direkt am Wasser",
+    "Heated private plunge pool / jacuzzi": "Beheizter eigener Tauchpool mit Whirlpool",
+    "Private interior courtyard": "Eigener Innenhof",
   },
 };

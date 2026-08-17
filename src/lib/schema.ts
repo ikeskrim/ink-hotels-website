@@ -50,7 +50,7 @@ const AMENITY_FEATURES = [
   feature("Soundproof windows"),
   feature("Satellite television"),
   feature("Private hot tub", suites.some((r) => r.hotTub)),
-  feature("Private plunge pool", rooms.some((r) => r.plungePool)),
+  feature("Heated private plunge pool", rooms.some((r) => r.plungePool)),
   feature("Wheelchair accessible room", rooms.some((r) => r.accessible)),
   feature("Airport transfer"),
   feature("Car rental"),
@@ -163,7 +163,7 @@ export function roomSchema(room: Room) {
     amenityFeature: [
       ...room.amenities.map((name) => feature(name)),
       ...(room.hotTub ? [feature("Hot tub")] : []),
-      ...(room.plungePool ? [feature("Private plunge pool")] : []),
+      ...(room.plungePool ? [feature("Heated private plunge pool")] : []),
       ...(room.accessible ? [feature("Wheelchair accessible")] : []),
     ],
     ...(room.accessible
