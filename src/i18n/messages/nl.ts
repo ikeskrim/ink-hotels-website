@@ -127,9 +127,9 @@ export const nl: Messages = {
     roomsEyebrow: "Waar u slaapt",
     roomsTitle: "Twintig manieren om te verblijven",
     roomsLede:
-      "Zeven suites in House of Europe, zeven kamers in Phos en één heel woonhuis bij de haven — van twaalf vierkante meter onder het dak tot veertig met een zwembad op de binnenplaats.",
+      "Zeven suites in House of Europe, zeven kamers in Phos en één heel woonhuis bij de haven — van twaalf vierkante meter onder het dak tot veertig met een verwarmd zwembad op de binnenplaats.",
     promiseHouseOfEurope:
-      "Het eerste gebouw, en de receptie. Alle zeven suites liggen hier — één met een eigen bubbelbad boven het water, één met een plunge pool op een eigen binnenplaats — samen met de kamers aan zeezijde en het ontbijt.",
+      "Het eerste gebouw, en de receptie. Alle zeven suites liggen hier — drie met een eigen bubbelbad, waarvan één boven het water, en één met een verwarmd dompelbad op een eigen binnenplaats — samen met de kamers aan zeezijde en het ontbijt.",
     promisePhos:
       "Het stillere gebouw. Zeven kamers, genummerd van één tot zeven, en terrassen die uitkomen boven de daken van de oude stad.",
     promiseResidence:
@@ -401,8 +401,8 @@ export const nl: Messages = {
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
   pageMeta: {
-    home: { t: "Ink Hotels — Een klein hotel in de oude stad van Rethymno, Kreta", d: "Klein hotel. Lang verhaal. Zeven suites in House of Europe — één met eigen bubbelbad, één met dompelbad — zeven kamers in Phos, en een residentie bij de Venetiaanse haven, midden in de middeleeuwse oude stad van Rethymno." },
-    rooms: { t: "Kamers", d: "Twintig manieren om in de oude stad van Rethymno te verblijven — zeven suites in House of Europe, één met eigen bubbelbad en één met dompelbad, zeven kamers in Phos, en een hele residentie bij de Venetiaanse haven." },
+    home: { t: "Ink Hotels — Een klein hotel in de oude stad van Rethymno, Kreta", d: "Klein hotel. Lang verhaal. Zeven suites in House of Europe — drie met eigen bubbelbad, één met verwarmd dompelbad — zeven kamers in Phos, en een residentie bij de Venetiaanse haven, midden in de middeleeuwse oude stad van Rethymno." },
+    rooms: { t: "Kamers", d: "Twintig manieren om in de oude stad van Rethymno te verblijven — zeven suites in House of Europe, drie met eigen bubbelbad en één met verwarmd dompelbad, zeven kamers in Phos, en een hele residentie bij de Venetiaanse haven." },
     experiences: { t: "De kunst van het verblijven", d: "Een eigen boot, een kok op de kamer, wijn in de heuvels boven Rethymno, een therapeut, een stille ochtend. Eenentwintig dingen die de receptie van Ink regelt — de meeste een telefoontje dat we al honderd keer hebben gepleegd." },
     gallery: { t: "Galerij", d: "{count} foto's van Ink Hotels — het eigen bubbelbad en het dompelbad, de zeven suites, de twee huizen, de Residence of the Old Port, en de middeleeuwse oude stad van Rethymno eromheen." },
     story: { t: "Het verhaal", d: "Ink is genoemd naar een drukpers. Vanuit dit gebouw verscheen de krant ΑΓΩΝ — Strijd. Het middelste huis was het gastenverblijf van de Universiteit van Kreta. Twee historische huizen uit de 18e eeuw in de middeleeuwse oude stad van Rethymno, en een residentie bij de haven." },

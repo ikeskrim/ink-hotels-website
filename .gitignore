@@ -96,3 +96,4 @@ Thumbs.db
 /public/media/e7684dae57efc05b520aa96da1fd547c.webp
 
 .vercel
+.env*

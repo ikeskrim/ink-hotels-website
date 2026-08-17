@@ -127,9 +127,9 @@ export const fr: Messages = {
     roomsEyebrow: "Où vous dormez",
     roomsTitle: "Vingt façons de séjourner",
     roomsLede:
-      "Sept suites à House of Europe, sept chambres à Phos et une résidence entière près du port — de douze mètres carrés sous les toits à quarante avec un bassin dans la cour.",
+      "Sept suites à House of Europe, sept chambres à Phos et une résidence entière près du port — de douze mètres carrés sous les toits à quarante avec un bassin chauffé dans la cour.",
     promiseHouseOfEurope:
-      "Le premier bâtiment, et la réception. Les sept suites sont ici — l'une avec un bain à remous privé au-dessus de l'eau, l'autre avec un bassin dans sa propre cour — avec les chambres côté mer et le petit-déjeuner.",
+      "Le premier bâtiment, et la réception. Les sept suites sont ici — trois avec un bain à remous privé, dont une au-dessus de l'eau, et une avec une petite piscine chauffée dans sa propre cour — avec les chambres côté mer et le petit-déjeuner.",
     promisePhos:
       "Le bâtiment le plus calme. Sept chambres, numérotées de un à sept, et des terrasses qui s'ouvrent sur les toits de la vieille ville.",
     promiseResidence:
@@ -401,8 +401,8 @@ export const fr: Messages = {
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
   pageMeta: {
-    home: { t: "Ink Hotels — Un petit hôtel dans la vieille ville de Réthymnon, Crète", d: "Petit hôtel. Longue histoire. Sept suites au House of Europe — une avec bain à remous privé, une avec petite piscine — sept chambres au Phos, et une résidence près du port vénitien, au cœur de la vieille ville médiévale de Réthymnon." },
-    rooms: { t: "Chambres", d: "Vingt façons de séjourner dans la vieille ville de Réthymnon — sept suites au House of Europe, une avec bain à remous privé et une avec petite piscine, sept chambres au Phos, et une résidence entière près du port vénitien." },
+    home: { t: "Ink Hotels — Un petit hôtel dans la vieille ville de Réthymnon, Crète", d: "Petit hôtel. Longue histoire. Sept suites au House of Europe — trois avec bain à remous privé, une avec petite piscine chauffée — sept chambres au Phos, et une résidence près du port vénitien, au cœur de la vieille ville médiévale de Réthymnon." },
+    rooms: { t: "Chambres", d: "Vingt façons de séjourner dans la vieille ville de Réthymnon — sept suites au House of Europe, trois avec bain à remous privé et une avec petite piscine chauffée, sept chambres au Phos, et une résidence entière près du port vénitien." },
     experiences: { t: "L'art du séjour", d: "Un bateau à vous, un chef dans la chambre, du vin dans les collines au-dessus de Réthymnon, un thérapeute, un matin tranquille. Vingt et une choses que la réception d'Ink organise — pour la plupart un appel que nous avons passé cent fois." },
     gallery: { t: "Galerie", d: "{count} photographies d'Ink Hotels — le bain à remous privé et la petite piscine, les sept suites, les deux maisons, la Residence of the Old Port, et la vieille ville médiévale de Réthymnon tout autour." },
     story: { t: "L'histoire", d: "Ink tient son nom d'une presse d'imprimerie. De ce bâtiment était publié le journal ΑΓΩΝ — Combat. La maison centrale était la maison d'hôtes de l'Université de Crète. Deux maisons historiques du XVIIIe siècle dans la vieille ville médiévale de Réthymnon, et une résidence près du port." },

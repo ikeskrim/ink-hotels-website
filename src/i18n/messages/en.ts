@@ -143,9 +143,9 @@ export const en = {
     roomsEyebrow: "Where you sleep",
     roomsTitle: "Twenty ways to stay",
     roomsLede:
-      "Seven suites at House of Europe, seven rooms at Phos, and one whole residence by the harbour — from twelve square metres under the roof to forty with a courtyard pool.",
+      "Seven suites at House of Europe, seven rooms at Phos, and one whole residence by the harbour — from twelve square metres under the roof to forty with a heated courtyard pool.",
     promiseHouseOfEurope:
-      "The first building, and the reception. All seven suites are here — one with a private hot tub above the water, one with a plunge pool in its own courtyard — along with the sea-facing rooms and breakfast.",
+      "The first building, and the reception. All seven suites are here — three with a private hot tub, one of them above the water, and one with a heated plunge pool in its own courtyard — along with the sea-facing rooms and breakfast.",
     promisePhos:
       "The quieter building. Seven rooms, numbered one to seven, and terraces that open over the rooftops of the old town.",
     promiseResidence:
@@ -418,8 +418,8 @@ export const en = {
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
   pageMeta: {
-    home: { t: "Ink Hotels — A small hotel in the old town of Rethymno, Crete", d: "Small hotel. Long story. Seven suites at House of Europe — one with a private hot tub, one with a plunge pool — seven rooms at Phos, and a residence by the Venetian harbour, in the medieval old town of Rethymno." },
-    rooms: { t: "Rooms", d: "Twenty ways to stay in the old town of Rethymno — seven suites at House of Europe, one with a private hot tub and one with a plunge pool, seven rooms at Phos, and one whole residence by the Venetian harbour." },
+    home: { t: "Ink Hotels — A small hotel in the old town of Rethymno, Crete", d: "Small hotel. Long story. Seven suites at House of Europe — three with a private hot tub, one with a heated plunge pool — seven rooms at Phos, and a residence by the Venetian harbour, in the medieval old town of Rethymno." },
+    rooms: { t: "Rooms", d: "Twenty ways to stay in the old town of Rethymno — seven suites at House of Europe, three with a private hot tub and one with a heated plunge pool, seven rooms at Phos, and one whole residence by the Venetian harbour." },
     experiences: { t: "The Art of Staying", d: "A boat of your own, a chef in the room, wine in the hills above Rethymno, a therapist, a quiet morning. Twenty-one things the desk at Ink Hotels arranges — most of them a phone call we have made a hundred times." },
     gallery: { t: "Gallery", d: "{count} photographs of Ink Hotels — the private hot tub and plunge pool, the seven suites, the two houses, the Residence of the Old Port, and the medieval old town of Rethymno around them." },
     story: { t: "The story", d: "Ink is named after a printing press. From this building was published the newspaper ΑΓΩΝ — Struggle. The central house was the University of Crete's guest house. Two historic houses of the 1700s in the medieval old town of Rethymno, and a residence by the harbour." },

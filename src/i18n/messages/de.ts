@@ -127,9 +127,9 @@ export const de: Messages = {
     roomsEyebrow: "Wo Sie schlafen",
     roomsTitle: "Zwanzig Arten zu wohnen",
     roomsLede:
-      "Sieben Suiten im House of Europe, sieben Zimmer im Phos und eine ganze Residenz am Hafen — von zwölf Quadratmetern unter dem Dach bis vierzig mit Pool im Innenhof.",
+      "Sieben Suiten im House of Europe, sieben Zimmer im Phos und eine ganze Residenz am Hafen — von zwölf Quadratmetern unter dem Dach bis vierzig mit beheiztem Pool im Innenhof.",
     promiseHouseOfEurope:
-      "Das erste Gebäude, und die Rezeption. Alle sieben Suiten liegen hier — eine mit eigenem Whirlpool über dem Wasser, eine mit Plunge Pool im eigenen Innenhof — dazu die Zimmer zum Meer und das Frühstück.",
+      "Das erste Gebäude, und die Rezeption. Alle sieben Suiten liegen hier — drei mit eigenem Whirlpool, einer davon über dem Wasser, und eine mit beheiztem Tauchpool im eigenen Innenhof — dazu die Zimmer zum Meer und das Frühstück.",
     promisePhos:
       "Das ruhigere Gebäude. Sieben Zimmer, von eins bis sieben nummeriert, und Terrassen, die sich über die Dächer der Altstadt öffnen.",
     promiseResidence:
@@ -401,8 +401,8 @@ export const de: Messages = {
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
   pageMeta: {
-    home: { t: "Ink Hotels — Ein kleines Hotel in der Altstadt von Rethymno, Kreta", d: "Kleines Hotel. Lange Geschichte. Sieben Suiten im House of Europe — eine mit eigenem Whirlpool, eine mit Tauchpool — sieben Zimmer im Phos, und eine Residenz am venezianischen Hafen, mitten in der mittelalterlichen Altstadt von Rethymno." },
-    rooms: { t: "Zimmer", d: "Zwanzig Arten, in der Altstadt von Rethymno zu wohnen — sieben Suiten im House of Europe, eine mit eigenem Whirlpool und eine mit Tauchpool, sieben Zimmer im Phos, und eine ganze Residenz am venezianischen Hafen." },
+    home: { t: "Ink Hotels — Ein kleines Hotel in der Altstadt von Rethymno, Kreta", d: "Kleines Hotel. Lange Geschichte. Sieben Suiten im House of Europe — drei mit eigenem Whirlpool, eine mit beheiztem Tauchpool — sieben Zimmer im Phos, und eine Residenz am venezianischen Hafen, mitten in der mittelalterlichen Altstadt von Rethymno." },
+    rooms: { t: "Zimmer", d: "Zwanzig Arten, in der Altstadt von Rethymno zu wohnen — sieben Suiten im House of Europe, drei mit eigenem Whirlpool und eine mit beheiztem Tauchpool, sieben Zimmer im Phos, und eine ganze Residenz am venezianischen Hafen." },
     experiences: { t: "Die Kunst des Bleibens", d: "Ein eigenes Boot, ein Koch im Zimmer, Wein in den Hügeln über Rethymno, ein Therapeut, ein stiller Morgen. Einundzwanzig Dinge, die die Rezeption im Ink arrangiert — die meisten davon ein Anruf, den wir schon hundertmal gemacht haben." },
     gallery: { t: "Galerie", d: "{count} Fotografien des Ink Hotels — der eigene Whirlpool und der Tauchpool, die sieben Suiten, die beiden Häuser, die Residence of the Old Port, und die mittelalterliche Altstadt von Rethymno ringsum." },
     story: { t: "Die Geschichte", d: "Ink ist nach einer Druckerpresse benannt. Aus diesem Gebäude erschien die Zeitung ΑΓΩΝ — Kampf. Das mittlere Haus war das Gästehaus der Universität Kreta. Zwei historische Häuser aus dem 18. Jahrhundert in der mittelalterlichen Altstadt von Rethymno, und eine Residenz am Hafen." },
