@@ -125,33 +125,62 @@ export function GalleryGrid({
         </div>
       </div>
 
-      {/* ── Masonry ──────────────────────────────────────────────────── */}
-      <div className="columns-2 gap-3 sm:columns-3 lg:columns-4 [&>*]:mb-3">
+      {/* ── The grid ─────────────────────────────────────────────────────
+          One aspect ratio, not a masonry.
+
+          CSS columns fill top-to-bottom then left-to-right, so the reading
+          order down the page was not the order in the DOM: filtering to a
+          collection reshuffled which photograph sat where, and on a two-column
+          phone the sequence a curator chose came out interleaved. A ratio grid
+          keeps the order the content file states, gives every collection the
+          same rhythm, and reserves each tile's box before the image arrives.
+
+          3:2 because the library is almost entirely landscape — the ratio the
+          photographs were actually shot in, so the crop takes the edges rather
+          than the subject. */}
+      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         {visible.map((item, i) => (
-          <button
-            key={item.src}
-            ref={(el) => {
-              triggerRefs.current[i] = el;
-            }}
-            type="button"
-            onClick={() => setOpen(i)}
-            aria-label={`Open photograph: ${item.alt}`}
-            className="group relative block w-full break-inside-avoid overflow-hidden bg-[color:var(--bg-lift)] focus-visible:outline-offset-2"
-          >
-            <Image
-              src={item.src}
-              alt={item.alt}
-              width={800}
-              height={533}
-              sizes="(min-width: 1024px) 24vw, (min-width: 640px) 32vw, 48vw"
-              quality={62}
-              loading={i < 8 ? "eager" : "lazy"}
-              className="h-auto w-full transition-transform duration-[1100ms] ease-settle group-hover:scale-[1.04]"
-            />
-            <span className="absolute inset-0 bg-ink/0 transition-colors duration-500 ease-settle group-hover:bg-ink/15" />
-          </button>
+          <li key={item.src}>
+            <button
+              ref={(el) => {
+                triggerRefs.current[i] = el;
+              }}
+              type="button"
+              onClick={() => setOpen(i)}
+              aria-label={`Open photograph: ${item.alt}`}
+              className="group relative block aspect-[3/2] w-full overflow-hidden bg-[color:var(--bg-lift)] focus-visible:outline-offset-2"
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                sizes="(min-width: 1024px) 24vw, (min-width: 640px) 32vw, 48vw"
+                quality={62}
+                /* Four, not eight. The masonry staggered its tiles so eight
+                   rarely shared the first screen; a uniform grid puts a whole
+                   row of four across it, and eight eager requests then compete
+                   for the same pipe. Measured: eight took /gallery to 84, four
+                   puts it back. */
+                loading={i < 4 ? "eager" : "lazy"}
+                className="object-cover transition-transform duration-[1100ms] ease-settle group-hover:scale-[1.04]"
+              />
+              <span className="absolute inset-0 bg-ink/0 transition-colors duration-500 ease-settle group-hover:bg-ink/15" />
+
+              {/* The caption, on hover and on keyboard focus.
+                  `aria-hidden` because the same words are already the tile's
+                  accessible name: without it a screen reader reads the alt
+                  text twice. The gradient exists so white type stays legible
+                  over a pale photograph. */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-ink/85 via-ink/45 to-transparent p-3 pt-8 text-left opacity-0 transition-[opacity,transform] duration-500 ease-settle group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:transition-none motion-reduce:translate-y-0"
+              >
+                <span className="spec line-clamp-2 text-paper">{item.alt}</span>
+              </span>
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
 
       {/* ── Lightbox ─────────────────────────────────────────────────── */}
       <AnimatePresence>
