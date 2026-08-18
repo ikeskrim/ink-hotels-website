@@ -425,6 +425,37 @@ export const nl: Messages = {
      followed the pointer and found an English title on a German page.
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
+  voice: {
+    standoutEvexia:
+      "Een eigen bubbelbad, verzonken in het terras, met de zee over de volle breedte erachter. U deelt het water niet, en het uitzicht evenmin.",
+    standoutHarmony:
+      "Een verwarmd dompelbad in een eigen binnenhof — warm in elke maand — veertig vierkante meter op de begane grond, marmer onder de voeten. De stad ligt vier minuten verderop en bereikt u hier niet.",
+    standoutAgapi:
+      "Een suite waarin de deur nooit het probleem is: drempelloos vanaf de zijstraat, een inloopdouche, handgrepen, en een stille binnenhof met een oude put. Zorg, ingebouwd.",
+    standoutPhos:
+      "Licht maakt een afdruk leesbaar. Het tweede huis is ernaar genoemd — zeven rustige kamers boven de daken, een korte wandeling van het ontbijt.",
+    storyQuote:
+      "Met de hand gezet, letter voor letter, en in deze kamer op papier gedrukt. De pers is weg; de naam bleef.",
+    pressEyebrow: "Gezet, geïnkt, gedrukt",
+    pressSetTerm: "Gezet",
+    pressSetBody:
+      "De letters werden in dit gebouw met de hand gezet, en hier drukte Fotakis de krant ΑΓΩΝ — later parlementslid en officier van justitie in Athene.",
+    pressInkedTerm: "Geïnkt",
+    pressInkedBody:
+      "Het House of Europe werd het gastenhuis van de Universiteit van Kreta. Hoogleraren en onderzoekers kwamen er lezingen geven, en sindsdien hangen er exposities aan de muren.",
+    pressPressedTerm: "Gedrukt",
+    pressPressedBody:
+      "Drie gebouwen uit de jaren 1700, nog altijd overeind, nu een hotel. De pers is weg; de afdruk die zij achterliet is de naam boven de deur.",
+    waterStripTitle: "Vier hebben hun eigen water",
+    waterHotTub: "Eigen bubbelbad",
+    waterPlunge: "Verwarmd dompelbad",
+    diptychTitle: "Licht en inkt",
+    diptychInkBody:
+      "Het eerste gebouw, en het gebouw waar u aankomt: receptie, ontbijt en alle zeven suites. Hier stond de pers.",
+    diptychLightBody:
+      "Φως betekent licht. Zeven rustige kamers boven de daken, vier minuten van de zee en een korte wandeling van het ontbijt.",
+  },
+
   faqPage: {
     eyebrow: "Goed om te weten",
     title: "De simpele feiten",

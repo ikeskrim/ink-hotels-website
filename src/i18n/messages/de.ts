@@ -425,6 +425,37 @@ export const de: Messages = {
      followed the pointer and found an English title on a German page.
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
+  voice: {
+    standoutEvexia:
+      "Ein privater Whirlpool, in die Terrasse eingelassen, dahinter das Meer über die volle Breite. Sie teilen weder das Wasser noch den Blick mit jemandem.",
+    standoutHarmony:
+      "Ein beheiztes Tauchbecken in einem eigenen Innenhof — warm in jedem Monat — vierzig Quadratmeter im Erdgeschoss, Marmor unter den Füßen. Die Stadt ist vier Minuten entfernt und erreicht Sie hier nicht.",
+    standoutAgapi:
+      "Eine Suite, in der die Tür nie das Problem ist: schwellenlos von der Seitengasse, eine bodengleiche Dusche, Haltegriffe und ein stiller Innenhof mit einem alten Brunnen. Fürsorge, eingebaut.",
+    standoutPhos:
+      "Licht macht ein Zeichen lesbar. Das zweite Haus trägt seinen Namen danach — sieben ruhige Zimmer über den Dächern, ein kurzer Weg zum Frühstück.",
+    storyQuote:
+      "Von Hand gesetzt, Buchstabe für Buchstabe, und in diesem Raum auf Papier gedruckt. Die Presse ist fort; der Name blieb.",
+    pressEyebrow: "Gesetzt, eingefärbt, gedruckt",
+    pressSetTerm: "Gesetzt",
+    pressSetBody:
+      "Die Lettern wurden in diesem Haus von Hand gesetzt, und von hier druckte Fotakis die Zeitung ΑΓΩΝ — später Abgeordneter und Staatsanwalt in Athen.",
+    pressInkedTerm: "Eingefärbt",
+    pressInkedBody:
+      "Das House of Europe wurde zum Gästehaus der Universität Kreta. Professoren und Forschende kamen für Vorträge, und seither hängen Ausstellungen an diesen Wänden.",
+    pressPressedTerm: "Gedruckt",
+    pressPressedBody:
+      "Drei Häuser aus dem 18. Jahrhundert, noch immer da, heute ein Hotel. Die Presse ist fort; der Abdruck, den sie hinterließ, ist der Name über der Tür.",
+    waterStripTitle: "Vier haben ihr eigenes Wasser",
+    waterHotTub: "Privater Whirlpool",
+    waterPlunge: "Beheiztes Tauchbecken",
+    diptychTitle: "Licht und Tinte",
+    diptychInkBody:
+      "Das erste Haus, und das, an dem Sie ankommen: Rezeption, Frühstück und alle sieben Suiten. Hier stand die Presse.",
+    diptychLightBody:
+      "Φως heißt Licht. Sieben ruhige Zimmer über den Dächern, vier Minuten vom Meer und ein kurzer Weg zum Frühstück.",
+  },
+
   faqPage: {
     eyebrow: "Gut zu wissen",
     title: "Die schlichten Fakten",

@@ -20,6 +20,7 @@ import { InkAnchor, InkLink } from "@/components/ui/ink-link";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema, roomSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
+import { cn } from "@/lib/utils";
 
 export function generateStaticParams() {
   return rooms.map((r) => ({ slug: r.slug }));
@@ -51,6 +52,20 @@ export async function generateMetadata({
     image: room.images[0] ?? "/opengraph-image",
   });
 }
+
+/**
+ * The suites that have a line of their own, by slug.
+ *
+ * Deliberately partial. Three rooms carry a distinction worth leading with —
+ * private water, a heated courtyard pool, a step-free suite built for access —
+ * and writing one of these for all twenty would flatten the three that mean
+ * something. Everything else leads with its description, exactly as before.
+ */
+const STANDOUT: Record<string, "standoutEvexia" | "standoutHarmony" | "standoutAgapi" | undefined> = {
+  evexia: "standoutEvexia",
+  harmony: "standoutHarmony",
+  agapi: "standoutAgapi",
+};
 
 export default async function RoomPage({
   params,
@@ -144,7 +159,22 @@ export default async function RoomPage({
               <RoomBadges room={room} tone="inline" className="mt-6" />
             </div>
             <div className="lg:col-span-5">
-              <p className="measure text-lg text-[color:var(--fg-2)]">
+              {/* Lead with what makes this suite unlike the other nineteen.
+                  Only three have a line written for them; the rest lead with
+                  their description, which is what they had before. A standout
+                  line invented for every room would be twenty standout lines
+                  and therefore none. */}
+              {STANDOUT[room.slug] ? (
+                <p className="measure font-display text-[length:var(--text-d4)] leading-[1.3] text-[color:var(--fg-1)]">
+                  {m.voice[STANDOUT[room.slug]!]}
+                </p>
+              ) : null}
+              <p
+                className={cn(
+                  "measure text-lg text-[color:var(--fg-2)]",
+                  STANDOUT[room.slug] && "mt-6 text-base",
+                )}
+              >
                 {room.description}
               </p>
               {/* The property publishes its own walkthrough for some suites.

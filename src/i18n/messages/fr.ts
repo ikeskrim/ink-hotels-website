@@ -425,6 +425,37 @@ export const fr: Messages = {
      followed the pointer and found an English title on a German page.
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
+  voice: {
+    standoutEvexia:
+      "Un bain à remous privé encastré dans la terrasse, la mer sur toute la largeur derrière. Vous ne partagerez ni l'eau ni la vue avec personne.",
+    standoutHarmony:
+      "Un bassin chauffé dans une cour qui n'appartient qu'à elle — tiède quel que soit le mois — quarante mètres carrés au rez-de-chaussée, marbre sous les pieds. La ville est à quatre minutes et ne vous atteint pas ici.",
+    standoutAgapi:
+      "Une suite conçue pour que la porte ne soit jamais le problème : accès de plain-pied depuis la ruelle, douche sans seuil, barres d'appui, et une cour intérieure paisible avec un vieux puits. Le soin, intégré.",
+    standoutPhos:
+      "C'est la lumière qui rend une marque lisible. La seconde maison en porte le nom — sept chambres tranquilles au-dessus des toits, à quelques pas du petit-déjeuner.",
+    storyQuote:
+      "Composé à la main, lettre à lettre, et tiré sur papier dans cette pièce. La presse est partie ; le nom est resté.",
+    pressEyebrow: "Composé, encré, imprimé",
+    pressSetTerm: "Composé",
+    pressSetBody:
+      "Les caractères étaient assemblés à la main dans ce bâtiment, et c'est d'ici que Fotakis tirait le journal ΑΓΩΝ — devenu plus tard député et procureur à Athènes.",
+    pressInkedTerm: "Encré",
+    pressInkedBody:
+      "La House of Europe est devenue la maison d'hôtes de l'Université de Crète. Des professeurs et des chercheurs venaient y donner des conférences, et les murs portent des expositions depuis.",
+    pressPressedTerm: "Imprimé",
+    pressPressedBody:
+      "Trois bâtiments des années 1700, toujours debout, aujourd'hui un hôtel. La presse est partie ; l'empreinte qu'elle a laissée est le nom au-dessus de la porte.",
+    waterStripTitle: "Quatre ont leur propre eau",
+    waterHotTub: "Bain à remous privé",
+    waterPlunge: "Bassin chauffé",
+    diptychTitle: "Lumière et encre",
+    diptychInkBody:
+      "Le premier bâtiment, celui où vous arrivez : la réception, le petit-déjeuner et les sept suites. La presse était ici.",
+    diptychLightBody:
+      "Φως veut dire lumière. Sept chambres tranquilles au-dessus des toits, à quatre minutes de la mer et à quelques pas du petit-déjeuner.",
+  },
+
   faqPage: {
     eyebrow: "Bon à savoir",
     title: "Les faits, simplement",

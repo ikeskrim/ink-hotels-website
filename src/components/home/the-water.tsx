@@ -8,6 +8,7 @@ import { Gk } from "@/components/ui/greek";
 import { EVEXIA_IMAGES } from "@/content/generated/suite-images";
 import { getMessages } from "@/i18n";
 import { defaultLocale, type Locale } from "@/i18n/config";
+import { rooms } from "@/content/rooms";
 
 /**
  * The water.
@@ -35,6 +36,13 @@ const PLATES = [
     href: "/rooms/harmony",
   },
 ] as const;
+
+/* Read off the records rather than listed by hand, so the strip cannot say
+   something the room pages do not. Ordered by the same feature order the rest
+   of the site uses. */
+const WATER = rooms
+  .filter((r) => r.hotTub || r.plungePool)
+  .sort((a, b) => (a.featureOrder ?? 99) - (b.featureOrder ?? 99));
 
 export function TheWater({ locale = defaultLocale }: { locale?: Locale }) {
   const m = getMessages(locale);
@@ -81,6 +89,31 @@ export function TheWater({ locale = defaultLocale }: { locale?: Locale }) {
             {m.home.waterTitle}
           </Heading>
           <p className="measure-wide text-paper/80">{m.home.waterBody}</p>
+          <p className="label mt-12 text-phos">{m.voice.waterStripTitle}</p>
+          {/* The four, named, with the one fact that separates them. The
+              section above says four of the seven come with their own water;
+              this is that sentence itemised, so a reader does not have to open
+              four room pages to find out which four and what kind. Drawn from
+              the room records, so it cannot drift from them: three hot tubs
+              and one heated plunge pool, which is exactly what counts.test.ts
+              holds the prose to. */}
+          <ul className="mt-12 grid gap-x-8 gap-y-6 border-t border-paper/15 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+            {WATER.map((r) => (
+              <li key={r.slug}>
+                <InkLink
+                  href={`/rooms/${r.slug}`}
+                  className="font-display text-[length:var(--text-d4)] leading-tight text-paper"
+                >
+                  {r.displayName}
+                </InkLink>
+                <p className="spec mt-2 text-phos">
+                  {r.plungePool ? m.voice.waterPlunge : m.voice.waterHotTub}
+                </p>
+                <p className="spec mt-1 text-olive">{r.sizeSqm} m²</p>
+              </li>
+            ))}
+          </ul>
+
           <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4">
             {PLATES.map((plate) => (
               <InkLink

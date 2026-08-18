@@ -442,6 +442,37 @@ export const en = {
      followed the pointer and found an English title on a German page.
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
+  voice: {
+    standoutEvexia:
+      "A private hot tub set into the terrace, the sea running the full width behind it. You will not share the water, or the view, with anybody.",
+    standoutHarmony:
+      "A heated plunge pool in a courtyard of its own — warm whatever the month — forty square metres on the ground floor, marble underfoot. The city is four minutes away and cannot reach you here.",
+    standoutAgapi:
+      "A suite designed so the door is never the problem: step-free from the side street, a walk-in shower, grab rails, and a serene inner courtyard with an old well. Care, built in.",
+    standoutPhos:
+      "Light is what makes a mark readable. The second house is named for it — seven quiet rooms over the rooftops, a short walk from breakfast.",
+    storyQuote:
+      "Set by hand, one letter at a time, and pulled on paper in this room. The press is gone; the name stayed.",
+    pressEyebrow: "Set, inked, pressed",
+    pressSetTerm: "Set",
+    pressSetBody:
+      "Type laid by hand in this building, and the newspaper ΑΓΩΝ pulled from it by Fotakis — later a congressman and a prosecutor in Athens.",
+    pressInkedTerm: "Inked",
+    pressInkedBody:
+      "The House of Europe became the guest house of the University of Crete. Professors and researchers came to lecture, and the walls have carried exhibitions ever since.",
+    pressPressedTerm: "Pressed",
+    pressPressedBody:
+      "Three buildings of the 1700s, still standing, now a hotel. The press is gone; the impression it left is the name over the door.",
+    waterStripTitle: "Four come with their own water",
+    waterHotTub: "Private hot tub",
+    waterPlunge: "Heated plunge pool",
+    diptychTitle: "Light and ink",
+    diptychInkBody:
+      "The first building, and the one you arrive at: reception, breakfast, and all seven suites. The press was here.",
+    diptychLightBody:
+      "Φως means light. Seven quiet rooms over the rooftops, four minutes from the sea and a short walk from breakfast.",
+  },
+
   faqPage: {
     eyebrow: "Worth knowing",
     title: "The plain facts",

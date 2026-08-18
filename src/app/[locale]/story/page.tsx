@@ -19,6 +19,7 @@ import { pageMetadata } from "@/lib/seo";
 import { getHistory, getHouses, getNeighbourhood } from "@/lib/sanity/content";
 import { getMessages } from "@/i18n";
 import { defaultLocale, isLocale } from "@/i18n/config";
+import { folio } from "@/lib/utils";
 
 export async function generateMetadata({
   params,
@@ -36,6 +37,14 @@ export async function generateMetadata({
     locale,
   });
 }
+
+/* The three beats, in press order. Kept as a table so the markup below stays
+   a loop rather than three near-identical blocks. */
+const BEATS = [
+  { term: "pressSetTerm", body: "pressSetBody" },
+  { term: "pressInkedTerm", body: "pressInkedBody" },
+  { term: "pressPressedTerm", body: "pressPressedBody" },
+] as const;
 
 export default async function StoryPage({
   params,
@@ -163,8 +172,42 @@ export default async function StoryPage({
         </Container>
       </Section>
 
+      {/* ── Set, inked, pressed ───────────────────────────────
+          Three beats, and every fact under them is already on this page or in
+          place.ts: the printing shop and ΑΓΩΝ, the University of Crete guest
+          house, three buildings of the 1700s. The three verbs are the frame,
+          not new claims. */}
+      <Section ground="ink" size="lg" wash="shade" chapter="03">
+        <Container>
+          <blockquote className="mx-auto max-w-4xl text-center">
+            <p className="font-display text-[length:var(--text-d2)] italic leading-[1.15] text-paper">
+              {m.voice.storyQuote}
+            </p>
+          </blockquote>
+
+          <Deboss className="mx-auto mt-[clamp(3rem,6vw,5rem)] max-w-4xl" />
+
+          <ol className="mx-auto mt-[clamp(3rem,6vw,5rem)] grid max-w-5xl gap-x-[clamp(2rem,4vw,3.5rem)] gap-y-10 sm:grid-cols-3">
+            {BEATS.map((beat, i) => (
+              <li key={beat.term}>
+                <span
+                  className="spec mb-4 block text-olive"
+                  aria-hidden="true"
+                >
+                  {folio(i + 1)}
+                </span>
+                <h3 className="font-display text-[length:var(--text-d4)] leading-tight text-paper">
+                  {m.voice[beat.term]}
+                </h3>
+                <p className="mt-3 text-paper/75">{m.voice[beat.body]}</p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </Section>
+
       {/* ── The quarter ───────────────────────────────────────────────── */}
-      <Section ground="paper" size="lg" stock="laid" chapter="03">
+      <Section ground="paper" size="lg" stock="laid" chapter="04">
         <Container>
           <div className="grid gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12 lg:items-start">
             <StickyMedia as="figure" className="lg:col-span-6">
