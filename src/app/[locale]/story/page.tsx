@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { TheName } from "@/components/home/the-name";
-import { Container, Heading, Section } from "@/components/ui/section";
+import { Container, Deboss, Heading, Section, Specimen } from "@/components/ui/section";
 import { MaskReveal, Reveal } from "@/components/motion/reveal";
 import { InkLink } from "@/components/ui/ink-link";
 import { Gk } from "@/components/ui/greek";
@@ -67,7 +67,10 @@ export default async function StoryPage({
       <TheName mode="written" />
 
       {/* ── Back in times ─────────────────────────────────────────────── */}
-      <Section ground="paper" size="lg">
+      <Section ground="paper" size="lg" stock="laid">
+        <Specimen className="left-[clamp(1rem,3vw,2.5rem)] top-[14%]">
+          Ink · Rethymno · MMXXV
+        </Specimen>
         <Container>
           <div className="grid gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12">
             <div className="lg:col-span-5">
@@ -111,8 +114,9 @@ export default async function StoryPage({
       </Section>
 
       {/* ── The buildings ─────────────────────────────────────────────── */}
-      <Section ground="shade" size="lg">
+      <Section ground="shade" size="lg" stock="laid">
         <Container>
+          <Deboss mark className="mb-[clamp(3rem,6vw,5rem)]" />
           <div className="mb-[clamp(2.5rem,5vw,4rem)] border-b border-[color:var(--hairline)] pb-8">
             <p className="label mb-5 text-[color:var(--fg-3)]">
               {m.story.madeOfEyebrow}
@@ -153,7 +157,7 @@ export default async function StoryPage({
       </Section>
 
       {/* ── The quarter ───────────────────────────────────────────────── */}
-      <Section ground="paper" size="lg">
+      <Section ground="paper" size="lg" stock="laid">
         <Container>
           <div className="grid items-center gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12">
             <figure className="lg:col-span-6">

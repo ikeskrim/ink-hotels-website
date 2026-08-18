@@ -67,7 +67,7 @@ export default async function RethymnoPage({
       />
 
       {/* ── The premise ────────────────────────────────────────────────── */}
-      <Section ground="paper" size="lg">
+      <Section ground="paper" size="lg" stock="laid" plaster>
         <Container>
           <div className="grid gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12">
             <div className="lg:col-span-5">
@@ -97,6 +97,7 @@ export default async function RethymnoPage({
             id={chapter.id}
             ground={ground}
             size="lg"
+            stock="laid"
             className="scroll-mt-24"
           >
             <Container>
@@ -170,7 +171,7 @@ export default async function RethymnoPage({
       </CinematicFrame>
 
       {/* ── The landmarks, as an index ─────────────────────────────────── */}
-      <Section ground="paper" size="lg">
+      <Section ground="paper" size="lg" stock="laid" plaster>
         <Container>
           <div className="mb-[clamp(2.5rem,5vw,4rem)] border-b border-[color:var(--hairline)] pb-8">
             <p className="label mb-5 text-[color:var(--fg-3)]">

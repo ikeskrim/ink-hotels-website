@@ -15,9 +15,11 @@ export function TheOldTown({ locale = defaultLocale }: { locale?: Locale }) {
   const m = getMessages(locale);
 
   return (
-    /* Paper again after the dark of the mark section, so the ink bleeds down
-       into it rather than stopping at a ruled edge. */
-    <Section ground="paper" size="lg" plaster wash="ink">
+    /* The wash bleeds in the colour of whatever is directly above, and what
+       is directly above is The Light — shade. It read "ink", from an older
+       running order in which the dark mark section sat here, and painted a
+       dark smear that belonged to no boundary on the page. */
+    <Section ground="paper" size="lg" plaster wash="shade">
       <Container>
         <div className="grid gap-[clamp(2rem,5vw,4rem)] lg:grid-cols-12">
           {/* Tall plate, offset down */}

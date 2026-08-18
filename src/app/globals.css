@@ -506,7 +506,14 @@
     margin-top: 1.15em;
   }
 
-  /* Paper grain — one inline SVG turbulence, no network request. */
+  /* ── Paper stock ──────────────────────────────────────────────────────────
+     One inline SVG turbulence, no network request. Two stocks, because a
+     printer would not have run the room tariff and the house history on the
+     same paper: `wove` is the machine-made sheet — even, almost no tooth, the
+     default everywhere; `laid` is the older sheet, more fibre and the faint
+     chain lines the mould leaves, used where the writing is (Story, the town).
+     The stock varies the same layer rather than adding one, so a fibrous
+     chapter costs no more to paint than a smooth one. */
   .grain {
     position: relative;
   }
@@ -519,6 +526,19 @@
     opacity: 0.04;
     mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  [data-stock="laid"].grain::after {
+    opacity: 0.055;
+    background-image:
+      /* the chain lines: widely spaced, almost subliminal */
+      repeating-linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--color-ink) 3%, transparent) 0px,
+        transparent 1px,
+        transparent 26px
+      ),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.42 0.85' numOctaves='4' seed='5'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23f)'/%3E%3C/svg%3E");
   }
 
   /* ── Grounds with something in them ───────────────────────────────────────
@@ -593,12 +613,16 @@
      The edge where one ground meets the next, softened as ink softens when it
      meets damp paper: a shallow bleed of the incoming colour, with the grain
      of the fibre showing through it. Two gradients and one turbulence — no
-     image, no request. Set `--wash` to the colour that is bleeding in. */
-  .wash {
-    position: relative;
-  }
-  .wash::before {
-    content: "";
+     image, no request. Set `--wash` to the colour that is bleeding in.
+
+     A real element, not a ::before, and that is not a style preference. Both
+     .plaster and .wash wanted the section's single ::before: the cascade gave
+     the background to plaster (declared later) and the height, inset and
+     turbulence mask to wash — so every section carrying both had its whole
+     plaster wall clipped into a 5rem band at the top edge and masked with
+     noise. `the-old-town` shipped that way. Two textures cannot share one
+     pseudo-element, so this one owns a span. */
+  .wash-edge {
     position: absolute;
     inset: -1px 0 auto 0;
     height: clamp(3rem, 6vw, 5.5rem);
@@ -732,6 +756,49 @@
   html[data-ink-cursor] select,
   html[data-ink-cursor] [contenteditable] {
     cursor: auto;
+  }
+
+  /* ── Letterpress deboss ───────────────────────────────────────────────────
+     A rule that has been pushed into the sheet rather than printed onto it.
+     The whole effect is two hairlines: the shadow in the trough, and the lit
+     edge on the ridge below it, from the same light source as every other
+     surface here. Reverse the pair on dark grounds — a deboss in near-black
+     paper catches light on the upper edge instead. */
+  .deboss {
+    height: 2px;
+    border: 0;
+    background:
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--color-ink) 14%, transparent) 0 1px,
+        color-mix(in oklab, var(--color-paper-lit) 55%, transparent) 1px 2px
+      );
+  }
+  [data-ground="ink"] .deboss,
+  [data-ground="night"] .deboss {
+    background:
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--color-paper) 14%, transparent) 0 1px,
+        transparent 1px 2px
+      );
+  }
+
+  /* ── Type specimen ────────────────────────────────────────────────────────
+     The marks a foundry sets in the margin of a specimen sheet — a pilcrow, a
+     section mark, a folio rule. Decoration in the strict sense: aria-hidden,
+     and only on screens wide enough to have a margin to put them in, so they
+     never steal width from the text. */
+  .specimen {
+    position: absolute;
+    writing-mode: vertical-rl;
+    font-family: var(--font-plex-mono), monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: color-mix(in oklab, currentColor 26%, transparent);
+    pointer-events: none;
+    user-select: none;
   }
 
   .sr-only-focusable:not(:focus):not(:focus-within) {

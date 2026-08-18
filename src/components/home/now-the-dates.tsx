@@ -25,7 +25,7 @@ export function NowTheDates({ locale = defaultLocale }: { locale?: Locale }) {
   const mobile = contact.phones[1];
 
   return (
-    <Section id="book" ground="ink" size="lg">
+    <Section id="book" ground="ink" size="lg" wash="paper">
       <Container>
         <div className="grid gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-5">

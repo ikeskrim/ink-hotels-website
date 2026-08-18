@@ -18,6 +18,7 @@ export function Section({
   ground = "paper",
   size = "md",
   grain = true,
+  stock = "wove",
   plaster = false,
   wash,
   label,
@@ -28,6 +29,12 @@ export function Section({
   ground?: Ground;
   size?: "sm" | "md" | "lg" | "none";
   grain?: boolean;
+  /**
+   * Which sheet this chapter is printed on. `wove` is the even machine-made
+   * stock and the default; `laid` carries more fibre and the mould's chain
+   * lines, for the chapters that are writing rather than tariff.
+   */
+  stock?: "wove" | "laid";
   /** Trowel and pore texture, for the long light sections. */
   plaster?: boolean;
   /**
@@ -50,20 +57,71 @@ export function Section({
       id={id}
       data-ground={ground}
       aria-label={label}
-      style={wash ? ({ "--wash": WASH_VAR[wash] } as CSSProperties) : undefined}
+      data-stock={grain && stock === "laid" ? "laid" : undefined}
       className={cn(
         "relative w-full",
         grain && "grain",
         plaster && "plaster",
-        wash && "wash",
         size === "sm" && "py-section-sm",
         size === "md" && "py-section",
         size === "lg" && "py-section-lg",
         className,
       )}
     >
+      {/* The bleeding edge is its own element rather than a ::before, because
+          .plaster wants that pseudo-element too and quietly won. */}
+      {wash ? (
+        <span
+          aria-hidden="true"
+          className="wash-edge"
+          style={{ "--wash": WASH_VAR[wash] } as CSSProperties}
+        />
+      ) : null}
       {children}
     </section>
+  );
+}
+
+/**
+ * A rule pressed into the sheet, optionally with the house mark set into it.
+ *
+ * Presentational and announced as nothing: a divider that a screen reader
+ * reads out is just noise between two sections it can already tell apart.
+ */
+export function Deboss({
+  mark = false,
+  className,
+}: {
+  mark?: boolean;
+  className?: string;
+}) {
+  if (!mark) {
+    return <div aria-hidden="true" className={cn("deboss w-full", className)} />;
+  }
+  return (
+    <div aria-hidden="true" className={cn("flex w-full items-center gap-6", className)}>
+      <div className="deboss flex-1" />
+      <span className="spec tracking-[0.3em] text-[color:var(--fg-3)]">INK</span>
+      <div className="deboss flex-1" />
+    </div>
+  );
+}
+
+/**
+ * A foundry's margin mark. Decoration, so: aria-hidden, and only where there
+ * is a margin wide enough to hold it.
+ */
+export function Specimen({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <span aria-hidden="true" className={cn("specimen hidden xl:block", className)}>
+      {children}
+    </span>
   );
 }
 
