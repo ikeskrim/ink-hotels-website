@@ -2,7 +2,6 @@ import { Container, Heading } from "@/components/ui/section";
 import { CinematicFrame, DepthLayer } from "@/components/motion/depth";
 import { InkLink } from "@/components/ui/ink-link";
 import { reception } from "@/content/site";
-import { folio } from "@/lib/utils";
 import { getMessages } from "@/i18n";
 import { localiseArrival } from "@/i18n/content";
 import { defaultLocale, type Locale } from "@/i18n/config";
@@ -41,10 +40,20 @@ export function TheArrival({ locale = defaultLocale }: { locale?: Locale }) {
         </DepthLayer>
       </CinematicFrame>
 
-      {/* The steps, on the warmest ground on the site. */}
+      {/* The trailer, not the itinerary.
+
+          What stood here was `arrival.steps` rendered as four numbered
+          cards — the same four steps, from the same array, that /arrival
+          renders in full four sections down its own page. Two copies of one
+          list is not depth on the homepage; it is the homepage answering a
+          question the reader has not asked yet, and then /arrival answering
+          it again.
+
+          Nothing is lost: the steps are on /arrival, complete, and the line
+          below goes straight to them. */}
       <section data-ground="sun" className="grain relative py-section">
         <Container>
-          <div className="mb-[clamp(2.5rem,5vw,4rem)] flex flex-col gap-6 border-b border-[color:var(--hairline)] pb-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <Heading size="d3" className="max-w-[16ch]">
               {m.arrival.fromAirport}
             </Heading>
@@ -52,23 +61,6 @@ export function TheArrival({ locale = defaultLocale }: { locale?: Locale }) {
               {m.actions.theWholeArrival} →
             </InkLink>
           </div>
-
-          <ol className="grid gap-x-[clamp(2rem,4vw,3.5rem)] gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-            {arrival.steps.map((step, i) => (
-              <li key={step.title}>
-                <span
-                  className="spec mb-4 block text-[color:var(--fg-3)]"
-                  aria-hidden="true"
-                >
-                  {folio(i + 1)}
-                </span>
-                <h3 className="font-display text-[length:var(--text-d4)] leading-tight">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-[color:var(--fg-2)]">{step.body}</p>
-              </li>
-            ))}
-          </ol>
         </Container>
       </section>
     </>
