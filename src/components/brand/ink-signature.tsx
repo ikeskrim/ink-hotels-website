@@ -1,7 +1,13 @@
 "use client";
 
 import { useId } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { EASE } from "@/components/motion/reveal";
@@ -33,6 +39,7 @@ export function InkSignature({
   delay = 0,
   speed = 1,
   onDone,
+  progress,
 }: {
   className?: string;
   /** False renders the finished mark — the footer's static version. */
@@ -47,6 +54,13 @@ export function InkSignature({
   speed?: number;
   /** Fires when the swash lands, so a caller can follow it with something. */
   onDone?: () => void;
+  /**
+   * Drive the hand from a scroll position, 0 to 1, instead of from a clock.
+   * The Story page passes its own scroll progress so the reader writes the
+   * word at their own pace — and can write it backwards. `speed`, `delay` and
+   * `onDone` all belong to the timed path and are ignored when this is set.
+   */
+  progress?: MotionValue<number>;
 }) {
   const reduced = useReducedMotion();
   const uid = useId().replace(/:/g, "");
@@ -58,6 +72,23 @@ export function InkSignature({
   const WRITE = 1.9 * speed;
   const NIB_FROM = 26;
   const NIB_TO = 250;
+
+  /* Scrubbing is motion too: reduced motion gets the finished mark, not a
+     hand that moves when you scroll. */
+  const scrub = Boolean(progress) && !reduced;
+
+  /* Hooks cannot be conditional, so the transforms are always built — off a
+     parked value of 1 (the finished state) when nothing is driving them. */
+  const parked = useMotionValue(1);
+  const p = progress ?? parked;
+  /* The word is written over the first 62% of the travel; the swash overlaps
+     its tail and lands at the end. Same proportions as the timed version. */
+  const clipWidth = useTransform(p, [0, 0.62], [0, 320], { clamp: true });
+  const swashLength = useTransform(p, [0.45, 0.95], [0, 1], { clamp: true });
+  const nibX = useTransform(p, [0, 0.62], [NIB_FROM, NIB_TO], { clamp: true });
+  const nibOpacity = useTransform(p, [0, 0.05, 0.62, 0.72], [0, 1, 1, 0], {
+    clamp: true,
+  });
 
   return (
     <svg
@@ -72,9 +103,13 @@ export function InkSignature({
             x="0"
             y="0"
             height="176"
-            initial={play ? { width: 0 } : false}
-            animate={{ width: 320 }}
-            transition={{ duration: play ? WRITE : 0, delay, ease: EASE }}
+            {...(scrub
+              ? { style: { width: clipWidth } }
+              : {
+                  initial: play ? { width: 0 } : false,
+                  animate: { width: 320 },
+                  transition: { duration: play ? WRITE : 0, delay, ease: EASE },
+                })}
           />
         </clipPath>
       </defs>
@@ -101,31 +136,39 @@ export function InkSignature({
         strokeWidth="3.2"
         strokeLinecap="round"
         opacity={0.75}
-        initial={play ? { pathLength: 0 } : false}
-        animate={{ pathLength: 1 }}
-        transition={{
-          duration: play ? 1.05 * speed : 0,
-          delay: delay + (play ? WRITE * 0.72 : 0),
-          ease: EASE,
-        }}
-        onAnimationComplete={onDone}
+        {...(scrub
+          ? { style: { pathLength: swashLength } }
+          : {
+              initial: play ? { pathLength: 0 } : false,
+              animate: { pathLength: 1 },
+              transition: {
+                duration: play ? 1.05 * speed : 0,
+                delay: delay + (play ? WRITE * 0.72 : 0),
+                ease: EASE,
+              },
+              onAnimationComplete: onDone,
+            })}
       />
 
       {/* The nib. Present only while it is writing. */}
-      {play && (
+      {(play || scrub) && (
         <motion.g
           aria-hidden="true"
-          initial={{ x: NIB_FROM, opacity: 0 }}
-          animate={{
-            x: [NIB_FROM, NIB_TO, NIB_TO],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: WRITE * 1.15,
-            delay,
-            ease: EASE,
-            times: [0, 0.86, 1],
-          }}
+          {...(scrub
+            ? { style: { x: nibX, opacity: nibOpacity } }
+            : {
+                initial: { x: NIB_FROM, opacity: 0 },
+                animate: {
+                  x: [NIB_FROM, NIB_TO, NIB_TO],
+                  opacity: [0, 1, 0],
+                },
+                transition: {
+                  duration: WRITE * 1.15,
+                  delay,
+                  ease: EASE,
+                  times: [0, 0.86, 1],
+                },
+              })}
         >
           <g transform="translate(0 112) rotate(24)">
             {/* A nib: a slim leaf with a slit and a breather hole. */}

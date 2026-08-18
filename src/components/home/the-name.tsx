@@ -48,8 +48,17 @@ export function TheName({ mode = "masthead" }: { mode?: "masthead" | "written" }
   const reduced = useReducedMotion();
   const { m, locale } = useI18n();
 
+  /* No `overflow-hidden` in written mode. The writing block pins itself with
+     `position: sticky`, and an ancestor with a clipping overflow becomes the
+     sticky element's containing block — so the pin silently does nothing. The
+     masthead keeps it: its title-page rules are drawn past the edge. */
   return (
-    <Section id="the-name" ground="ink" size="lg" className="relative overflow-hidden">
+    <Section
+      id="the-name"
+      ground="ink"
+      size="lg"
+      className={mode === "masthead" ? "relative overflow-hidden" : "relative"}
+    >
       {/* A single sheet of light falling across the upper page, so the dark
           ground is lit rather than merely dark. */}
       <div
@@ -84,7 +93,7 @@ export function TheName({ mode = "masthead" }: { mode?: "masthead" | "written" }
         </div>
 
         {/* ── The writing, on the page that explains it ─────────────────── */}
-        {mode === "written" && <TheWriting />}
+        {mode === "written" && <TheWriting scrub />}
 
         {/* ── The title page ───────────────────────────────────────────── */}
         {mode === "masthead" && (

@@ -1,7 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 import { InkSignature } from "@/components/brand/ink-signature";
 import { PressMark } from "@/components/brand/press-mark";
@@ -26,9 +33,21 @@ import { useI18n } from "@/i18n/provider";
  * swash, press — is over inside about two and a half seconds; a desktop runs
  * at 1.45×, slow enough to watch. Under `prefers-reduced-motion` nothing moves:
  * the finished word and the finished mark are simply there.
+ *
+ * ── `scrub`: the reader holds the pen ──────────────────────────────────────
+ * On the Story page the hand is driven by scroll position rather than a clock.
+ * The block pins for a screen and a half while the nib crosses, so the word is
+ * written at the reader's own pace — and unwritten if they scroll back up,
+ * which is the whole argument for scrubbing over playing: the gesture belongs
+ * to the reader, not to a timer they happened to arrive in the middle of.
+ *
+ * The press still answers rather than scrubs. An impression is instantaneous —
+ * a platen either has struck the paper or has not — so it fires once when the
+ * hand passes 72% and does not run backwards with the scroll.
  */
-export function TheWriting() {
+export function TheWriting({ scrub = false }: { scrub?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
+  const track = useRef<HTMLDivElement>(null);
   /* Not `once`. The whole point is that it can be watched twice. */
   const inView = useInView(ref, { margin: "0px 0px -30% 0px" });
   const reduced = useReducedMotion();
@@ -36,6 +55,25 @@ export function TheWriting() {
 
   const [run, setRun] = useState(0);
   const [small, setSmall] = useState(false);
+  const [struck, setStruck] = useState(false);
+
+  /* The track is always mounted so this hook is never conditional; when the
+     block is not scrubbing the track is a plain wrapper of its own height and
+     the progress it reports goes unread. */
+  const { scrollYProgress } = useScroll({
+    target: track,
+    offset: ["start start", "end end"],
+  });
+  /* The hand uses the first 78% of the pin, leaving the last fifth as a beat
+     to look at the finished mark before the block releases. */
+  const hand = useTransform(scrollYProgress, [0, 0.78], [0, 1], { clamp: true });
+
+  useMotionValueEvent(hand, "change", (v) => {
+    /* Latched, not toggled: crossing back under 72% must not un-strike a
+       press that has already landed. It resets only when the reader leaves
+       the block entirely, which the entrance observer below handles. */
+    if (v > 0.72 && !struck) setStruck(true);
+  });
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 640px)");
@@ -55,18 +93,33 @@ export function TheWriting() {
   const pressDelay = 1.9 * speed * 0.72 + 1.05 * speed * 0.55;
 
   const playing = run > 0 && !reduced;
+  /* Reduced motion gets neither a clock nor a scroll-driven hand. */
+  const scrubbing = scrub && !reduced;
 
   return (
     <div
+      ref={track}
+      className={
+        scrubbing
+          ? "relative mt-[clamp(3rem,8vh,6rem)] h-[240vh]"
+          : "mt-[clamp(3rem,8vh,6rem)]"
+      }
+    >
+    <div
       ref={ref}
-      className="mx-auto mt-[clamp(3rem,8vh,6rem)] flex max-w-4xl flex-col items-center"
+      className={
+        scrubbing
+          ? "sticky top-0 mx-auto flex h-screen max-w-4xl flex-col items-center justify-center"
+          : "mx-auto flex max-w-4xl flex-col items-center"
+      }
     >
       <div className="flex w-full items-end justify-center gap-[clamp(1.5rem,5vw,4rem)]">
         <InkSignature
-          key={`sig-${run}`}
+          key={scrubbing ? "sig-scrub" : `sig-${run}`}
           animate={playing}
           speed={speed}
           delay={0.2}
+          progress={scrubbing ? hand : undefined}
           className="h-[clamp(5rem,17vw,11rem)] w-auto shrink-0 text-phos"
         />
 
@@ -74,10 +127,10 @@ export function TheWriting() {
             the hotel, and a screen reader that meets "Ink" twice in a row has
             been told nothing the second time. */}
         <PressMark
-          key={`press-${run}`}
-          animate={playing}
-          speed={speed}
-          delay={pressDelay}
+          key={scrubbing ? `press-strike-${struck}` : `press-${run}`}
+          animate={scrubbing ? struck : playing}
+          speed={scrubbing ? 1 : speed}
+          delay={scrubbing ? 0 : pressDelay}
           aria-hidden="true"
           className="h-[clamp(3rem,9vw,6rem)] w-auto shrink-0 text-paper/70"
         />
@@ -103,6 +156,7 @@ export function TheWriting() {
       >
         {m.home.pressImprint}
       </motion.p>
+    </div>
     </div>
   );
 }
