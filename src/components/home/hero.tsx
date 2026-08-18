@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { blurFor } from "@/content/generated/blur";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 import { AvailabilityForm } from "@/components/booking/availability-form";
@@ -144,8 +144,30 @@ export function Hero() {
     return () => window.clearInterval(id);
   }, [cycling, reduced]);
 
+  /* ── Parallax, static-first ───────────────────────────────────────────
+     The photography drifts a little slower than the page leaving it. Nothing
+     moves until the reader scrolls, so the first screen — which is the one
+     every visitor sees, and the only one Lighthouse ever sees — is a still
+     photograph; the layer is composed at its scale and start offset rather
+     than animating into place. One property moves, on the compositor, inside a
+     section that already clips. Reduced motion holds it still: this is scenery
+     sliding under text, which is precisely the motion a vestibular disorder
+     cannot tolerate. */
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  /* The layer is scaled 1.12 so it overhangs the section by 6% top and bottom,
+     and the drift is ±5% — strictly inside the overhang. A parallax layer at
+     `inset-0` with any travel at all pulls its own edge into view and shows the
+     ground behind the photograph; the overhang is what stops that, and it has
+     to be larger than the travel or the bug is merely rarer. */
+  const plateY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+
   return (
     <section
+      ref={heroRef}
       data-ground="ink"
       /* `min-h`, never a fixed `h`. At a fixed height the content is taller
          than the box on any viewport under ~840px — a 1366×768 laptop, a
@@ -156,7 +178,11 @@ export function Hero() {
       aria-label="Ink Hotels, Rethymno"
     >
       {/* ── Photography ────────────────────────────────────────────────── */}
-      <div className="absolute inset-0 -z-10" data-decorative>
+      <motion.div
+        className="absolute inset-0 -z-10"
+        data-decorative
+        style={reduced ? undefined : { y: plateY, scale: 1.12 }}
+      >
         {FRAMES.map((frame, i) => {
           /* Frames are mounted one ahead of where we are, never all at once.
              They all fill the viewport, so `loading="lazy"` does not hold them
@@ -229,7 +255,7 @@ export function Hero() {
               "radial-gradient(60% 55% at 78% 18%, rgb(245 201 123 / 0.30) 0%, rgb(245 201 123 / 0.10) 42%, transparent 70%)",
           }}
         />
-      </div>
+      </motion.div>
 
       <span className="register-mark left-6 top-24 hidden lg:block" aria-hidden="true" />
       <span className="register-mark right-6 top-24 hidden lg:block" aria-hidden="true" />
