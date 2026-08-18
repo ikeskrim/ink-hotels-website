@@ -21,6 +21,8 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema, roomSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
+import { usesSuiteTemplate } from "@/content/suite-template";
+import { SuiteTemplate } from "@/components/rooms/suite-template";
 
 export function generateStaticParams() {
   return rooms.map((r) => ({ slug: r.slug }));
@@ -121,6 +123,80 @@ export default async function RoomPage({
     ...(room.level ? [{ term: m.rooms.level, value: room.level }] : []),
     ...(room.renovated ? [{ term: m.rooms.renovated, value: room.renovated }] : []),
   ];
+
+  /* Stage 6.1, behind a flag. With the flag off for this slug the function
+     returns below and today's page is rendered untouched — the new template is
+     not even constructed. See content/suite-template.ts. */
+  if (usesSuiteTemplate(room.slug)) {
+    return (
+      <>
+        <JsonLd
+          data={[
+            roomSchema(room),
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Rooms", path: "/rooms" },
+              { name: room.displayName, path: `/rooms/${room.slug}` },
+            ]),
+          ]}
+        />
+        <SuiteTemplate
+          room={room}
+          houseName={house?.name ?? ""}
+          locale={locale}
+          standout={STANDOUT[room.slug] ? m.voice[STANDOUT[room.slug]!] : undefined}
+        >
+          {/* Deliberately re-stated rather than hoisted out of the block
+              below. Hoisting would edit the page that is still live for the
+              other nineteen rooms, and the guardrail on this rebuild is that
+              today's pages are not touched until a suite is migrated. The
+              duplication lasts exactly as long as the flag does. */}
+          {related.length > 0 && (
+            <Section ground="sun" size="md">
+              <Container>
+                <h2 className="label mb-8 text-[color:var(--fg-3)]">
+                  {room.kind === "suite"
+                    ? m.rooms.oftenArranged
+                    : m.rooms.oftenArrangedRoom}
+                </h2>
+                <ul className="grid gap-x-[clamp(1.5rem,3vw,3rem)] gap-y-8 sm:grid-cols-3">
+                  {related.map((exp) => (
+                    <li key={exp.slug}>
+                      <Link
+                        href={`/experiences/${exp.slug}`}
+                        className="group block focus-visible:outline-offset-4"
+                      >
+                        {exp.image && (
+                          <div className="relative aspect-[4/3] overflow-hidden">
+                            {/* Decorative: the heading directly beneath is
+                                inside the same link and already names the
+                                experience, so an alt repeating it gives a
+                                screen reader the title twice. axe flags this
+                                as image-redundant-alt, and it is right. */}
+                            <Image
+                              src={exp.image}
+                              alt=""
+                              fill
+                              sizes="(min-width: 640px) 30vw, 100vw"
+                              quality={70}
+                              className="object-cover transition-transform duration-[1200ms] ease-settle group-hover:scale-[1.04]"
+                            />
+                          </div>
+                        )}
+                        <h3 className="mt-4 font-display text-[length:var(--text-d4)] leading-tight">
+                          {exp.title}
+                        </h3>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </Container>
+            </Section>
+          )}
+        </SuiteTemplate>
+      </>
+    );
+  }
 
   return (
     <>
