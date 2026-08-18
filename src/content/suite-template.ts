@@ -16,7 +16,28 @@
  * Inventory is frozen: this list may only ever contain slugs that already
  * exist in `rooms.ts`. It never adds a room, renames one, or changes a count.
  */
-export const SUITE_TEMPLATE_SLUGS: readonly string[] = ["evexia", "harmony"];
+export const SUITE_TEMPLATE_SLUGS: readonly string[] = [
+  "evexia",
+  "harmony",
+  "agapi",
+  "pathos",
+  "elpida",
+  "eros",
+  "zoi",
+  "sea-view-balcony-house-of-europe",
+  "sea-view-house-of-europe",
+  "side-sea-view-balcony-house-of-europe",
+  "balcony-house-of-europe",
+  "standard-house-of-europe",
+  "two-bedroom-apartment-house-of-europe",
+  "room-with-terrace-phos",
+  "superior-room-with-balcony-phos",
+  "superior-balcony-phos",
+  "standard-phos",
+  "triple-phos",
+  "quadruple-phos",
+  "residence-of-the-old-port",
+];
 
 export function usesSuiteTemplate(slug: string): boolean {
   return SUITE_TEMPLATE_SLUGS.includes(slug);
