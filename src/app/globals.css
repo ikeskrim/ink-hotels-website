@@ -801,6 +801,44 @@
     user-select: none;
   }
 
+  /* ── Card reveal ──────────────────────────────────────────────────────────
+     A room card leads with its photograph and keeps its specifics underneath,
+     surfacing them when the reader shows interest.
+
+     The direction of this rule matters more than the effect. The base state is
+     VISIBLE, and the hiding only happens inside `(hover: hover)`. Written the
+     other way round — hidden by default, revealed on :hover — the specifics
+     would be permanently invisible on every phone and tablet, because a touch
+     device never hovers. That is the standard way this pattern ships broken.
+
+     `:focus-within` is not optional either: without it a keyboard reader tabs
+     to a card and is told nothing at all.
+
+     Reduced motion keeps the content but drops the movement, rather than
+     animating more slowly. */
+  @media (hover: hover) and (pointer: fine) {
+    .card-reveal {
+      opacity: 0;
+      transform: translateY(0.5rem);
+      transition:
+        opacity 600ms var(--ease-settle),
+        transform 600ms var(--ease-settle);
+    }
+    .group:hover .card-reveal,
+    .group:focus-within .card-reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  }
+
   .sr-only-focusable:not(:focus):not(:focus-within) {
     position: absolute;
     width: 1px;

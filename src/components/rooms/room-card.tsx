@@ -13,7 +13,26 @@ import { localePath } from "@/i18n/config";
 import { roomSpecs } from "@/i18n/specs";
 
 /**
- * A room, presented as a plate with its lockup beneath.
+ * A room, led by its photograph.
+ *
+ * The plate is the card: full-bleed, portrait, with the house and the room's
+ * name set into the foot of it and the specifics — outlook, terrace, size,
+ * beds — surfacing underneath when the reader shows interest. Twenty rooms
+ * shown as twenty photographs is a page you look at; twenty rooms shown as
+ * twenty spec lists is a page you audit.
+ *
+ * ── Nothing is traded away for the effect ──────────────────────────────────
+ * The link, the photograph count, the badge and the full spec line are all
+ * still here. The reveal changes when the specifics are shown, never whether
+ * they exist — they are in the markup on first paint, so they are in the page
+ * source, in the accessible tree, and in what a crawler reads.
+ *
+ * ── The hover rule points the safe way ─────────────────────────────────────
+ * `.card-reveal` is visible by default and only hides itself inside
+ * `(hover: hover)`. Authored the other way round — hidden, revealed on
+ * :hover — the specifics would be permanently invisible on every phone, which
+ * is how this pattern usually ships broken. Focus reveals it too, or a
+ * keyboard reader tabs onto a card and is told nothing.
  *
  * We never rename a room — the string here is re-laid out from the official
  * name the reservation engine uses, so recognition at handoff is lossless. The
@@ -54,7 +73,7 @@ export function RoomCard({
         href={localePath(locale, `/rooms/${room.slug}`)}
         className="block focus-visible:outline-offset-4"
       >
-        <div className="relative aspect-[3/2] overflow-hidden bg-[color:var(--bg-lift)]">
+        <div className="relative aspect-[4/5] overflow-hidden bg-[color:var(--bg-lift)]">
           {cover && (
             <Image
               src={cover}
@@ -68,38 +87,46 @@ export function RoomCard({
               className="object-cover transition-transform duration-[1200ms] ease-settle group-hover:scale-[1.04]"
             />
           )}
+
+          {/* The scrim is not decoration — it is what makes the lockup legible
+              over an unknown photograph. Deepest at the foot, where the type
+              sits, and it strengthens a little on hover as the reveal arrives. */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/25 to-transparent transition-opacity duration-700 ease-settle group-hover:opacity-100 sm:opacity-90"
+          />
+
           {/* The facts a guest filters on, said on the plate rather than three
               clicks in: the hot tub, the plunge pool, step-free access, and
-              whether the room takes children. */}
-          {/* One badge, not four. A card answers one question; the detail
-              page carries the full set. */}
+              whether the room takes children. One badge, not four — a card
+              answers one question; the detail page carries the full set. */}
           <RoomBadges room={room} limit={1} className="absolute left-3 top-3" />
+
           {room.images.length > 1 && (
-            <span className="spec absolute bottom-3 right-3 bg-ink/70 px-2 py-1 text-paper backdrop-blur-sm">
+            <span className="spec absolute right-3 top-3 bg-ink/70 px-2 py-1 text-paper backdrop-blur-sm">
               {room.images.length}
             </span>
           )}
-        </div>
 
-        <div className="mt-5">
-          <p className="label mb-2.5 text-[color:var(--fg-3)]">{house?.name}</p>
-          <h3 className="font-display text-[length:var(--text-d4)] leading-tight">
-            <span className="relative inline-block">
-              {room.displayName}
-              <span
-                aria-hidden="true"
-                className="absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-[600ms] ease-settle group-hover:origin-left group-hover:scale-x-100"
-              />
-            </span>
-          </h3>
-          {attributes.length > 0 && (
-            <p className="mt-2 text-[color:var(--fg-2)]">
-              {attributes.join(" · ")}
-            </p>
-          )}
-          <p className="spec mt-3 text-[color:var(--fg-3)]">
-            {specs.join(" · ")}
-          </p>
+          <div className="absolute inset-x-0 bottom-0 p-[clamp(1rem,2vw,1.5rem)]">
+            <p className="label mb-2 text-paper/70">{house?.name}</p>
+            <h3 className="font-display text-[length:var(--text-d4)] leading-tight text-paper">
+              <span className="relative inline-block">
+                {room.displayName}
+                <span
+                  aria-hidden="true"
+                  className="absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-[600ms] ease-settle group-hover:origin-left group-hover:scale-x-100"
+                />
+              </span>
+            </h3>
+
+            <div className="card-reveal">
+              {attributes.length > 0 && (
+                <p className="mt-2.5 text-paper/85">{attributes.join(" · ")}</p>
+              )}
+              <p className="spec mt-2 text-paper/65">{specs.join(" · ")}</p>
+            </div>
+          </div>
         </div>
       </Link>
     </article>
