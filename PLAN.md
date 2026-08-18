@@ -1,5 +1,12 @@
 # Ink Hotels — consolidated plan
 
+> **PROGRESS (2026-08-18).** Stage 4 is closed and Stage 5 is closed: 4.3–4.5 and
+> 5.1–5.8 are all built, measured at six checkpoints and pushed; `/` sits at its
+> known 83 floor and every other route is 87–92.
+> **Next session picks up at Stage 6** — light items 6.3 (FAQ accordion), 6.4
+> (footer letterpress mark) and 6.6 (copy pass ×5 locales) are unstarted; 6.1,
+> 6.2 and 6.5 still need the owner in the room.
+
 Supersedes every previous round document. Repo:
 [ikeskrim/ink-hotels-website](https://github.com/ikeskrim/ink-hotels-website) ·
 Preview: [ink-hotels-website.vercel.app](https://ink-hotels-website.vercel.app)
