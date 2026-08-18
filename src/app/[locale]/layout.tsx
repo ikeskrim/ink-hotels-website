@@ -16,6 +16,7 @@ import { SITE_URL, site } from "@/content/site";
 import { Preloader } from "@/components/motion/preloader";
 import { RouteTransition } from "@/components/motion/route-transition";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
+import { InkCursor } from "@/components/motion/ink-cursor";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { BookingDock } from "@/components/booking/booking-dock";
@@ -201,6 +202,7 @@ export default async function RootLayout({
 
           <Preloader />
           <RouteTransition />
+          <InkCursor />
           <SmoothScroll />
           <SiteHeader />
 

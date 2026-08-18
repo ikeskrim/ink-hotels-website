@@ -715,6 +715,25 @@
     transition-timing-function: var(--ease-state);
   }
 
+  /* The ink cursor replaces the pointer, so the pointer goes away — but only
+     once the script that draws the replacement has actually run and set the
+     attribute. Hiding it from a stylesheet would leave a no-JS visitor with no
+     cursor at all. See components/motion/ink-cursor.tsx. */
+  html[data-ink-cursor],
+  html[data-ink-cursor] * {
+    cursor: none;
+  }
+
+  /* Except where the native shape carries information the dot cannot: the
+     I-beam says where the caret lands, and the resize handle says the corner
+     is draggable. */
+  html[data-ink-cursor] input,
+  html[data-ink-cursor] textarea,
+  html[data-ink-cursor] select,
+  html[data-ink-cursor] [contenteditable] {
+    cursor: auto;
+  }
+
   .sr-only-focusable:not(:focus):not(:focus-within) {
     position: absolute;
     width: 1px;
