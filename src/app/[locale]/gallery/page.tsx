@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/page-hero";
 import { Container, Section } from "@/components/ui/section";
 import { GalleryGrid } from "@/components/gallery/gallery-grid";
+import { ParallaxBand } from "@/components/gallery/parallax-band";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
@@ -72,6 +73,18 @@ export default async function GalleryPage({
         imageAlt="Rethymno old town seen from above, rooftops running down to the sea"
         height="sm"
       />
+
+      {/* A drift of frames between the hero and the index — the room read
+          before the catalogue. Decorative and clipped; every photograph in it
+          appears properly below. */}
+      <Section ground="shade" size="sm" grain={false} wash="paper">
+        <ParallaxBand
+          images={galleryItems
+            .filter((_, i) => i % 5 === 0)
+            .slice(0, 9)
+            .map((g) => ({ src: g.src, alt: g.alt }))}
+        />
+      </Section>
 
       <Section ground="paper" size="md">
         <Container wide>
