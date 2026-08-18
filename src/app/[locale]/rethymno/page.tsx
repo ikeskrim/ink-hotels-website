@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { PageHero } from "@/components/layout/page-hero";
-import { Container, Heading, Section } from "@/components/ui/section";
+import { Container, Heading, Section, StickyMedia } from "@/components/ui/section";
 import { Reveal } from "@/components/motion/reveal";
 import { CinematicFrame, DepthImage, DepthLayer } from "@/components/motion/depth";
 import { InkLink } from "@/components/ui/ink-link";
@@ -102,16 +102,23 @@ export default async function RethymnoPage({
             className="scroll-mt-24"
           >
             <Container>
-              <div className="grid items-center gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12">
-                <div className={`lg:col-span-7 ${flip ? "lg:order-2" : ""}`}>
+              <div className="grid gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12 lg:items-start">
+                <StickyMedia className={`lg:col-span-7 ${flip ? "lg:order-2" : ""}`}>
+                  {/* Capped rather than free 4:3. A pinned plate has to be
+                      shorter than the prose beside it or there is nothing for
+                      it to travel through — measured, the uncapped plate was
+                      563px against text columns of 470–796px, so it was the
+                      tallest thing in the row and sticky did exactly nothing
+                      while looking perfectly written. It is also simply wrong
+                      to pin something taller than the screen. */}
                   <DepthImage
                     src={chapter.image}
                     alt={chapter.imageAlt}
-                    className="aspect-[4/3]"
+                    className="aspect-[4/3] lg:aspect-auto lg:h-[clamp(20rem,44vh,28rem)]"
                     sizes="(min-width: 1024px) 58vw, 100vw"
                     travel={12}
                   />
-                </div>
+                </StickyMedia>
 
                 <div className={`lg:col-span-5 ${flip ? "lg:order-1" : ""}`}>
                   <DepthLayer drift={-6} fade={false}>

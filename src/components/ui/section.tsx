@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties, ElementType, ReactNode } from "react";
 import { cn, folio } from "@/lib/utils";
 import { SplitReveal } from "@/components/motion/split-reveal";
 
@@ -129,6 +129,45 @@ export function Specimen({
     <span aria-hidden="true" className={cn("specimen hidden xl:block", className)}>
       {children}
     </span>
+  );
+}
+
+/**
+ * The plate holds; the text moves past it.
+ *
+ * A chapter's photograph pins at the top of the viewport while its prose
+ * advances alongside — so the reader keeps looking at the place they are
+ * reading about instead of scrolling it off the top of the screen.
+ *
+ * ── Three conditions, all of them easy to break silently ───────────────────
+ *
+ * ONLY WHERE THERE ARE TWO COLUMNS. Below `lg` the layout stacks, and a
+ * pinned image above stacked text is a photograph that will not go away.
+ *
+ * THE ROW MUST NOT STRETCH. A grid row defaults to `align-items: stretch`, so
+ * the media column is already as tall as the text column and has no room left
+ * to travel — sticky then does exactly nothing while looking correctly
+ * written. Hence `self-start`, and `items-start` on the row rather than the
+ * `items-center` these rows used to carry.
+ *
+ * NO CLIPPING OR TRANSFORMED ANCESTOR. Either one becomes the containing block
+ * for the sticky element and the pin quietly stops working — the same trap
+ * that `overflow-hidden` on TheName set for the Story write-on.
+ */
+export function StickyMedia({
+  children,
+  className,
+  as: Tag = "div",
+}: {
+  children: ReactNode;
+  className?: string;
+  /** `figure` where the plate is a plate, so the element stays honest. */
+  as?: ElementType;
+}) {
+  return (
+    <Tag className={cn("lg:sticky lg:top-[max(6rem,12vh)] lg:self-start", className)}>
+      {children}
+    </Tag>
   );
 }
 

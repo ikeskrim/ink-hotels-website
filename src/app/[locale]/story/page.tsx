@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { TheName } from "@/components/home/the-name";
-import { Container, Deboss, Heading, Section, Specimen } from "@/components/ui/section";
+import {
+  Container,
+  Deboss,
+  Heading,
+  Section,
+  Specimen,
+  StickyMedia,
+} from "@/components/ui/section";
 import { MaskReveal, Reveal } from "@/components/motion/reveal";
 import { InkLink } from "@/components/ui/ink-link";
 import { Gk } from "@/components/ui/greek";
@@ -159,9 +166,9 @@ export default async function StoryPage({
       {/* ── The quarter ───────────────────────────────────────────────── */}
       <Section ground="paper" size="lg" stock="laid" chapter="03">
         <Container>
-          <div className="grid items-center gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12">
-            <figure className="lg:col-span-6">
-              <MaskReveal className="aspect-[4/5]">
+          <div className="grid gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12 lg:items-start">
+            <StickyMedia as="figure" className="lg:col-span-6">
+              <MaskReveal className="aspect-[4/5] lg:aspect-auto lg:h-[clamp(24rem,56vh,34rem)]">
                 <Image
                   src="/media/12fdb3e377a57fa420aa8dcbea7feaf4.webp"
                   alt="The Fortezza fortress above the old town of Rethymno"
@@ -172,7 +179,7 @@ export default async function StoryPage({
                   className="graded h-full w-full object-cover"
                 />
               </MaskReveal>
-            </figure>
+            </StickyMedia>
 
             <div className="lg:col-span-6">
               <Reveal>
