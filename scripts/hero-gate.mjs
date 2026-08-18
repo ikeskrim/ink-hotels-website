@@ -1,6 +1,6 @@
 /* Prove the hero starts static and the cycle begins only after an LCP entry. */
-import { chromium } from "playwright";
-const b = await chromium.launch();
+import { launch, goto } from "./lib/browser.mjs";
+const b = await launch();
 const p = await b.newPage({ viewport: { width: 412, height: 915 } });
 const marks = [];
 await p.exposeFunction("__mark", (m, t) => marks.push([m, Math.round(t)]));

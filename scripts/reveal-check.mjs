@@ -13,15 +13,14 @@
  * Also measures the largest vertical gap between visible content, which is
  * the other half of the complaint: not invisible, just very far apart.
  */
-import { chromium } from "playwright";
-import { goto } from "./lib/goto.mjs";
+import { launch, goto } from "./lib/browser.mjs";
 
 const BASE = process.env.BASE ?? "http://localhost:3000";
 const ROUTES = process.argv.slice(2).length
   ? process.argv.slice(2)
   : ["/", "/rooms", "/rethymno", "/story", "/experiences", "/gallery", "/arrival"];
 
-const browser = await chromium.launch();
+const browser = await launch();
 let failures = 0;
 
 for (const route of ROUTES) {

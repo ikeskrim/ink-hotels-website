@@ -20,8 +20,7 @@
  *
  *   BASE=http://localhost:3000 node scripts/locale-roundtrip.mjs
  */
-import { chromium } from "playwright";
-import { goto } from "./lib/goto.mjs";
+import { launch, goto } from "./lib/browser.mjs";
 
 const BASE = (process.env.BASE ?? "http://localhost:3000").replace(/\/$/, "");
 const LOCALES = ["el", "de", "fr", "nl"];
@@ -38,7 +37,7 @@ const FINGERPRINT = {
 /* Unprefixed paths that are legitimately not localised pages. */
 const EXEMPT = "^(/$|/(el|de|fr|nl)(/|$)|/studio|/api|/media|/#|/opengraph|/icon|/apple-icon|/robots|/sitemap)";
 
-const browser = await chromium.launch();
+const browser = await launch();
 const problems = [];
 
 for (const locale of LOCALES) {
@@ -47,9 +46,7 @@ for (const locale of LOCALES) {
   const page = await ctx.newPage();
 
   for (const path of PAGES) {
-    const res = await goto(page, `${BASE}/${locale}${path}`, {
-      waitUntil: "domcontentloaded",
-    });
+    const res = await goto(page, `${BASE}/${locale}${path}`, {});
     const where = path || "/";
 
     if (!res || res.status() !== 200) {
@@ -82,7 +79,7 @@ for (const locale of LOCALES) {
   }
 
   /* The control a guest actually touches. */
-  await goto(page, BASE + "/", { waitUntil: "domcontentloaded" });
+  await goto(page, BASE + "/");
   await page.locator('button[aria-haspopup="listbox"]').first().click();
   const box = page.locator('[role="listbox"]').first();
   await box.waitFor({ state: "visible" });

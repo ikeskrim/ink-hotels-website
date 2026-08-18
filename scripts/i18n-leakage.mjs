@@ -18,7 +18,7 @@
  * and Dutch, German is not a half-finished locale, it is the same locale in
  * the same state as the others.
  */
-import { chromium } from "playwright";
+import { launch } from "./lib/browser.mjs";
 
 const BASE = process.env.BASE ?? "http://localhost:3000";
 const LOCALES = ["el", "de", "fr", "nl"];
@@ -30,7 +30,7 @@ const collect = () =>
     .map((el) => (el.textContent || "").replace(/\s+/g, " ").trim())
     .filter((t) => t.length >= 25 && /[A-Za-zΑ-Ωα-ω]/.test(t));
 
-const browser = await chromium.launch();
+const browser = await launch();
 const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
 const page = await ctx.newPage();
 

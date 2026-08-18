@@ -3,7 +3,7 @@
  *   BASE=http://localhost:3100 node scripts/a11y.mjs
  * Dev tooling only.
  */
-import { chromium } from "playwright";
+import { launch } from "./lib/browser.mjs";
 import { AxeBuilder } from "@axe-core/playwright";
 
 const BASE = process.env.BASE ?? "http://localhost:3100";
@@ -42,7 +42,7 @@ const VIEWPORTS = [
   { name: "mobile", width: 390, height: 844 },
 ];
 
-const browser = await chromium.launch();
+const browser = await launch();
 let total = 0;
 const bySeverity = { critical: 0, serious: 0, moderate: 0, minor: 0 };
 const seen = new Map();

@@ -4,12 +4,12 @@
  *
  * Run: BASE=http://localhost:3000 node scripts/font-probe.mjs [route ...]
  */
-import { chromium } from "playwright";
+import { launch, goto } from "./lib/browser.mjs";
 
 const BASE = process.env.BASE ?? "http://localhost:3000";
 const ROUTES = process.argv.slice(2).length ? process.argv.slice(2) : ["/", "/el"];
 
-const browser = await chromium.launch();
+const browser = await launch();
 
 for (const route of ROUTES) {
   const page = await browser.newPage({ viewport: { width: 412, height: 915 } });
