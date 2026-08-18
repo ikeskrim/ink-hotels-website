@@ -8,7 +8,8 @@ import { OffersSignup } from "@/components/layout/offers-signup";
 import { localePath, type Locale } from "@/i18n/config";
 import { houses } from "@/content/rooms";
 import { Wordmark } from "@/components/layout/wordmark";
-import { InkSignature } from "@/components/brand/ink-signature";
+import { DebossMark } from "@/components/brand/deboss-mark";
+import { ReserveLink } from "@/components/booking/reserve-link";
 import { InkAnchor, InkLink } from "@/components/ui/ink-link";
 
 /* Server component: messages come in as a prop rather than through context, so
@@ -28,19 +29,6 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             <p className="measure mt-8 font-display text-2xl leading-[1.15] text-paper/90">
               {m.common.footerBlurb}
             </p>
-            <a
-              href={contact.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="label group mt-10 inline-flex h-13 items-center gap-3 bg-paper px-7 py-4 text-ink transition-colors duration-500 ease-settle hover:bg-sea hover:text-paper"
-            >
-              {m.actions.bookNow}
-              <ArrowUpRight
-                className="h-4 w-4 transition-transform duration-500 ease-settle group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                strokeWidth={1.25}
-                aria-hidden="true"
-              />
-            </a>
           </div>
 
           <address className="not-italic">
@@ -196,21 +184,37 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           </div>
         </nav>
 
+        {/* ── The last thing on the page ───────────────────────────────
+            One quiet ruled line rather than the filled button that used to sit
+            at the top of the footer. By the time a reader is here they have
+            passed a persistent header control, the dock, and — on a room page
+            — that room's own panel; a fourth shout is not persuasion, it is
+            noise. It carries the same deep link as the others, so from a room
+            page it reserves that room. */}
+        <ReserveLink className="label group flex items-center justify-between gap-6 border-y border-paper/12 py-7 text-paper/70 transition-colors duration-500 ease-settle hover:text-paper">
+          <span>{m.actions.bookNow}</span>
+          <ArrowUpRight
+            className="h-4 w-4 transition-transform duration-500 ease-settle group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            strokeWidth={1.25}
+            aria-hidden="true"
+          />
+        </ReserveLink>
+
         {/* ── Colophon ─────────────────────────────────────────────────── */}
         <div className="flex flex-col gap-5 pt-10 text-[0.6875rem] leading-relaxed text-paper/45 lg:flex-row lg:items-start lg:justify-between">
           <div className="flex max-w-xl flex-col gap-5">
-            {/* The same signature the hero writes, at rest. A mark that is
-                made once at the top of the page and simply present at the
-                bottom of it — the way a letter is signed, not branded. */}
-            <InkSignature
-              animate={false}
-              className="h-10 w-auto text-phos/80"
-            />
+            {/* Pen at the top of the site, press at the bottom of it. The
+                hand writes the name on the Story page; here the same word is
+                struck into the stock and read only by the light on it. That
+                is the argument of the whole hotel in two marks. */}
+            <DebossMark className="mb-1" />
+            {/* Was hardcoded English on a footer that renders in five
+                languages — and both sentences already had catalogue keys. */}
             <p>
-              © {year} {site.legalName}. All rights reserved. This property
-              operates under Greek National Tourism Organisation licence no.{" "}
-              <span className="font-mono">{legal.gntoLicence}</span> · VAT{" "}
-              <span className="font-mono">{legal.vat}</span>.
+              © {year} {site.legalName}. {m.common.allRights}{" "}
+              {m.common.licence
+                .replace("{licence}", legal.gntoLicence)
+                .replace("{vat}", legal.vat)}
             </p>
           </div>
           <p className="font-mono uppercase tracking-[0.24em]">
