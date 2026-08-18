@@ -425,6 +425,16 @@ export const fr: Messages = {
      followed the pointer and found an English title on a German page.
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
+  faqPage: {
+    eyebrow: "Bon à savoir",
+    title: "Les faits, simplement",
+    finding: "Nous trouver",
+    rooms: "Les chambres",
+    staying: "Le séjour",
+    help: "Si vous avez besoin",
+    openUntil: "Ouvert jusqu'à {time}",
+  },
+
   pageMeta: {
     home: { t: "Ink Hotels — Un petit hôtel dans la vieille ville de Réthymnon, Crète", d: "Petit hôtel. Longue histoire. Sept suites au House of Europe — trois avec bain à remous privé, une avec petite piscine chauffée — sept chambres au Phos, et une résidence près du port vénitien, au cœur de la vieille ville médiévale de Réthymnon." },
     rooms: { t: "Chambres", d: "Vingt façons de séjourner dans la vieille ville de Réthymnon — sept suites au House of Europe, trois avec bain à remous privé et une avec petite piscine chauffée, sept chambres au Phos, et une résidence entière près du port vénitien." },

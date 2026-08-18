@@ -423,6 +423,16 @@ export const el: Messages = {
      followed the pointer and found an English title on a German page.
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
+  faqPage: {
+    eyebrow: "Καλό να ξέρετε",
+    title: "Τα απλά δεδομένα",
+    finding: "Πώς θα μας βρείτε",
+    rooms: "Τα δωμάτια",
+    staying: "Η διαμονή",
+    help: "Αν χρειαστείτε κάτι",
+    openUntil: "Ανοιχτά έως τις {time}",
+  },
+
   pageMeta: {
     home: { t: "Ink Hotels — Ένα μικρό ξενοδοχείο στην παλιά πόλη του Ρεθύμνου", d: "Μικρό ξενοδοχείο. Μεγάλη ιστορία. Επτά σουίτες στο House of Europe — τρεις με ιδιωτικό υδρομασάζ, μία με θερμαινόμενη μικρή πισίνα — επτά δωμάτια στο Phos, και μια κατοικία δίπλα στο ενετικό λιμάνι, μέσα στη μεσαιωνική παλιά πόλη του Ρεθύμνου." },
     rooms: { t: "Δωμάτια", d: "Είκοσι τρόποι να μείνετε στην παλιά πόλη του Ρεθύμνου — επτά σουίτες στο House of Europe, τρεις με ιδιωτικό υδρομασάζ και μία με θερμαινόμενη μικρή πισίνα, επτά δωμάτια στο Phos, και μια ολόκληρη κατοικία δίπλα στο ενετικό λιμάνι." },

@@ -425,6 +425,16 @@ export const nl: Messages = {
      followed the pointer and found an English title on a German page.
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
+  faqPage: {
+    eyebrow: "Goed om te weten",
+    title: "De simpele feiten",
+    finding: "Ons vinden",
+    rooms: "De kamers",
+    staying: "Het verblijf",
+    help: "Als u iets nodig heeft",
+    openUntil: "Open tot {time}",
+  },
+
   pageMeta: {
     home: { t: "Ink Hotels — Een klein hotel in de oude stad van Rethymno, Kreta", d: "Klein hotel. Lang verhaal. Zeven suites in House of Europe — drie met eigen bubbelbad, één met verwarmd dompelbad — zeven kamers in Phos, en een residentie bij de Venetiaanse haven, midden in de middeleeuwse oude stad van Rethymno." },
     rooms: { t: "Kamers", d: "Twintig manieren om in de oude stad van Rethymno te verblijven — zeven suites in House of Europe, drie met eigen bubbelbad en één met verwarmd dompelbad, zeven kamers in Phos, en een hele residentie bij de Venetiaanse haven." },

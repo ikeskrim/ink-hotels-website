@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 import { getFaqs } from "@/lib/sanity/content";
+import type { FaqTopic } from "@/content/faq";
 import { defaultLocale, isLocale } from "@/i18n/config";
 import { getMessages } from "@/i18n";
 import { spokenLanguages } from "@/i18n/languages";
@@ -28,6 +29,10 @@ export async function generateMetadata({
     locale,
   });
 }
+
+/* Reading order, not authoring order. `help` is last because it is also the
+   catch-all for anything the CMS adds without a topic. */
+const GROUPS: FaqTopic[] = ["finding", "rooms", "staying", "help"];
 
 export default async function FaqPage({
   params,
@@ -53,9 +58,11 @@ export default async function FaqPage({
 
       <Section ground="paper" size="none" className="pt-[clamp(8rem,14vh,11rem)]">
         <Container>
-          <p className="label mb-6 text-[color:var(--fg-3)]">Worth knowing</p>
+          <p className="label mb-6 text-[color:var(--fg-3)]">
+            {m.faqPage.eyebrow}
+          </p>
           <Heading level={1} size="d1" className="max-w-[14ch]">
-            The plain facts
+            {m.faqPage.title}
           </Heading>
           <p className="measure-wide mt-7 text-lg text-[color:var(--fg-2)]">
             {m.common.lede}
@@ -67,25 +74,45 @@ export default async function FaqPage({
         <Container>
           <div className="grid gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12">
             <div className="lg:col-span-8">
-              {/* Radix renders each trigger inside an h3, so the page needs an
-                  h2 here or the heading order skips a level. */}
-              <h2 className="label mb-6 text-[color:var(--fg-3)]">
-                Questions
-              </h2>
-              <Accordion
-                type="multiple"
-                className="border-t border-[color:var(--hairline)]"
-              >
-                {faqs.map((f, i) => (
-                  <AccordionItem
-                    key={f.question}
-                    value={`faq-${i}`}
-                    question={f.question}
-                  >
-                    {f.answer}
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              {/* Grouped, because fourteen disclosures in one undifferentiated
+                  stack is a list you scan rather than a page you read. Each
+                  group is an h2 and Radix's triggers are h3s beneath it, so the
+                  order runs 1 → 2 → 3 with nothing skipped.
+
+                  Questions with no topic — anything authored in the CMS, which
+                  has no topic field — fall into the last group rather than out
+                  of the page. */}
+              {GROUPS.map((topic) => {
+                const inGroup = faqs.filter((f) =>
+                  topic === GROUPS[GROUPS.length - 1]
+                    ? f.topic === topic || !f.topic
+                    : f.topic === topic,
+                );
+                if (!inGroup.length) return null;
+
+                return (
+                  <section key={topic} className="mb-[clamp(2.5rem,5vw,4rem)]">
+                    <h2 className="label mb-2 text-[color:var(--fg-3)]">
+                      {m.faqPage[topic]}
+                    </h2>
+                    <Accordion
+                      type="multiple"
+                      className="border-t border-[color:var(--hairline)]"
+                    >
+                      {inGroup.map((f) => (
+                        <AccordionItem
+                          key={f.question}
+                          value={f.question}
+                          label={f.question}
+                          headingLevel={3}
+                        >
+                          {f.answer}
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </section>
+                );
+              })}
             </div>
 
             <aside className="lg:col-span-4">
@@ -120,11 +147,11 @@ export default async function FaqPage({
                     )}
                   </p>
                   <p className="spec text-[color:var(--fg-3)]">
-                    Open until {reception.openUntil}
+                    {m.faqPage.openUntil.replace("{time}", reception.openUntil)}
                   </p>
                 </div>
                 <InkLink href="/contact" className="label mt-7 inline-block">
-                  Write to us →
+                  {m.actions.writeToUs} →
                 </InkLink>
               </div>
 
@@ -136,7 +163,7 @@ export default async function FaqPage({
                   {m.common.accessBody}
                 </p>
                 <InkLink href="/accessibility" className="label mt-6 inline-block">
-                  Accessibility →
+                  {m.nav.accessibility} →
                 </InkLink>
               </div>
             </aside>

@@ -425,6 +425,16 @@ export const de: Messages = {
      followed the pointer and found an English title on a German page.
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
+  faqPage: {
+    eyebrow: "Gut zu wissen",
+    title: "Die schlichten Fakten",
+    finding: "So finden Sie uns",
+    rooms: "Die Zimmer",
+    staying: "Der Aufenthalt",
+    help: "Wenn Sie etwas brauchen",
+    openUntil: "Geöffnet bis {time}",
+  },
+
   pageMeta: {
     home: { t: "Ink Hotels — Ein kleines Hotel in der Altstadt von Rethymno, Kreta", d: "Kleines Hotel. Lange Geschichte. Sieben Suiten im House of Europe — drei mit eigenem Whirlpool, eine mit beheiztem Tauchpool — sieben Zimmer im Phos, und eine Residenz am venezianischen Hafen, mitten in der mittelalterlichen Altstadt von Rethymno." },
     rooms: { t: "Zimmer", d: "Zwanzig Arten, in der Altstadt von Rethymno zu wohnen — sieben Suiten im House of Europe, drei mit eigenem Whirlpool und eine mit beheiztem Tauchpool, sieben Zimmer im Phos, und eine ganze Residenz am venezianischen Hafen." },

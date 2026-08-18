@@ -145,7 +145,12 @@ export function localiseFaqs(locale: Locale): Faq[] {
   /* Positional: the FAQ list is fixed and ordered, and a key per question
      would be four more things to keep in sync for no gain. */
   if (!t || t.length !== enFaqs.length) return enFaqs;
-  return t;
+  /* Structure from the source, words from the overlay. The overlay carries
+     `question` and `answer` and nothing else, so returning it whole dropped
+     `topic` — and /faq would have grouped correctly in English and collapsed
+     into one undifferentiated list in the other four languages. The same
+     positional index that maps the translation maps the topic. */
+  return t.map((f, i) => ({ ...f, topic: enFaqs[i]?.topic }));
 }
 
 export function localiseRethymnoIntro(locale: Locale) {

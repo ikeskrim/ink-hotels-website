@@ -442,6 +442,16 @@ export const en = {
      followed the pointer and found an English title on a German page.
      `{phone}`, `{ext}`, `{time}` and `{count}` are filled at render from
      content/site.ts, which stays the record of those facts. */
+  faqPage: {
+    eyebrow: "Worth knowing",
+    title: "The plain facts",
+    finding: "Finding us",
+    rooms: "The rooms",
+    staying: "Staying here",
+    help: "Getting help",
+    openUntil: "Open until {time}",
+  },
+
   pageMeta: {
     home: { t: "Ink Hotels — A small hotel in the old town of Rethymno, Crete", d: "Small hotel. Long story. Seven suites at House of Europe — three with a private hot tub, one with a heated plunge pool — seven rooms at Phos, and a residence by the Venetian harbour, in the medieval old town of Rethymno." },
     rooms: { t: "Rooms", d: "Twenty ways to stay in the old town of Rethymno — seven suites at House of Europe, three with a private hot tub and one with a heated plunge pool, seven rooms at Phos, and one whole residence by the Venetian harbour." },
