@@ -7,6 +7,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { ReserveLink } from "@/components/booking/reserve-link";
 import { contact, nav } from "@/content/site";
 import { houses, roomsInHouse } from "@/content/rooms";
 import { experienceGroups } from "@/content/experiences";
@@ -174,10 +175,7 @@ export function SiteHeader() {
                 outlined CTA on photography reads as secondary, and this is the
                 most important control on the site. The brass fill carries the
                 brand warmth and separates it from every other link. */}
-            <a
-              href={contact.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <ReserveLink
               className={cn(
                 "label group/cta relative hidden h-12 items-center gap-2.5 overflow-hidden px-7 sm:inline-flex",
                 "bg-sea text-paper shadow-[0_2px_18px_-6px_rgb(26_21_18/0.5)]",
@@ -196,7 +194,7 @@ export function SiteHeader() {
                 strokeWidth={1.75}
                 aria-hidden="true"
               />
-            </a>
+            </ReserveLink>
 
             <button
               type="button"
@@ -378,14 +376,13 @@ function MobileMenu({
           transition={{ duration: 0.6, delay: reduced ? 0 : 0.5 }}
           className="mt-10 space-y-5"
         >
-          <a
-            href={contact.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="label flex h-14 w-full items-center justify-center bg-paper text-ink"
-          >
-            Book now
-          </a>
+          {/* Was a hardcoded English "Book now" while the desktop control
+              two hundred lines up used the catalogue — so the one booking
+              button a phone reader sees was in the wrong language on four of
+              the five locales. */}
+          <ReserveLink className="label flex h-14 w-full items-center justify-center bg-paper text-ink">
+            {m.actions.bookNow}
+          </ReserveLink>
           <div className="space-y-1.5 pt-2">
             {contact.phones.map((p) => (
               <a

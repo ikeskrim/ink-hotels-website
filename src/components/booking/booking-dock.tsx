@@ -8,6 +8,7 @@ import { contact } from "@/content/site";
 import { useI18n } from "@/i18n/provider";
 import { Concierge, ConciergeButton, useConcierge } from "./concierge";
 import { EASE } from "@/components/motion/reveal";
+import { useReserveHref } from "@/components/booking/reserve-link";
 
 /**
  * The persistent booking affordance.
@@ -21,6 +22,9 @@ import { EASE } from "@/components/motion/reveal";
  * because a floating CTA on top of the real CTA is just noise.
  */
 export function BookingDock() {
+  /* The same deep link the header carries: on a room page this opens the
+     engine on that room rather than on the list the reader just left. */
+  const { href: reserveHref } = useReserveHref();
   const [visible, setVisible] = useState(false);
   const [atBookingSection, setAtBookingSection] = useState(false);
   const { open, setOpen } = useConcierge();
@@ -85,7 +89,7 @@ export function BookingDock() {
                 WhatsApp
               </a>
               <a
-                href={contact.bookingUrl}
+                href={reserveHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="label flex flex-1 items-center justify-center gap-2 bg-sea py-4 text-paper"
@@ -115,7 +119,7 @@ export function BookingDock() {
             <ConciergeButton onClick={() => setOpen(true)} />
 
             <a
-              href={contact.bookingUrl}
+              href={reserveHref}
               target="_blank"
               rel="noopener noreferrer"
               className="group/cta relative flex items-center gap-2.5 overflow-hidden bg-sea px-7 py-3.5 text-paper shadow-[0_6px_28px_-8px_rgb(26_21_18/0.6)] transition-transform duration-500 ease-settle hover:-translate-y-px"
