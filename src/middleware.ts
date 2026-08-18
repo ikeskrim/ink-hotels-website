@@ -48,7 +48,7 @@ export function middleware(request: NextRequest) {
       url.pathname = "/" + segments.slice(1).join("/");
       return NextResponse.redirect(url, 308);
     }
-    return NextResponse.next();
+    return NextResponse.next({ request: { headers: withLocale(request, first) } });
   }
 
   /* Unprefixed. If the visitor has previously chosen a language, honour it. */
@@ -66,7 +66,24 @@ export function middleware(request: NextRequest) {
   }
 
   url.pathname = `/${defaultLocale}${pathname === "/" ? "" : pathname}`;
-  return NextResponse.rewrite(url);
+  return NextResponse.rewrite(url, {
+    request: { headers: withLocale(request, defaultLocale) },
+  });
+}
+
+/**
+ * The resolved locale, forwarded to the server components as a header.
+ *
+ * `not-found.tsx` is the one page that cannot read `params` — Next renders it
+ * outside the matched route, so the `[locale]` segment it sits under is not
+ * available to it. Without this the 404 has no way to know which of the five
+ * languages the reader is in, which is why it shipped hardcoded English on a
+ * site that is otherwise translated to the last button.
+ */
+function withLocale(request: NextRequest, locale: string) {
+  const headers = new Headers(request.headers);
+  headers.set("x-ink-locale", locale);
+  return headers;
 }
 
 export const config = {

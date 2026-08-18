@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Link from "next/link";
 import { EB_Garamond, Commissioner, IBM_Plex_Mono } from "next/font/google";
 
 import "./globals.css";
 import { nav } from "@/content/site";
 import { getMessages } from "@/i18n";
-import { defaultLocale, localePath, localeTags } from "@/i18n/config";
+import { defaultLocale, isLocale, localePath, localeTags } from "@/i18n/config";
 import { Wordmark } from "@/components/layout/wordmark";
 import { InkBlot, PenUnderline } from "@/components/brand/ink-blot";
 
@@ -14,12 +15,18 @@ import { InkBlot, PenUnderline } from "@/components/brand/ink-blot";
  *
  * Next only ever renders the *root* `not-found` for a URL that matches no route
  * at all, so it never passes through the locale segment and has to supply its
- * own `<html>`, `<body>` and fonts. It answers in English, because a URL that
- * matched nothing carries no locale to honour.
+ * own `<html>`, `<body>` and fonts.
+ *
+ * It used to answer in English on the grounds that a URL matching nothing
+ * carries no locale to honour. That was wrong for the case that actually
+ * happens: /el/no-such-page matches no route either, and it plainly carries a
+ * locale. So does a visitor with an `ink_locale` cookie who mistypes a path.
+ * The middleware resolves both and forwards the answer as `x-ink-locale`;
+ * this reads it, and sets `<html lang>` from it as well — a 404 that says
+ * lang="en-GB" over Greek text is a worse bug than the English copy was.
  *
  * `app/[locale]/not-found.tsx` still exists and still handles `notFound()`
- * thrown from inside a real locale — an unknown room slug, say — where the
- * language *is* known and the page can answer in it.
+ * thrown from inside a real locale — an unknown room slug, say.
  */
 
 const garamond = EB_Garamond({
@@ -57,13 +64,15 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-export default function GlobalNotFound() {
-  const m = getMessages(defaultLocale);
-  const L = (path: string) => localePath(defaultLocale, path);
+export default async function GlobalNotFound() {
+  const raw = (await headers()).get("x-ink-locale") ?? "";
+  const locale = isLocale(raw) ? raw : defaultLocale;
+  const m = getMessages(locale);
+  const L = (path: string) => localePath(locale, path);
 
   return (
     <html
-      lang={localeTags[defaultLocale]}
+      lang={localeTags[locale]}
       className={`${garamond.variable} ${commissioner.variable} ${plexMono.variable}`}
     >
       {/* Paper, not a darkened photograph. A 404 is a small failure, and
@@ -100,7 +109,7 @@ export default function GlobalNotFound() {
                   {m.common.notFoundBody}
                 </p>
 
-                <nav aria-label="Site" className="mt-12">
+                <nav aria-label={m.common.theHotel} className="mt-12">
                   <p className="label mb-5 text-[color:var(--fg-3)]">
                     {m.common.tryInstead}
                   </p>
