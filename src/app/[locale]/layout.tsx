@@ -14,6 +14,7 @@ import { getMessages } from "@/i18n";
 import { I18nProvider } from "@/i18n/provider";
 import { SITE_URL, site } from "@/content/site";
 import { Preloader } from "@/components/motion/preloader";
+import { RouteTransition } from "@/components/motion/route-transition";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -199,6 +200,7 @@ export default async function RootLayout({
           </a>
 
           <Preloader />
+          <RouteTransition />
           <SmoothScroll />
           <SiteHeader />
 
