@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-import { bookingUrlFor, houses, relatedFor, rooms, roomsBySlug } from "@/content/rooms";
+import { bookingUrlFor, relatedFor, rooms, roomsBySlug } from "@/content/rooms";
 import { getExperiences, getHouses, getRooms } from "@/lib/sanity/content";
 import { getMessages } from "@/i18n";
 import { bedPhrase } from "@/i18n/specs";
@@ -33,11 +33,19 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string; locale: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const room = roomsBySlug.get(slug);
-  if (!room) return {};
+  const { slug, locale: rawLocale } = await params;
+  const locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
+  const base = roomsBySlug.get(slug);
+  if (!base) return {};
 
-  const house = houses.find((h) => h.id === room.house);
+  /* The description below is the room's own prose, so it has to come through
+     the localisation layer. Reading `roomsBySlug` directly — which is the
+     English source — put an English sentence in the meta description of every
+     room page in all five languages, on twenty pages that are otherwise fully
+     translated. */
+  const localised = (await getRooms(locale)).find((r) => r.slug === slug);
+  const room = localised ?? base;
+  const house = (await getHouses(locale)).find((h) => h.id === room.house);
   const facts = [
     room.sizeSqm ? `${room.sizeSqm} m²` : null,
     room.guests ? `sleeps ${room.maxGuests ?? room.guests}` : null,
@@ -51,6 +59,11 @@ export async function generateMetadata({
     title: `${room.displayName} — ${house?.name}`,
     description: `${room.description.slice(0, 150)}… ${facts}. Ink Hotels, Rethymno.`,
     path: `/rooms/${room.slug}`,
+    /* Without this every localised room page declared the English URL as its
+       canonical and og:locale=en_GB — telling Google that eighty pages were
+       duplicates of twenty. Every other page on the site passed it; this was
+       the one that did not. */
+    locale,
     image: room.images[0] ?? "/opengraph-image",
   });
 }

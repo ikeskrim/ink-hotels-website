@@ -17,7 +17,8 @@
     "headings": "node scripts/heading-check.mjs",
     "redirects": "node scripts/redirect-check.mjs",
     "redirects:doc": "node scripts/write-redirects-doc.mjs",
-    "blur": "node scripts/build-blur.mjs"
+    "blur": "node scripts/build-blur.mjs",
+    "og:dims": "tsx scripts/build-og-dims.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

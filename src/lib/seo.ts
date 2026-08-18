@@ -8,6 +8,7 @@ import {
   locales,
   type Locale,
 } from "@/i18n/config";
+import { ogDims } from "@/content/generated/og-dims";
 
 interface PageMetaInput {
   title: string;
@@ -65,7 +66,15 @@ export function pageMetadata({
       description,
       siteName: site.name,
       locale: localeTags[locale].replace("-", "_"),
-      images: [{ url: image, width: 1200, height: 630, alt: fullTitle }],
+      /* The declared size is the image's own, not a blanket 1200×630. That
+         constant is true of the generated OG card and of nothing else: a suite
+         page advertises its own lead photograph — which is the point, so a
+         shared link shows the right room — and those frames are 3:2, 4:3 and
+         everything between. Every scraper lays the preview out from these
+         numbers before fetching the file, so wrong ones letterbox the room out
+         of its own photograph. Unknown frames declare no size and let the
+         scraper measure, which is slower and still correct. */
+      images: [{ url: image, ...ogSize(image), alt: fullTitle }],
     },
     twitter: {
       card: "summary_large_image",
@@ -74,4 +83,12 @@ export function pageMetadata({
       images: [image],
     },
   };
+}
+
+function ogSize(image: string): { width: number; height: number } | object {
+  const known = ogDims(image);
+  if (known) return { width: known[0], height: known[1] };
+  /* The generated card, which really is 1200×630. */
+  if (image.endsWith("/opengraph-image")) return { width: 1200, height: 630 };
+  return {};
 }
