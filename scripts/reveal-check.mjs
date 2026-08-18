@@ -26,7 +26,18 @@ let failures = 0;
 for (const route of ROUTES) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await ctx.newPage();
-  await goto(page, BASE + route, { waitUntil: "networkidle" });
+  /* NOT `networkidle`. /gallery carries 434 photographs, and on a cold image
+     cache Next generates a variant for each one on demand — so "500ms with no
+     requests in flight" is a condition that page may simply never reach inside
+     the timeout. It went green or red on CI depending on how fast the runner
+     was that morning, which is the definition of a flaky gate.
+
+     Nothing about the assertion changes. What makes this check valid is the
+     scroll-and-poll below: it walks the whole document in 500px steps, settles,
+     and then polls for anything still at opacity 0. Waiting for every image
+     byte first was never what made it true — it was only ever making the wait
+     long enough to hide the race. */
+  await goto(page, BASE + route, { waitFor: "main, [data-reveal], body" });
 
   const height = await page.evaluate(() => document.documentElement.scrollHeight);
   for (let y = 0; y < height; y += 500) {
