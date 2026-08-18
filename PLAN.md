@@ -1,11 +1,13 @@
 # Ink Hotels — consolidated plan
 
-> **PROGRESS (2026-08-18).** Stage 4 is closed and Stage 5 is closed: 4.3–4.5 and
-> 5.1–5.8 are all built, measured at six checkpoints and pushed; `/` sits at its
-> known 83 floor and every other route is 87–92.
-> **Next session picks up at Stage 6** — light items 6.3 (FAQ accordion), 6.4
-> (footer letterpress mark) and 6.6 (copy pass ×5 locales) are unstarted; 6.1,
-> 6.2 and 6.5 still need the owner in the room.
+> **PROGRESS (2026-08-19).** Stage 6 is closed except 6.5: 6.1 (all twenty
+> suites on the new template, flag on), 6.2, 6.3, 6.4 and 6.6 are built,
+> measured and pushed, plus the four burn-down items. `/` sits at 84 and every
+> other route measures 87–93.
+> **Next session picks up at 6.5** — the old-town map is blocked on coordinates
+> for the four old-town places (Fortezza and the Rimondi Fountain are sourced
+> and recorded in the report; the harbour and the museum do not resolve). After
+> that: the alt-text prose translation, ~450 descriptions × 4 locales.
 
 Supersedes every previous round document. Repo:
 [ikeskrim/ink-hotels-website](https://github.com/ikeskrim/ink-hotels-website) ·
