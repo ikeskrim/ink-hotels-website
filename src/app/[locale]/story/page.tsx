@@ -67,7 +67,7 @@ export default async function StoryPage({
       <TheName mode="written" />
 
       {/* ── Back in times ─────────────────────────────────────────────── */}
-      <Section ground="paper" size="lg" stock="laid">
+      <Section ground="paper" size="lg" stock="laid" chapter="01">
         <Specimen className="left-[clamp(1rem,3vw,2.5rem)] top-[14%]">
           Ink · Rethymno · MMXXV
         </Specimen>
@@ -114,7 +114,7 @@ export default async function StoryPage({
       </Section>
 
       {/* ── The buildings ─────────────────────────────────────────────── */}
-      <Section ground="shade" size="lg" stock="laid">
+      <Section ground="shade" size="lg" stock="laid" chapter="02">
         <Container>
           <Deboss mark className="mb-[clamp(3rem,6vw,5rem)]" />
           <div className="mb-[clamp(2.5rem,5vw,4rem)] border-b border-[color:var(--hairline)] pb-8">
@@ -157,7 +157,7 @@ export default async function StoryPage({
       </Section>
 
       {/* ── The quarter ───────────────────────────────────────────────── */}
-      <Section ground="paper" size="lg" stock="laid">
+      <Section ground="paper" size="lg" stock="laid" chapter="03">
         <Container>
           <div className="grid items-center gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12">
             <figure className="lg:col-span-6">

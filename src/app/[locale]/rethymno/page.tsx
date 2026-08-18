@@ -98,6 +98,7 @@ export default async function RethymnoPage({
             ground={ground}
             size="lg"
             stock="laid"
+            chapter={folio(i + 1)}
             className="scroll-mt-24"
           >
             <Container>

@@ -21,6 +21,7 @@ export function Section({
   stock = "wove",
   plaster = false,
   wash,
+  chapter,
   label,
 }: {
   children: ReactNode;
@@ -42,6 +43,11 @@ export function Section({
    * spreads on damp paper. Pass the colour that is bleeding in.
    */
   wash?: "ink" | "night" | "paper" | "shade" | "sun";
+  /**
+   * The folio this section carries in the margin spine — "01", "02". Sections
+   * without one are not chapters and the spine skips them.
+   */
+  chapter?: string;
   label?: string;
 }) {
   const WASH_VAR: Record<string, string> = {
@@ -58,6 +64,7 @@ export function Section({
       data-ground={ground}
       aria-label={label}
       data-stock={grain && stock === "laid" ? "laid" : undefined}
+      data-chapter={chapter}
       className={cn(
         "relative w-full",
         grain && "grain",
