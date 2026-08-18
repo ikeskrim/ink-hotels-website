@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { EASE } from "@/components/motion/reveal";
+import { useI18n } from "@/i18n/provider";
 
 /**
  * The gallery.
@@ -39,6 +40,7 @@ export function GalleryGrid({
   /** `{count} photographs`, already translated. */
   countLabel?: string;
 }) {
+  const { m } = useI18n();
   const [filter, setFilter] = useState("all");
   const [open, setOpen] = useState<number | null>(null);
   const reduced = useReducedMotion();
@@ -147,7 +149,7 @@ export function GalleryGrid({
               }}
               type="button"
               onClick={() => setOpen(i)}
-              aria-label={`Open photograph: ${item.alt}`}
+              aria-label={`${m.common.openPhotograph}: ${item.alt}`}
               className="group relative block aspect-[3/2] w-full overflow-hidden bg-[color:var(--bg-lift)] focus-visible:outline-offset-2"
             >
               <Image
@@ -204,7 +206,7 @@ export function GalleryGrid({
                 type="button"
                 onClick={close}
                 autoFocus
-                aria-label="Close"
+                aria-label={m.actions.close}
                 className="-mr-2 flex h-11 w-11 items-center justify-center text-paper"
               >
                 <X className="h-5 w-5" strokeWidth={1.25} />
@@ -235,7 +237,7 @@ export function GalleryGrid({
               <button
                 type="button"
                 onClick={() => step(-1)}
-                aria-label="Previous photograph"
+                aria-label={m.common.previousPhoto}
                 className="absolute left-1 flex h-12 w-12 items-center justify-center text-paper/70 transition-colors hover:text-paper sm:left-3"
               >
                 <ArrowLeft className="h-6 w-6" strokeWidth={1} />
@@ -243,7 +245,7 @@ export function GalleryGrid({
               <button
                 type="button"
                 onClick={() => step(1)}
-                aria-label="Next photograph"
+                aria-label={m.common.nextPhoto}
                 className="absolute right-1 flex h-12 w-12 items-center justify-center text-paper/70 transition-colors hover:text-paper sm:right-3"
               >
                 <ArrowRight className="h-6 w-6" strokeWidth={1} />

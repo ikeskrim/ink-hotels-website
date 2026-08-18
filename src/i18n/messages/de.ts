@@ -339,6 +339,9 @@ export const de: Messages = {
   common: {
     language: "Sprache",
     chooseLanguage: "Sprache wählen",
+    navPrimary: "Hauptnavigation",
+    navFooter: "Fußzeile",
+    speakToTheDesk: "Mit der Rezeption sprechen",
     skipToContent: "Zum Inhalt springen",
     menu: "Menü",
     openMenu: "Menü öffnen",
@@ -359,6 +362,7 @@ export const de: Messages = {
       "Dieses Haus wird unter der Lizenz Nr. {licence} der griechischen Zentrale für Tourismus betrieben · USt-IdNr. {vat}.",
     allRights: "Alle Rechte vorbehalten.",
     photographOf: "Fotografie {n} von {total}",
+    openPhotograph: "Fotografie öffnen",
     previousPhoto: "Vorherige Fotografie",
     nextPhoto: "Nächste Fotografie",
     ext: "Durchwahl",

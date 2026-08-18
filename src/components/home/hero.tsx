@@ -343,7 +343,9 @@ export function Hero() {
               <button
                 key={frame.src}
                 type="button"
-                aria-label={`Show image ${i + 1} of ${FRAMES.length}`}
+                aria-label={m.common.photographOf
+                  .replace("{n}", String(i + 1))
+                  .replace("{total}", String(FRAMES.length))}
                 aria-current={i === index}
                 onClick={() => setIndex(i)}
                 className="group py-2"

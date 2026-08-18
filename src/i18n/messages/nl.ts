@@ -339,6 +339,9 @@ export const nl: Messages = {
   common: {
     language: "Taal",
     chooseLanguage: "Kies een taal",
+    navPrimary: "Hoofdnavigatie",
+    navFooter: "Voettekst",
+    speakToTheDesk: "Spreek de receptie",
     skipToContent: "Naar de inhoud",
     menu: "Menu",
     openMenu: "Menu openen",
@@ -359,6 +362,7 @@ export const nl: Messages = {
       "Dit hotel wordt geëxploiteerd onder vergunning nr. {licence} van de Griekse Nationale Toeristenorganisatie · Btw {vat}.",
     allRights: "Alle rechten voorbehouden.",
     photographOf: "Foto {n} van {total}",
+    openPhotograph: "Foto openen",
     previousPhoto: "Vorige foto",
     nextPhoto: "Volgende foto",
     ext: "toestel",

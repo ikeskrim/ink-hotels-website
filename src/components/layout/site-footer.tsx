@@ -104,7 +104,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
 
         {/* ── Directory ────────────────────────────────────────────────── */}
         <nav
-          aria-label="Footer"
+          aria-label={m.common.navFooter}
           className="grid gap-10 border-b border-paper/12 py-14 sm:grid-cols-2 lg:grid-cols-4"
         >
           <div>

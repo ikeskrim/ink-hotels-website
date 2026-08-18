@@ -108,7 +108,7 @@ export function Concierge({
             tabIndex={-1}
             role="dialog"
             aria-modal="true"
-            aria-label="Speak to the desk"
+            aria-label={m.common.speakToTheDesk}
             data-ground="ink"
             data-lenis-prevent
             initial={reduced ? false : { opacity: 0, y: 28 }}

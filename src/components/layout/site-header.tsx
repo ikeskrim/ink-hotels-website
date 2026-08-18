@@ -129,7 +129,7 @@ export function SiteHeader() {
 
           {/* ── Desktop navigation ─────────────────────────────────────── */}
           <nav
-            aria-label="Primary"
+            aria-label={m.common.navPrimary}
             className="hidden items-center gap-8 lg:flex xl:gap-10"
           >
             {nav.map((item) => {
@@ -328,7 +328,7 @@ function MobileMenu({
       </div>
 
       <nav
-        aria-label="Primary"
+        aria-label={m.common.navPrimary}
         className="flex-1 overflow-y-auto overscroll-contain px-6 pb-8 pt-4"
       >
         <ul>

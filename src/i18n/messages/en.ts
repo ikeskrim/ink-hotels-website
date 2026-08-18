@@ -354,6 +354,9 @@ export const en = {
   common: {
     language: "Language",
     chooseLanguage: "Choose a language",
+    navPrimary: "Primary",
+    navFooter: "Footer",
+    speakToTheDesk: "Speak to the desk",
     skipToContent: "Skip to content",
     menu: "Menu",
     openMenu: "Open menu",
@@ -374,6 +377,7 @@ export const en = {
       "This property operates under Greek National Tourism Organisation licence no. {licence} · VAT {vat}.",
     allRights: "All rights reserved.",
     photographOf: "Photograph {n} of {total}",
+    openPhotograph: "Open photograph",
     previousPhoto: "Previous photograph",
     nextPhoto: "Next photograph",
     ext: "ext.",

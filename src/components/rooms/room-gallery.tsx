@@ -6,6 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/i18n/provider";
 
 /**
  * A room's photographs, as a contact sheet you can drag.
@@ -21,6 +22,7 @@ export function RoomGallery({
   images: readonly string[];
   roomName: string;
 }) {
+  const { m } = useI18n();
   const [emblaRef, embla] = useEmblaCarousel({ loop: true, duration: 26 });
   const [thumbRef, thumbs] = useEmblaCarousel({
     containScroll: "keepSnaps",
@@ -58,7 +60,9 @@ export function RoomGallery({
               <div className="relative aspect-[3/2] bg-[color:var(--bg-lift)]">
                 <Image
                   src={src}
-                  alt={`${roomName} — photograph ${i + 1} of ${images.length}`}
+                  alt={`${roomName} — ${m.common.photographOf
+                    .replace("{n}", String(i + 1))
+                    .replace("{total}", String(images.length))}`}
                   fill
                   priority={i === 0}
                   loading={i === 0 ? "eager" : "lazy"}
@@ -83,7 +87,7 @@ export function RoomGallery({
               <button
                 type="button"
                 onClick={() => embla?.scrollPrev()}
-                aria-label="Previous photograph"
+                aria-label={m.common.previousPhoto}
                 className="flex h-10 w-10 items-center justify-center border border-[color:var(--border)] transition-colors duration-300 ease-state hover:border-[color:var(--fg)] hover:bg-[color:var(--fg)] hover:text-[color:var(--bg)]"
               >
                 <ArrowLeft className="h-4 w-4" strokeWidth={1.25} />
@@ -91,7 +95,7 @@ export function RoomGallery({
               <button
                 type="button"
                 onClick={() => embla?.scrollNext()}
-                aria-label="Next photograph"
+                aria-label={m.common.nextPhoto}
                 className="flex h-10 w-10 items-center justify-center border border-[color:var(--border)] transition-colors duration-300 ease-state hover:border-[color:var(--fg)] hover:bg-[color:var(--fg)] hover:text-[color:var(--bg)]"
               >
                 <ArrowRight className="h-4 w-4" strokeWidth={1.25} />
@@ -107,7 +111,9 @@ export function RoomGallery({
                   <button
                     type="button"
                     onClick={() => scrollTo(i)}
-                    aria-label={`Show photograph ${i + 1}`}
+                    aria-label={m.common.photographOf
+                      .replace("{n}", String(i + 1))
+                      .replace("{total}", String(images.length))}
                     aria-current={i === selected}
                     className={cn(
                       "relative block aspect-[3/2] w-full overflow-hidden transition-opacity duration-300 ease-state",

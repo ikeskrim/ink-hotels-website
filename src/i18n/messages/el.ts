@@ -337,6 +337,9 @@ export const el: Messages = {
   common: {
     language: "Γλώσσα",
     chooseLanguage: "Επιλέξτε γλώσσα",
+    navPrimary: "Κύρια πλοήγηση",
+    navFooter: "Υποσέλιδο",
+    speakToTheDesk: "Μιλήστε με τη ρεσεψιόν",
     skipToContent: "Μετάβαση στο περιεχόμενο",
     menu: "Μενού",
     openMenu: "Άνοιγμα μενού",
@@ -357,6 +360,7 @@ export const el: Messages = {
       "Το κατάλυμα λειτουργεί με άδεια ΕΟΤ αρ. {licence} · ΑΦΜ {vat}.",
     allRights: "Με την επιφύλαξη παντός δικαιώματος.",
     photographOf: "Φωτογραφία {n} από {total}",
+    openPhotograph: "Άνοιγμα φωτογραφίας",
     previousPhoto: "Προηγούμενη φωτογραφία",
     nextPhoto: "Επόμενη φωτογραφία",
     ext: "εσωτ.",

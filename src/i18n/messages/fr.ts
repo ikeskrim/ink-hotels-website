@@ -339,6 +339,9 @@ export const fr: Messages = {
   common: {
     language: "Langue",
     chooseLanguage: "Choisir une langue",
+    navPrimary: "Navigation principale",
+    navFooter: "Pied de page",
+    speakToTheDesk: "Parler à la réception",
     skipToContent: "Aller au contenu",
     menu: "Menu",
     openMenu: "Ouvrir le menu",
@@ -359,6 +362,7 @@ export const fr: Messages = {
       "Cet établissement est exploité sous la licence n° {licence} de l'Office national du tourisme grec · TVA {vat}.",
     allRights: "Tous droits réservés.",
     photographOf: "Photographie {n} sur {total}",
+    openPhotograph: "Ouvrir la photographie",
     previousPhoto: "Photographie précédente",
     nextPhoto: "Photographie suivante",
     ext: "poste",
