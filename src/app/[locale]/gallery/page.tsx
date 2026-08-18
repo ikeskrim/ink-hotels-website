@@ -80,8 +80,8 @@ export default async function GalleryPage({
       <Section ground="shade" size="sm" grain={false} wash="paper">
         <ParallaxBand
           images={galleryItems
-            .filter((_, i) => i % 5 === 0)
-            .slice(0, 9)
+            .filter((_, i) => i % 9 === 0)
+            .slice(0, 5)
             .map((g) => ({ src: g.src, alt: g.alt }))}
         />
       </Section>

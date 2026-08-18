@@ -21,10 +21,18 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
  * phone. The band clips itself — `overflow-hidden` on the outer element, and
  * the travel expressed as a percentage of the strip so it cannot outrun it.
  *
- * IT COSTS THE PAGE ITS LCP. These frames are below a full-height hero and
- * they are decoration, so: lazy, low quality, and sized for the band's own
- * height rather than the viewport. Nothing here is `priority` and nothing here
- * is the largest paint.
+ * IT COSTS THE PAGE ITS LCP. These frames are decoration, so: lazy, low
+ * quality, and sized for the band's own height rather than the viewport.
+ * Nothing here is `priority` and nothing here is the largest paint.
+ *
+ * There is a second cost that only shows on a cold cache, and it is the one
+ * that actually bit. Every distinct rendered width is a separate on-demand
+ * resize; nine frames at a fluid `sizes` meant nine new variants for the image
+ * optimizer to produce before /gallery's network went quiet, and CI's
+ * reveal-check — which waits for `networkidle` — timed out at 60s on a page
+ * that had been fine the commit before. So the band is five frames at one
+ * fixed width: five variants, generated once, reused across the strip. The
+ * fix is fewer and cheaper images, not a check taught to wait longer.
  *
  * Reduced motion holds it still. The strip is composed and legible standing
  * still; it simply stops drifting.
@@ -56,7 +64,7 @@ export function ParallaxBand({
         {images.map((img) => (
           <div
             key={img.src}
-            className="relative h-[clamp(9rem,22vh,15rem)] w-[clamp(13rem,30vw,22rem)] shrink-0 overflow-hidden"
+            className="relative h-[clamp(9rem,22vh,15rem)] w-[17rem] shrink-0 overflow-hidden sm:w-[20rem]"
           >
             <Image
               src={img.src}
@@ -64,7 +72,7 @@ export function ParallaxBand({
               fill
               loading="lazy"
               quality={58}
-              sizes="(min-width: 1024px) 22rem, 30vw"
+              sizes="320px"
               className="graded object-cover"
             />
           </div>
