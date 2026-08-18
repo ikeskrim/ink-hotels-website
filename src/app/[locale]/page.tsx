@@ -21,6 +21,23 @@ import { pageMetadata } from "@/lib/seo";
 import { defaultLocale, isLocale } from "@/i18n/config";
 import { getMessages } from "@/i18n";
 
+/* ── A homepage JS diet was tried and measured, and did not pay ────────────
+   The three below-fold client sections — TheName, TheImpression, TheLight —
+   were moved to `next/dynamic` with `ssr: true`, splitting their hydration
+   chunks out of the initial bundle. Same machine, fresh build, "Ready in"
+   confirmed, three runs each:
+
+     before   80/ 85/ 85   LCP 3.84s   FCP 2.56s   TBT 39ms   First Load 213 kB
+     after    80/ 83/ 85   LCP 4.07s   FCP 2.56s   TBT 37ms   First Load 214 kB
+
+   The bundle got a kilobyte *bigger* — the dynamic wrappers cost more than the
+   split saves at this size — and FCP did not move by a millisecond, which is
+   the tell: this page is bound by bytes and main-thread rendering, not by
+   script execution. TBT was already 39ms; there was nothing there to win.
+
+   Reverted. Recorded here so the next person does not spend the evening
+   rediscovering it, the same way the per-locale font subsetting and the
+   `inlineCss` experiment are recorded where they were tried. */
 export async function generateMetadata({
   params,
 }: {
