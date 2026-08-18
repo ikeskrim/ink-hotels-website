@@ -77,7 +77,7 @@ export function TheWater({ locale = defaultLocale }: { locale?: Locale }) {
             {m.home.waterEyebrow} <span aria-hidden="true">·</span>{" "}
             <Gk>Ευεξία · Αρμονία</Gk>
           </p>
-          <Heading size="d2" className="measure-wide mb-8 text-paper">
+          <Heading split size="d2" className="measure-wide mb-8 text-paper">
             {m.home.waterTitle}
           </Heading>
           <p className="measure-wide text-paper/80">{m.home.waterBody}</p>

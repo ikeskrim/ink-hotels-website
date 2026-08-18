@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import { cn, folio } from "@/lib/utils";
+import { SplitReveal } from "@/components/motion/split-reveal";
 
 /**
  * Sections declare their ground; the ground decides every colour inside it.
@@ -147,13 +148,36 @@ export function Heading({
   level = 2,
   size = "d3",
   className,
+  split = false,
 }: {
   children: ReactNode;
   level?: 1 | 2 | 3;
   size?: "d1" | "d2" | "d3" | "d4";
   className?: string;
+  /**
+   * Reveal the heading a word at a time, each rising out of its own mask.
+   *
+   * Only honoured when the child is a plain string — a heading built from
+   * elements cannot be split without throwing its markup away, and silently
+   * doing nothing is better than silently mangling it.
+   */
+  split?: boolean;
 }) {
   const Tag = `h${level}` as const;
+
+  const classes = cn(
+    "font-display leading-[1.02] tracking-[-0.017em]",
+    size === "d1" && "text-[length:var(--text-d1)]",
+    size === "d2" && "text-[length:var(--text-d2)]",
+    size === "d3" && "text-[length:var(--text-d3)]",
+    size === "d4" && "text-[length:var(--text-d4)]",
+    className,
+  );
+
+  if (split && typeof children === "string") {
+    return <SplitReveal text={children} as={Tag} className={classes} />;
+  }
+
   return (
     <Tag
       className={cn(

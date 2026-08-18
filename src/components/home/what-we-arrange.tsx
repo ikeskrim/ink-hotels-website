@@ -33,7 +33,7 @@ export async function WhatWeArrange({ locale = defaultLocale }: { locale?: Local
           className="mb-[clamp(3rem,6vw,5rem)]"
         >
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <Heading size="d2" className="max-w-[15ch]">
+            <Heading split size="d2" className="max-w-[15ch]">
               {m.home.arrangeTitle}
             </Heading>
             <p className="measure text-[color:var(--fg-2)]">

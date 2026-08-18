@@ -59,7 +59,7 @@ export async function WhereYouSleep({ locale = defaultLocale }: { locale?: Local
           className="mb-[clamp(3rem,6vw,5rem)]"
         >
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <Heading size="d2" className="max-w-[16ch]">
+            <Heading split size="d2" className="max-w-[16ch]">
               {m.home.roomsTitle}
             </Heading>
             <p className="measure text-[color:var(--fg-2)]">{m.home.roomsLede}</p>
