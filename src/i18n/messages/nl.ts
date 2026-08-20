@@ -460,6 +460,25 @@ export const nl: Messages = {
       "Φως betekent licht. Zeven rustige kamers boven de daken, vier minuten van de zee en een korte wandeling van het ontbijt.",
   },
 
+  galleryAlt: {
+    evexiaHotTub:
+      "Het eigen bubbelbad op het terras van Evexia, boven de boulevard van Rethymno — foto {n}",
+    harmonyPlunge:
+      "Het verwarmde eigen dompelbad in de binnenhof van de suite Harmony",
+    zoiBackyard: "De suite Zoi en haar binnenhof — foto {n}",
+    courtyards: "De binnenhoven van de suites bij House of Europe, van bovenaf",
+    placeIn: "{name}, Rethymno",
+    townFromAbove: "De oude stad van Rethymno en de Venetiaanse haven van bovenaf",
+    roomPhoto: "{name} bij Ink Hotels — foto {n}",
+    suiteAtHouse: "De suite {name} bij House of Europe — foto {n}",
+    houseOfEurope: "House of Europe, Nikolaou Plastira — foto {n}",
+    phosBuilding: "Phos, het tweede huis — foto {n}",
+    housesAndTown: "Ink Hotels, Rethymno — de huizen en de oude stad",
+    breakfast: "Ontbijt bij House of Europe — foto {n}",
+    experienceArranged: "{title} — geregeld door Ink Hotels, Rethymno",
+    rethymnoCrete: "Rethymno, Kreta",
+  },
+
   mapPlan: {
     title: "De wijk, vanaf de deur",
     north: "N",

@@ -458,6 +458,25 @@ export const el: Messages = {
       "Φως. Επτά ήσυχα δωμάτια πάνω από τις στέγες, τέσσερα λεπτά από τη θάλασσα και λίγα βήματα από το πρωινό.",
   },
 
+  galleryAlt: {
+    evexiaHotTub:
+      "Το ιδιωτικό υδρομασάζ στη βεράντα της Evexia, πάνω από την παραλία του Ρεθύμνου — φωτογραφία {n}",
+    harmonyPlunge:
+      "Η θερμαινόμενη ιδιωτική πισίνα στην εσωτερική αυλή της σουίτας Harmony",
+    zoiBackyard: "Η σουίτα Zoi και η αυλή της — φωτογραφία {n}",
+    courtyards: "Οι αυλές των σουιτών στο House of Europe, από ψηλά",
+    placeIn: "{name}, Ρέθυμνο",
+    townFromAbove: "Η παλιά πόλη του Ρεθύμνου και το ενετικό λιμάνι από ψηλά",
+    roomPhoto: "{name} στο Ink Hotels — φωτογραφία {n}",
+    suiteAtHouse: "Η σουίτα {name} στο House of Europe — φωτογραφία {n}",
+    houseOfEurope: "House of Europe, Νικολάου Πλαστήρα — φωτογραφία {n}",
+    phosBuilding: "Φως, το δεύτερο κτίριο — φωτογραφία {n}",
+    housesAndTown: "Ink Hotels, Ρέθυμνο — τα κτίρια και η παλιά πόλη",
+    breakfast: "Πρωινό στο House of Europe — φωτογραφία {n}",
+    experienceArranged: "{title} — με τη φροντίδα του Ink Hotels, Ρέθυμνο",
+    rethymnoCrete: "Ρέθυμνο, Κρήτη",
+  },
+
   mapPlan: {
     title: "Η συνοικία, από την πόρτα",
     north: "Β",

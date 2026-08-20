@@ -21,6 +21,8 @@ import type { Experience, ExperienceGroup } from "@/content/experiences";
 import type { Place } from "@/content/place";
 import type { Chapter } from "@/content/rethymno";
 import type { Faq } from "@/content/faq";
+import { buildGallery } from "@/content/gallery";
+import { getMessages } from "@/i18n";
 
 /**
  * The content adapter.
@@ -541,4 +543,25 @@ export async function getArrival(locale: Locale) {
       body: text(cms.closingBody, locale, local.closing.body),
     },
   };
+}
+
+/**
+ * The gallery, described in one language.
+ *
+ * The 434 alt attributes on /gallery are fourteen sentences with a name or a
+ * number in them. This builds them from the catalogue's `galleryAlt` block and
+ * from the already-localised places and experiences, so a Greek reader hears
+ * Greek descriptions rather than Greek chrome around English prose.
+ *
+ * It is not cached per locale on purpose: `buildGallery` is a loop over arrays
+ * that are already in memory, and five copies of a 434-item list is a worse
+ * trade than rebuilding one on the render that needs it.
+ */
+export async function getGalleryItems(locale: Locale) {
+  const m = getMessages(locale);
+  const [places, experiences] = await Promise.all([
+    getPlaces(locale),
+    getExperiences(locale),
+  ]);
+  return buildGallery(m.galleryAlt, places, experiences);
 }

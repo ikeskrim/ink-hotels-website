@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 import { galleryCategories, galleryItems } from "@/content/gallery";
+import { getGalleryItems } from "@/lib/sanity/content";
 import { getMessages } from "@/i18n";
 import { defaultLocale, isLocale } from "@/i18n/config";
 
@@ -51,6 +52,10 @@ export default async function GalleryPage({
     experiences: m.gallery.experiences,
   };
 
+  /* Localised: the descriptions a screen reader announces are content, not
+     chrome, and until now every one of the 434 was English on all five. */
+  const items = await getGalleryItems(locale);
+
   const categories = galleryCategories.map((c) => ({
     id: c.id,
     label: LABELS[c.id] ?? c.label,
@@ -66,7 +71,7 @@ export default async function GalleryPage({
       />
 
       <PageHero
-        eyebrow={m.gallery.count.replace("{count}", String(galleryItems.length))}
+        eyebrow={m.gallery.count.replace("{count}", String(items.length))}
         title={m.gallery.title}
         lede={m.gallery.lede}
         image="/media/181f84a843edadbabe1510574f25768f.webp"
@@ -79,7 +84,7 @@ export default async function GalleryPage({
           appears properly below. */}
       <Section ground="shade" size="sm" grain={false} wash="paper">
         <ParallaxBand
-          images={galleryItems
+          images={items
             .filter((_, i) => i % 9 === 0)
             .slice(0, 5)
             .map((g) => ({ src: g.src, alt: g.alt }))}
@@ -89,7 +94,7 @@ export default async function GalleryPage({
       <Section ground="paper" size="md">
         <Container wide>
           <GalleryGrid
-            items={galleryItems}
+            items={items}
             categories={categories}
             label={m.gallery.collections}
             countLabel={m.gallery.count}

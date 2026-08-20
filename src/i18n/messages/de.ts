@@ -460,6 +460,25 @@ export const de: Messages = {
       "Φως heißt Licht. Sieben ruhige Zimmer über den Dächern, vier Minuten vom Meer und ein kurzer Weg zum Frühstück.",
   },
 
+  galleryAlt: {
+    evexiaHotTub:
+      "Der private Whirlpool auf der Terrasse der Evexia, über der Uferpromenade von Rethymno — Foto {n}",
+    harmonyPlunge:
+      "Das beheizte private Tauchbecken im Innenhof der Suite Harmony",
+    zoiBackyard: "Die Suite Zoi und ihr Hof — Foto {n}",
+    courtyards: "Die Höfe der Suiten im House of Europe, von oben",
+    placeIn: "{name}, Rethymno",
+    townFromAbove: "Die Altstadt von Rethymno und der venezianische Hafen von oben",
+    roomPhoto: "{name} im Ink Hotels — Foto {n}",
+    suiteAtHouse: "Die Suite {name} im House of Europe — Foto {n}",
+    houseOfEurope: "House of Europe, Nikolaou Plastira — Foto {n}",
+    phosBuilding: "Phos, das zweite Haus — Foto {n}",
+    housesAndTown: "Ink Hotels, Rethymno — die Häuser und die Altstadt",
+    breakfast: "Frühstück im House of Europe — Foto {n}",
+    experienceArranged: "{title} — vermittelt vom Ink Hotels, Rethymno",
+    rethymnoCrete: "Rethymno, Kreta",
+  },
+
   mapPlan: {
     title: "Das Viertel, von der Tür aus",
     north: "N",
