@@ -114,6 +114,24 @@ jobs:
         env:
           BASE: http://localhost:3000
 
+      # The morning review. Artifact only — never committed; see .gitignore.
+      # `if: always()` so a red run still produces the pictures, which is when
+      # somebody most wants to see what the page actually looked like.
+      - name: Screenshots — eight routes, English and Greek
+        if: always()
+        run: node scripts/shots.mjs
+        env:
+          BASE: http://localhost:3000
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: review-screenshots
+          path: qa/shots/
+          retention-days: 7
+          if-no-files-found: warn
+
       - name: Server log on failure
         if: failure()
         run: tail -60 /tmp/server.log || true

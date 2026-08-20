@@ -1,83 +1,86 @@
 /**
- * Screenshot pages at several viewports for design review.
- *   node scripts/shots.mjs <outDir> [path ...]
- * Dev tooling only.
+ * Full-page screenshots of the key routes, in English and Greek.
+ *
+ *   BASE=http://localhost:3000 node scripts/shots.mjs [outDir]
+ *
+ * For the owner's morning review: eight routes × two languages, one JPEG each,
+ * full page rather than viewport so a whole page can be read in one image.
+ *
+ * ── These are never committed ──────────────────────────────────────────────
+ * The output directory is git-ignored and CI uploads it as a build artifact
+ * that expires. The set is ~18 MB as JPEG and was 127 MB as PNG; either way it
+ * is a picture of exactly one commit, stale the moment the next one lands.
+ * Putting that in the history would grow the repository every time somebody
+ * wanted to glance at the site. A link to an expiring artifact is the honest
+ * form for something that is only ever true of one build.
+ *
+ * ── What it waits for ──────────────────────────────────────────────────────
+ * Not `networkidle` — /gallery carries 434 photographs and on a cold image
+ * cache that state may never arrive, which is exactly how reveal-check came to
+ * be flaky. It scrolls the page to force the lazy images to decode, returns to
+ * the top, and gives the reveals a beat to finish. Animation is disabled up
+ * front so two runs of the same commit produce the same picture.
  */
-import { chromium } from "playwright";
-import fs from "node:fs";
-import path from "node:path";
+import { mkdirSync } from "node:fs";
+import { join } from "node:path";
 
-const [, , outDir = "shots", ...paths] = process.argv;
-const routes = paths.length ? paths : ["/"];
-const BASE = process.env.BASE ?? "http://localhost:3000";
+import { launch, goto } from "./lib/browser.mjs";
 
-const VIEWPORTS = [
-  { name: "desktop", width: 1440, height: 900 },
-  { name: "mobile", width: 390, height: 844, isMobile: true },
+const BASE = (process.env.BASE ?? "http://localhost:3000").replace(/\/$/, "");
+const OUT = process.argv[2] ?? "qa/shots";
+
+const ROUTES = [
+  ["/", "home"],
+  ["/rooms", "rooms"],
+  ["/rooms/evexia", "suite-evexia"],
+  ["/story", "story"],
+  ["/rethymno", "rethymno"],
+  ["/gallery", "gallery"],
+  ["/location", "location"],
+  ["/faq", "faq"],
 ];
 
-fs.mkdirSync(outDir, { recursive: true });
+mkdirSync(OUT, { recursive: true });
 
-const browser = await chromium.launch();
-const errors = [];
+const browser = await launch();
+let written = 0;
 
-for (const vp of VIEWPORTS) {
+for (const locale of ["", "/el"]) {
+  const tag = locale === "" ? "en" : "el";
   const ctx = await browser.newContext({
-    viewport: { width: vp.width, height: vp.height },
+    viewport: { width: 1440, height: 1000 },
     deviceScaleFactor: 1,
-    isMobile: vp.isMobile ?? false,
-    hasTouch: vp.isMobile ?? false,
-    reducedMotion: "no-preference",
+    /* Deterministic: the preloader, the reveals and the cursor all stand down,
+       so the same commit photographs the same way twice. */
+    reducedMotion: "reduce",
   });
   const page = await ctx.newPage();
-  page.on("console", (m) => {
-    if (m.type() === "error") errors.push(`[${vp.name}] ${m.text()}`);
-  });
-  page.on("pageerror", (e) => errors.push(`[${vp.name}] PAGEERROR ${e.message}`));
 
-  for (const route of routes) {
-    const url = BASE + route;
-    try {
-      await page.goto(url, { waitUntil: "networkidle", timeout: 45000 });
-    } catch {
-      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 45000 });
+  for (const [route, name] of ROUTES) {
+    const url = `${BASE}${locale}${route === "/" ? "" : route}` || BASE;
+    await goto(page, url || BASE + "/", { waitFor: "main, body" });
+
+    /* Walk the page so every lazy image decodes, then come back to the top. */
+    const height = await page.evaluate(() => document.body.scrollHeight);
+    for (let y = 0; y < height; y += 900) {
+      await page.evaluate((v) => window.scrollTo(0, v), y);
+      await page.waitForTimeout(120);
     }
-    // Let entrance animations settle before capturing.
-    await page.waitForTimeout(2600);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForTimeout(700);
 
-    const slug = route === "/" ? "home" : route.replace(/^\//, "").replace(/\//g, "-");
-
-    await page.screenshot({
-      path: path.join(outDir, `${slug}--${vp.name}-fold.png`),
-      fullPage: false,
-    });
-
-    // Scroll through so lazy content and reveals fire, then capture full page.
-    await page.evaluate(async () => {
-      const step = window.innerHeight * 0.8;
-      for (let y = 0; y < document.body.scrollHeight; y += step) {
-        window.scrollTo(0, y);
-        await new Promise((r) => setTimeout(r, 130));
-      }
-      window.scrollTo(0, 0);
-      await new Promise((r) => setTimeout(r, 400));
-    });
-    await page.waitForTimeout(900);
-
-    await page.screenshot({
-      path: path.join(outDir, `${slug}--${vp.name}-full.png`),
-      fullPage: true,
-    });
-    console.log(`  ${slug} @ ${vp.name}`);
+    /* JPEG, not PNG. The same sixteen frames came to 127 MB as PNG — a
+       full-page shot of a photograph-led site is mostly photograph, which is
+       exactly what PNG is worst at. Nobody downloads a 127 MB artifact to
+       glance at a site over coffee. */
+    const file = join(OUT, `${tag}-${name}.jpg`);
+    await page.screenshot({ path: file, fullPage: true, type: "jpeg", quality: 82 });
+    written += 1;
+    console.log(`  ${file}`);
   }
+
   await ctx.close();
 }
 
 await browser.close();
-
-if (errors.length) {
-  console.log("\nCONSOLE ERRORS:");
-  for (const e of [...new Set(errors)]) console.log("  " + e);
-} else {
-  console.log("\nNo console errors.");
-}
+console.log(`\n${written} screenshots in ${OUT}/ — artifact only, never committed`);
