@@ -184,6 +184,48 @@ Re-run Lighthouse after each item and log the numbers in the commit body.
 
 ---
 
+## Measured — full route table (2026-08-19, 3-run medians)
+
+Fresh build each time, node killed by PID, `Ready in` confirmed in the server
+log before any run. These replace the single-route spot checks that were being
+quoted from memory.
+
+| route | min/med/max | LCP | FCP | TBT |
+|---|---|---|---|---|
+| `/` | 81/**83**/85 | 4.07s | 2.56s | 34ms |
+| `/rooms` | 91/**92**/94 | 3.31s | 1.21s | 12ms |
+| `/rooms/evexia` | 89/**93**/93 | 3.20s | 1.21s | 65ms |
+| `/story` | 85/**90**/95 | 3.31s | 2.11s | 17ms |
+| `/gallery` | 85/**86**/88 | 3.94s | 1.81s | 28ms |
+| `/rethymno` | 88/**88**/90 | 3.62s | 2.11s | 26ms |
+| `/location` | 91/**91**/91 | 3.31s | 1.96s | 23ms |
+| `/arrival` | 90/**90**/90 | 3.46s | 1.96s | 20ms |
+| `/faq` | 91/**91**/91 | 3.31s | 1.96s | 32ms |
+| `/experiences` | 87/**87**/88 | 3.76s | 2.26s | 20ms |
+| `/contact` | 90/**91**/91 | 3.32s | 1.96s | 17ms |
+
+`/story` and `/gallery` both read below the old 87–93 band on three runs and
+were attributed before anything was changed.
+
+**`/story` was noise.** Five runs put it at 85/**90**/95. The three-run 85 was
+the bottom of its own spread.
+
+**`/gallery` was measured against the change that could have caused it** — the
+gallery now builds its 434 localised descriptions per request instead of
+reading a module constant:
+
+| | min/med/max | LCP |
+|---|---|---|
+| module constant, English alts | 85/**87**/92 | 4.01s |
+| per-request, localised alts | 85/**86**/88 | 3.94s |
+
+One median point apart inside a seven-point spread, and the localised side has
+the *better* LCP. The cost is not measurable, and it would not be worth 434
+translated alt attributes if it were. Kept.
+
+`/` remains its own floor — bandwidth and main-thread bound, established across
+three sessions and three separate experiments.
+
 ## Resolved — do not redo
 
 | | |
