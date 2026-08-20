@@ -31,7 +31,7 @@ export function TheOldTown({ locale = defaultLocale }: { locale?: Locale }) {
                 placeholder={blurFor("/media/0dc83ffb4bd879a312c00e50c8bda2fc.webp") ? "blur" : "empty"}
 
                 blurDataURL={blurFor("/media/0dc83ffb4bd879a312c00e50c8bda2fc.webp")}
-                alt="A narrow lane of the old town, wooden Venetian balconies overhead"
+                alt={m.photoAlt.oldTownLane}
                 width={900}
                 height={1200}
                 sizes="(min-width: 1024px) 32vw, 100vw"
@@ -72,7 +72,7 @@ export function TheOldTown({ locale = defaultLocale }: { locale?: Locale }) {
                 placeholder={blurFor("/media/05c09d32efa814812ba4598083de9b4c.webp") ? "blur" : "empty"}
 
                 blurDataURL={blurFor("/media/05c09d32efa814812ba4598083de9b4c.webp")}
-                alt="The Venetian harbour of Rethymno with its Egyptian lighthouse"
+                alt={m.photoAlt.harbourLighthouse}
                 width={900}
                 height={1125}
                 sizes="(min-width: 1024px) 32vw, 100vw"

@@ -67,7 +67,7 @@ export function TheLight() {
             <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[3/2] lg:aspect-[4/5]">
               <Image
                 src="/media/8d17d9f0ddc6feb2df2d63ba84ea4c35.webp"
-                alt="Morning light across a whitewashed wall and beamed ceiling inside Ink"
+                alt={m.photoAlt.morningLight}
                 fill
                 sizes="(min-width: 1024px) 58vw, 100vw"
                 quality={80}

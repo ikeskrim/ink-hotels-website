@@ -70,7 +70,7 @@ export default async function LocationPage({
         }
         lede="Not near it, not above it — inside it. You arrive at House of Europe on Nikolaou Plastira, where reception and all seven suites are; Phos is a short walk away, and the residence stands by the Venetian harbour."
         image="/media/05c09d32efa814812ba4598083de9b4c.webp"
-        imageAlt="The Venetian harbour of Rethymno with the Egyptian lighthouse"
+        imageAlt={m.photoAlt.harbourLighthouse}
         height="sm"
       />
 

@@ -460,6 +460,39 @@ export const nl: Messages = {
       "Φως betekent licht. Zeven rustige kamers boven de daken, vier minuten van de zee en een korte wandeling van het ontbijt.",
   },
 
+  photoAlt: {
+    arrivalDoor:
+      "Een groene Venetiaanse deur in de oude stad van Rethymno, met lantaarns aan weerszijden",
+    family:
+      "Het familieteam achter Ink Hotels en Crete Holiday Home",
+    morningLight:
+      "Ochtendlicht op een witgekalkte muur en een balkenplafond in Ink",
+    oldTownLane:
+      "Een smalle steeg in de oude stad, met houten Venetiaanse balkons erboven",
+    harbourLighthouse:
+      "De Venetiaanse haven van Rethymno met haar Egyptische vuurtoren",
+    lighthouseDusk:
+      "De Egyptische vuurtoren bij de Venetiaanse haven van Rethymno in de schemering",
+    agapiStepFree:
+      "De suite Agapi bij Ink, met marmeren vloer en drempelloze toegang",
+    agapiAccess:
+      "De suite Agapi, met marmeren vloer en drempelloze toegang vanaf de zijstraat",
+    arrivalCourtyard:
+      "Een zonnige binnenhof bij Ink, ligstoel en terracotta potten tegen warme pleisterkalk",
+    team:
+      "Het team van Ink Hotels, Rethymno",
+    boat:
+      "Een eigen boot op het turquoise water voor de kust van Kreta",
+    rooftops:
+      "De oude stad van Rethymno van bovenaf, met daken die naar de zee aflopen",
+    suiteBeams:
+      "Een suite bij Ink Hotels met een balkenplafond en witgekalkte muren",
+    historicBuilding:
+      "Het historische gebouw van Ink Hotels in de oude stad van Rethymno",
+    fortezzaAbove:
+      "Het fort Fortezza boven de oude stad van Rethymno",
+  },
+
   galleryAlt: {
     evexiaHotTub:
       "Het eigen bubbelbad op het terras van Evexia, boven de boulevard van Rethymno — foto {n}",

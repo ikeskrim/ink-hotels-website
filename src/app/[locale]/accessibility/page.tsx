@@ -29,7 +29,19 @@ export async function generateMetadata({
   });
 }
 
-export default function AccessibilityPage() {
+/* Takes its params now. It never did — rendered under `[locale]` but with no
+   way to know which locale, so every string on it was English in all five
+   languages. Wiring the photograph's description was what surfaced that; the
+   rest of the page is a wider job than this batch. */
+export default async function AccessibilityPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: raw } = await params;
+  const locale = isLocale(raw) ? raw : defaultLocale;
+  const m = getMessages(locale);
+
   const agapi = roomsBySlug.get("agapi");
 
   return (
@@ -62,7 +74,7 @@ export default function AccessibilityPage() {
               <MaskReveal className="aspect-[4/3]">
                 <Image
                   src="/media/d61ede4f5d00cd6b090beb09df8b5c5c.webp"
-                  alt="The Agapi suite, with marble floor and step-free access from the side street"
+                  alt={m.photoAlt.agapiAccess}
                   width={1200}
                   height={900}
                   sizes="(min-width: 1024px) 48vw, 100vw"

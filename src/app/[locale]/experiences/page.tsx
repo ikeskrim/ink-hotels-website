@@ -41,6 +41,7 @@ export default async function ExperiencesPage({
 }) {
   const { locale: raw } = await params;
   const locale = isLocale(raw) ? raw : defaultLocale;
+  const m = getMessages(locale);
   const experienceGroups = await getExperienceGroups(locale);
   const experiences = await getExperiences(locale);
   const experiencesInGroup = (id: string) =>
@@ -66,7 +67,7 @@ export default async function ExperiencesPage({
         }
         lede="Anyone can sell you a room. The difference is what happens in the hours you are not in it — and most of that begins with a conversation at the desk."
         image="/media/ad673daf2a28fd3d6003a0eccc3e06a0.webp"
-        imageAlt="A private boat on the turquoise water off the Cretan coast"
+        imageAlt={m.photoAlt.boat}
       />
 
       {experienceGroups.map((group, gi) => {

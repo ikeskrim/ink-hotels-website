@@ -75,7 +75,7 @@ export default async function GalleryPage({
         title={m.gallery.title}
         lede={m.gallery.lede}
         image="/media/181f84a843edadbabe1510574f25768f.webp"
-        imageAlt="Rethymno old town seen from above, rooftops running down to the sea"
+        imageAlt={m.photoAlt.rooftops}
         height="sm"
       />
 

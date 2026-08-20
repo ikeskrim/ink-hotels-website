@@ -55,7 +55,7 @@ export default async function ArrivalPage({
         title={arrival.title}
         lede={arrival.lede}
         image="/media/6ad7bfa1e7f17c6e4db2f4b5cb933ecd.webp"
-        imageAlt="A sunlit courtyard at Ink, deckchair and terracotta pots against warm plaster"
+        imageAlt={m.photoAlt.arrivalCourtyard}
       />
 
       {/* ── The reception ──────────────────────────────────────────────── */}

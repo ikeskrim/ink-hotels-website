@@ -28,7 +28,19 @@ export async function generateMetadata({
   });
 }
 
-export default function CareersPage() {
+/* Takes its params now. It never did — rendered under `[locale]` but with no
+   way to know which locale, so every string on it was English in all five
+   languages. Wiring the photograph's description was what surfaced that; the
+   rest of the page is a wider job than this batch. */
+export default async function CareersPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: raw } = await params;
+  const locale = isLocale(raw) ? raw : defaultLocale;
+  const m = getMessages(locale);
+
   return (
     <>
       <JsonLd
@@ -54,7 +66,7 @@ export default function CareersPage() {
               <MaskReveal className="aspect-[4/3]">
                 <Image
                   src="/media/5c8561282159b358b4e7a2270cc972d9.webp"
-                  alt="The team at Ink Hotels, Rethymno"
+                  alt={m.photoAlt.team}
                   width={1200}
                   height={900}
                   sizes="(min-width: 1024px) 48vw, 100vw"

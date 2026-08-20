@@ -114,7 +114,7 @@ export default async function StoryPage({
             <MaskReveal className="aspect-[16/9]">
               <Image
                 src="/media/74a4ef6ba01d4657fc483050a182533c.webp"
-                alt="The historic building of Ink Hotels in the old town of Rethymno"
+                alt={m.photoAlt.historicBuilding}
                 width={1800}
                 height={1013}
                 sizes="100vw"
@@ -214,7 +214,7 @@ export default async function StoryPage({
               <MaskReveal className="aspect-[4/5] lg:aspect-auto lg:h-[clamp(24rem,56vh,34rem)]">
                 <Image
                   src="/media/12fdb3e377a57fa420aa8dcbea7feaf4.webp"
-                  alt="The Fortezza fortress above the old town of Rethymno"
+                  alt={m.photoAlt.fortezzaAbove}
                   width={1000}
                   height={1250}
                   sizes="(min-width: 1024px) 48vw, 100vw"

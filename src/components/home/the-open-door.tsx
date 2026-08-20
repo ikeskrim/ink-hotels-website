@@ -82,7 +82,7 @@ export function TheOpenDoor({ locale = defaultLocale }: { locale?: Locale }) {
                 placeholder={blurFor("/media/d61ede4f5d00cd6b090beb09df8b5c5c.webp") ? "blur" : "empty"}
 
                 blurDataURL={blurFor("/media/d61ede4f5d00cd6b090beb09df8b5c5c.webp")}
-                alt="The Agapi suite at Ink, with marble floor and step-free access"
+                alt={m.photoAlt.agapiStepFree}
                 width={1400}
                 height={1050}
                 sizes="(min-width: 1024px) 58vw, 100vw"

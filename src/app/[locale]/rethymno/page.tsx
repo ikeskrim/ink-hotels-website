@@ -64,7 +64,7 @@ export default async function RethymnoPage({
         }
         lede={rethymnoIntro.lede}
         image="/media/181f84a843edadbabe1510574f25768f.webp"
-        imageAlt="Rethymno old town from above, rooftops running down to the sea"
+        imageAlt={m.photoAlt.rooftops}
       />
 
       {/* ── The premise ────────────────────────────────────────────────── */}
@@ -168,7 +168,7 @@ export default async function RethymnoPage({
       {/* ── A cinematic beat ───────────────────────────────────────────── */}
       <CinematicFrame
         src="/media/1a25f40128eeefbed32d4cf75cb7faf8.webp"
-        alt="The Egyptian lighthouse at the Venetian harbour of Rethymno at dusk"
+        alt={m.photoAlt.lighthouseDusk}
         height="150vh"
       >
         <DepthLayer drift={-14} fade>

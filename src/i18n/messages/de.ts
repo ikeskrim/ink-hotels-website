@@ -460,6 +460,39 @@ export const de: Messages = {
       "Φως heißt Licht. Sieben ruhige Zimmer über den Dächern, vier Minuten vom Meer und ein kurzer Weg zum Frühstück.",
   },
 
+  photoAlt: {
+    arrivalDoor:
+      "Eine grüne venezianische Tür in der Altstadt von Rethymno, Laternen zu beiden Seiten",
+    family:
+      "Das Familienteam hinter Ink Hotels und Crete Holiday Home",
+    morningLight:
+      "Morgenlicht auf einer weiß gekalkten Wand und einer Balkendecke im Ink",
+    oldTownLane:
+      "Eine schmale Gasse der Altstadt, hölzerne venezianische Balkone darüber",
+    harbourLighthouse:
+      "Der venezianische Hafen von Rethymno mit seinem ägyptischen Leuchtturm",
+    lighthouseDusk:
+      "Der ägyptische Leuchtturm am venezianischen Hafen von Rethymno in der Dämmerung",
+    agapiStepFree:
+      "Die Suite Agapi im Ink, mit Marmorboden und schwellenlosem Zugang",
+    agapiAccess:
+      "Die Suite Agapi, mit Marmorboden und schwellenlosem Zugang von der Seitengasse",
+    arrivalCourtyard:
+      "Ein sonniger Innenhof im Ink, Liegestuhl und Terrakottatöpfe vor warmem Putz",
+    team:
+      "Das Team im Ink Hotels, Rethymno",
+    boat:
+      "Ein privates Boot auf dem türkisfarbenen Wasser vor der Küste Kretas",
+    rooftops:
+      "Die Altstadt von Rethymno von oben, die Dächer laufen zum Meer hinunter",
+    suiteBeams:
+      "Eine Suite im Ink Hotels mit Balkendecke und weiß gekalkten Wänden",
+    historicBuilding:
+      "Das historische Gebäude des Ink Hotels in der Altstadt von Rethymno",
+    fortezzaAbove:
+      "Die Festung Fortezza über der Altstadt von Rethymno",
+  },
+
   galleryAlt: {
     evexiaHotTub:
       "Der private Whirlpool auf der Terrasse der Evexia, über der Uferpromenade von Rethymno — Foto {n}",

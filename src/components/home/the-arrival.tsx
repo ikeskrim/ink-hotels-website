@@ -25,7 +25,7 @@ export function TheArrival({ locale = defaultLocale }: { locale?: Locale }) {
     <>
       <CinematicFrame
         src="/media/461f62e27fac13a619b832a11fb81846.webp"
-        alt="A green Venetian door in the old town of Rethymno, lanterns either side"
+        alt={m.photoAlt.arrivalDoor}
         height="145vh"
       >
         <DepthLayer drift={-12} fade>

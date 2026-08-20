@@ -59,7 +59,7 @@ export default async function RoomsPage({
         title={m.rooms.title}
         lede={m.home.roomsLede}
         image="/media/762654ea8545e8826f8b5902eb8e26e0.webp"
-        imageAlt="A suite at Ink Hotels with beamed ceiling and whitewashed walls"
+        imageAlt={m.photoAlt.suiteBeams}
       />
 
       <Section ground="paper" size="none" className="pt-[clamp(3rem,6vw,5rem)]">

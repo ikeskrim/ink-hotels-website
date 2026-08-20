@@ -477,6 +477,39 @@ export const en = {
       "Φως means light. Seven quiet rooms over the rooftops, four minutes from the sea and a short walk from breakfast.",
   },
 
+  photoAlt: {
+    arrivalDoor:
+      "A green Venetian door in the old town of Rethymno, lanterns either side",
+    family:
+      "The family team behind Ink Hotels and Crete Holiday Home",
+    morningLight:
+      "Morning light across a whitewashed wall and beamed ceiling inside Ink",
+    oldTownLane:
+      "A narrow lane of the old town, wooden Venetian balconies overhead",
+    harbourLighthouse:
+      "The Venetian harbour of Rethymno with its Egyptian lighthouse",
+    lighthouseDusk:
+      "The Egyptian lighthouse at the Venetian harbour of Rethymno at dusk",
+    agapiStepFree:
+      "The Agapi suite at Ink, with marble floor and step-free access",
+    agapiAccess:
+      "The Agapi suite, with marble floor and step-free access from the side street",
+    arrivalCourtyard:
+      "A sunlit courtyard at Ink, deckchair and terracotta pots against warm plaster",
+    team:
+      "The team at Ink Hotels, Rethymno",
+    boat:
+      "A private boat on the turquoise water off the Cretan coast",
+    rooftops:
+      "Rethymno old town seen from above, rooftops running down to the sea",
+    suiteBeams:
+      "A suite at Ink Hotels with beamed ceiling and whitewashed walls",
+    historicBuilding:
+      "The historic building of Ink Hotels in the old town of Rethymno",
+    fortezzaAbove:
+      "The Fortezza fortress above the old town of Rethymno",
+  },
+
   galleryAlt: {
     evexiaHotTub:
       "The private hot tub on the Evexia terrace, above the waterfront at Rethymno — photograph {n}",

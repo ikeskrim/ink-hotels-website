@@ -460,6 +460,39 @@ export const fr: Messages = {
       "Φως veut dire lumière. Sept chambres tranquilles au-dessus des toits, à quatre minutes de la mer et à quelques pas du petit-déjeuner.",
   },
 
+  photoAlt: {
+    arrivalDoor:
+      "Une porte vénitienne verte dans la vieille ville de Rethymno, une lanterne de chaque côté",
+    family:
+      "L'équipe familiale derrière Ink Hotels et Crete Holiday Home",
+    morningLight:
+      "La lumière du matin sur un mur blanchi à la chaux et un plafond à poutres à Ink",
+    oldTownLane:
+      "Une ruelle étroite de la vieille ville, des balcons vénitiens en bois au-dessus",
+    harbourLighthouse:
+      "Le port vénitien de Rethymno et son phare égyptien",
+    lighthouseDusk:
+      "Le phare égyptien du port vénitien de Rethymno au crépuscule",
+    agapiStepFree:
+      "La suite Agapi à Ink, sol en marbre et accès de plain-pied",
+    agapiAccess:
+      "La suite Agapi, sol en marbre et accès de plain-pied depuis la ruelle",
+    arrivalCourtyard:
+      "Une cour ensoleillée à Ink, transat et pots en terre cuite contre un enduit chaud",
+    team:
+      "L'équipe d'Ink Hotels, Rethymno",
+    boat:
+      "Un bateau privé sur l'eau turquoise au large de la côte crétoise",
+    rooftops:
+      "La vieille ville de Rethymno vue d'en haut, les toits descendant vers la mer",
+    suiteBeams:
+      "Une suite à Ink Hotels avec plafond à poutres et murs blanchis à la chaux",
+    historicBuilding:
+      "Le bâtiment historique d'Ink Hotels dans la vieille ville de Rethymno",
+    fortezzaAbove:
+      "La forteresse Fortezza au-dessus de la vieille ville de Rethymno",
+  },
+
   galleryAlt: {
     evexiaHotTub:
       "Le bain à remous privé sur la terrasse d'Evexia, au-dessus du front de mer de Rethymno — photographie {n}",

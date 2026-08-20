@@ -40,7 +40,7 @@ export function TheFamily({ locale = defaultLocale }: { locale?: Locale }) {
                 placeholder={blurFor("/media/5c8561282159b358b4e7a2270cc972d9.webp") ? "blur" : "empty"}
 
                 blurDataURL={blurFor("/media/5c8561282159b358b4e7a2270cc972d9.webp")}
-                alt="The family team behind Ink Hotels and Crete Holiday Home"
+                alt={m.photoAlt.family}
                 width={1200}
                 height={900}
                 sizes="(min-width: 1024px) 48vw, 100vw"
