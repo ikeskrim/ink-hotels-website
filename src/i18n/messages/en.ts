@@ -357,6 +357,7 @@ export const en = {
     navPrimary: "Primary",
     navFooter: "Footer",
     speakToTheDesk: "Speak to the desk",
+    creteGreece: "Crete, Greece",
     skipToContent: "Skip to content",
     menu: "Menu",
     openMenu: "Open menu",

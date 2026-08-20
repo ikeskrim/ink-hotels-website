@@ -342,6 +342,7 @@ export const fr: Messages = {
     navPrimary: "Navigation principale",
     navFooter: "Pied de page",
     speakToTheDesk: "Parler à la réception",
+    creteGreece: "Crète, Grèce",
     skipToContent: "Aller au contenu",
     menu: "Menu",
     openMenu: "Ouvrir le menu",

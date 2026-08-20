@@ -41,7 +41,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 <p className="label mb-2 text-phos">{m.common.arriveHere}</p>
                 <p className="text-paper">{reception.street}</p>
                 <p>
-                  {reception.locality} {reception.postalCode}, Crete, Greece
+                  {reception.locality} {reception.postalCode}, {m.common.creteGreece}
                 </p>
                 <p className="pt-3 text-paper/50">
                   {m.common.alsoOccupies.replace(

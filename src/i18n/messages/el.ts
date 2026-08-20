@@ -340,6 +340,7 @@ export const el: Messages = {
     navPrimary: "Κύρια πλοήγηση",
     navFooter: "Υποσέλιδο",
     speakToTheDesk: "Μιλήστε με τη ρεσεψιόν",
+    creteGreece: "Κρήτη, Ελλάδα",
     skipToContent: "Μετάβαση στο περιεχόμενο",
     menu: "Μενού",
     openMenu: "Άνοιγμα μενού",

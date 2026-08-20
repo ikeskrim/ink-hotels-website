@@ -139,7 +139,7 @@ export default async function ContactPage({
                     ))}
                     <p className="spec pt-1">
                       {contact.registeredAddress.locality}{" "}
-                      {contact.registeredAddress.postalCode}, Crete, Greece
+                      {contact.registeredAddress.postalCode}, {m.common.creteGreece}
                     </p>
                   </address>
                   <InkLink href="/location" className="label mt-6 inline-block">

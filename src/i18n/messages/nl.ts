@@ -342,6 +342,7 @@ export const nl: Messages = {
     navPrimary: "Hoofdnavigatie",
     navFooter: "Voettekst",
     speakToTheDesk: "Spreek de receptie",
+    creteGreece: "Kreta, Griekenland",
     skipToContent: "Naar de inhoud",
     menu: "Menu",
     openMenu: "Menu openen",

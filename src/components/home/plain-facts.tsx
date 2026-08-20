@@ -94,7 +94,7 @@ export function PlainFacts({ locale = defaultLocale }: { locale?: Locale }) {
                   ))}
                   <p className="spec pt-1">
                     {contact.registeredAddress.locality}{" "}
-                    {contact.registeredAddress.postalCode}, Crete, Greece
+                    {contact.registeredAddress.postalCode}, {m.common.creteGreece}
                   </p>
                 </address>
 

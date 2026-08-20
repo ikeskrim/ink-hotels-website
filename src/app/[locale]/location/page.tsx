@@ -101,7 +101,7 @@ export default async function LocationPage({
                   </dl>
                   <p className="spec mt-6 text-[color:var(--fg-2)]">
                     {contact.registeredAddress.locality}{" "}
-                    {contact.registeredAddress.postalCode}, Crete, Greece
+                    {contact.registeredAddress.postalCode}, {m.common.creteGreece}
                   </p>
                   <p className="spec mt-1 text-[color:var(--fg-3)]">
                     {contact.coordinates.lat.toFixed(4)}° N ·{" "}

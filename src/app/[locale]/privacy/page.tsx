@@ -29,7 +29,17 @@ export async function generateMetadata({
   };
 }
 
-export default function PrivacyPage() {
+/* Takes its params. Rendered under `[locale]` with no way to read it, so
+   every string on the page was English in all five languages. */
+export default async function PrivacyPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: raw } = await params;
+  const locale = isLocale(raw) ? raw : defaultLocale;
+  const m = getMessages(locale);
+
   return (
     <LegalPage
       eyebrow="Legal"
@@ -113,7 +123,7 @@ export default function PrivacyPage() {
       <p>
         {contact.registeredAddress.street},{" "}
         {contact.registeredAddress.locality}{" "}
-        {contact.registeredAddress.postalCode}, Crete, Greece ·{" "}
+        {contact.registeredAddress.postalCode}, {m.common.creteGreece} ·{" "}
         <InkAnchor href={contact.phones[0].href}>
           {contact.phones[0].value}
         </InkAnchor>
