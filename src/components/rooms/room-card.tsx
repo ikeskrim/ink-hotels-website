@@ -79,7 +79,7 @@ export function RoomCard({
               src={cover}
               placeholder={blurFor(cover) ? "blur" : "empty"}
               blurDataURL={blurFor(cover)}
-              alt={`${room.name} at Ink Hotels`}
+              alt={m.photoAlt.atInkHotels.replace("{name}", room.name)}
               fill
               priority={priority}
               sizes={sizes}

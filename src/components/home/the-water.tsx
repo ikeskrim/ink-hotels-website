@@ -25,13 +25,15 @@ import { rooms } from "@/content/rooms";
 const PLATES = [
   {
     src: EVEXIA_IMAGES[0]!,
-    alt: "The private hot tub on the Evexia terrace, painted Cretan tiles behind it and the sea beyond",
+    /* A key, not a sentence: this array is module-level and cannot reach
+       the catalogue, so the component resolves it at render. */
+    altKey: "evexiaTiles",
     name: "Evexia",
     href: "/rooms/evexia",
   },
   {
     src: "/media/9053c1c0aa924fb16769460a7c06ae29.webp",
-    alt: "The heated private plunge pool in the interior courtyard of the Harmony suite",
+    altKey: "harmonyPlunge",
     name: "Harmony",
     href: "/rooms/harmony",
   },
@@ -61,7 +63,11 @@ export function TheWater({ locale = defaultLocale }: { locale?: Locale }) {
               src={plate.src}
               placeholder={blurFor(plate.src) ? "blur" : "empty"}
               blurDataURL={blurFor(plate.src)}
-              alt={plate.alt}
+              alt={
+                plate.altKey === "harmonyPlunge"
+                  ? m.galleryAlt.harmonyPlunge
+                  : m.photoAlt.evexiaTiles
+              }
               fill
               sizes="(min-width: 640px) 50vw, 100vw"
               quality={78}

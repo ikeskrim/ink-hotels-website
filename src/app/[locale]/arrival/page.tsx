@@ -96,7 +96,7 @@ export default async function ArrivalPage({
               <MaskReveal className="aspect-[4/3]">
                 <Image
                   src="/media/eadfa8cf4ff79016e1ae3e27f1a2c530.webp"
-                  alt={`An open door onto the light at Ink Hotels, near the reception at ${reception.street}`}
+                  alt={m.photoAlt.openDoor.replace("{street}", reception.street)}
                   width={1400}
                   height={1050}
                   sizes="(min-width: 1024px) 58vw, 100vw"

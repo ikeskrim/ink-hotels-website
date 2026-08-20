@@ -461,6 +461,12 @@ export const fr: Messages = {
   },
 
   photoAlt: {
+    evexiaTiles:
+      "Le bain à remous privé sur la terrasse d'Evexia, des carreaux crétois peints derrière et la mer au-delà",
+    atInkHotels:
+      "{name} à Ink Hotels",
+    openDoor:
+      "Une porte ouverte sur la lumière à Ink Hotels, près de la réception au {street}",
     arrivalDoor:
       "Une porte vénitienne verte dans la vieille ville de Rethymno, une lanterne de chaque côté",
     family:

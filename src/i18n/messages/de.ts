@@ -461,6 +461,12 @@ export const de: Messages = {
   },
 
   photoAlt: {
+    evexiaTiles:
+      "Der private Whirlpool auf der Terrasse der Evexia, bemalte kretische Fliesen dahinter und das Meer darüber hinaus",
+    atInkHotels:
+      "{name} im Ink Hotels",
+    openDoor:
+      "Eine offene Tür zum Licht im Ink Hotels, nahe der Rezeption in der {street}",
     arrivalDoor:
       "Eine grüne venezianische Tür in der Altstadt von Rethymno, Laternen zu beiden Seiten",
     family:

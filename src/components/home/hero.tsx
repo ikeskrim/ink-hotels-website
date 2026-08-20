@@ -42,20 +42,10 @@ import { localePath } from "@/i18n/config";
 const FRAMES = [
   {
     src: "/media/1a25f40128eeefbed32d4cf75cb7faf8.webp",
-    alt: "The Egyptian lighthouse at the Venetian harbour of Rethymno at dusk",
   },
-  {
-    src: "/media/1d6eaf712bb53a3d1f6a272907294901.webp",
-    alt: "A planted courtyard at Ink, balconies and palms above the whitewashed walls",
-  },
-  {
-    src: "/media/0f143111b909f0520feed8cf971ef4b8.webp",
-    alt: "A sea-view room at Ink, shutters open onto the water",
-  },
-  {
-    src: "/media/181f84a843edadbabe1510574f25768f.webp",
-    alt: "The rooftops of Rethymno old town running down to the harbour",
-  },
+  { src: "/media/1d6eaf712bb53a3d1f6a272907294901.webp" },
+  { src: "/media/0f143111b909f0520feed8cf971ef4b8.webp" },
+  { src: "/media/181f84a843edadbabe1510574f25768f.webp" },
 ] as const;
 
 const INTERVAL = 6600;
@@ -217,7 +207,13 @@ export function Hero() {
                      the HTML of the busiest page is a cost with no return. */
                   placeholder={i === 0 && blurFor(frame.src) ? "blur" : "empty"}
                   blurDataURL={i === 0 ? blurFor(frame.src) : undefined}
-                  alt={i === 0 ? frame.alt : ""}
+                  /* Only the first frame is described. The others are the same
+                     view of the same hotel a few seconds later; giving each a
+                     description would read four alts to a screen-reader user
+                     for one photograph's worth of information. They carried
+                     English sentences that nothing ever rendered — those are
+                     gone rather than translated. */
+                  alt={i === 0 ? m.photoAlt.lighthouseDusk : ""}
                   aria-hidden={i !== 0}
                   fill
                   priority={i === 0}

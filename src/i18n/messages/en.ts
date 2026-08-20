@@ -478,6 +478,12 @@ export const en = {
   },
 
   photoAlt: {
+    evexiaTiles:
+      "The private hot tub on the Evexia terrace, painted Cretan tiles behind it and the sea beyond",
+    atInkHotels:
+      "{name} at Ink Hotels",
+    openDoor:
+      "An open door onto the light at Ink Hotels, near the reception at {street}",
     arrivalDoor:
       "A green Venetian door in the old town of Rethymno, lanterns either side",
     family:

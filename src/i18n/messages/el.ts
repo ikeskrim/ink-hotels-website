@@ -459,6 +459,12 @@ export const el: Messages = {
   },
 
   photoAlt: {
+    evexiaTiles:
+      "Το ιδιωτικό υδρομασάζ στη βεράντα της Evexia, με ζωγραφιστά κρητικά πλακάκια πίσω του και τη θάλασσα πιο πέρα",
+    atInkHotels:
+      "{name} στο Ink Hotels",
+    openDoor:
+      "Μια ανοιχτή πόρτα προς το φως στο Ink Hotels, κοντά στην υποδοχή στην {street}",
     arrivalDoor:
       "Μια πράσινη ενετική πόρτα στην παλιά πόλη του Ρεθύμνου, με φανάρια εκατέρωθεν",
     family:

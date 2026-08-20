@@ -461,6 +461,12 @@ export const nl: Messages = {
   },
 
   photoAlt: {
+    evexiaTiles:
+      "Het eigen bubbelbad op het terras van Evexia, beschilderde Kretenzische tegels erachter en de zee daarachter",
+    atInkHotels:
+      "{name} bij Ink Hotels",
+    openDoor:
+      "Een open deur naar het licht bij Ink Hotels, vlak bij de receptie aan de {street}",
     arrivalDoor:
       "Een groene Venetiaanse deur in de oude stad van Rethymno, met lantaarns aan weerszijden",
     family:

@@ -100,7 +100,7 @@ export function SuiteTemplate({
           <div className="absolute inset-0 -z-10" data-decorative>
             <Image
               src={hero}
-              alt={`${room.name} at Ink Hotels`}
+              alt={m.photoAlt.atInkHotels.replace("{name}", room.name)}
               fill
               /* This is the largest paint on the page by design, so it is the
                  one image that earns priority. */
