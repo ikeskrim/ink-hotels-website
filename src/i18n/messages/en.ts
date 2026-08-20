@@ -214,7 +214,7 @@ export const en = {
     harbourEyebrow: "Four minutes from the door",
     harbourTitle: "The harbour, at the end of the day",
     landmarksEyebrow: "What stands around you",
-    landmarksTitle: "Five things worth the walk",
+    landmarksTitle: "Six things worth the walk",
     feedEyebrow: "From the account",
     feedHandle: "@ink_hotels",
     feedAlts: {
@@ -475,6 +475,14 @@ export const en = {
       "The first building, and the one you arrive at: reception, breakfast, and all seven suites. The press was here.",
     diptychLightBody:
       "Φως means light. Seven quiet rooms over the rooftops, four minutes from the sea and a short walk from breakfast.",
+  },
+
+  mapPlan: {
+    title: "The quarter, from the door",
+    north: "N",
+    reception: "Reception",
+    metres: "{n} m",
+    note: "Straight-line distances from reception, plotted from OpenStreetMap positions. The walk is always a little longer — these are lanes, not lines.",
   },
 
   faqPage: {

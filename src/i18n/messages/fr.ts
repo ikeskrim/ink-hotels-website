@@ -198,7 +198,7 @@ export const fr: Messages = {
     harbourEyebrow: "À quatre minutes de la porte",
     harbourTitle: "Le port, à la fin du jour",
     landmarksEyebrow: "Ce qui vous entoure",
-    landmarksTitle: "Cinq choses qui valent la marche",
+    landmarksTitle: "Six choses qui valent la marche",
     feedEyebrow: "Depuis le compte",
     feedHandle: "@ink_hotels",
     feedAlts: {
@@ -458,6 +458,14 @@ export const fr: Messages = {
       "Le premier bâtiment, celui où vous arrivez : la réception, le petit-déjeuner et les sept suites. La presse était ici.",
     diptychLightBody:
       "Φως veut dire lumière. Sept chambres tranquilles au-dessus des toits, à quatre minutes de la mer et à quelques pas du petit-déjeuner.",
+  },
+
+  mapPlan: {
+    title: "Le quartier, depuis la porte",
+    north: "N",
+    reception: "Réception",
+    metres: "{n} m",
+    note: "Distances à vol d'oiseau depuis la réception, d'après les positions d'OpenStreetMap. À pied c'est toujours un peu plus — ce sont des ruelles, pas des lignes droites.",
   },
 
   faqPage: {

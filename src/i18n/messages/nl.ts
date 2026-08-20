@@ -198,7 +198,7 @@ export const nl: Messages = {
     harbourEyebrow: "Vier minuten van de deur",
     harbourTitle: "De haven, aan het eind van de dag",
     landmarksEyebrow: "Wat er om u heen staat",
-    landmarksTitle: "Vijf dingen die de wandeling waard zijn",
+    landmarksTitle: "Zes dingen die de wandeling waard zijn",
     feedEyebrow: "Van het account",
     feedHandle: "@ink_hotels",
     feedAlts: {
@@ -458,6 +458,14 @@ export const nl: Messages = {
       "Het eerste gebouw, en het gebouw waar u aankomt: receptie, ontbijt en alle zeven suites. Hier stond de pers.",
     diptychLightBody:
       "Φως betekent licht. Zeven rustige kamers boven de daken, vier minuten van de zee en een korte wandeling van het ontbijt.",
+  },
+
+  mapPlan: {
+    title: "De wijk, vanaf de deur",
+    north: "N",
+    reception: "Receptie",
+    metres: "{n} m",
+    note: "Afstanden hemelsbreed vanaf de receptie, op basis van OpenStreetMap-posities. Lopend is het altijd iets verder — dit zijn steegjes, geen rechte lijnen.",
   },
 
   faqPage: {

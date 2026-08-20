@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 
 import { rooms, counts } from "./rooms";
+import { places } from "./place";
 import { getMessages } from "@/i18n";
 import { locales } from "@/i18n/config";
 
@@ -34,12 +35,12 @@ const PLUNGE = rooms.filter((r) => r.plungePool).length;
 const w = (word: string) => new RegExp(`(^|[^\\p{L}])${word}([^\\p{L}]|$)`, "iu");
 
 const NUMERAL: Record<string, Record<number, RegExp>> = {
-  en: { 1: w("one"), 3: w("three") },
+  en: { 1: w("one"), 3: w("three"), 6: w("six") },
   /* Greek inflects the numeral by gender: τρεις σουίτες but τρία υδρομασάζ. */
-  el: { 1: w("μία"), 3: w("(τρεις|τρία)") },
-  de: { 1: w("eine"), 3: w("drei") },
-  fr: { 1: w("une"), 3: w("trois") },
-  nl: { 1: w("één"), 3: w("drie") },
+  el: { 1: w("μία"), 3: w("(τρεις|τρία)"), 6: w("έξι") },
+  de: { 1: w("eine"), 3: w("drei"), 6: w("sechs") },
+  fr: { 1: w("une"), 3: w("trois"), 6: w("six") },
+  nl: { 1: w("één"), 3: w("drie"), 6: w("zes") },
 };
 
 /** Every sentence on the site that puts a numeral in front of "hot tub". */
@@ -124,5 +125,30 @@ test("the plunge pool is called heated wherever a summary names it", () => {
         `${locale}: plunge pool not called heated — "${s.slice(0, 90)}…"`,
       );
     }
+  }
+});
+
+/**
+ * The landmark heading counts the landmarks.
+ *
+ * It read "Five things worth the walk" in all five languages while `places.ts`
+ * held six — the town beach, the harbour, the Fortezza, the Historical and
+ * Folklore Museum, Arkadi and Eleftherna. Nobody notices a heading that
+ * under-counts by one; it just quietly makes the page smaller than the place.
+ * Found while plotting those same six for the old-town plan, which is the
+ * usual way: a number is only checked when something else has to agree with it.
+ */
+test("the landmark heading counts the landmarks it lists", () => {
+  for (const locale of locales) {
+    const m = getMessages(locale);
+    const word = NUMERAL[locale]![places.length];
+    assert.ok(
+      word,
+      `${locale}: no numeral spelling for ${places.length} — add one to NUMERAL`,
+    );
+    assert.ok(
+      word!.test(m.home.landmarksTitle),
+      `${locale}: landmarksTitle does not say ${places.length} — "${m.home.landmarksTitle}"`,
+    );
   }
 });

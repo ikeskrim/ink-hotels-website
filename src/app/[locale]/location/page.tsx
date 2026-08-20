@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/page-hero";
 import { Container, Section } from "@/components/ui/section";
 import { MapFacade } from "@/components/location/map-facade";
+import { OldTownPlan } from "@/components/place/old-town-plan";
 import { InkAnchor, InkLink } from "@/components/ui/ink-link";
 import { Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -46,7 +47,8 @@ export default async function LocationPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale: raw } = await params;
-  const m = getMessages(isLocale(raw) ? raw : defaultLocale);
+  const locale = isLocale(raw) ? raw : defaultLocale;
+  const m = getMessages(locale);
 
   return (
     <>
@@ -168,6 +170,32 @@ export default async function LocationPage({
                   </InkLink>
                 </div>
               </Reveal>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ── The quarter, plotted ──────────────────────────────────────────
+          Below the interactive map facade rather than instead of it: that one
+          is Google's, loads on request and can route you; this one is four
+          verified positions and a scale bar, costs nothing, and answers the
+          question a guest actually asks at the door — which way, and how far. */}
+      <Section ground="paper" size="md">
+        <Container>
+          <div className="grid gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-5">
+              <p className="label mb-5 text-[color:var(--fg-3)]">
+                {m.home.landmarksEyebrow}
+              </p>
+              <h2 className="font-display text-[length:var(--text-d3)] leading-tight">
+                {m.mapPlan.title}
+              </h2>
+              <InkLink href="/rethymno" className="label mt-8 inline-block">
+                {m.nav.rethymno} →
+              </InkLink>
+            </div>
+            <div className="lg:col-span-7">
+              <OldTownPlan locale={locale} />
             </div>
           </div>
         </Container>

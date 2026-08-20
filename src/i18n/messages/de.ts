@@ -198,7 +198,7 @@ export const de: Messages = {
     harbourEyebrow: "Vier Minuten von der Tür",
     harbourTitle: "Der Hafen, am Ende des Tages",
     landmarksEyebrow: "Was um Sie herum steht",
-    landmarksTitle: "Fünf Dinge, für die sich der Weg lohnt",
+    landmarksTitle: "Sechs Dinge, für die sich der Weg lohnt",
     feedEyebrow: "Aus dem Account",
     feedHandle: "@ink_hotels",
     feedAlts: {
@@ -458,6 +458,14 @@ export const de: Messages = {
       "Das erste Haus, und das, an dem Sie ankommen: Rezeption, Frühstück und alle sieben Suiten. Hier stand die Presse.",
     diptychLightBody:
       "Φως heißt Licht. Sieben ruhige Zimmer über den Dächern, vier Minuten vom Meer und ein kurzer Weg zum Frühstück.",
+  },
+
+  mapPlan: {
+    title: "Das Viertel, von der Tür aus",
+    north: "N",
+    reception: "Rezeption",
+    metres: "{n} m",
+    note: "Luftlinie ab Rezeption, nach Koordinaten von OpenStreetMap. Zu Fuß ist es immer etwas weiter — hier gibt es Gassen, keine Geraden.",
   },
 
   faqPage: {

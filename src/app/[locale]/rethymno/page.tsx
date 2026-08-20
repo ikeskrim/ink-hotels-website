@@ -13,6 +13,7 @@ import { localiseRethymnoIntro } from "@/i18n/content";
 import { defaultLocale, isLocale } from "@/i18n/config";
 import { getMessages } from "@/i18n";
 import { folio } from "@/lib/utils";
+import { OldTownPlan } from "@/components/place/old-town-plan";
 
 export async function generateMetadata({
   params,
@@ -189,6 +190,14 @@ export default async function RethymnoPage({
               {m.home.landmarksTitle}
             </Heading>
           </div>
+
+          {/* The plan heads the list it points into: every pin is a link to
+              one of the entries below, so the reader can start from where a
+              place is rather than from its name. */}
+          <OldTownPlan
+            locale={locale}
+            className="mx-auto mb-[clamp(3rem,6vw,5rem)] max-w-2xl"
+          />
 
           <dl className="grid gap-x-[clamp(2rem,4vw,4rem)]">
             {places.map((place, i) => (
