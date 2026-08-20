@@ -49,8 +49,17 @@ const problems = [];
 /** Alt text and control labels as actually rendered. */
 async function scan(route) {
   await goto(page, BASE + route, { waitFor: "main, body" });
-  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  await page.waitForTimeout(700);
+  /* No scrolling. This reads attributes, not pixels, and `next/image` puts
+     every <img> in the DOM immediately — lazy loading is an attribute on the
+     tag, not conditional rendering. Verified on the built site: /gallery
+     reports 440 images and 435 descriptions whether or not the page has been
+     scrolled.
+
+     Scrolling it cost the whole check. Walking /gallery to the bottom forces
+     434 image variants to be generated on a cold cache, which saturated the
+     optimizer so thoroughly that the *next* route could not return even a
+     `commit` inside 60s — CI failed on /experiences, a page with nothing wrong
+     with it. */
   return page.evaluate(() => {
     const named = (el) => {
       /* Anything that already gives this image an accessible name — an
