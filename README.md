@@ -141,10 +141,31 @@ npm run dev
 | Script | What it does |
 | --- | --- |
 | `npm run dev` | Development server on :3000 |
-| `npm run build` | Production build (59 static pages) |
-| `npm start` | Serve the production build |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build (`prestart` refuses a half-written one) |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` |
+| `npm test` | The count and spec guards — hot tubs, plunge pool, bed lines, the landmark heading |
+
+Everything below needs the production server already running, and reads
+`BASE` (default `http://localhost:3000`):
+
+| Script | What it refuses to let through |
+| --- | --- |
+| `npm run smoke` | a sitemap URL that is not 200, or indexing rules the wrong way round |
+| `npm run headings` | a heading whose words run together in its accessible name |
+| `npm run redirects` | a launch redirect that loops, chains, 404s or points at a missing anchor |
+| `npm run alt` | an image that says nothing, or a control still labelled in English |
+
+Generators, run by hand when the inputs change:
+
+| Script | What it writes |
+| --- | --- |
+| `npm run blur` | `src/content/generated/blur.ts` — blur-up placeholders for the frames that lead a page |
+| `npm run og:dims` | `src/content/generated/og-dims.ts` — the true pixel size of every advertised `og:image` |
+| `npm run redirects:doc` | `REDIRECTS.md` from the redirect map |
+| `npm run cms:check` | translation coverage across the five catalogues |
+| `npm run cms:seed` | seeds Sanity from `src/content` (needs `.env.local`) |
 
 Node 20+ required (developed on 24.19).
 
@@ -178,20 +199,45 @@ guests still arrive with that name in hand. It is no longer a building.
 
 ---
 
+## What the site does
+
+The parts a reader meets, and where each lives.
+
+| | |
+| --- | --- |
+| **Suite pages** | Rebuilt on lead-with-distinction: a signature hero, the one line that makes that suite unlike the other nineteen, then layout / occupancy / amenities as disclosures and a sticky rail that deep-links *that* suite into the engine with the phone beside it. All twenty run on it, behind a slug list in `content/suite-template.ts` that is also the rollback |
+| **Rooms index** | Twenty image-led cards; the specifics surface on hover and focus, and are present in the markup on first paint so they reach a crawler and a screen reader regardless |
+| **The disclosure system** | One component (`ui/accordion.tsx`) for /faq and the suite pages. Heading level is a prop; the summary line stays visible while a row is closed |
+| **The old-town plan** | Four places and the reception plotted by true bearing and distance from OpenStreetMap coordinates. No tiles, no WebGL, plain anchors — it works with JavaScript off |
+| **Chapter spine** | A margin rail of folios that reads `[data-chapter]` off the page and takes the colour of the ground behind it |
+| **Motion** | A once-per-session press impression, an ink-wash between routes, word-by-word heading reveals, a wet-ink cursor on fine pointers only, sticky media with advancing prose, and a scroll-scrubbed pen on /story. Every one of them stands down under `prefers-reduced-motion` |
+| **Texture** | Two paper stocks, letterpress deboss rules, ink-wash edges at the four boundaries where the contrast is real, and a blind-stamped mark closing the footer |
+| **Five languages** | English unprefixed via a middleware rewrite, four prefixed. Every string, every control label and every image description — including the 434 in the gallery, which are fourteen sentences with a name or a number in them |
+
+---
+
 ## Verified state
 
-Measured against the production build, Lighthouse mobile emulation (slow 4G, 4× CPU):
+Measured against the production build, Lighthouse mobile emulation (slow 4G,
+4x CPU), **3-run medians**, fresh build with `Ready in` confirmed in the server
+log before each set. Full table and the attribution of every dip live in
+[PLAN.md](PLAN.md).
 
-| Route | Perf | A11y | Best practices | SEO | LCP | CLS |
-| --- | --- | --- | --- | --- | --- | --- |
-| `/` | 84 | 100 | 100 | 100 | 4.2 s | 0 |
-| `/rooms` | 86 | 100 | 100 | 100 | 4.0 s | 0.003 |
-| `/rooms/evexia` | 89 | 100 | 100 | 100 | 3.5 s | 0 |
-| `/gallery` | 88 | 100 | 100 | 100 | 3.7 s | 0.002 |
-| `/experiences` | 95 | 100 | 100 | 100 | 3.0 s | 0.011 |
-| `/story` | 86 | 100 | 100 | 100 | 3.9 s | 0.001 |
-| `/contact` | 87 | 100 | 100 | 100 | 3.8 s | 0 |
-| `/faq` | 88 | 100 | 100 | 100 | 3.6 s | 0 |
+| Route | min/med/max | LCP | FCP | TBT |
+| --- | --- | --- | --- | --- |
+| `/` | 81/**83**/85 | 4.07s | 2.56s | 34ms |
+| `/rooms` | 91/**92**/94 | 3.31s | 1.21s | 12ms |
+| `/rooms/evexia` | 89/**93**/93 | 3.20s | 1.21s | 65ms |
+| `/story` | 85/**90**/95 | 3.31s | 2.11s | 17ms |
+| `/gallery` | 85/**86**/88 | 3.94s | 1.81s | 28ms |
+| `/rethymno` | 88/**88**/90 | 3.62s | 2.11s | 26ms |
+| `/location` | 91/**91**/91 | 3.31s | 1.96s | 23ms |
+| `/arrival` | 90/**90**/90 | 3.46s | 1.96s | 20ms |
+| `/faq` | 91/**91**/91 | 3.31s | 1.96s | 32ms |
+| `/experiences` | 87/**87**/88 | 3.76s | 2.26s | 20ms |
+| `/contact` | 90/**91**/91 | 3.32s | 1.96s | 17ms |
+
+Accessibility, best practices and SEO are 100 across the set.
 
 **Why performance sits at 88 and not 95.** The LCP element on the photograph-led
 pages is the full-bleed hero image itself, and Lighthouse's mobile profile
@@ -216,6 +262,11 @@ unused font subset removed, and the below-fold galleries left lazy.
   1019 px.
 - **Translation coverage: complete.** 20 rooms, 23 experiences, 6 places, 6 chapters
   and 14 questions, in all four non-English catalogues (`npm run cms:check`).
+- **Alt text: complete, in five languages.** `npm run alt` walks every image on
+  twelve routes plus five Greek ones. It checks the three things axe cannot: an
+  empty alt on an image nothing else names, a filler opener ("Image of…"), and a
+  control still labelled in English on a translated page. Currently **0/435
+  described images read in English on `/el/gallery`**, down from 413/435.
 - **Media: 541 references resolve**, and every full-bleed image is landscape and
   ≥2000 px (`node scripts/check-media.mjs`).
 - `npm run lint` and `npm run typecheck` both clean; 295 static pages build.
@@ -406,6 +457,7 @@ and the rest run against it:
 | `locale-roundtrip` | an internal link that drops the reader's language |
 | `reveal-check` | a scroll entrance that never becomes visible |
 | `redirect-check` | a launch redirect that loops, duplicates, chains, 404s, or points at an anchor that is not there |
+| `alt-check` | an image that says nothing, a filler alt, or a control still labelled in English on a translated route |
 
 ---
 
@@ -484,6 +536,8 @@ blocking the site; each is a switch that stays off until the input arrives.
 | **Phos rename decision** | Two categories differ by one capital letter; a guest can book the wrong room | `PROPOSALS.md` #1 — site **and** WebHotelier admin together |
 | **A lawyer's pass on Terms and Privacy** | Written from scratch, both `noindex` | `/terms`, `/privacy` |
 | **A best-rate line, if it is true** | The Book Direct block deliberately makes no rate claim | `booking.bookDirect*` |
+| **What the homepage must retain** | The duplicated arrival steps were removed; relocating the rest means moving translated copy between catalogues and deciding what the front page is for. A marketing call, not a layout one | `src/components/home/*`, five catalogues |
+| **Whether the Archaeological Museum belongs on the page** | It is not in `content/place.ts`, so the old-town plan does not pin it. If it should be there, its current site is OSM way 261112744 at 35.3684033, 24.4743864 — the 2016 building on Agiou Fragkiskou, not the old one at the Fortezza entrance that geocoders return | `content/place.ts`, then `content/places-geo.ts` |
 
 ### Two photographs worth shooting
 

@@ -109,6 +109,11 @@ jobs:
         env:
           BASE: http://localhost:3000
 
+      - name: Alt text — every image speaks, in the reader's language
+        run: node scripts/alt-check.mjs
+        env:
+          BASE: http://localhost:3000
+
       - name: Server log on failure
         if: failure()
         run: tail -60 /tmp/server.log || true
