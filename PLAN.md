@@ -3,7 +3,7 @@
 > **PROGRESS (2026-08-19, night 3).** Stage 6 is fully closed — 6.5 shipped as
 > a bearing-and-distance plan from OSM-verified coordinates — and the alt-text
 > prose is translated across all five locales (0 English descriptions left on
-> any checked route, down from ~450). Full route table above; `/` at 83 is its
+> any checked route, down from ~450). Full route table below; `/` at 83 is its
 > own floor, everything else 86–93.
 > **Next session picks up at the owner list** — the homepage-content half of
 > 5.2 and the Archaeological Museum question are the two decisions blocking
