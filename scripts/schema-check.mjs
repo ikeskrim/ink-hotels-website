@@ -124,6 +124,36 @@ for (const route of ROUTES) {
     }
   }
 
+  /* ── hreflang ──────────────────────────────────────────────────────────
+     Five languages plus x-default, on every route. Google treats a missing or
+     asymmetric set as five duplicates of one page and picks one to keep — so
+     an omission here does not look like a bug, it looks like four of the five
+     languages quietly not ranking. */
+  const alts = await page.evaluate(() =>
+    [...document.querySelectorAll('link[rel="alternate"][hreflang]')].map((l) => ({
+      lang: l.getAttribute("hreflang"),
+      href: l.getAttribute("href"),
+    })),
+  );
+  const langs = alts.map((a) => a.lang);
+  for (const want of ["en-GB", "el-GR", "de-DE", "fr-FR", "nl-NL", "x-default"]) {
+    if (!langs.includes(want)) {
+      problems.push(`${route}  hreflang is missing ${want}`);
+    }
+  }
+  for (const a of alts) {
+    if (!a.href || !a.href.startsWith("http")) {
+      problems.push(`${route}  hreflang ${a.lang} is not an absolute URL`);
+    }
+  }
+  /* The prefix must match the language it claims. */
+  for (const [lang, prefix] of [["el-GR", "/el/"], ["de-DE", "/de/"], ["fr-FR", "/fr/"], ["nl-NL", "/nl/"]]) {
+    const a = alts.find((x) => x.lang === lang);
+    if (a?.href && !new URL(a.href).pathname.startsWith(prefix) && new URL(a.href).pathname !== prefix.slice(0, -1)) {
+      problems.push(`${route}  hreflang ${lang} points at ${new URL(a.href).pathname}`);
+    }
+  }
+
   /* The og:image the page advertises to a card. */
   const og = await page.evaluate(
     () => document.querySelector('meta[property="og:image"]')?.getAttribute("content") ?? null,

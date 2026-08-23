@@ -2,6 +2,49 @@ import type { NextConfig } from "next";
 
 import { buildRedirects } from "./redirects.mjs";
 
+/**
+ * Content Security Policy, in Report-Only.
+ *
+ * Report-Only on purpose and for now: a CSP that is wrong does not degrade a
+ * page, it breaks it — a blocked script is a booking form that does nothing —
+ * and the only honest way to find out whether this one is right is to watch
+ * real traffic violate it. It is enforced by changing one header name, once
+ * the reports are quiet.
+ *
+ * Every origin below is one this site actually uses:
+ *
+ *   plausible.io          the analytics script, loaded only in production and
+ *                         only when NEXT_PUBLIC_PLAUSIBLE_DOMAIN is set
+ *   cdn.sanity.io         CMS images, when the CMS is connected
+ *   vtours.pepita.io      the property's own 360 tour, in an iframe that is
+ *                         created only when a guest asks for it
+ *   reserve-online.net    the reservation engine; a form target and a link,
+ *                         never an embed — so form-action, not frame-src
+ *
+ * `'unsafe-inline'` for styles is not laziness: Next inlines critical CSS and
+ * this site sets CSS custom properties inline for the grounds. Removing it
+ * needs nonces threaded through the streaming renderer, which is a project.
+ * Scripts do NOT get it — that is the half of the policy that matters.
+ */
+const CSP = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'self'",
+  "form-action 'self' https://*.reserve-online.net",
+  "script-src 'self' 'unsafe-inline' https://plausible.io",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https://cdn.sanity.io",
+  "font-src 'self' data:",
+  "connect-src 'self' https://plausible.io https://cdn.sanity.io",
+  "frame-src 'self' https://vtours.pepita.io",
+  "manifest-src 'self'",
+  /* `upgrade-insecure-requests` is deliberately NOT here. A report-only policy
+     ignores it and logs a notice saying so on every page load — noise that
+     would sit on top of the real reports this header exists to collect. Add it
+     in the same change that renames the header to enforcing. */
+].join("; ");
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
@@ -82,6 +125,23 @@ const nextConfig: NextConfig = {
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          /* Enforcing, and cheap: nothing on this site is meant to be framed,
+             and clickjacking a booking page is a real thing that happens to
+             hotels. CSP's frame-ancestors says the same thing but is
+             Report-Only below, so this is the one actually refusing. */
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          /* Report-Only. Watch the reports, then rename the header to
+             `Content-Security-Policy` to enforce it. */
+          { key: "Content-Security-Policy-Report-Only", value: CSP },
+          /* NO HSTS TONIGHT — deliberately.
+             Strict-Transport-Security tells every browser that visited to
+             refuse plain HTTP for `max-age` seconds, and it cannot be recalled
+             once sent: a browser that has seen it will not come back over HTTP
+             even if the certificate later fails. On a preview deployment,
+             before the domain is attached, that is a promise made on behalf of
+             a hostname the site does not own yet. Add it on domain day, after
+             HTTPS is confirmed working on inkhotels.gr, starting at a short
+             max-age. DOMAIN-SWITCH-RUNBOOK.md carries the step. */
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
