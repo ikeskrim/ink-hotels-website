@@ -1,14 +1,14 @@
 # Ink Hotels — consolidated plan
 
-> **PROGRESS (2026-08-19, night 3).** Stage 6 is fully closed — 6.5 shipped as
-> a bearing-and-distance plan from OSM-verified coordinates — and the alt-text
-> prose is translated across all five locales (0 English descriptions left on
-> any checked route, down from ~450). Full route table below; `/` at 83 is its
-> own floor, everything else 86–93.
-> **Next session picks up at the owner list** — the homepage-content half of
-> 5.2 and the Archaeological Museum question are the two decisions blocking
-> further work; after those, `/terms` and `/privacy` bodies are the last
-> untranslated copy on the site.
+> **PROGRESS (2026-08-23, night 4).** The launch-readiness queue is done: the
+> 5.2 trailer is built behind a flag that is OFF, booking-link integrity and
+> cross-browser and structured-data and keyboard checks are in CI, the 500 and
+> offline pages ship in five locales, and HANDOVER.md + DOMAIN-SWITCH-RUNBOOK.md
+> are written. Four production faults were found by the new checks — see the
+> commit log for `/opengraph-image`, `q=74`, the skip link and the 400s.
+> **Next session picks up at the owner list** — the homepage retention set is
+> the one decision blocking further work, and `cross-browser` should be promoted
+> from non-blocking once it has passed twice on main.
 
 Supersedes every previous round document. Repo:
 [ikeskrim/ink-hotels-website](https://github.com/ikeskrim/ink-hotels-website) ·
