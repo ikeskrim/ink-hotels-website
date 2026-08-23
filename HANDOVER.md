@@ -117,6 +117,15 @@ keeps looking wrong for people who already visited, after the fix ships. On a
 site whose rates and availability change, that wants a deliberate decision.
 Registering it is a small change; living with a bad one is not.
 
+**The CSP is Report-Only, on purpose.** It collects violations at
+`/api/csp-report` — read them in the Vercel runtime logs, filtered on `[csp]`.
+Give it a fortnight of real traffic. If the only reports are things you expect,
+rename the header in `next.config.ts` from
+`Content-Security-Policy-Report-Only` to `Content-Security-Policy` and add
+`upgrade-insecure-requests` in the same change. A CSP that is wrong does not
+degrade a page, it breaks it — a blocked script is a booking form that does
+nothing — so this order is the whole point.
+
 **No rate or availability claims anywhere.** Both live in the reservation
 engine and change without telling this site. Every Book control hands off to
 the engine carrying the room, the dates and the party size.

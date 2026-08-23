@@ -39,6 +39,14 @@ const CSP = [
   "connect-src 'self' https://plausible.io https://cdn.sanity.io",
   "frame-src 'self' https://vtours.pepita.io",
   "manifest-src 'self'",
+  /* Both spellings, because browsers disagree about which one they read.
+     `report-uri` is deprecated and universally supported; `report-to` is the
+     replacement and is what WebKit requires — without it Safari discards the
+     policy entirely and says so: "the policy will have no effect". A
+     Report-Only header that reports to nowhere is decoration, and Safari is
+     most of the mobile traffic a Greek hotel sees. */
+  "report-uri /api/csp-report",
+  "report-to csp-endpoint",
   /* `upgrade-insecure-requests` is deliberately NOT here. A report-only policy
      ignores it and logs a notice saying so on every page load — noise that
      would sit on top of the real reports this header exists to collect. Add it
@@ -130,8 +138,15 @@ const nextConfig: NextConfig = {
              hotels. CSP's frame-ancestors says the same thing but is
              Report-Only below, so this is the one actually refusing. */
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
-          /* Report-Only. Watch the reports, then rename the header to
-             `Content-Security-Policy` to enforce it. */
+          /* Names the endpoint the `report-to` directive above refers to.
+             Without this header the directive points at nothing. */
+          {
+            key: "Reporting-Endpoints",
+            value: 'csp-endpoint="/api/csp-report"',
+          },
+          /* Report-Only. Watch the reports in the runtime log, then rename
+             this header to `Content-Security-Policy` to enforce it — and add
+             `upgrade-insecure-requests` in the same change. */
           { key: "Content-Security-Policy-Report-Only", value: CSP },
           /* NO HSTS TONIGHT — deliberately.
              Strict-Transport-Security tells every browser that visited to
