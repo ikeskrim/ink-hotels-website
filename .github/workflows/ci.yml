@@ -112,6 +112,11 @@ jobs:
       - name: Media - every reference resolves, every quality is declared
         run: node scripts/check-media.mjs
 
+      - name: Keyboard — every control answers the key it claims to
+        run: node scripts/keyboard-check.mjs
+        env:
+          BASE: http://localhost:3000
+
       - name: Booking links — every Book control lands on the right room
         run: node --import tsx scripts/booking-check.mjs
         env:

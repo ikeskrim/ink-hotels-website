@@ -84,6 +84,23 @@ export function SmoothScroll() {
       const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
       lenis.scrollTo(target as HTMLElement, { offset: -margin });
 
+      /* Move focus, not just the viewport.
+
+         Calling preventDefault above takes over the whole of fragment
+         navigation — including the part nobody thinks about, which is that
+         following a fragment link moves focus to the target. Without this the
+         smooth scroll silently breaks the skip link: the page slides to the
+         main landmark and focus stays on the skip link, so the reader's next
+         Tab starts again from the top of the page. That is precisely the
+         journey the skip link exists to avoid, and it is invisible unless you
+         drive it with a keyboard.
+
+         `preventScroll` because Lenis is already handling the travel; without
+         it the browser jumps to the target and Lenis animates from there. */
+      if (target instanceof HTMLElement) {
+        target.focus({ preventScroll: true });
+      }
+
       /* Keep the address bar honest without letting the browser jump: the
          link stays shareable and Back still walks the anchors. */
       if (window.location.hash !== id) {

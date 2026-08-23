@@ -208,7 +208,13 @@ export default async function RootLayout({
           <SmoothScroll />
           <SiteHeader />
 
-          <main id="main" className="relative">
+          {/* `tabIndex={-1}` so the skip link moves focus, not just the
+              viewport. Without it the browser scrolls to the landmark and
+              leaves focus on the link, so the next Tab continues from the top
+              of the page — which is the thing the skip link exists to avoid.
+              Caught by driving it: Enter on the skip link left activeElement
+              on the <a>. -1 keeps it out of the tab order. */}
+          <main id="main" tabIndex={-1} className="relative outline-none">
             {children}
           </main>
 
