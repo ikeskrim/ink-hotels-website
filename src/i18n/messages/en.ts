@@ -362,6 +362,20 @@ export const en = {
     menu: "Menu",
     openMenu: "Open menu",
     closeMenu: "Close menu",
+    error500:
+      "Error 500",
+    serverErrorTitle:
+      "The press has jammed.",
+    serverErrorBody:
+      "Something on our side failed while this page was being made. It is not something you did, and nothing you were doing has been lost. Try again in a moment — or call the desk and somebody will help you directly.",
+    tryAgain:
+      "Try again",
+    offlineTitle:
+      "The ink has not reached you.",
+    offlineBody:
+      "This page needs a connection and there does not seem to be one. Nothing is wrong with your booking or with the hotel — the page simply could not be fetched. Reconnect and try again.",
+    offlineLabel:
+      "Offline",
     error404: "Error 404",
     notFoundTitle: "This page ran out of ink.",
     notFoundBody:

@@ -347,6 +347,20 @@ export const nl: Messages = {
     menu: "Menu",
     openMenu: "Menu openen",
     closeMenu: "Menu sluiten",
+    error500:
+      "Fout 500",
+    serverErrorTitle:
+      "De pers is vastgelopen.",
+    serverErrorBody:
+      "Er is aan onze kant iets misgegaan terwijl deze pagina werd gemaakt. Het ligt niet aan u, en niets van wat u deed is verloren. Probeer het zo meteen opnieuw — of bel de receptie, dan helpt iemand u meteen.",
+    tryAgain:
+      "Opnieuw proberen",
+    offlineTitle:
+      "De inkt heeft u niet bereikt.",
+    offlineBody:
+      "Deze pagina heeft een verbinding nodig en die lijkt er niet te zijn. Er is niets mis met uw boeking of met het hotel — de pagina kon alleen niet worden opgehaald. Maak opnieuw verbinding en probeer het nog eens.",
+    offlineLabel:
+      "Offline",
     error404: "Fout 404",
     notFoundTitle: "Deze pagina is door de inkt heen.",
     notFoundBody:

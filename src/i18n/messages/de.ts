@@ -347,6 +347,20 @@ export const de: Messages = {
     menu: "Menü",
     openMenu: "Menü öffnen",
     closeMenu: "Menü schließen",
+    error500:
+      "Fehler 500",
+    serverErrorTitle:
+      "Die Presse klemmt.",
+    serverErrorBody:
+      "Auf unserer Seite ist beim Erstellen dieser Seite etwas fehlgeschlagen. Es liegt nicht an Ihnen, und nichts von dem, was Sie getan haben, ist verloren. Versuchen Sie es gleich noch einmal — oder rufen Sie die Rezeption an, dort hilft Ihnen jemand direkt.",
+    tryAgain:
+      "Erneut versuchen",
+    offlineTitle:
+      "Die Tinte hat Sie nicht erreicht.",
+    offlineBody:
+      "Diese Seite braucht eine Verbindung, und es scheint keine zu geben. Mit Ihrer Buchung und mit dem Hotel ist alles in Ordnung — die Seite konnte nur nicht geladen werden. Stellen Sie die Verbindung wieder her und versuchen Sie es erneut.",
+    offlineLabel:
+      "Offline",
     error404: "Fehler 404",
     notFoundTitle: "Dieser Seite ging die Tinte aus.",
     notFoundBody:

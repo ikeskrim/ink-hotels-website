@@ -347,6 +347,20 @@ export const fr: Messages = {
     menu: "Menu",
     openMenu: "Ouvrir le menu",
     closeMenu: "Fermer le menu",
+    error500:
+      "Erreur 500",
+    serverErrorTitle:
+      "La presse s'est bloquée.",
+    serverErrorBody:
+      "Quelque chose a échoué de notre côté pendant la fabrication de cette page. Cela ne vient pas de vous, et rien de ce que vous faisiez n'a été perdu. Réessayez dans un instant — ou appelez la réception, quelqu'un vous aidera directement.",
+    tryAgain:
+      "Réessayer",
+    offlineTitle:
+      "L'encre ne vous est pas parvenue.",
+    offlineBody:
+      "Cette page a besoin d'une connexion et il ne semble pas y en avoir. Rien ne va mal avec votre réservation ni avec l'hôtel — la page n'a simplement pas pu être chargée. Reconnectez-vous et réessayez.",
+    offlineLabel:
+      "Hors ligne",
     error404: "Erreur 404",
     notFoundTitle: "Cette page n'a plus d'encre.",
     notFoundBody:
