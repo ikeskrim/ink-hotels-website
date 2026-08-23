@@ -163,18 +163,18 @@ jobs:
   # Separate, because installing WebKit and Firefox is most of its runtime and
   # the fast gates should stay fast.
   #
-  # NON-BLOCKING ON PURPOSE, FOR NOW. `continue-on-error` is on so its first
-  # runs report without gating anyone. Promote it — delete that one line — once
-  # it has passed twice on main. A new cross-browser job that goes straight to
-  # blocking is a job people learn to re-run rather than read.
+  # PROMOTED TO A REAL GATE. It landed non-blocking, as a new browser job
+  # should, and earned its place: two consecutive clean passes on main —
+  # 40e254c and e80c0da — after the two faults it found on the way there (four
+  # images returning 400 in production, and a Report-Only CSP that Safari was
+  # discarding for want of a reporting endpoint). `continue-on-error` is gone.
   #
   # Firefox cannot be launched on the Windows box this was written on
-  # ("spawn UNKNOWN"), so the local runs were WebKit-only. Linux here is the
-  # first place both engines actually run.
+  # ("spawn UNKNOWN"), so local runs are WebKit-only. Linux here is the only
+  # place both engines actually run, which is most of the argument for the job.
   cross-browser:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    continue-on-error: true
 
     steps:
       - uses: actions/checkout@v5

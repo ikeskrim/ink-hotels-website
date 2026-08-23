@@ -1,14 +1,14 @@
 # Ink Hotels — consolidated plan
 
-> **PROGRESS (2026-08-23, night 4).** The launch-readiness queue is done: the
-> 5.2 trailer is built behind a flag that is OFF, booking-link integrity and
-> cross-browser and structured-data and keyboard checks are in CI, the 500 and
-> offline pages ship in five locales, and HANDOVER.md + DOMAIN-SWITCH-RUNBOOK.md
-> are written. Four production faults were found by the new checks — see the
-> commit log for `/opengraph-image`, `q=74`, the skip link and the 400s.
-> **Next session picks up at the owner list** — the homepage retention set is
-> the one decision blocking further work, and `cross-browser` should be promoted
-> from non-blocking once it has passed twice on main.
+> **PROGRESS (2026-08-23, owner decisions).** Both open decisions are CLOSED.
+> The homepage trailer is LIVE — `TRAILER` is on, seven beats on `/`, eight
+> sections relocated to /rooms, /story and /rethymno, guarded by
+> `trailer-parity.mjs` in CI. The Archaeological Museum is on the map at its
+> OSM-verified current site; seven landmarks, five pinned. `cross-browser` is
+> now a blocking gate after two clean passes.
+> **Next session picks up at the remaining owner list** — reservation ids for
+> Evexia/Eros/Zoi, real reviews, and the lawyer's pass on Terms and Privacy.
+> Nothing in the plan is blocked on a decision any more.
 
 Supersedes every previous round document. Repo:
 [ikeskrim/ink-hotels-website](https://github.com/ikeskrim/ink-hotels-website) ·

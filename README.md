@@ -199,6 +199,11 @@ guests still arrive with that name in hand. It is no longer a building.
 
 ---
 
+> **Two decisions closed (23 Aug).** The homepage trailer is live — seven beats
+> on `/`, eight sections relocated and guarded by a parity check in CI. The
+> Archaeological Museum is on the map at its verified current site. Neither is
+> waiting on anything.
+
 ## If you are taking this over
 
 Two documents, both written for somebody who did not build it:
@@ -549,8 +554,7 @@ blocking the site; each is a switch that stays off until the input arrives.
 | **Phos rename decision** | Two categories differ by one capital letter; a guest can book the wrong room | `PROPOSALS.md` #1 — site **and** WebHotelier admin together |
 | **A lawyer's pass on Terms and Privacy** | Written from scratch, both `noindex` | `/terms`, `/privacy` |
 | **A best-rate line, if it is true** | The Book Direct block deliberately makes no rate claim | `booking.bookDirect*` |
-| **What the homepage must retain** | The duplicated arrival steps were removed; relocating the rest means moving translated copy between catalogues and deciding what the front page is for. A marketing call, not a layout one | `src/components/home/*`, five catalogues |
-| **Whether the Archaeological Museum belongs on the page** | It is not in `content/place.ts`, so the old-town plan does not pin it. If it should be there, its current site is OSM way 261112744 at 35.3684033, 24.4743864 — the 2016 building on Agiou Fragkiskou, not the old one at the Fortezza entrance that geocoders return | `content/place.ts`, then `content/places-geo.ts` |
+| **A photograph of the Archaeological Museum** | The entry is live and the pin is placed, but the media library has none of that building — so it is the one landmark with no picture. A stock photograph of a different museum is the thing this site does not do | one line in `content/place.ts` |
 
 ### Two photographs worth shooting
 

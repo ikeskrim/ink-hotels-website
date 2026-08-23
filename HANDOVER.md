@@ -61,7 +61,7 @@ Both are one boolean, in a diff, with no build step or environment variable.
 | flag | file | state | what it does |
 | --- | --- | --- | --- |
 | **Suite template** | `src/content/suite-template.ts` | **ON** — all 20 slugs listed | The rebuilt room pages. Remove a slug to put that one suite back on the old template in the next build. This list is the rollback. |
-| **Homepage trailer** | `src/content/homepage-trailer.ts` | **OFF** | Slims the homepage to seven beats and moves the other eight sections to `/rooms`, `/story` and `/rethymno`. Nothing is deleted either way. See [PROPOSALS.md](PROPOSALS.md). |
+| **Homepage trailer** | `src/content/homepage-trailer.ts` | **ON** — owner-approved 23 Aug | Seven beats on the homepage; the other eight sections live on `/rooms`, `/story` and `/rethymno`. Set it to `false` to put all fifteen back. `npm run parity` proves nothing is lost or duplicated either way, and runs in CI. |
 
 After flipping either: `npm run build`, then the checks below, then look at the
 screenshots.
@@ -81,6 +81,7 @@ npm run keyboard          # every control answers the key it claims to
 npm run schema            # structured data parses; hreflang complete
 npm run redirects         # the launch redirect map resolves
 npm run cross             # WebKit and Firefox
+npm run parity            # the trailer relocation: nothing lost, nothing doubled
 npm run shots             # screenshots into qa/shots/ (git-ignored)
 ```
 
@@ -93,9 +94,9 @@ Every push runs [`.github/workflows/ci.yml`](.github/workflows/ci.yml). Green
 means every number in the README is still true.
 
 - **`verify`** — the gate. If it is red, something is actually wrong.
-- **`cross-browser`** — WebKit and Firefox. Currently **non-blocking**
-  (`continue-on-error`). Once it has passed twice on `main`, delete that line
-  to make it a real gate.
+- **`cross-browser`** — WebKit and Firefox. A **real gate** since 23 Aug, after
+  two clean passes. It found four images returning 400 in production and a CSP
+  Safari was silently discarding, which is why it exists.
 - **review-screenshots** — an artifact on every run: eight routes × all five
   languages, 40 full-page frames, kept for seven days. This is the fastest way
   to see what a change did, and the four non-English sets are where layout
@@ -166,8 +167,9 @@ not on it.
 The current list is at the foot of [README.md](README.md), kept there because it
 is the file people open first. The two that block other work:
 
-1. **What the homepage must retain** — the trailer is built and off, waiting on
-   this one decision.
-2. **Reservation ids for Evexia, Eros and Zoi** — their Book buttons open the
+1. **Reservation ids for Evexia, Eros and Zoi** — their Book buttons open the
    engine's front page rather than the room, and the site says so in words
    rather than pretending otherwise.
+2. **Six to ten real guest quotes** — `WhatGuestsSaid` is marked dormant in the
+   relocation table and renders nothing until they arrive. Delete the `dormant`
+   line the day they do.
