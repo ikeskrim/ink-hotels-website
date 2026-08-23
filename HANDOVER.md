@@ -96,9 +96,10 @@ means every number in the README is still true.
 - **`cross-browser`** — WebKit and Firefox. Currently **non-blocking**
   (`continue-on-error`). Once it has passed twice on `main`, delete that line
   to make it a real gate.
-- **review-screenshots** — an artifact on every run, eight routes × two
-  languages, kept for seven days. This is the fastest way to see what a change
-  did.
+- **review-screenshots** — an artifact on every run: eight routes × all five
+  languages, 40 full-page frames, kept for seven days. This is the fastest way
+  to see what a change did, and the four non-English sets are where layout
+  breaks actually hide.
 
 A red check that you believe is wrong is worth reading twice before it is
 weakened. Three separate times on this project a check went red and the check
