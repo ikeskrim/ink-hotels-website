@@ -199,6 +199,19 @@ guests still arrive with that name in hand. It is no longer a building.
 
 ---
 
+## If you are taking this over
+
+Two documents, both written for somebody who did not build it:
+
+- **[HANDOVER.md](HANDOVER.md)** — the owner's manual. Change a sentence, add a
+  photograph, flip the two flags, run the checks, read CI. Also what is
+  deliberately *not* built, and why.
+- **[DOMAIN-SWITCH-RUNBOOK.md](DOMAIN-SWITCH-RUNBOOK.md)** — the cutover, in
+  order: DNS, the Vercel domain, HTTPS, redirects live, HSTS, Search Console,
+  and the 404 watch for the first weeks. Read it before the day, not on it.
+
+---
+
 ## What the site does
 
 The parts a reader meets, and where each lives.
