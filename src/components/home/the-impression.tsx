@@ -91,7 +91,7 @@ export function TheImpression() {
   }, [reduced]);
 
   return (
-    <Section ground="sun" size="lg" wash="ink" className="lit limewash overflow-hidden">
+    <Section name="TheImpression" ground="sun" size="lg" wash="ink" className="lit limewash overflow-hidden">
       <Container>
         <div className="grid items-center gap-[clamp(3rem,7vw,6rem)] lg:grid-cols-12">
           {/* ── The object ───────────────────────────────────────────── */}

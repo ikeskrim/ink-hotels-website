@@ -39,7 +39,7 @@ export function PlainFacts({ locale = defaultLocale }: { locale?: Locale }) {
   ];
 
   return (
-    <Section ground="paper" size="lg" plaster chapter="03">
+    <Section name="PlainFacts" ground="paper" size="lg" plaster chapter="03">
       <Container>
         <div className="grid gap-[clamp(3rem,6vw,6rem)] lg:grid-cols-12">
           <div className="lg:col-span-7">

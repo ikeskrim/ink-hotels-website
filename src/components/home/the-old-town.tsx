@@ -19,7 +19,7 @@ export function TheOldTown({ locale = defaultLocale }: { locale?: Locale }) {
        is directly above is The Light — shade. It read "ink", from an older
        running order in which the dark mark section sat here, and painted a
        dark smear that belonged to no boundary on the page. */
-    <Section ground="paper" size="lg" plaster wash="shade">
+    <Section name="TheOldTown" ground="paper" size="lg" plaster wash="shade">
       <Container>
         <div className="grid gap-[clamp(2rem,5vw,4rem)] lg:grid-cols-12">
           {/* Tall plate, offset down */}

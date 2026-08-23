@@ -29,7 +29,7 @@ export function TheFamily({ locale = defaultLocale }: { locale?: Locale }) {
   ];
 
   return (
-    <Section ground="sun" size="lg">
+    <Section name="TheFamily" ground="sun" size="lg">
       <Container>
         <div className="grid items-center gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12">
           <figure className="lg:col-span-6">

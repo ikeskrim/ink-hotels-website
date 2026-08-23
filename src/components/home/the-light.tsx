@@ -59,7 +59,7 @@ export function TheLight() {
   }, [reduced]);
 
   return (
-    <Section ground="shade" size="lg">
+    <Section name="TheLight" ground="shade" size="lg">
       <Container>
         <div className="grid items-center gap-[clamp(2.5rem,6vw,6rem)] lg:grid-cols-12">
           {/* ── The photograph, and the light crossing it ─────────────── */}

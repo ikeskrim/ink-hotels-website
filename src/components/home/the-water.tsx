@@ -50,7 +50,7 @@ export function TheWater({ locale = defaultLocale }: { locale?: Locale }) {
   const m = getMessages(locale);
 
   return (
-    <Section
+    <Section name="TheWater"
       ground="night"
       size="none"
       grain={false}

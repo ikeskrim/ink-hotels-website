@@ -112,6 +112,11 @@ jobs:
       - name: Media - every reference resolves, every quality is declared
         run: node scripts/check-media.mjs
 
+      - name: Trailer parity — nothing lost, nothing duplicated
+        run: node --import tsx scripts/trailer-parity.mjs
+        env:
+          BASE: http://localhost:3000
+
       - name: Structured data — parses, required fields present, images resolve
         run: node --import tsx scripts/schema-check.mjs
         env:

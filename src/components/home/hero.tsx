@@ -158,6 +158,7 @@ export function Hero() {
   return (
     <section
       ref={heroRef}
+      data-section="Hero"
       data-ground="ink"
       /* `min-h`, never a fixed `h`. At a fixed height the content is taller
          than the box on any viewport under ~840px — a 1366×768 laptop, a

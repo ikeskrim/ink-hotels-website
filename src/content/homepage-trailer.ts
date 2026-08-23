@@ -21,7 +21,7 @@
  * back, set it to false. There is no build step and no environment variable;
  * the state of the proposal is one boolean in a diff. See PROPOSALS.md.
  */
-export const TRAILER = false;
+export const TRAILER = true;
 
 /**
  * What the front page keeps: seven beats, in reading order.
@@ -71,7 +71,22 @@ export const RELOCATED = [
     section: "WhatGuestsSaid",
     to: "/story",
     because:
-      "Guest quotes sit with the family beat. Renders nothing today — reviews.ts is empty pending the owner's six to ten real quotes — so this relocation is structural, not visual.",
+      "Guest quotes sit with the family beat. The relocation is structural: when the quotes arrive they appear on /story rather than the homepage.",
+    /**
+     * Emits no markup at all today, because `reviews.ts` is empty pending the
+     * owner's six to ten real quotes — the component returns null rather than
+     * rendering an empty strip.
+     *
+     * Declared here rather than left for a check to discover, because the two
+     * states are indistinguishable from outside: a section that renders
+     * nothing because it has nothing to say looks exactly like a section that
+     * failed to arrive. The parity check reads this flag, skips the presence
+     * assertion for it, and prints it as dormant so it stays visible instead
+     * of quietly passing.
+     *
+     * Delete this line the day the reviews land.
+     */
+    dormant: true,
   },
   {
     section: "TheArrival",

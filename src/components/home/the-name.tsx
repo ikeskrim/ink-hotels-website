@@ -53,7 +53,7 @@ export function TheName({ mode = "masthead" }: { mode?: "masthead" | "written" }
      sticky element's containing block — so the pin silently does nothing. The
      masthead keeps it: its title-page rules are drawn past the edge. */
   return (
-    <Section
+    <Section name="TheName"
       id="the-name"
       ground="ink"
       size="lg"

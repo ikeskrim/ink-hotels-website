@@ -44,7 +44,7 @@ export function WhatGuestsSaid({
   const m = getMessages(locale);
 
   return (
-    <Section ground="sun" size="md">
+    <Section name="WhatGuestsSaid" ground="sun" size="md">
       <Container>
         <Heading size="d3" className="mb-10 max-w-[18ch]">
           {m.home.guestsTitle}

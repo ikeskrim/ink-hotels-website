@@ -22,6 +22,7 @@ export function Section({
   plaster = false,
   wash,
   chapter,
+  name,
   label,
 }: {
   children: ReactNode;
@@ -48,6 +49,16 @@ export function Section({
    * without one are not chapters and the spine skips them.
    */
   chapter?: string;
+  /**
+   * A stable identity for this block, emitted as `data-section`.
+   *
+   * Not for styling and not for the reader — it is how a check can tell which
+   * of fifteen sections it is looking at. Matching on heading text would work
+   * until the copy changed, and would need the catalogue for all five
+   * languages; matching on position would break the first time one moved,
+   * which is exactly the change these names exist to guard.
+   */
+  name?: string;
   label?: string;
 }) {
   const WASH_VAR: Record<string, string> = {
@@ -65,6 +76,7 @@ export function Section({
       aria-label={label}
       data-stock={grain && stock === "laid" ? "laid" : undefined}
       data-chapter={chapter}
+      data-section={name}
       className={cn(
         "relative w-full",
         grain && "grain",

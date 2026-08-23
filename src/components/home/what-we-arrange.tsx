@@ -25,7 +25,7 @@ export async function WhatWeArrange({ locale = defaultLocale }: { locale?: Local
   const all = await getExperiences(locale);
 
   return (
-    <Section id="experiences" ground="shade" size="lg" chapter="02">
+    <Section name="WhatWeArrange" id="experiences" ground="shade" size="lg" chapter="02">
       <Container>
         <SectionHead
           index={2}

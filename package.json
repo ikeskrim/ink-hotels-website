@@ -19,6 +19,7 @@
     "alt": "node scripts/alt-check.mjs",
     "booking": "node --import tsx scripts/booking-check.mjs",
     "cross": "node scripts/cross-browser.mjs",
+    "parity": "node --import tsx scripts/trailer-parity.mjs",
     "keyboard": "node scripts/keyboard-check.mjs",
     "schema": "node --import tsx scripts/schema-check.mjs",
     "shots": "node scripts/shots.mjs",

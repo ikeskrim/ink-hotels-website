@@ -51,7 +51,7 @@ export async function WhereYouSleep({ locale = defaultLocale }: { locale?: Local
   };
 
   return (
-    <Section id="rooms" ground="shade" size="lg" plaster chapter="01">
+    <Section name="WhereYouSleep" id="rooms" ground="shade" size="lg" plaster chapter="01">
       <Container>
         <SectionHead
           index={1}

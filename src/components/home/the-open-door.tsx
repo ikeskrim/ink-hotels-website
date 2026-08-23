@@ -23,7 +23,7 @@ export function TheOpenDoor({ locale = defaultLocale }: { locale?: Locale }) {
   const m = getMessages(locale);
 
   return (
-    <Section ground="paper" size="lg" wash="night">
+    <Section name="TheOpenDoor" ground="paper" size="lg" wash="night">
       <Container>
         <div className="grid items-center gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12">
           <div className="order-2 lg:order-1 lg:col-span-5">

@@ -51,7 +51,11 @@ export function TheArrival({ locale = defaultLocale }: { locale?: Locale }) {
 
           Nothing is lost: the steps are on /arrival, complete, and the line
           below goes straight to them. */}
-      <section data-ground="sun" className="grain relative py-section">
+      <section
+        data-section="TheArrival"
+        data-ground="sun"
+        className="grain relative py-section"
+      >
         <Container>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <Heading size="d3" className="max-w-[16ch]">

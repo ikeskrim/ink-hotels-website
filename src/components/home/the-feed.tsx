@@ -43,7 +43,7 @@ export function TheFeed({ locale = defaultLocale }: { locale?: Locale }) {
   const alts = m.home.feedAlts;
 
   return (
-    <Section ground="paper" size="md">
+    <Section name="TheFeed" ground="paper" size="md">
       <Container>
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-[color:var(--hairline)] pb-6">
           <p className="label text-[color:var(--fg-3)]">{m.home.feedEyebrow}</p>
