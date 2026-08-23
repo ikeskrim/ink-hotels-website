@@ -87,6 +87,10 @@ for (const locale of ["", "/el", "/de", "/fr", "/nl"]) {
   }
 
   await ctx.close();
+  /* A breath between locales. Forty full-page captures ask the image optimizer
+     to generate a variant for nearly every photograph on the site, and on a
+     cold cache it is the one thing here that can genuinely saturate it. */
+  await new Promise((r) => setTimeout(r, 1500));
 }
 
 await browser.close();

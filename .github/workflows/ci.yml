@@ -138,13 +138,27 @@ jobs:
           BASE: http://localhost:3000
 
       # The morning review. Artifact only — never committed; see .gitignore.
-      # `if: always()` so a red run still produces the pictures, which is when
+      #
+      # `continue-on-error` because this step ASSERTS NOTHING. It is a review
+      # aid, and it is the one step here that genuinely needs every photograph
+      # to decode — which is what broke it: at 40 frames (eight routes × five
+      # locales) on a cold runner cache it saturated the image optimizer and a
+      # navigation could not get a first byte inside 60 seconds. It failed the
+      # build on a site where every real gate had already passed.
+      #
+      # A step that produces a picture must never be able to call the site
+      # broken. The gates above are what say that.
+      #
+      # `if: always()` so a red run still produces what it can — that is when
       # somebody most wants to see what the page actually looked like.
-      - name: Screenshots — eight routes, English and Greek
+      - name: Screenshots — eight routes × five locales
         if: always()
+        continue-on-error: true
         run: node scripts/shots.mjs
         env:
           BASE: http://localhost:3000
+          # It is loading real photographs, unlike every other browser step.
+          NAV_TIMEOUT: "120000"
 
       - name: Upload screenshots
         if: always()
