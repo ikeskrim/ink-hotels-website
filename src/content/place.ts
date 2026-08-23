@@ -44,6 +44,19 @@ export const places: Place[] = [
     image: ARTICLE_IMAGES["1353"]?.[0] ?? "",
   },
   {
+    slug: "archaeological-museum",
+    name: "Archaeological Museum",
+    distance: "In the old town",
+    body:
+      "The city's archaeological collection, in the former church of St Francis \u2014 a Venetian monastery church a few streets back from the harbour. The museum moved here in 2016 from its earlier home beside the Fortezza gate.",
+    /* No photograph. The property's media library has none of this building,
+       and a picture of a different museum would be the one invented thing on a
+       site built on not inventing. The gallery skips an empty source and the
+       landmark list on /rethymno shows name, distance and text, so the entry
+       reads correctly without one. */
+    image: "",
+  },
+  {
     slug: "arkadi-monastery",
     name: "Arkadi Monastery",
     distance: "23 km east",

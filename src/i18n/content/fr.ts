@@ -422,6 +422,12 @@ export const fr: ContentText = {
       distance: "À quelques minutes à pied",
       body: "La forteresse domine la colline de Palékastro, à côté de la vieille ville, et compte parmi les plus vastes de l'époque vénitienne. Elle s'élève sur le site de la citadelle de l'antique Rithimna et du temple d'Artémis Rokkéa. Le grand fort pentagonal fut bâti en 1573 ; son périmètre court sur 1 300 mètres, et quatre bastions se dressent le long des murs — Saint-Luc, Saint-Élie, Saint-Paul et Saint-Nicolas.",
     },
+    "archaeological-museum": {
+      name: "Musée archéologique",
+      distance: "Dans la vieille ville",
+      body:
+        "La collection archéologique de la ville, dans l'ancienne église Saint-François — une église conventuelle vénitienne à quelques ruelles du port. Le musée s'y est installé en 2016, quittant son emplacement précédent près de la porte de la Fortezza.",
+    },
     "historical-folklore-museum": {
       name: "Musée historique et folklorique",
       distance: "Dans la vieille ville",

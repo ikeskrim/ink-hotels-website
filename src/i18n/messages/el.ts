@@ -197,7 +197,7 @@ export const el: Messages = {
     harbourEyebrow: "Τέσσερα λεπτά από την πόρτα",
     harbourTitle: "Το λιμάνι, στο τέλος της ημέρας",
     landmarksEyebrow: "Τι στέκει γύρω σας",
-    landmarksTitle: "Έξι πράγματα που αξίζουν τον δρόμο",
+    landmarksTitle: "Επτά πράγματα που αξίζουν τον δρόμο",
     feedEyebrow: "Από τον λογαριασμό",
     feedHandle: "@ink_hotels",
     feedAlts: {

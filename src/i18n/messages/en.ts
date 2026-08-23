@@ -214,7 +214,7 @@ export const en = {
     harbourEyebrow: "Four minutes from the door",
     harbourTitle: "The harbour, at the end of the day",
     landmarksEyebrow: "What stands around you",
-    landmarksTitle: "Six things worth the walk",
+    landmarksTitle: "Seven things worth the walk",
     feedEyebrow: "From the account",
     feedHandle: "@ink_hotels",
     feedAlts: {

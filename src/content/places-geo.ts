@@ -16,17 +16,22 @@
  * street: close, but the pin would have sat on the car park rather than the
  * quay. The OSM node is used.
  *
- * THE MUSEUM. The brief gave the Archaeological Museum's current site on
- * Agiou Fragkiskou. But the museum in `places.ts` is the Historical and
- * Folklore Museum — a different institution — so pinning the Archaeological
- * Museum would have put a pin on a building the page never mentions. The
- * Historical and Folklore Museum is pinned instead, OSM-verified.
+ * THE TWO MUSEUMS ARE TWO MUSEUMS. The brief on night three gave a coordinate
+ * for the Archaeological Museum while `places.ts` held only the Historical and
+ * Folklore Museum — a different institution a few streets away — so that pin
+ * would have marked a building the page never mentioned. Both are here now,
+ * each at its own OSM-verified position, and the distinction is worth keeping
+ * in writing: they are commonly confused, and the map would look plausible
+ * either way.
  *
- * For the record, in case the owner does want the Archaeological Museum added
- * to the content: OSM has it at 35.3684033, 24.4743864 (way 261112744), which
- * is itself about 145 m south of the supplied figure. The caution in the brief
- * was right — geocoders do return the old building — but the supplied
- * replacement is not quite the new one either.
+ * THE ARCHAEOLOGICAL MUSEUM IS NOW IN, by the owner's decision, and it is
+ * pinned at the OSM-verified position of its CURRENT site — 35.3684033,
+ * 24.4743864, way 261112744, the former church of St Francis. Not the figure
+ * supplied in the brief, which is about 145 m north of it, and emphatically
+ * not what a geocoder returns for the name: that is still the pre-2016
+ * building at the Fortezza gate. The caution in the brief was right about the
+ * move and wrong about the replacement coordinate, which is exactly why every
+ * pin here names the element it came from.
  *
  * ── What is deliberately absent ────────────────────────────────────────────
  * Arkadi Monastery and Ancient Eleftherna are in `places.ts` and are not here.
@@ -66,6 +71,13 @@ export const PLACE_GEO: readonly PlaceGeo[] = [
     lat: 35.3693254,
     lon: 24.4735891,
     source: "OSM node 4653463743, Ιστορικό Λαογραφικό Μουσείο Ρεθύμνης",
+  },
+  {
+    slug: "archaeological-museum",
+    lat: 35.3684033,
+    lon: 24.4743864,
+    source:
+      "OSM way 261112744, Αρχαιολογικό Μουσείο Ρεθύμνου — the CURRENT site",
   },
   {
     slug: "town-beach",

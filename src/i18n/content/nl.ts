@@ -431,6 +431,12 @@ export const nl: ContentText = {
       distance: "Enkele minuten lopen",
       body: "Het fort beheerst de heuvel Palekastro naast de oude stad, een van de grootste uit de Venetiaanse tijd. Het staat op de plek van de burcht van het antieke Rithimna en de tempel van Artemis Rokkea. Het grote vijfhoekige fort werd in 1573 gebouwd; de omtrek meet 1.300 meter, en langs de muren staan vier bastions — Sint-Lucas, Sint-Elias, Sint-Paulus en Sint-Nicolaas.",
     },
+    "archaeological-museum": {
+      name: "Archeologisch Museum",
+      distance: "In de oude stad",
+      body:
+        "De archeologische collectie van de stad, in de voormalige Sint-Franciscuskerk — een Venetiaanse kloosterkerk een paar straten achter de haven. Het museum verhuisde hier in 2016 naartoe, weg van zijn eerdere plek bij de poort van de Fortezza.",
+    },
     "historical-folklore-museum": {
       name: "Historisch en Volkskundig Museum",
       distance: "In de oude stad",

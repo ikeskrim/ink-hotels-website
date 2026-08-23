@@ -35,12 +35,12 @@ const PLUNGE = rooms.filter((r) => r.plungePool).length;
 const w = (word: string) => new RegExp(`(^|[^\\p{L}])${word}([^\\p{L}]|$)`, "iu");
 
 const NUMERAL: Record<string, Record<number, RegExp>> = {
-  en: { 1: w("one"), 3: w("three"), 6: w("six") },
+  en: { 1: w("one"), 3: w("three"), 6: w("six"), 7: w("seven") },
   /* Greek inflects the numeral by gender: τρεις σουίτες but τρία υδρομασάζ. */
-  el: { 1: w("μία"), 3: w("(τρεις|τρία)"), 6: w("έξι") },
-  de: { 1: w("eine"), 3: w("drei"), 6: w("sechs") },
-  fr: { 1: w("une"), 3: w("trois"), 6: w("six") },
-  nl: { 1: w("één"), 3: w("drie"), 6: w("zes") },
+  el: { 1: w("μία"), 3: w("(τρεις|τρία)"), 6: w("έξι"), 7: w("επτά") },
+  de: { 1: w("eine"), 3: w("drei"), 6: w("sechs"), 7: w("sieben") },
+  fr: { 1: w("une"), 3: w("trois"), 6: w("six"), 7: w("sept") },
+  nl: { 1: w("één"), 3: w("drie"), 6: w("zes"), 7: w("zeven") },
 };
 
 /** Every sentence on the site that puts a numeral in front of "hot tub". */

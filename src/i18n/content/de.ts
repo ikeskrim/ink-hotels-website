@@ -435,6 +435,12 @@ export const de: ContentText = {
       distance: "Wenige Minuten zu Fuß",
       body: "Die Festung beherrscht den Hügel Palekastro neben der Altstadt und gehört zu den größten der venezianischen Zeit. Sie steht an der Stelle der Zitadelle des antiken Rithimna und des Tempels der Artemis Rokkea. Die große fünfeckige Festung entstand 1573; ihr Umfang misst 1.300 Meter, und entlang der Mauern stehen vier Bastionen — St. Lukas, St. Elias, St. Paulus und St. Nikolaus.",
     },
+    "archaeological-museum": {
+      name: "Archäologisches Museum",
+      distance: "In der Altstadt",
+      body:
+        "Die archäologische Sammlung der Stadt, in der ehemaligen Franziskanerkirche — einer venezianischen Klosterkirche wenige Gassen hinter dem Hafen. Das Museum zog 2016 hierher, von seinem früheren Sitz am Tor der Fortezza.",
+    },
     "historical-folklore-museum": {
       name: "Historisches und Volkskundliches Museum",
       distance: "In der Altstadt",

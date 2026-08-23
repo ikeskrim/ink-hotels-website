@@ -198,7 +198,7 @@ export const nl: Messages = {
     harbourEyebrow: "Vier minuten van de deur",
     harbourTitle: "De haven, aan het eind van de dag",
     landmarksEyebrow: "Wat er om u heen staat",
-    landmarksTitle: "Zes dingen die de wandeling waard zijn",
+    landmarksTitle: "Zeven dingen die de wandeling waard zijn",
     feedEyebrow: "Van het account",
     feedHandle: "@ink_hotels",
     feedAlts: {

@@ -198,7 +198,7 @@ export const fr: Messages = {
     harbourEyebrow: "À quatre minutes de la porte",
     harbourTitle: "Le port, à la fin du jour",
     landmarksEyebrow: "Ce qui vous entoure",
-    landmarksTitle: "Six choses qui valent la marche",
+    landmarksTitle: "Sept choses qui valent la marche",
     feedEyebrow: "Depuis le compte",
     feedHandle: "@ink_hotels",
     feedAlts: {
