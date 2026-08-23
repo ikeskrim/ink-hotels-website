@@ -109,6 +109,11 @@ jobs:
         env:
           BASE: http://localhost:3000
 
+      - name: Booking links — every Book control lands on the right room
+        run: node --import tsx scripts/booking-check.mjs
+        env:
+          BASE: http://localhost:3000
+
       - name: Alt text — every image speaks, in the reader's language
         run: node scripts/alt-check.mjs
         env:

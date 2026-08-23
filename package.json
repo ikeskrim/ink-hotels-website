@@ -17,6 +17,7 @@
     "headings": "node scripts/heading-check.mjs",
     "redirects": "node scripts/redirect-check.mjs",
     "alt": "node scripts/alt-check.mjs",
+    "booking": "node --import tsx scripts/booking-check.mjs",
     "shots": "node scripts/shots.mjs",
     "redirects:doc": "node scripts/write-redirects-doc.mjs",
     "blur": "node scripts/build-blur.mjs",
