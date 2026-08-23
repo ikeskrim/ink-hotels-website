@@ -132,7 +132,12 @@ const declared = new Set(
 const undeclared = new Map();
 for (const file of sources) {
   const text = fs.readFileSync(file, "utf8");
-  for (const m of text.matchAll(/quality=\{(\d+)\}/g)) {
+  /* Two forms, because only reading the first one let a real 400 ship. A JSX
+     literal `quality={74}` is the obvious one; a component default
+     `quality = 74` in a props signature is the one that actually broke — it is
+     the value every caller gets when nobody passes one, so it reaches more
+     images than any literal, and it was invisible to a grep for braces. */
+  for (const m of text.matchAll(/quality\s*=\s*\{?(\d+)\}?/g)) {
     const q = Number(m[1]);
     if (declared.size && !declared.has(q)) {
       undeclared.set(q, (undeclared.get(q) ?? []).concat(path.relative(ROOT, file)));

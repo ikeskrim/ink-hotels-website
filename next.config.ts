@@ -42,7 +42,13 @@ const nextConfig: NextConfig = {
      * adding 72 here breaks that image in production and nowhere else. Keep
      * components on the ladder rather than growing the list.
      */
-    qualities: [45, 58, 62, 70, 78, 80, 88],
+    /* 74 is DepthImage's default. It was missing here, so every chapter plate
+       on /rethymno — and every other DepthImage rendered without an explicit
+       quality — asked for /_next/image?q=74 and got a 400 back: four broken
+       photographs in production, and only in production, because dev serves
+       the original file. Found by the cross-browser smoke; see
+       scripts/check-media.mjs, which now reads defaults as well as literals. */
+    qualities: [45, 58, 62, 70, 74, 78, 80, 88],
     minimumCacheTTL: 60 * 60 * 24 * 365,
   },
   experimental: {
