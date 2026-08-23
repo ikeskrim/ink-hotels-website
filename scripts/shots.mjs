@@ -3,8 +3,15 @@
  *
  *   BASE=http://localhost:3000 node scripts/shots.mjs [outDir]
  *
- * For the owner's morning review: eight routes × two languages, one JPEG each,
- * full page rather than viewport so a whole page can be read in one image.
+ * For the owner's morning review: eight routes × five languages, one JPEG
+ * each, full page rather than viewport so a whole page can be read in one
+ * image.
+ *
+ * All five, not two, because four of the five are the ones nobody looks at.
+ * A layout that breaks on a long German compound or a Greek heading that wraps
+ * to three lines is invisible to anyone reading the English page, and this
+ * site now carries translated alt text, translated control labels and
+ * translated headings on every route.
  *
  * ── These are never committed ──────────────────────────────────────────────
  * The output directory is git-ignored and CI uploads it as a build artifact
@@ -45,8 +52,8 @@ mkdirSync(OUT, { recursive: true });
 const browser = await launch();
 let written = 0;
 
-for (const locale of ["", "/el"]) {
-  const tag = locale === "" ? "en" : "el";
+for (const locale of ["", "/el", "/de", "/fr", "/nl"]) {
+  const tag = locale === "" ? "en" : locale.slice(1);
   const ctx = await browser.newContext({
     viewport: { width: 1440, height: 1000 },
     deviceScaleFactor: 1,

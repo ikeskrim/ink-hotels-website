@@ -185,47 +185,47 @@ Re-run Lighthouse after each item and log the numbers in the commit body.
 
 ---
 
-## Measured — full route table (2026-08-19, 3-run medians)
+## Measured — full route table (2026-08-23, 3-run medians)
 
-Fresh build each time, node killed by PID, `Ready in` confirmed in the server
-log before any run. These replace the single-route spot checks that were being
-quoted from memory.
+Fresh build, node killed by PID, `Ready in` confirmed before each set.
 
 | route | min/med/max | LCP | FCP | TBT |
 |---|---|---|---|---|
-| `/` | 81/**83**/85 | 4.07s | 2.56s | 34ms |
-| `/rooms` | 91/**92**/94 | 3.31s | 1.21s | 12ms |
-| `/rooms/evexia` | 89/**93**/93 | 3.20s | 1.21s | 65ms |
-| `/story` | 85/**90**/95 | 3.31s | 2.11s | 17ms |
-| `/gallery` | 85/**86**/88 | 3.94s | 1.81s | 28ms |
-| `/rethymno` | 88/**88**/90 | 3.62s | 2.11s | 26ms |
-| `/location` | 91/**91**/91 | 3.31s | 1.96s | 23ms |
-| `/arrival` | 90/**90**/90 | 3.46s | 1.96s | 20ms |
-| `/faq` | 91/**91**/91 | 3.31s | 1.96s | 32ms |
-| `/experiences` | 87/**87**/88 | 3.76s | 2.26s | 20ms |
-| `/contact` | 90/**91**/91 | 3.32s | 1.96s | 17ms |
+| `/` | 79/**79**/81 | 4.66s | 2.56s | 47ms |
+| `/rooms` | 89/**89**/90 | 3.76s | 1.21s | 17ms |
+| `/rooms/evexia` | 83/**91**/93 | 3.54s | 1.21s | 15ms |
+| `/story` | 83/**83**/83 | 4.21s | 2.41s | 12ms |
+| `/gallery` | 82/**82**/85 | 4.51s | 2.11s | 46ms |
+| `/rethymno` | 83/**84**/85 | 4.22s | 1.96s | 16ms |
+| `/location` | 87/**87**/87 | 3.76s | 1.96s | 12ms |
+| `/arrival` | 87/**87**/87 | 3.77s | 1.96s | 13ms |
+| `/faq` | 87/**87**/87 | 3.77s | 1.96s | 23ms |
+| `/experiences` | 83/**83**/85 | 4.36s | 2.26s | 17ms |
+| `/contact` | 86/**87**/87 | 3.77s | 1.96s | 11ms |
 
-`/story` and `/gallery` both read below the old 87–93 band on three runs and
-were attributed before anything was changed.
+**Read these as this-machine-tonight, not as absolutes.** Every route is about
+four points below the 2026-08-19 table, uniformly — `/story` 90→83, `/faq`
+91→87, `/rooms` 92→89, `/` 83→79 — and a drop that lands equally on eleven
+unrelated routes is the machine, not eleven regressions.
 
-**`/story` was noise.** Five runs put it at 85/**90**/95. The three-run 85 was
-the bottom of its own spread.
+Attributed rather than assumed. The one change tonight that could plausibly
+cost these pages is the Stage 5.2 trailer flag, which imports four client
+components into `/story`, `/rooms` and `/rethymno` so they can be relocated
+when it is switched on. Bundle sizes, built both ways:
 
-**`/gallery` was measured against the change that could have caused it** — the
-gallery now builds its 434 localised descriptions per request instead of
-reading a module constant:
-
-| | min/med/max | LCP |
+| | `/story` route JS | First Load |
 |---|---|---|
-| module constant, English alts | 85/**87**/92 | 4.01s |
-| per-request, localised alts | 85/**86**/88 | 3.94s |
+| without the trailer wiring | 737 B | 219 kB |
+| with it (shipped, flag off) | 750 B | **220 kB** |
 
-One median point apart inside a seven-point spread, and the localised side has
-the *better* LCP. The cost is not measurable, and it would not be worth 434
-translated alt attributes if it were. Kept.
+One kilobyte. That does not move Lighthouse seven points, and the flag is
+exonerated. A settled-machine re-run of four routes recovered part of the gap
+(`/` back to 82) but not all of it, which is what thermal state looks like.
 
-`/` remains its own floor — bandwidth and main-thread bound, established across
-three sessions and three separate experiments.
+What matters for comparison is the A/B, not the absolute: no change tonight
+costs a measurable amount, and `/` remains its own bandwidth-and-main-thread
+floor, established across four sessions.
+
 
 ## Resolved — do not redo
 
