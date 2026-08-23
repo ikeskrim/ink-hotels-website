@@ -88,9 +88,18 @@ function withLocale(request: NextRequest, locale: string) {
 
 export const config = {
   matcher: [
-    /* Everything except Next internals, the API, the Studio, and files with
-       an extension. */
-    "/((?!_next/static|_next/image|favicon.ico|media|api|studio).*)",
+    /* Everything except Next internals, the API, the Studio — and the
+       file-convention metadata routes.
+
+       Those last ones are the reason this line changed. `app/opengraph-image`
+       and `app/apple-icon` are generated routes with no file extension, so
+       they matched, got rewritten to `/en/opengraph-image`, and answered 404 —
+       while every page on the site advertised
+       `https://inkhotels.gr/opengraph-image` as its og:image. Every shared
+       link that was not a suite page had a broken preview card, and nothing
+       rendered wrong on the site itself to say so. `/icon.svg` escaped only
+       because it happens to carry an extension. */
+    "/((?!_next/static|_next/image|favicon.ico|media|api|studio|opengraph-image|twitter-image|apple-icon|icon|manifest|robots|sitemap).*)",
   ],
 };
 
