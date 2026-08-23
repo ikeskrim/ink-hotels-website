@@ -52,6 +52,22 @@ const PASSTHROUGH = ["checkin", "checkout", "adults", "rooms", "children"];
 
 const browser = await launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+
+/* Not one photograph is needed to read an anchor's href or a form's fields,
+   and asking for them is what broke this check on CI. A hundred room pages,
+   each with a priority hero and a gallery of 19 to 42 frames, made the image
+   optimizer generate variants for the whole inventory on a cold cache — and
+   somewhere around the eightieth page a navigation could no longer get a first
+   byte inside sixty seconds. It passed locally in fifteen seconds only because
+   the cache was already warm.
+
+   Same lesson as alt-check the night before: work out what the check has to
+   observe, and observe only that. */
+await page.route("**/*", (route) => {
+  const type = route.request().resourceType();
+  if (type === "image" || type === "media" || type === "font") return route.abort();
+  return route.continue();
+});
 const problems = [];
 let checked = 0;
 let deep = 0;

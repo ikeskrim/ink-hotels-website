@@ -59,6 +59,17 @@ const IGNORE = [
      ten seconds, which is not a thing a reader does. Muted by exact text, not
      by relaxing the rule: any other console error still fails the run. */
   /Failed to fetch RSC payload.*Falling back to browser navigation/i,
+  /* The same aborted prefetch as above, as WebKit words it. Next marks an RSC
+     payload request with `?_rsc=`; when the harness navigates away mid-flight
+     WebKit cancels it and reports "due to access control checks", which
+     arrives as a pageerror rather than a console message. Matched on the
+     `_rsc` marker so it cannot mute anything else: an uncaught error on any
+     other request still fails the run.
+
+     Confirmed on CI, where both engines run: Firefox loaded the same sixteen
+     pages with nothing to report, and WebKit's four were all prefetches of
+     /arrival and /contact from the page being left. */
+  /_rsc=.*(access control checks|cancelled|aborted)/i,
 ];
 
 const problems = [];
