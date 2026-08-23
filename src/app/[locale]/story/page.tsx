@@ -14,6 +14,11 @@ import { MaskReveal, Reveal } from "@/components/motion/reveal";
 import { InkLink } from "@/components/ui/ink-link";
 import { Gk } from "@/components/ui/greek";
 import { JsonLd } from "@/components/seo/json-ld";
+import { TheImpression } from "@/components/home/the-impression";
+import { TheLight } from "@/components/home/the-light";
+import { TheFamily } from "@/components/home/the-family";
+import { WhatGuestsSaid } from "@/components/home/what-guests-said";
+import { TRAILER } from "@/content/homepage-trailer";
 import { breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 import { getHistory, getHouses, getNeighbourhood } from "@/lib/sanity/content";
@@ -245,6 +250,18 @@ export default async function StoryPage({
           </div>
         </Container>
       </Section>
+
+      {/* Relocated from the homepage under the Stage 5.2 trailer flag. Off by
+          default, so these render nothing today. WhatGuestsSaid renders nothing
+          either way until reviews.ts has the owner's real quotes. */}
+      {TRAILER && (
+        <>
+          <TheImpression />
+          <TheLight />
+          <TheFamily locale={locale} />
+          <WhatGuestsSaid locale={locale} />
+        </>
+      )}
     </>
   );
 }

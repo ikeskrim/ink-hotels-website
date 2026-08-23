@@ -20,6 +20,7 @@ import { faqSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 import { defaultLocale, isLocale } from "@/i18n/config";
 import { getMessages } from "@/i18n";
+import { TRAILER } from "@/content/homepage-trailer";
 
 /* ── A homepage JS diet was tried and measured, and did not pay ────────────
    The three below-fold client sections — TheName, TheImpression, TheLight —
@@ -74,19 +75,26 @@ export default async function HomePage({
   return (
     <>
       <JsonLd data={faqSchema()} />
+
+      {/* Stage 5.2, behind `TRAILER` in content/homepage-trailer.ts. With the
+          flag off this renders the fifteen sections it has always rendered, in
+          the order it has always rendered them. With it on, seven remain and
+          the other eight appear on /rooms, /story and /rethymno — moved, not
+          deleted. Which sections a front page keeps is the owner's call; see
+          PROPOSALS.md. */}
       <Hero />
       <TheName />
-      <TheImpression />
-      <TheLight />
+      {!TRAILER && <TheImpression />}
+      {!TRAILER && <TheLight />}
       <TheOldTown locale={locale} />
-      <WhereYouSleep locale={locale} />
+      {!TRAILER && <WhereYouSleep locale={locale} />}
       <TheWater locale={locale} />
       <TheOpenDoor locale={locale} />
-      <TheArrival locale={locale} />
-      <WhatWeArrange locale={locale} />
-      <TheFamily locale={locale} />
-      <WhatGuestsSaid locale={locale} />
-      <TheFeed locale={locale} />
+      {!TRAILER && <TheArrival locale={locale} />}
+      {!TRAILER && <WhatWeArrange locale={locale} />}
+      {!TRAILER && <TheFamily locale={locale} />}
+      {!TRAILER && <WhatGuestsSaid locale={locale} />}
+      {!TRAILER && <TheFeed locale={locale} />}
       <PlainFacts locale={locale} />
       <NowTheDates locale={locale} />
     </>

@@ -4,6 +4,8 @@ import { PageHero } from "@/components/layout/page-hero";
 import { RoomsBrowser } from "@/components/rooms/rooms-browser";
 import { Container, Section } from "@/components/ui/section";
 import { NowTheDates } from "@/components/home/now-the-dates";
+import { WhereYouSleep } from "@/components/home/where-you-sleep";
+import { TRAILER } from "@/content/homepage-trailer";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
@@ -103,6 +105,10 @@ export default async function RoomsPage({
           </div>
         </Container>
       </Section>
+
+      {/* Relocated from the homepage under the Stage 5.2 trailer flag. Off by
+          default, so this renders nothing today. */}
+      {TRAILER && <WhereYouSleep locale={locale} />}
 
       <NowTheDates locale={locale} />
     </>

@@ -6,6 +6,10 @@ import { Reveal } from "@/components/motion/reveal";
 import { CinematicFrame, DepthImage, DepthLayer } from "@/components/motion/depth";
 import { InkLink } from "@/components/ui/ink-link";
 import { JsonLd } from "@/components/seo/json-ld";
+import { TheArrival } from "@/components/home/the-arrival";
+import { WhatWeArrange } from "@/components/home/what-we-arrange";
+import { TheFeed } from "@/components/home/the-feed";
+import { TRAILER } from "@/content/homepage-trailer";
 import { breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 import { getChapters, getPlaces } from "@/lib/sanity/content";
@@ -242,6 +246,16 @@ export default async function RethymnoPage({
           </div>
         </Container>
       </Section>
+
+      {/* Relocated from the homepage under the Stage 5.2 trailer flag. Off by
+          default, so these render nothing today. */}
+      {TRAILER && (
+        <>
+          <TheArrival locale={locale} />
+          <WhatWeArrange locale={locale} />
+          <TheFeed locale={locale} />
+        </>
+      )}
     </>
   );
 }
