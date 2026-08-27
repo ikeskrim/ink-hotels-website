@@ -39,6 +39,18 @@ export const reception = {
 } as const;
 
 /**
+ * The hours of the stay itself, owner-stated. A time that appears on the facts
+ * list, in the FAQ, on the arrival page and in the Hotel structured data has to
+ * be typed once, or four copies drift apart and the guest believes whichever
+ * one they read first. French copy renders these with the h separator it uses
+ * everywhere else; a unit test holds both renderings to this source.
+ */
+export const stay = {
+  checkIn: "16:00",
+  checkOut: "11:00",
+} as const;
+
+/**
  * Breakfast. Served at the first building for every guest, whichever house
  * they sleep in — which is also why reception and breakfast share an address.
  */

@@ -1,7 +1,8 @@
 /**
  * FAQ — answers are drawn only from what the property publishes.
- * Where the property states no policy (check-in times, rates, cancellation), the answer
- * points the guest to reservations rather than inventing a figure.
+ * Where the property states no policy (rates, cancellation), the answer points the
+ * guest to reservations rather than inventing a figure. Check-in and check-out are
+ * stated — the owner gave them in August 2026 — and `stay` in site.ts is their source.
  */
 
 export interface Faq {
@@ -61,6 +62,12 @@ export const faqs: Faq[] = [
     question: "What time does reception close?",
     answer:
       "Reception is open until 23:00, at House of Europe, Nikolaou Plastira 4. If your flight lands later than that, tell us in advance and somebody will be there to meet you.",
+  },
+  {
+    topic: "staying",
+    question: "What time is check-in?",
+    answer:
+      "Check-in is from 16:00 and check-out is by 11:00. Tell us when you land and your key will be ready when you reach the first building.",
   },
   {
     topic: "finding",

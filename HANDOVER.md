@@ -38,6 +38,15 @@ their translations in `src/i18n/content/`.
 > silently re-encodes and destroys every accented character. `npm run build`
 > runs an encoding check that catches this, but it is easier not to do it.
 
+> **Facts that appear in several places at once.** Check-in and check-out are
+> stated in four: the plain-facts list on the homepage, the FAQ, the arrival
+> page, and the structured data Google reads. They are typed **once**, in
+> `stay` in `src/content/site.ts` — today **check-in from 16:00, check-out by
+> 11:00**. Change them there and run `npm test`: `src/content/stay.test.ts`
+> holds the prose in all five languages to that constant and names every
+> sentence that no longer agrees. The same goes for reception hours
+> (`reception.openUntil`) and the phone numbers (`contact.phones`).
+
 ### 2. Add or change a photograph
 
 1. Put the file in `public/media/`.

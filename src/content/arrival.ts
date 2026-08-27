@@ -8,9 +8,10 @@
  * So the arrival is designed, and told: one reception, at Nikolaou Plastira 4,
  * where somebody is expecting you and walks you the rest of the way.
  *
- * Everything below is factual. No check-in times are asserted, because the
- * property publishes none — the copy asks guests to send an arrival time
- * instead, which is what actually happens.
+ * Everything below is factual. The check-in and check-out times are the
+ * owner's, given in August 2026; `stay` in site.ts is their source and a unit
+ * test holds this copy to it. The page still asks guests to send an arrival
+ * time, which is what actually happens.
  */
 
 export const arrival = {
@@ -53,6 +54,7 @@ export const arrival = {
       term: "Reception",
       def: "House of Europe, Nikolaou Plastira 4 — the first building. Open until 23:00.",
     },
+    { term: "Check-in", def: "From 16:00. Check-out by 11:00." },
     { term: "By phone", def: "+30 211 444 5757, extension 1" },
     {
       term: "Breakfast",

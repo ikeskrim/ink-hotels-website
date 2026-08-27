@@ -1,11 +1,12 @@
 import { Container, Heading, Section, SectionHead } from "@/components/ui/section";
 import { InkAnchor, InkLink } from "@/components/ui/ink-link";
 import { Reveal } from "@/components/motion/reveal";
-import { contact, reception } from "@/content/site";
+import { contact, reception, stay } from "@/content/site";
 import { getMessages } from "@/i18n";
 import { label } from "@/i18n/labels";
 import { spokenLanguages } from "@/i18n/languages";
 import { defaultLocale, type Locale } from "@/i18n/config";
+import { timeSep } from "@/i18n/time";
 
 /**
  * The plain facts.
@@ -25,6 +26,12 @@ export function PlainFacts({ locale = defaultLocale }: { locale?: Locale }) {
     {
       term: m.common.factReceptionTerm,
       def: m.common.factReception.replace("{time}", reception.openUntil),
+    },
+    {
+      term: m.common.factCheckinTerm,
+      def: m.common.factCheckin
+        .replace("{checkin}", stay.checkIn.replace(":", timeSep(locale)))
+        .replace("{checkout}", stay.checkOut.replace(":", timeSep(locale))),
     },
     { term: m.common.factBreakfastTerm, def: m.common.factBreakfast },
     { term: m.common.factNoiseTerm, def: m.common.factNoise },

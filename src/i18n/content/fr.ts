@@ -578,6 +578,11 @@ export const fr: ContentText = {
         "La réception est ouverte jusqu'à 23h00, à House of Europe, 4 rue Nikolaou Plastira. Si votre vol atterrit plus tard, prévenez-nous à l'avance et quelqu'un sera là pour vous accueillir.",
     },
     {
+      question: "À quelle heure se fait l'arrivée ?",
+      answer:
+        "L'arrivée se fait à partir de 16h00 et le départ avant 11h00. Dites-nous quand vous atterrissez et votre clé sera prête à votre arrivée au premier bâtiment.",
+    },
+    {
       question: "Y a-t-il un parking ?",
       answer:
         "Un parking gratuit est disponible hors site, à moins de 100 mètres. The Residence of the Old Port a son propre parking privé.",
@@ -641,6 +646,7 @@ export const fr: ContentText = {
     ],
     facts: [
       { term: "Réception", def: "House of Europe, Nikolaou Plastira 4 — le premier bâtiment. Ouverte jusqu'à 23h00." },
+      { term: "Arrivée", def: "À partir de 16h00. Départ avant 11h00." },
       { term: "Par téléphone", def: "+30 211 444 5757, poste 1" },
       { term: "Petit-déjeuner", def: "Buffet au House of Europe pour tous les clients, et en chambre moyennant un léger supplément" },
       { term: "Stationnement", def: "Gratuit, hors site, à moins de 100 m" },

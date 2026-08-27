@@ -403,6 +403,8 @@ export const en = {
        readable. `{languages}` and `{time}` are filled at render. */
     factReceptionTerm: "Reception",
     factReception: "Open until {time}. Later arrivals are arranged in advance — tell us your flight and somebody will be there.",
+    factCheckinTerm: "Check-in & check-out",
+    factCheckin: "Check-in from {checkin}. Check-out by {checkout}.",
     factBreakfastTerm: "Breakfast",
     factBreakfast:
       "Buffet breakfast at House of Europe, including for guests staying at Phos. It can also be served in your room for an extra charge.",

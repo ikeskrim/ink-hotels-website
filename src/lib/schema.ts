@@ -1,4 +1,4 @@
-import { SITE_URL, contact, reception, site } from "@/content/site";
+import { SITE_URL, contact, reception, site, stay } from "@/content/site";
 import { SPOKEN_TAGS } from "@/i18n/languages";
 import { faqs } from "@/content/faq";
 import { rooms, suites, type Room } from "@/content/rooms";
@@ -98,7 +98,10 @@ export function hotelSchema() {
     numberOfRooms: rooms.length,
     amenityFeature: AMENITY_FEATURES,
     openingHoursSpecification: [RECEPTION_HOURS],
-    checkinTime: undefined,
+    /* schema.org wants an xsd:time, which carries the seconds field; the page
+       shows the human form. One source, two renderings. */
+    checkinTime: `${stay.checkIn}:00`,
+    checkoutTime: `${stay.checkOut}:00`,
     sameAs: [
       contact.social.instagram,
       contact.social.facebook,

@@ -385,6 +385,8 @@ export const nl: Messages = {
     factReceptionTerm: "Receptie",
     factReception:
       "Open tot {time}. Latere aankomsten regelen we vooraf — geef uw vlucht door en er is iemand aanwezig.",
+    factCheckinTerm: "In- en uitchecken",
+    factCheckin: "Inchecken vanaf {checkin} uur. Uitchecken vóór {checkout} uur.",
     factBreakfastTerm: "Ontbijt",
     factBreakfast:
       "Ontbijtbuffet in House of Europe, ook voor gasten die in Phos verblijven. Tegen een toeslag wordt het ook op de kamer geserveerd.",

@@ -385,6 +385,8 @@ export const de: Messages = {
     factReceptionTerm: "Rezeption",
     factReception:
       "Besetzt bis {time}. Spätere Ankünfte werden vorab abgesprochen — nennen Sie uns Ihren Flug, und jemand ist da.",
+    factCheckinTerm: "Check-in & Check-out",
+    factCheckin: "Check-in ab {checkin} Uhr. Check-out bis {checkout} Uhr.",
     factBreakfastTerm: "Frühstück",
     factBreakfast:
       "Frühstücksbuffet im House of Europe, auch für Gäste im Phos. Gegen Aufpreis wird es auch aufs Zimmer serviert.",

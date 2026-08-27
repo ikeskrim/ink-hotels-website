@@ -585,6 +585,11 @@ export const nl: ContentText = {
         "De receptie is open tot 23:00 uur, in House of Europe, Nikolaou Plastira 4. Landt uw vlucht later, laat het ons vooraf weten en er is iemand aanwezig.",
     },
     {
+      question: "Hoe laat kan ik inchecken?",
+      answer:
+        "Inchecken kan vanaf 16:00 uur en uitchecken tot 11:00 uur. Laat ons weten wanneer u landt, dan ligt uw sleutel klaar zodra u bij het eerste gebouw aankomt.",
+    },
+    {
       question: "Is er parkeergelegenheid?",
       answer:
         "Gratis parkeren is beschikbaar buiten het terrein, binnen 100 meter. The Residence of the Old Port heeft een eigen privéparkeerplaats.",
@@ -648,6 +653,7 @@ export const nl: ContentText = {
     ],
     facts: [
       { term: "Receptie", def: "House of Europe, Nikolaou Plastira 4 — het eerste gebouw. Open tot 23.00 uur." },
+      { term: "Inchecken", def: "Vanaf 16:00 uur. Uitchecken vóór 11:00 uur." },
       { term: "Telefonisch", def: "+30 211 444 5757, toestel 1" },
       { term: "Ontbijt", def: "Buffet in House of Europe voor alle gasten, en op de kamer tegen een kleine vergoeding" },
       { term: "Parkeren", def: "Gratis, buiten het pand, binnen 100 m" },

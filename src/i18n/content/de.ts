@@ -589,6 +589,11 @@ export const de: ContentText = {
         "Die Rezeption ist bis 23:00 Uhr besetzt, im House of Europe, Nikolaou Plastira 4. Landet Ihr Flug später, sagen Sie uns vorab Bescheid, dann ist jemand da.",
     },
     {
+      question: "Wann ist Check-in?",
+      answer:
+        "Der Check-in ist ab 16:00 Uhr, der Check-out bis 11:00 Uhr. Sagen Sie uns, wann Sie landen, dann liegt Ihr Schlüssel bereit, sobald Sie das erste Gebäude erreichen.",
+    },
+    {
       question: "Gibt es Parkplätze?",
       answer:
         "Kostenlose Parkplätze gibt es außerhalb des Hauses in 100 Metern Entfernung. Die Residence of the Old Port hat einen eigenen privaten Parkplatz.",
@@ -652,6 +657,7 @@ export const de: ContentText = {
     ],
     facts: [
       { term: "Rezeption", def: "House of Europe, Nikolaou Plastira 4 — das erste Gebäude. Geöffnet bis 23:00 Uhr." },
+      { term: "Check-in", def: "Ab 16:00 Uhr. Check-out bis 11:00 Uhr." },
       { term: "Telefonisch", def: "+30 211 444 5757, Durchwahl 1" },
       { term: "Frühstück", def: "Buffet im House of Europe für alle Gäste, und gegen einen kleinen Aufpreis auf dem Zimmer" },
       { term: "Parken", def: "Kostenlos, außerhalb des Hauses, in 100 m Entfernung" },
