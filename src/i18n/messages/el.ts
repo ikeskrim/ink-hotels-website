@@ -395,7 +395,8 @@ export const el: Messages = {
     factParking:
       "Δωρεάν στην περιοχή γύρω από το ξενοδοχείο — στο πάρκινγκ απέναντι. Οι επισκέπτες των Gateway Suites λαμβάνουν κάρτα στάθμευσης, εφόσον υπάρχει διαθεσιμότητα.",
     factHousekeepingTerm: "Καθαριότητα",
-    factHousekeeping: "Κάθε δύο ημέρες.",
+    factHousekeeping:
+      "Η καθαριότητα κανονίζεται με κάθε διαμονή — συνήθως κάθε δύο ημέρες.",
     factPetsTerm: "Κατοικίδια",
     factPets: "Δεν γίνονται δεκτά.",
     factLanguagesTerm: "Γλώσσες",

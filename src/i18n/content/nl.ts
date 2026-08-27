@@ -620,7 +620,7 @@ export const nl: ContentText = {
     {
       question: "Wanneer zijn de kamers voor het laatst gerenoveerd?",
       answer:
-        "House of Europe werd gerenoveerd in mei 2020, en Phos in juni 2019. De huishouding komt om de twee dagen.",
+        "House of Europe werd gerenoveerd in mei 2020, en Phos in juni 2019. De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen.",
     },
   ],
 

@@ -106,6 +106,6 @@ export const faqs: Faq[] = [
     topic: "rooms",
     question: "When were the rooms last renovated?",
     answer:
-      "House of Europe was renovated in May 2020, and Phos in June 2019. Housekeeping is every two days.",
+      "House of Europe was renovated in May 2020, and Phos in June 2019. Housekeeping is arranged with each stay — typically every two days.",
   },
 ];

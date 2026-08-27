@@ -624,7 +624,7 @@ export const de: ContentText = {
     {
       question: "Wann wurden die Zimmer zuletzt renoviert?",
       answer:
-        "House of Europe wurde im Mai 2020 renoviert, Phos im Juni 2019. Die Zimmerreinigung erfolgt alle zwei Tage.",
+        "House of Europe wurde im Mai 2020 renoviert, Phos im Juni 2019. Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage.",
     },
   ],
 

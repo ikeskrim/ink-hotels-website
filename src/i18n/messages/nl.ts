@@ -397,7 +397,8 @@ export const nl: Messages = {
     factParking:
       "Gratis in de buurt van het hotel — op de parkeerplaats aan de overkant. Gasten van de Gateway Suites krijgen een parkeerkaart, zolang er beschikbaarheid is.",
     factHousekeepingTerm: "Schoonmaak",
-    factHousekeeping: "Om de twee dagen.",
+    factHousekeeping:
+      "De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen.",
     factPetsTerm: "Huisdieren",
     factPets: "Niet mogelijk.",
     factLanguagesTerm: "Talen",

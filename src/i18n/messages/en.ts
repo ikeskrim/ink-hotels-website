@@ -415,7 +415,8 @@ export const en = {
     factParking:
       "Free in the area around the hotel — the parking lot across the street. Guests of the Gateway Suites receive a parking card, subject to availability.",
     factHousekeepingTerm: "Housekeeping",
-    factHousekeeping: "Every two days.",
+    factHousekeeping:
+      "Housekeeping is arranged with each stay — typically every two days.",
     factPetsTerm: "Pets",
     factPets: "Not accommodated.",
     factLanguagesTerm: "Languages",

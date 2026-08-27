@@ -397,7 +397,8 @@ export const de: Messages = {
     factParking:
       "Kostenlos in der Umgebung des Hauses — auf dem Parkplatz gegenüber. Gäste der Gateway Suites erhalten nach Verfügbarkeit eine Parkkarte.",
     factHousekeepingTerm: "Zimmerreinigung",
-    factHousekeeping: "Alle zwei Tage.",
+    factHousekeeping:
+      "Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage.",
     factPetsTerm: "Haustiere",
     factPets: "Nicht möglich.",
     factLanguagesTerm: "Sprachen",

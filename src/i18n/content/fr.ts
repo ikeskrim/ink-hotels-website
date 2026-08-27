@@ -613,7 +613,7 @@ export const fr: ContentText = {
     {
       question: "Quand les chambres ont-elles été rénovées pour la dernière fois ?",
       answer:
-        "House of Europe a été rénové en mai 2020, et Phos en juin 2019. Le ménage est fait tous les deux jours.",
+        "House of Europe a été rénové en mai 2020, et Phos en juin 2019. Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",
     },
   ],
 

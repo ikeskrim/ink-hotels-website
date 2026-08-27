@@ -397,7 +397,8 @@ export const fr: Messages = {
     factParking:
       "Gratuit dans le quartier de l'hôtel — le parking d'en face. Les clients des Gateway Suites reçoivent une carte de stationnement, selon disponibilité.",
     factHousekeepingTerm: "Ménage",
-    factHousekeeping: "Tous les deux jours.",
+    factHousekeeping:
+      "Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",
     factPetsTerm: "Animaux",
     factPets: "Non acceptés.",
     factLanguagesTerm: "Langues",
