@@ -15,6 +15,7 @@ import { MaskReveal, Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
+import { ReachUs } from "@/components/contact/reach-us";
 
 export function generateStaticParams() {
   return experiences.map((e) => ({ slug: e.slug }));
@@ -153,9 +154,7 @@ export default async function ExperiencePage({
                       {contact.emails.general}
                     </InkAnchor>{" "}
                     or call{" "}
-                    <InkAnchor href={contact.phones[0].href}>
-                      {contact.phones[0].value}
-                    </InkAnchor>
+                    <ReachUs locale={locale} />
                     .
                   </p>
                   <div className="mt-7 flex flex-wrap gap-x-8 gap-y-3">

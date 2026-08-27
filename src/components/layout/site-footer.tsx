@@ -67,6 +67,20 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                     )}
                   </p>
                 ))}
+                {/* The mobile again, on the channel a guest abroad can use
+                    without paying for the call. */}
+                <p>
+                  <span className="text-paper/45">
+                    {m.concierge.whatsapp} ·{" "}
+                  </span>
+                  <InkAnchor
+                    href={contact.whatsapp.url(m.concierge.whatsappGreeting)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {contact.phones[1].value}
+                  </InkAnchor>
+                </p>
                 <OffersSignup className="pb-2 pt-4" />
                 <p className="pt-1 text-paper/50">
                   {m.common.receptionUntil.replace("{time}", reception.openUntil)}

@@ -648,6 +648,7 @@ export const fr: ContentText = {
       { term: "Réception", def: "House of Europe, Nikolaou Plastira 4 — le premier bâtiment. Ouverte jusqu'à 23h00." },
       { term: "Arrivée", def: "À partir de 16h00. Départ avant 11h00." },
       { term: "Par téléphone", def: "+30 211 444 5757, poste 1" },
+      { term: "WhatsApp", def: "+30 697 406 9475" },
       { term: "Petit-déjeuner", def: "Buffet au House of Europe pour tous les clients, et en chambre moyennant un léger supplément" },
       { term: "Stationnement", def: "Gratuit, sur le parking d'en face" },
       { term: "Voitures et transferts", def: "Transferts aéroport et port, et une Fiat 500 Cabrio à louer" },

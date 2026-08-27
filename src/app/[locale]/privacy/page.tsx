@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { LegalPage } from "@/components/legal/legal-layout";
 import { InkAnchor, InkLink } from "@/components/ui/ink-link";
+import { ReachUs } from "@/components/contact/reach-us";
 import { pageMetadata } from "@/lib/seo";
 import { getMessages } from "@/i18n";
 import { defaultLocale, isLocale } from "@/i18n/config";
@@ -124,9 +125,7 @@ export default async function PrivacyPage({
         {contact.registeredAddress.street},{" "}
         {contact.registeredAddress.locality}{" "}
         {contact.registeredAddress.postalCode}, {m.common.creteGreece} ·{" "}
-        <InkAnchor href={contact.phones[0].href}>
-          {contact.phones[0].value}
-        </InkAnchor>
+        <ReachUs locale={locale} />
         . See also our <InkLink href="/terms">terms of use</InkLink>.
       </p>
     </LegalPage>

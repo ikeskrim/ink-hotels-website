@@ -93,6 +93,16 @@ export default async function OfflinePage({
               >
                 {contact.phones[1].value}
               </a>
+              {/* The same mobile, and on a bad connection a message gets
+                  through where a page of photographs does not. */}
+              <a
+                href={contact.whatsapp.url(m.concierge.whatsappGreeting)}
+                className="spec underline underline-offset-4"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {m.concierge.whatsapp}
+              </a>
             </div>
           </div>
 

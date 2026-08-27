@@ -655,6 +655,7 @@ export const nl: ContentText = {
       { term: "Receptie", def: "House of Europe, Nikolaou Plastira 4 — het eerste gebouw. Open tot 23.00 uur." },
       { term: "Inchecken", def: "Vanaf 16:00 uur. Uitchecken vóór 11:00 uur." },
       { term: "Telefonisch", def: "+30 211 444 5757, toestel 1" },
+      { term: "WhatsApp", def: "+30 697 406 9475" },
       { term: "Ontbijt", def: "Buffet in House of Europe voor alle gasten, en op de kamer tegen een kleine vergoeding" },
       { term: "Parkeren", def: "Gratis, op de parkeerplaats aan de overkant" },
       { term: "Auto's en transfers", def: "Transfers van luchthaven en haven, en een Fiat 500 Cabrio te huur" },

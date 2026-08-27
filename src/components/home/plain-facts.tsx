@@ -120,6 +120,20 @@ export function PlainFacts({ locale = defaultLocale }: { locale?: Locale }) {
                       )}
                     </p>
                   ))}
+                  {/* The mobile above, on the channel that costs a guest
+                      abroad nothing. */}
+                  <p className="spec">
+                    <span className="text-[color:var(--fg-3)]">
+                      {m.concierge.whatsapp} ·{" "}
+                    </span>
+                    <InkAnchor
+                      href={contact.whatsapp.url(m.concierge.whatsappGreeting)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {contact.phones[1].value}
+                    </InkAnchor>
+                  </p>
                   <p className="spec">
                     <InkAnchor href={`mailto:${contact.emails.general}`}>
                       {contact.emails.general}

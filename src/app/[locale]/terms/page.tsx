@@ -6,6 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 import { getMessages } from "@/i18n";
 import { defaultLocale, isLocale } from "@/i18n/config";
 import { contact, legal, site } from "@/content/site";
+import { ReachUs } from "@/components/contact/reach-us";
 
 /* See the note on /privacy: `noindex` still needs a readable tab. */
 export async function generateMetadata({
@@ -28,7 +29,17 @@ export async function generateMetadata({
   };
 }
 
-export default function TermsPage() {
+/* Takes its params for the same reason /privacy does: rendered under
+   `[locale]` with no way to read it, the page cannot hand a locale to
+   anything that needs one — here, the contact line at the foot. */
+export default async function TermsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: raw } = await params;
+  const locale = isLocale(raw) ? raw : defaultLocale;
+
   return (
     <LegalPage eyebrow="Legal" title="Terms of use" updated="August 2026">
       <p>
@@ -124,9 +135,7 @@ export default function TermsPage() {
           {contact.emails.general}
         </InkAnchor>{" "}
         or call{" "}
-        <InkAnchor href={contact.phones[0].href}>
-          {contact.phones[0].value}
-        </InkAnchor>
+        <ReachUs locale={locale} />
         . See also our <InkLink href="/privacy">privacy policy</InkLink>.
       </p>
     </LegalPage>

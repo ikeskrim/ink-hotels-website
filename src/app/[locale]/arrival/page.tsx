@@ -13,6 +13,7 @@ import { defaultLocale, isLocale } from "@/i18n/config";
 import { getMessages } from "@/i18n";
 import { contact, reception } from "@/content/site";
 import { folio } from "@/lib/utils";
+import { ReachUs } from "@/components/contact/reach-us";
 
 export async function generateMetadata({
   params,
@@ -85,9 +86,7 @@ export default async function ArrivalPage({
                   >
                     {m.actions.openInMaps} →
                   </InkAnchor>
-                  <InkAnchor href={contact.phones[0].href} className="label">
-                    {contact.phones[0].value}
-                  </InkAnchor>
+                  <ReachUs locale={locale} className="label" />
                 </div>
               </Reveal>
             </div>

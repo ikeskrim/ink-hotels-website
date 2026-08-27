@@ -45,12 +45,26 @@ export function NowTheDates({ locale = defaultLocale }: { locale?: Locale }) {
 
               <BookDirect tone="ink" className="mt-8" />
 
+              {/* The extension rides with the number rather than waiting on
+                  the line below it: this sentence is where somebody decides to
+                  pick up the phone, and a number dialled without "ext. 1"
+                  reaches a switchboard. WhatsApp closes the same sentence,
+                  because for a guest abroad it is the cheaper of the two and
+                  they should not have to go looking for it. */}
               <p className="mt-8 text-paper/70">
                 {fill(m.booking.orCall, {
                   phone: (
-                    <InkAnchor href={reception0?.href ?? "#"} className="text-paper">
-                      {reception0?.value}
-                    </InkAnchor>
+                    <>
+                      <InkAnchor href={reception0?.href ?? "#"} className="text-paper">
+                        {reception0?.value}
+                      </InkAnchor>
+                      {reception0?.ext ? (
+                        <span>
+                          {" "}
+                          ({m.common.ext} {reception0.ext})
+                        </span>
+                      ) : null}
+                    </>
                   ),
                   phone2: (
                     <InkAnchor href={mobile?.href ?? "#"} className="text-paper">
@@ -58,7 +72,15 @@ export function NowTheDates({ locale = defaultLocale }: { locale?: Locale }) {
                     </InkAnchor>
                   ),
                   languages: spokenLanguages(locale),
-                })}
+                })}{" "}
+                <InkAnchor
+                  href={contact.whatsapp.url(m.concierge.whatsappGreeting)}
+                  className="text-paper"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {m.concierge.whatsapp}
+                </InkAnchor>
               </p>
 
               {/* The hours belong here rather than only on the facts list: this

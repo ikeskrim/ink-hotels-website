@@ -11,6 +11,7 @@ import { defaultLocale, isLocale } from "@/i18n/config";
 import { getMessages } from "@/i18n";
 import { contact } from "@/content/site";
 import { roomsBySlug } from "@/content/rooms";
+import { ReachUs } from "@/components/contact/reach-us";
 
 export async function generateMetadata({
   params,
@@ -168,12 +169,7 @@ export default async function AccessibilityPage({
               </div>
 
               <div className="mt-9 flex flex-wrap gap-x-10 gap-y-4">
-                <InkAnchor
-                  href={contact.phones[0].href}
-                  className="label"
-                >
-                  {contact.phones[0].value}
-                </InkAnchor>
+                <ReachUs locale={locale} className="label" />
                 <InkAnchor
                   href={`mailto:${contact.emails.general}`}
                   className="label"

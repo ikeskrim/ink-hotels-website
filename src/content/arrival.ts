@@ -56,6 +56,7 @@ export const arrival = {
     },
     { term: "Check-in", def: "From 16:00. Check-out by 11:00." },
     { term: "By phone", def: "+30 211 444 5757, extension 1" },
+    { term: "WhatsApp", def: "+30 697 406 9475" },
     {
       term: "Breakfast",
       def: "Buffet at House of Europe for all guests, and in your room for a small charge",

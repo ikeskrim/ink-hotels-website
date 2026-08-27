@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Container, Heading, Section } from "@/components/ui/section";
 import { Accordion, AccordionItem } from "@/components/ui/accordion";
 import { InkAnchor, InkLink } from "@/components/ui/ink-link";
+import { ReachUs } from "@/components/contact/reach-us";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
@@ -136,15 +137,7 @@ export default async function FaqPage({
                     </InkAnchor>
                   </p>
                   <p>
-                    <InkAnchor href={contact.phones[0].href} className="spec">
-                      {contact.phones[0].value}
-                    </InkAnchor>
-                    {contact.phones[0].ext && (
-                      <span className="spec text-[color:var(--fg-3)]">
-                        {" "}
-                        ({m.common.ext} {contact.phones[0].ext})
-                      </span>
-                    )}
+                    <ReachUs locale={locale} className="spec" />
                   </p>
                   <p className="spec text-[color:var(--fg-3)]">
                     {m.faqPage.openUntil.replace("{time}", reception.openUntil)}

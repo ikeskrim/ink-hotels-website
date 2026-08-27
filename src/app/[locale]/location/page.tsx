@@ -210,8 +210,29 @@ export default async function LocationPage({
                 <InkAnchor href={p.href} className="spec">
                   {p.value}
                 </InkAnchor>
+                {p.ext ? (
+                  <span className="spec text-[color:var(--fg-3)]">
+                    {" "}
+                    ({m.common.ext} {p.ext})
+                  </span>
+                ) : null}
               </div>
             ))}
+            {/* The same mobile as above, reached the way most guests abroad
+                would rather reach it. */}
+            <div>
+              <p className="label mb-3 text-[color:var(--fg-3)]">
+                {m.concierge.whatsapp}
+              </p>
+              <InkAnchor
+                href={contact.whatsapp.url(m.concierge.whatsappGreeting)}
+                className="spec"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {contact.phones[1].value}
+              </InkAnchor>
+            </div>
             <div>
               <p className="label mb-3 text-[color:var(--fg-3)]">{m.common.general}</p>
               <InkAnchor

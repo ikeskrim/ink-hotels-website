@@ -117,6 +117,11 @@ jobs:
         env:
           BASE: http://localhost:3000
 
+      - name: Phones — no number without its extension and WhatsApp
+        run: node scripts/phone-check.mjs
+        env:
+          BASE: http://localhost:3000
+
       - name: Structured data — parses, required fields present, images resolve
         run: node --import tsx scripts/schema-check.mjs
         env:

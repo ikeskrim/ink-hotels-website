@@ -222,6 +222,18 @@ export function AvailabilityForm({
           {contact.phones[1].value}
         </a>
         {m.booking.opensInNewTab.split("{phone}")[1]}
+        {/* The number above is the mobile, and this is the same mobile — free
+            to message from abroad, where the call is not. A number offered
+            here without it is a number half the guests will not use. */}
+        {" · "}
+        <a
+          href={contact.whatsapp.url(m.concierge.whatsappGreeting)}
+          className="underline underline-offset-4"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {m.concierge.whatsapp}
+        </a>
       </p>
     </form>
   );
