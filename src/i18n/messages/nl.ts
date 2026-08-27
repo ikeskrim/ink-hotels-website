@@ -395,7 +395,7 @@ export const nl: Messages = {
       "De oude stad leeft, en dat is een groot deel van haar charme. Kamers aan zeezijde liggen het dichtst bij de cafés en bars. Alle kamers hebben geluidsisolerende ramen; laat het ons weten als u licht slaapt.",
     factParkingTerm: "Parkeren",
     factParking:
-      "Gratis, buiten het pand, binnen 100 meter. The Residence of the Old Port heeft een eigen parkeerplaats.",
+      "Gratis in de buurt van het hotel — op de parkeerplaats aan de overkant. Gasten van de Gateway Suites krijgen een parkeerkaart, zolang er beschikbaarheid is.",
     factHousekeepingTerm: "Schoonmaak",
     factHousekeeping: "Om de twee dagen.",
     factPetsTerm: "Huisdieren",

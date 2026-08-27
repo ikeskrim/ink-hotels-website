@@ -592,7 +592,7 @@ export const nl: ContentText = {
     {
       question: "Is er parkeergelegenheid?",
       answer:
-        "Gratis parkeren is beschikbaar buiten het terrein, binnen 100 meter. The Residence of the Old Port heeft een eigen privéparkeerplaats.",
+        "Parkeren in de buurt van het hotel is gratis, op de parkeerplaats aan de overkant. Gasten van de Gateway Suites krijgen een parkeerkaart, zolang er beschikbaarheid is.",
     },
     {
       question: "Mag mijn hond mee?",
@@ -640,7 +640,7 @@ export const nl: ContentText = {
       },
       {
         title: "Kom naar het eerste gebouw",
-        body: "Nikolaou Plastira 4. Dat is de receptie voor het hele hotel, en daar liggen alle zeven suites. Hij is open tot 23:00 uur. Gratis parkeren is beschikbaar buiten het terrein, binnen honderd meter, en wij vertellen u precies waar voordat u vertrekt. Het inchecken gebeurt hier voor alle gebouwen, ook voor de Residence aan de oude haven.",
+        body: "Nikolaou Plastira 4. Dat is de receptie voor het hele hotel, en daar liggen alle zeven suites. Hij is open tot 23:00 uur. Parkeren is gratis in de buurt, op de parkeerplaats aan de overkant; gasten van de Gateway Suites krijgen een parkeerkaart, zolang er beschikbaarheid is. Het inchecken gebeurt hier voor alle gebouwen, ook voor de Residence aan de oude haven.",
       },
       {
         title: "Wij lopen met u mee",
@@ -656,7 +656,7 @@ export const nl: ContentText = {
       { term: "Inchecken", def: "Vanaf 16:00 uur. Uitchecken vóór 11:00 uur." },
       { term: "Telefonisch", def: "+30 211 444 5757, toestel 1" },
       { term: "Ontbijt", def: "Buffet in House of Europe voor alle gasten, en op de kamer tegen een kleine vergoeding" },
-      { term: "Parkeren", def: "Gratis, buiten het pand, binnen 100 m" },
+      { term: "Parkeren", def: "Gratis, op de parkeerplaats aan de overkant" },
       { term: "Auto's en transfers", def: "Transfers van luchthaven en haven, en een Fiat 500 Cabrio te huur" },
       { term: "Talen", def: "Engels, Grieks, Nederlands en Frans" },
       { term: "Drempelloze aankomst", def: "De suite Agapi heeft een eigen ingang aan de straat" },

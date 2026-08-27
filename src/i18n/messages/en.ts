@@ -413,7 +413,7 @@ export const en = {
       "The old town is alive, and that is much of its pleasure. Sea-facing rooms sit closest to the cafés and bars. All rooms have soundproof windows; tell us if you sleep lightly.",
     factParkingTerm: "Parking",
     factParking:
-      "Free, off-site, within 100 metres. The Residence of the Old Port has private parking of its own.",
+      "Free in the area around the hotel — the parking lot across the street. Guests of the Gateway Suites receive a parking card, subject to availability.",
     factHousekeepingTerm: "Housekeeping",
     factHousekeeping: "Every two days.",
     factPetsTerm: "Pets",

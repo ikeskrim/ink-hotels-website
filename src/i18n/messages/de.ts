@@ -395,7 +395,7 @@ export const de: Messages = {
       "Die Altstadt lebt, und das macht einen großen Teil ihres Reizes aus. Zimmer zum Meer liegen den Cafés und Bars am nächsten. Alle Zimmer haben schallgedämmte Fenster; sagen Sie uns, wenn Sie leicht schlafen.",
     factParkingTerm: "Parken",
     factParking:
-      "Kostenlos, außerhalb des Hauses, innerhalb von 100 Metern. Die Residence of the Old Port hat einen eigenen Stellplatz.",
+      "Kostenlos in der Umgebung des Hauses — auf dem Parkplatz gegenüber. Gäste der Gateway Suites erhalten nach Verfügbarkeit eine Parkkarte.",
     factHousekeepingTerm: "Zimmerreinigung",
     factHousekeeping: "Alle zwei Tage.",
     factPetsTerm: "Haustiere",

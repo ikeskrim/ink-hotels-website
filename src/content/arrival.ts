@@ -36,7 +36,7 @@ export const arrival = {
     },
     {
       title: "Come to the first building",
-      body: "Nikolaou Plastira 4. It is the reception for the whole hotel, and where all seven suites are. It is open until 23:00. Free parking is available off-site within a hundred metres, and we will tell you exactly where before you set off. Check-in is here for every building, including the Residence of the Old Port.",
+      body: "Nikolaou Plastira 4. It is the reception for the whole hotel, and where all seven suites are. It is open until 23:00. Parking is free in the area around us, in the lot across the street; guests of the Gateway Suites receive a parking card, subject to availability. Check-in is here for every building, including the Residence of the Old Port.",
     },
     {
       title: "We walk you in",
@@ -60,7 +60,7 @@ export const arrival = {
       term: "Breakfast",
       def: "Buffet at House of Europe for all guests, and in your room for a small charge",
     },
-    { term: "Parking", def: "Free, off-site, within 100 m" },
+    { term: "Parking", def: "Free, in the lot across the street" },
     { term: "Cars & transfers", def: "Airport and port transfers, and a Fiat 500 Cabrio to rent" },
     { term: "Languages", def: "English, Greek, Dutch and French" },
     { term: "Step-free arrival", def: "The Agapi suite has its own street entrance" },

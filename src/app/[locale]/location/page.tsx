@@ -136,9 +136,9 @@ export default async function LocationPage({
                   </p>
                   <p>
                     The old town is historic and its lanes are narrow and
-                    cobbled. Free parking is available off-site within a hundred
-                    metres; the Residence of the Old Port has private parking of
-                    its own.
+                    cobbled. Parking in the area around the hotel is free — the
+                    lot across the street — and guests of the Gateway Suites
+                    receive a parking card, subject to availability.
                   </p>
                 </div>
 

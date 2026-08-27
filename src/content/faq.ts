@@ -73,7 +73,7 @@ export const faqs: Faq[] = [
     topic: "finding",
     question: "Is there parking?",
     answer:
-      "Free parking is available off-site within 100 metres. The Residence of the Old Port has its own private parking.",
+      "Parking in the area around the hotel is free, in the parking lot across the street. Guests of the Gateway Suites receive a parking card, subject to availability.",
   },
   {
     topic: "staying",

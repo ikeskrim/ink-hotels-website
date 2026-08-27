@@ -596,7 +596,7 @@ export const de: ContentText = {
     {
       question: "Gibt es Parkplätze?",
       answer:
-        "Kostenlose Parkplätze gibt es außerhalb des Hauses in 100 Metern Entfernung. Die Residence of the Old Port hat einen eigenen privaten Parkplatz.",
+        "Das Parken in der Umgebung des Hauses ist kostenlos, auf dem Parkplatz gegenüber. Gäste der Gateway Suites erhalten nach Verfügbarkeit eine Parkkarte.",
     },
     {
       question: "Darf ich meinen Hund mitbringen?",
@@ -644,7 +644,7 @@ export const de: ContentText = {
       },
       {
         title: "Kommen Sie zum ersten Gebäude",
-        body: "Nikolaou Plastira 4. Das ist die Rezeption für das ganze Haus, und dort liegen alle sieben Suiten. Sie ist bis 23:00 Uhr besetzt. Kostenlose Parkplätze gibt es außerhalb in hundert Metern Entfernung; wo genau, sagen wir Ihnen vor der Abfahrt. Der Check-in findet hier für alle Häuser statt, auch für die Residence am alten Hafen.",
+        body: "Nikolaou Plastira 4. Das ist die Rezeption für das ganze Haus, und dort liegen alle sieben Suiten. Sie ist bis 23:00 Uhr besetzt. Das Parken in unserer Umgebung ist kostenlos, auf dem Parkplatz gegenüber; Gäste der Gateway Suites erhalten nach Verfügbarkeit eine Parkkarte. Der Check-in findet hier für alle Häuser statt, auch für die Residence am alten Hafen.",
       },
       {
         title: "Wir begleiten Sie hinein",
@@ -660,7 +660,7 @@ export const de: ContentText = {
       { term: "Check-in", def: "Ab 16:00 Uhr. Check-out bis 11:00 Uhr." },
       { term: "Telefonisch", def: "+30 211 444 5757, Durchwahl 1" },
       { term: "Frühstück", def: "Buffet im House of Europe für alle Gäste, und gegen einen kleinen Aufpreis auf dem Zimmer" },
-      { term: "Parken", def: "Kostenlos, außerhalb des Hauses, in 100 m Entfernung" },
+      { term: "Parken", def: "Kostenlos, auf dem Parkplatz gegenüber" },
       { term: "Autos und Transfers", def: "Transfers vom Flughafen und vom Hafen, und ein Fiat 500 Cabrio zur Miete" },
       { term: "Sprachen", def: "Englisch, Griechisch, Niederländisch und Französisch" },
       { term: "Stufenfreie Ankunft", def: "Die Suite Agapi hat einen eigenen Zugang von der Straße" },

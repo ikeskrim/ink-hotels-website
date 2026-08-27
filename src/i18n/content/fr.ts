@@ -585,7 +585,7 @@ export const fr: ContentText = {
     {
       question: "Y a-t-il un parking ?",
       answer:
-        "Un parking gratuit est disponible hors site, à moins de 100 mètres. The Residence of the Old Port a son propre parking privé.",
+        "Le stationnement dans le quartier de l'hôtel est gratuit, sur le parking d'en face. Les clients des Gateway Suites reçoivent une carte de stationnement, selon disponibilité.",
     },
     {
       question: "Puis-je venir avec mon chien ?",
@@ -633,7 +633,7 @@ export const fr: ContentText = {
       },
       {
         title: "Venez au premier bâtiment",
-        body: "Nikolaou Plastira 4. C'est la réception de tout l'hôtel, et les sept suites y sont. Elle est ouverte jusqu'à 23h00. Un parking gratuit est disponible hors site, à moins de cent mètres, et nous vous dirons exactement où avant votre départ. L'enregistrement se fait ici pour tous les bâtiments, y compris la Residence du vieux port.",
+        body: "Nikolaou Plastira 4. C'est la réception de tout l'hôtel, et les sept suites y sont. Elle est ouverte jusqu'à 23h00. Le stationnement est gratuit dans le quartier, sur le parking d'en face ; les clients des Gateway Suites reçoivent une carte de stationnement, selon disponibilité. L'enregistrement se fait ici pour tous les bâtiments, y compris la Residence du vieux port.",
       },
       {
         title: "Nous vous accompagnons",
@@ -649,7 +649,7 @@ export const fr: ContentText = {
       { term: "Arrivée", def: "À partir de 16h00. Départ avant 11h00." },
       { term: "Par téléphone", def: "+30 211 444 5757, poste 1" },
       { term: "Petit-déjeuner", def: "Buffet au House of Europe pour tous les clients, et en chambre moyennant un léger supplément" },
-      { term: "Stationnement", def: "Gratuit, hors site, à moins de 100 m" },
+      { term: "Stationnement", def: "Gratuit, sur le parking d'en face" },
       { term: "Voitures et transferts", def: "Transferts aéroport et port, et une Fiat 500 Cabrio à louer" },
       { term: "Langues", def: "Anglais, grec, néerlandais et français" },
       { term: "Arrivée de plain-pied", def: "La suite Agapi a sa propre entrée sur rue" },

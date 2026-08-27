@@ -45,7 +45,7 @@ const AMENITY_FEATURES = [
   feature("Garden"),
   feature("Bicycle rental"),
   feature("Massage service"),
-  feature("Free off-site parking within 100 m"),
+  feature("Free parking in the surrounding area"),
   feature("Safe"),
   feature("Soundproof windows"),
   feature("Satellite television"),
