@@ -88,7 +88,7 @@ export const faqs: Faq[] = [
     topic: "finding",
     question: "How do I get here from the airport?",
     answer:
-      "Rethymno sits between Chania and Heraklion airports. A chauffeur can meet you at either airport, or at the port, and bring you in — let us know your arrival and we will arrange it.",
+      "Rethymno sits between Chania and Heraklion airports. Our own chauffeur can meet you at either airport, or at the port, and bring you in — let us know your arrival and we will arrange it.",
   },
   {
     topic: "staying",

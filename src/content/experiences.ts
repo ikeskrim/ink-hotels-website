@@ -377,7 +377,7 @@ export const experiences: Experience[] = [
     category: "self",
     summary: "Met at Chania, Heraklion or the port, and driven in.",
     body: [
-      "Have you arranged your holiday and not worked out how to get here from the airport or the port? Let us know, and we will be waiting on arrival to bring you in.",
+      "Have you arranged your holiday and not worked out how to get here from the airport or the port? Let us know: our own chauffeur can meet you and bring you in.",
       "The old town's lanes are narrow and mostly one-way, and House of Europe is inside them. Being driven to the right corner with your luggage is worth arranging — it is the difference between arriving and finding your way.",
     ],
     image: EXPERIENCE_IMAGES["chauffeur"] ?? "",

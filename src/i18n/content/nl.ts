@@ -400,7 +400,7 @@ export const nl: ContentText = {
       summary:
         "Opgehaald in Chania, Heraklion of bij de haven, en naar binnen gereden.",
       body: [
-        "Hebt u uw vakantie geregeld maar nog niet uitgezocht hoe u hier vanaf de luchthaven of de haven komt? Laat het ons weten, dan staan wij bij aankomst klaar.",
+        "Hebt u uw vakantie geregeld maar nog niet uitgezocht hoe u hier vanaf de luchthaven of de haven komt? Laat het ons weten, dan staan wij bij aankomst klaar. Onze eigen chauffeur kan u ophalen en binnenbrengen.",
         "De stegen van de oude stad zijn smal en meestal eenrichtingsverkeer, en House of Europe ligt er middenin. U met uw bagage op de juiste hoek laten afzetten is het regelen waard — het is het verschil tussen aankomen en zoeken.",
       ],
     },
@@ -612,7 +612,7 @@ export const nl: ContentText = {
     {
       question: "Hoe kom ik hier vanaf de luchthaven?",
       answer:
-        "Rethymno ligt tussen de luchthavens van Chania en Heraklion. Een chauffeur kan u op een van beide luchthavens of in de haven ophalen en u naar binnen brengen — laat ons uw aankomst weten en wij regelen het.",
+        "Rethymno ligt tussen de luchthavens van Chania en Heraklion. Onze eigen chauffeur kan u op een van beide luchthavens of in de haven ophalen en u naar binnen brengen — laat ons uw aankomst weten en wij regelen het.",
     },
     {
       question: "Is er wifi?",
@@ -638,7 +638,7 @@ export const nl: ContentText = {
     steps: [
       {
         title: "Laat ons weten wanneer u landt",
-        body: "Stuur ons uw aankomsttijd en hoe u reist. Een chauffeur kan u ophalen op de luchthaven van Chania of Heraklion, of in de haven, en u naar binnen brengen — de stegen van de oude stad zijn smal, en tot de juiste hoek ervan gereden worden is het regelen waard.",
+        body: "Stuur ons uw aankomsttijd en hoe u reist. Onze eigen chauffeur kan u ophalen op de luchthaven van Chania of Heraklion, of in de haven, en u naar binnen brengen — de stegen van de oude stad zijn smal, en tot de juiste hoek ervan gereden worden is het regelen waard.",
       },
       {
         title: "Kom naar het eerste gebouw",

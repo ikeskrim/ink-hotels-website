@@ -404,7 +404,7 @@ export const de: ContentText = {
       summary:
         "Empfang in Chania, Heraklion oder am Hafen — und hereingefahren.",
       body: [
-        "Haben Sie Ihren Urlaub geplant und noch nicht geklärt, wie Sie vom Flughafen oder Hafen hierherkommen? Sagen Sie uns Bescheid, und wir warten bei der Ankunft auf Sie.",
+        "Haben Sie Ihren Urlaub geplant und noch nicht geklärt, wie Sie vom Flughafen oder Hafen hierherkommen? Sagen Sie uns Bescheid, und wir warten bei der Ankunft auf Sie. Unser eigener Chauffeur kann Sie abholen und hereinbringen.",
         "Die Gassen der Altstadt sind eng und überwiegend Einbahnstraßen, und das House of Europe liegt mittendrin. Sich mit dem Gepäck an die richtige Ecke fahren zu lassen, lohnt die Absprache — es ist der Unterschied zwischen Ankommen und Suchen.",
       ],
     },
@@ -616,7 +616,7 @@ export const de: ContentText = {
     {
       question: "Wie komme ich vom Flughafen hierher?",
       answer:
-        "Rethymno liegt zwischen den Flughäfen Chania und Heraklion. Ein Chauffeur holt Sie an einem der beiden Flughäfen oder am Hafen ab und bringt Sie herein — teilen Sie uns Ihre Ankunft mit, wir arrangieren es.",
+        "Rethymno liegt zwischen den Flughäfen Chania und Heraklion. Unser eigener Chauffeur holt Sie an einem der beiden Flughäfen oder am Hafen ab und bringt Sie herein — teilen Sie uns Ihre Ankunft mit, wir arrangieren es.",
     },
     {
       question: "Gibt es WLAN?",
@@ -642,7 +642,7 @@ export const de: ContentText = {
     steps: [
       {
         title: "Sagen Sie uns, wann Sie landen",
-        body: "Senden Sie uns Ihre Ankunftszeit und Ihre Reiseart. Ein Chauffeur kann Sie am Flughafen Chania oder Heraklion oder am Hafen abholen und herbringen — die Gassen der Altstadt sind eng, und es lohnt sich, bis an die richtige Ecke gefahren zu werden.",
+        body: "Senden Sie uns Ihre Ankunftszeit und Ihre Reiseart. Unser eigener Chauffeur kann Sie am Flughafen Chania oder Heraklion oder am Hafen abholen und herbringen — die Gassen der Altstadt sind eng, und es lohnt sich, bis an die richtige Ecke gefahren zu werden.",
       },
       {
         title: "Kommen Sie zum ersten Gebäude",

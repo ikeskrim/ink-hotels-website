@@ -31,7 +31,7 @@ export const arrival = {
   steps: [
     {
       title: "Tell us when you land",
-      body: "Send us your arrival time and how you are travelling. A chauffeur can meet you at Chania or Heraklion airport, or at the port, and bring you in — the old town's lanes are narrow, and being driven to the right corner of it is worth arranging.",
+      body: "Send us your arrival time and how you are travelling. Our own chauffeur can meet you at Chania or Heraklion airport, or at the port, and bring you in — the old town's lanes are narrow, and being driven to the right corner of it is worth arranging.",
     },
     {
       title: "Come to the first building",

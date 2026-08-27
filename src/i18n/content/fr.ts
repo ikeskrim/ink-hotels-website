@@ -392,7 +392,7 @@ export const fr: ContentText = {
       summary:
         "Accueil à Chania, à Héraklion ou au port, puis conduits jusqu'ici.",
       body: [
-        "Vous avez organisé vos vacances sans savoir comment venir depuis l'aéroport ou le port ? Dites-le-nous, et nous vous attendrons à l'arrivée pour vous conduire.",
+        "Vous avez organisé vos vacances sans savoir comment venir depuis l'aéroport ou le port ? Dites-le-nous, et nous vous attendrons à l'arrivée pour vous conduire. Notre propre chauffeur peut vous accueillir et vous amener.",
         "Les ruelles de la vieille ville sont étroites et le plus souvent à sens unique, et House of Europe se trouve à l'intérieur. Être déposé au bon coin avec ses bagages vaut d'être organisé — c'est la différence entre arriver et chercher son chemin.",
       ],
     },
@@ -603,7 +603,7 @@ export const fr: ContentText = {
     {
       question: "Comment venir depuis l'aéroport ?",
       answer:
-        "Réthymnon se situe entre les aéroports de La Canée et d'Héraklion. Un chauffeur peut vous accueillir à l'un ou l'autre aéroport, ou au port, et vous amener — indiquez-nous votre arrivée et nous l'organiserons.",
+        "Réthymnon se situe entre les aéroports de La Canée et d'Héraklion. Notre propre chauffeur peut vous accueillir à l'un ou l'autre aéroport, ou au port, et vous amener — indiquez-nous votre arrivée et nous l'organiserons.",
     },
     {
       question: "Y a-t-il le Wi-Fi ?",
@@ -629,7 +629,7 @@ export const fr: ContentText = {
     steps: [
       {
         title: "Dites-nous quand vous atterrissez",
-        body: "Envoyez-nous votre heure d'arrivée et votre façon de voyager. Un chauffeur peut vous accueillir à l'aéroport de La Canée ou d'Héraklion, ou au port, et vous amener — les ruelles de la vieille ville sont étroites, et se faire conduire jusqu'au bon angle vaut la peine d'être organisé.",
+        body: "Envoyez-nous votre heure d'arrivée et votre façon de voyager. Notre propre chauffeur peut vous accueillir à l'aéroport de La Canée ou d'Héraklion, ou au port, et vous amener — les ruelles de la vieille ville sont étroites, et se faire conduire jusqu'au bon angle vaut la peine d'être organisé.",
       },
       {
         title: "Venez au premier bâtiment",
