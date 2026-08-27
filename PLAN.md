@@ -235,6 +235,7 @@ floor, established across four sessions.
 | "Staying" → `/experiences` | By design. Label and heading agree; the URL stays so indexed links survive. |
 | German locale | By design: five site languages, four desk languages. Keep the InkLink prefix and the noscript switcher fallback. |
 | Hot-tub counts | Fixed and guarded by `counts.test.ts`. |
+| "The Gateway Suites" | **Superseded 24 Aug.** It was a heritage label on the original four; the owner's decision is that all seven are presented under it. Engine names untouched — four still spell it verbatim, and that is what a guest reserves. |
 | Locale round-trip | Fixed; CI keeps it honest. |
 
 ## Waiting on owner

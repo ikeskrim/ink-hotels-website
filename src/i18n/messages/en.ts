@@ -101,8 +101,8 @@ export const en = {
 
   home: {
     heroEyebrow: "Rethymno · Crete",
-    heroTitleLine1: "Seven suites",
-    heroTitleLine2: "in the old town.",
+    heroTitleLine1: "The Gateway Suites.",
+    heroTitleLine2: "Seven of them, in the old town.",
     heroLede:
       "All seven are at House of Europe, on Nikolaou Plastira — three with a private hot tub, one with a plunge pool in its own courtyard. Phos, a few steps away, has seven rooms of its own. Both are houses of the 1700s, under the Fortezza, minutes from the Venetian harbour. One of them was a printing press: it gave the hotel its name.",
 
@@ -242,7 +242,8 @@ export const en = {
   rooms: {
     eyebrow: "{count} ways to stay · Seven suites · Two buildings",
     title: "Twenty ways to stay",
-    theSuites: "The seven suites",
+    gatewaySuites: "The Gateway Suites",
+    theSuites: "The Gateway Suites",
     theRooms: "The rooms",
     whoIsComing: "Who is coming",
     whatYouWakeTo: "What you wake up to",

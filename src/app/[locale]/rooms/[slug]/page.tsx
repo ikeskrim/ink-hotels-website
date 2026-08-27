@@ -45,6 +45,7 @@ export async function generateMetadata({
      translated. */
   const localised = (await getRooms(locale)).find((r) => r.slug === slug);
   const room = localised ?? base;
+  const m = getMessages(locale);
   const house = (await getHouses(locale)).find((h) => h.id === room.house);
   const facts = [
     room.sizeSqm ? `${room.sizeSqm} m²` : null,
@@ -56,7 +57,12 @@ export async function generateMetadata({
     .join(", ");
 
   return pageMetadata({
-    title: `${room.displayName} — ${house?.name}`,
+    /* The seven suites are titled by their collection; everything else by the
+       building it is in. */
+    title:
+      room.collection === "gateway"
+        ? `${room.displayName} — ${m.rooms.gatewaySuites}`
+        : `${room.displayName} — ${house?.name}`,
     description: `${room.description.slice(0, 150)}… ${facts}. Ink Hotels, Rethymno.`,
     path: `/rooms/${room.slug}`,
     /* Without this every localised room page declared the English URL as its

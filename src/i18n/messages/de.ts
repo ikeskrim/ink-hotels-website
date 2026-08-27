@@ -89,8 +89,8 @@ export const de: Messages = {
 
   home: {
     heroEyebrow: "Rethymno · Kreta",
-    heroTitleLine1: "Sieben Suiten",
-    heroTitleLine2: "in der Altstadt.",
+    heroTitleLine1: "Die Gateway Suites.",
+    heroTitleLine2: "Sieben davon, in der Altstadt.",
     heroLede:
       "Alle sieben liegen im House of Europe an der Nikolaou Plastira — drei mit eigenem Whirlpool, eine mit Plunge Pool im eigenen Innenhof. Phos, wenige Schritte entfernt, hat sieben eigene Zimmer. Beide sind Häuser aus den 1700er-Jahren, unterhalb der Fortezza, Minuten vom venezianischen Hafen. Eines davon war eine Druckerei: Sie gab dem Hotel seinen Namen.",
 
@@ -226,7 +226,8 @@ export const de: Messages = {
   rooms: {
     eyebrow: "{count} Arten zu wohnen · Sieben Suiten · Zwei Gebäude",
     title: "Zwanzig Arten zu wohnen",
-    theSuites: "Die sieben Suiten",
+    gatewaySuites: "Die Gateway Suites",
+    theSuites: "Die Gateway Suites",
     theRooms: "Die Zimmer",
     whoIsComing: "Wer kommt",
     whatYouWakeTo: "Der Blick am Morgen",

@@ -146,6 +146,13 @@ export function roomSchema(room: Room) {
     "@context": "https://schema.org",
     "@type": room.kind === "room" ? "HotelRoom" : "Suite",
     name: room.name,
+    /* The seven suites are one collection, and search should be told so. The
+       `name` above stays the engine's own spelling — that is what a guest
+       reserves and what must match at handoff — so the collection is stated
+       separately rather than by rewriting the name. */
+    ...(room.collection === "gateway"
+      ? { isPartOf: { "@type": "Product", name: "The Gateway Suites" } }
+      : {}),
     description: room.description,
     url: `${SITE_URL}/rooms/${room.slug}`,
     image: room.images.slice(0, 6).map((src) => `${SITE_URL}${src}`),

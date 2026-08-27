@@ -116,7 +116,14 @@ export function SuiteTemplate({
         )}
 
         <Container className="relative pb-[clamp(3rem,7vh,5rem)] pt-[clamp(9rem,16vh,12rem)]">
-          <p className="label mb-5 text-phos">{houseName}</p>
+          {/* The collection, not the building, for the seven suites: a reader
+              arriving on Evexia should meet "The Gateway Suites" above the
+              name, because that is what the family calls them and what a
+              returning guest has in hand. Rooms at Phos and the Residence are
+              not suites and keep their building. */}
+          <p className="label mb-5 text-phos">
+            {room.collection === "gateway" ? m.rooms.gatewaySuites : houseName}
+          </p>
           <Heading level={1} size="d1" className="max-w-[13ch] text-paper">
             {room.displayName}
           </Heading>

@@ -89,8 +89,8 @@ export const el: Messages = {
 
   home: {
     heroEyebrow: "Ρέθυμνο · Κρήτη",
-    heroTitleLine1: "Επτά σουίτες",
-    heroTitleLine2: "στην παλιά πόλη.",
+    heroTitleLine1: "Οι Gateway Suites.",
+    heroTitleLine2: "Επτά, στην παλιά πόλη.",
     heroLede:
       "Και οι επτά βρίσκονται στο House of Europe, στη Νικολάου Πλαστήρα — τρεις με ιδιωτικό υδρομασάζ, μία με μικρή πισίνα σε δική της αυλή. Το Phos, λίγα βήματα πιο πέρα, έχει επτά δικά του δωμάτια. Και τα δύο είναι σπίτια του 1700, κάτω από τη Φορτέτζα, λίγα λεπτά από το ενετικό λιμάνι. Το ένα ήταν τυπογραφείο: από εκεί πήρε το όνομά του το ξενοδοχείο.",
 
@@ -225,7 +225,8 @@ export const el: Messages = {
   rooms: {
     eyebrow: "{count} τρόποι διαμονής · Επτά σουίτες · Δύο κτίρια",
     title: "Είκοσι τρόποι διαμονής",
-    theSuites: "Οι επτά σουίτες",
+    gatewaySuites: "Οι Gateway Suites",
+    theSuites: "Οι Gateway Suites",
     theRooms: "Τα δωμάτια",
     whoIsComing: "Ποιοι έρχονται",
     whatYouWakeTo: "Τι βλέπετε όταν ξυπνάτε",

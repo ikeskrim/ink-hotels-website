@@ -101,9 +101,15 @@ export interface Room {
   /** A suite, a room, or the whole residence. Drives the label and the schema. */
   kind: "suite" | "room" | "residence";
   /**
-   * Heritage grouping. The original four suites were sold as "The Gateway
-   * Suites" and guests still arrive with that name in hand, so it survives as
-   * a label inside the unified seven — not as a separate building.
+   * The collection this suite belongs to.
+   *
+   * All seven are The Gateway Suites. This began as a heritage label on the
+   * original four — the name four of them still carry verbatim in the
+   * reservation engine — and the owner's decision of 24 August is that the
+   * whole seven are presented under it. The engine names are untouched: what
+   * a guest reserves still reads exactly as the engine spells it.
+   *
+   * Rooms at Phos and the Residence are not suites and carry nothing here.
    */
   collection?: "gateway";
   /** Maximum guests, where published. */
@@ -197,6 +203,7 @@ export const rooms: Room[] = [
     displayName: "Evexia",
     house: "house-of-europe",
     kind: "suite",
+    collection: "gateway",
     guests: 2,
     sizeSqm: 30,
     bedrooms: 1,
@@ -381,6 +388,7 @@ export const rooms: Room[] = [
     displayName: "Eros",
     house: "house-of-europe",
     kind: "suite",
+    collection: "gateway",
     guests: 4,
     sizeSqm: 30,
     bedrooms: 2,
@@ -418,6 +426,7 @@ export const rooms: Room[] = [
     displayName: "Zoi",
     house: "house-of-europe",
     kind: "suite",
+    collection: "gateway",
     guests: 4,
     sizeSqm: 30,
     bedrooms: 2,

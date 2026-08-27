@@ -194,7 +194,8 @@ record — not a sentence somebody has to remember to keep in step. **No other
 unit claims a jacuzzi or hydromassage**, and none will until the property
 publishes one.
 
-"The Gateway Suites" survives as a heritage label on the original four, because
+"The Gateway Suites" is the name all seven are presented under, by the owner's
+decision of 24 August. It began as a heritage label on the original four, because
 guests still arrive with that name in hand. It is no longer a building.
 
 ---
