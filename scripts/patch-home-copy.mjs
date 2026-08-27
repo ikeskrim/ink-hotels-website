@@ -186,11 +186,11 @@ const KEYS = {
     nl: "Drie kantoren",
   },
   familyProofOfficesBody: {
-    en: "Rethymno, the United Kingdom and the Netherlands. You can call someone in your own time zone before you travel.",
-    el: "Ρέθυμνο, Ηνωμένο Βασίλειο και Ολλανδία. Μπορείτε να μιλήσετε με κάποιον στη δική σας ώρα πριν ταξιδέψετε.",
-    de: "Rethymno, das Vereinigte Königreich und die Niederlande. Sie können vor der Reise jemanden in Ihrer eigenen Zeitzone anrufen.",
-    fr: "Réthymnon, le Royaume-Uni et les Pays-Bas. Vous pouvez appeler quelqu'un dans votre propre fuseau horaire avant de partir.",
-    nl: "Rethymno, het Verenigd Koninkrijk en Nederland. U kunt vóór uw reis iemand in uw eigen tijdzone bellen.",
+    en: "Rethymno, Heraklion and Athens.",
+    el: "Ρέθυμνο, Ηράκλειο και Αθήνα.",
+    de: "Rethymno, Heraklion und Athen.",
+    fr: "Réthymnon, Héraklion et Athènes.",
+    nl: "Rethymno, Heraklion en Athene.",
   },
   familyProofLocalTerm: {
     en: "Local, not chain",

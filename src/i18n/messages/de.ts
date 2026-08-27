@@ -191,7 +191,7 @@ export const de: Messages = {
     familyProofVillasTerm: "Villen & Hotels",
     familyProofVillasBody: "Thalasses Villas, Villa Thetis, Ikaros, Casa Vitae und ein Dutzend weitere an dieser Küste — dieselbe Familie, dieselben Maßstäbe.",
     familyProofOfficesTerm: "Drei Büros",
-    familyProofOfficesBody: "Rethymno, das Vereinigte Königreich und die Niederlande. Sie können vor der Reise jemanden in Ihrer eigenen Zeitzone anrufen.",
+    familyProofOfficesBody: "Rethymno, Heraklion und Athen.",
     familyProofLocalTerm: "Lokal, keine Kette",
     familyProofLocalBody: "Hier folgt niemand einem Markenhandbuch. Der Rat, den Sie an der Rezeption bekommen, ist der Rat, den man einem Freund geben würde.",
     rethymnoPremise: "Man reist nicht dorthin. Man tritt aus der Tür hinein.",

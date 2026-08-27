@@ -207,7 +207,7 @@ export const en = {
     familyProofVillasTerm: "Villas & hotels",
     familyProofVillasBody: "Thalasses Villas, Villa Thetis, Ikaros, Casa Vitae and a dozen more along this coast — the same family, the same standards.",
     familyProofOfficesTerm: "Three offices",
-    familyProofOfficesBody: "Rethymno, the United Kingdom and the Netherlands. You can call someone in your own time zone before you travel.",
+    familyProofOfficesBody: "Rethymno, Heraklion and Athens.",
     familyProofLocalTerm: "Local, not chain",
     familyProofLocalBody: "Nobody here is following a brand manual. The advice you get at the desk is the advice they would give a friend.",
     rethymnoPremise: "You do not travel to it. You walk out into it.",

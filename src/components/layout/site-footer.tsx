@@ -76,11 +76,13 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                     {contact.emails.general}
                   </InkAnchor>
                 </p>
-                <p className="pt-2 text-paper/50">
-                  {contact.internationalOffices
-                    .map((o) => `${o.label} ${o.value}`)
-                    .join(" · ")}
-                </p>
+                {contact.internationalOffices.length > 0 && (
+                  <p className="pt-2 text-paper/50">
+                    {contact.internationalOffices
+                      .map((o) => `${o.label} ${o.value}`)
+                      .join(" · ")}
+                  </p>
+                )}
                 <p className="text-paper/50">
                   {m.common.factLanguages.replace(
                     "{languages}",

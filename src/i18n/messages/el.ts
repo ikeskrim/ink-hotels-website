@@ -190,7 +190,7 @@ export const el: Messages = {
     familyProofVillasTerm: "Βίλες και ξενοδοχεία",
     familyProofVillasBody: "Thalasses Villas, Villa Thetis, Ikaros, Casa Vitae και άλλες δώδεκα σε αυτή την ακτή — η ίδια οικογένεια, οι ίδιες προδιαγραφές.",
     familyProofOfficesTerm: "Τρία γραφεία",
-    familyProofOfficesBody: "Ρέθυμνο, Ηνωμένο Βασίλειο και Ολλανδία. Μπορείτε να μιλήσετε με κάποιον στη δική σας ώρα πριν ταξιδέψετε.",
+    familyProofOfficesBody: "Ρέθυμνο, Ηράκλειο και Αθήνα.",
     familyProofLocalTerm: "Ντόπιοι, όχι αλυσίδα",
     familyProofLocalBody: "Κανείς εδώ δεν ακολουθεί εγχειρίδιο μάρκας. Η συμβουλή που παίρνετε στη ρεσεψιόν είναι η συμβουλή που θα έδιναν σε φίλο.",
     rethymnoPremise: "Δεν ταξιδεύετε ως εκεί. Βγαίνετε από την πόρτα μέσα σε αυτό.",

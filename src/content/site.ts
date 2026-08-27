@@ -95,11 +95,14 @@ export const contact = {
     { label: "Mobile", value: "+30 697 406 9475", ext: null, href: "tel:+306974069475" },
   ],
 
-  /** Crete Holiday Home keeps offices outside Greece for guests booking from abroad. */
-  internationalOffices: [
-    { label: "United Kingdom", value: "+44 458 394 300", href: "tel:+44458394300" },
-    { label: "Netherlands", value: "+31 79 369 0035", href: "tel:+31793690035" },
-  ],
+  /**
+   * The UK and Netherlands numbers were withdrawn by the owner: the offices are
+   * Rethymno, Heraklion and Athens, and the Greek numbers above are the only
+   * ones a guest should see. The field and its CMS plumbing stay so an office
+   * can be published again without a code change; the annotation keeps the
+   * element type, which an empty literal under `as const` would otherwise lose.
+   */
+  internationalOffices: [] as { label: string; value: string; href: string }[],
 
   emails: {
     general: "creteholidayhome@gmail.com",
