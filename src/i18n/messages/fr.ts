@@ -189,7 +189,7 @@ export const fr: Messages = {
     familyP1: "Ink est dirigé par Crete Holiday Home — une entreprise familiale d'hôtels de charme et de villas qui loue des chambres, des maisons et des villas sur cette côte depuis des années. Leur promesse, c'est une hospitalité grecque authentique et le comble du charme simple et sans effort — et c'est la raison pour laquelle la réception ici sait répondre à des questions auxquelles une réception ne sait généralement pas répondre.",
     familyP2: "Quelle plage est vide un dimanche d'août. Quelle taverne vaut encore le détour en février. Quelle ruelle est inondée après la pluie. Ce savoir n'est dans aucun guide, et c'est la vraie différence entre une chambre et un séjour.",
     familyProofVillasTerm: "Villas et hôtels",
-    familyProofVillasBody: "Thalasses Villas, Villa Thetis, Villa Mavi et une douzaine d'autres sur cette côte — la même famille, les mêmes exigences.",
+    familyProofVillasBody: "Thalasses Villas, Villa Thetis, Ikaros, Casa Vitae et une douzaine d'autres sur cette côte — la même famille, les mêmes exigences.",
     familyProofOfficesTerm: "Trois bureaux",
     familyProofOfficesBody: "Réthymnon, le Royaume-Uni et les Pays-Bas. Vous pouvez appeler quelqu'un dans votre propre fuseau horaire avant de partir.",
     familyProofLocalTerm: "Local, pas une chaîne",

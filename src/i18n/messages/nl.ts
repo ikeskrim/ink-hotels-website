@@ -189,7 +189,7 @@ export const nl: Messages = {
     familyP1: "Ink wordt gerund door Crete Holiday Home — een familiebedrijf in boutiquehotels en villa's dat al jaren kamers, huizen en villa's aan deze kust verhuurt. Hun belofte is authentieke Griekse gastvrijheid en het toppunt van eenvoudige, moeiteloze charme — en daarom kan de receptie hier vragen beantwoorden die een receptie doorgaans niet kan beantwoorden.",
     familyP2: "Welk strand leeg is op een zondag in augustus. Welke taverne in februari nog de moeite waard is. Welk steegje na regen onderloopt. Die kennis staat in geen enkele reisgids, en dat is het echte verschil tussen een kamer en een verblijf.",
     familyProofVillasTerm: "Villa's en hotels",
-    familyProofVillasBody: "Thalasses Villas, Villa Thetis, Villa Mavi en een dozijn andere aan deze kust — dezelfde familie, dezelfde maatstaven.",
+    familyProofVillasBody: "Thalasses Villas, Villa Thetis, Ikaros, Casa Vitae en een dozijn andere aan deze kust — dezelfde familie, dezelfde maatstaven.",
     familyProofOfficesTerm: "Drie kantoren",
     familyProofOfficesBody: "Rethymno, het Verenigd Koninkrijk en Nederland. U kunt vóór uw reis iemand in uw eigen tijdzone bellen.",
     familyProofLocalTerm: "Lokaal, geen keten",
