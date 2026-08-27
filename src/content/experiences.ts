@@ -135,14 +135,6 @@ export const experiences: Experience[] = [
     },
   },
   {
-    slug: "private-chef",
-    title: "A Chef, Privately",
-    category: "table",
-    summary: "A chef comes to cook Cretan food for you alone.",
-    body: ["Taste the unique Cretan cuisine. A chef can come and cook for you alone."],
-    image: EXPERIENCE_IMAGES["chef-in-villa"] ?? "",
-  },
-  {
     slug: "breakfast-on-the-beach",
     title: "Breakfast on the Beach",
     category: "table",

@@ -157,7 +157,7 @@ export const fr: Messages = {
     stayingEyebrow: "L'art de séjourner",
     stayingTitle: "N'importe qui peut vous vendre une chambre",
     stayingLede:
-      "La différence tient aux heures que vous passez hors de la chambre. Vingt et une propositions — un bateau à vous, un chef dans la chambre, un matin que personne d'autre ne connaît.",
+      "La différence tient aux heures que vous passez hors de la chambre. Vingt-deux propositions — un bateau à vous, un matin que personne d'autre ne connaît.",
 
     familyEyebrow: "Crete Holiday Home",
     familyTitle: "Une famille, pas une chaîne",
@@ -179,7 +179,7 @@ export const fr: Messages = {
     settingCaptionHarbour: "Le port vénitien et son phare",
     arrangeEyebrow: "L'art du séjour",
     arrangeTitle: "N'importe qui peut vous vendre une chambre",
-    arrangeLede: "La différence, ce sont les heures passées en dehors. Vingt et un arrangements — un bateau à vous, un chef dans la chambre, un matin que personne d'autre ne connaît.",
+    arrangeLede: "La différence, ce sont les heures passées en dehors. Vingt-deux arrangements — un bateau à vous, un matin que personne d'autre ne connaît.",
     agapiP1: "Agapi doit son nom au soin investi dans sa conception, en particulier pour les personnes à besoins spécifiques. Elle est au rez-de-chaussée, avec une entrée privée depuis la rue latérale. La salle de bains est construite selon les normes d'une hygiène sûre et confortable, pour les utilisateurs de fauteuil roulant.",
     agapiP2: "Trente mètres carrés, sols en marbre, un matelas Coco-Mat, et une cour intérieure paisible avec un vieux puits pittoresque — le genre d'endroit où un quartier crétois s'est toujours assis dehors.",
     agapiFeatureEntrance: "Entrée privée de plain-pied",
@@ -308,7 +308,7 @@ export const fr: Messages = {
   contact: {
     eyebrow: "Contact",
     title: "Comment pouvons-nous vous aider ?",
-    lede: "Demandez-nous ce que vous voulez — une chambre, un étage calme, un chef, un bateau, un itinéraire en fauteuil roulant dans la vieille ville. Nous répondons en {languages}.",
+    lede: "Demandez-nous ce que vous voulez — une chambre, un étage calme, un bateau, un itinéraire en fauteuil roulant dans la vieille ville. Nous répondons en {languages}.",
     firstName: "Prénom",
     lastName: "Nom",
     email: "E-mail",
@@ -555,7 +555,7 @@ export const fr: Messages = {
   pageMeta: {
     home: { t: "Ink Hotels — Un petit hôtel dans la vieille ville de Réthymnon, Crète", d: "Petit hôtel. Longue histoire. Sept suites au House of Europe — trois avec bain à remous privé, une avec petite piscine chauffée — sept chambres au Phos, et une résidence près du port vénitien, au cœur de la vieille ville médiévale de Réthymnon." },
     rooms: { t: "Chambres", d: "Vingt façons de séjourner dans la vieille ville de Réthymnon — sept suites au House of Europe, trois avec bain à remous privé et une avec petite piscine chauffée, sept chambres au Phos, et une résidence entière près du port vénitien." },
-    experiences: { t: "L'art du séjour", d: "Un bateau à vous, un chef dans la chambre, du vin dans les collines au-dessus de Réthymnon, un thérapeute, un matin tranquille. Vingt et une choses que la réception d'Ink organise — pour la plupart un appel que nous avons passé cent fois." },
+    experiences: { t: "L'art du séjour", d: "Un bateau à vous, du vin dans les collines au-dessus de Réthymnon, un thérapeute, un matin tranquille. Vingt-deux choses que la réception d'Ink organise — pour la plupart un appel que nous avons passé cent fois." },
     gallery: { t: "Galerie", d: "{count} photographies d'Ink Hotels — le bain à remous privé et la petite piscine, les sept suites, les deux maisons, la Residence of the Old Port, et la vieille ville médiévale de Réthymnon tout autour." },
     story: { t: "L'histoire", d: "Ink tient son nom d'une presse d'imprimerie. De ce bâtiment était publié le journal ΑΓΩΝ — Combat. La maison centrale était la maison d'hôtes de l'Université de Crète. Deux maisons historiques du XVIIIe siècle dans la vieille ville médiévale de Réthymnon, et une résidence près du port." },
     rethymno: { t: "Réthymnon", d: "La vieille ville, le port vénitien, la Fortezza, les plages, la cuisine et les montagnes derrière — à quoi ressemble vraiment une semaine à Réthymnon, depuis un hôtel au cœur du quartier médiéval." },

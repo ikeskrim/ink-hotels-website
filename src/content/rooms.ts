@@ -829,11 +829,11 @@ export const suites = rooms.filter((r) => r.kind === "suite");
 const RELATED_DEFAULT = ["chauffeur", "rent-a-car", "massage"] as const;
 
 const RELATED_BY_SLUG: Record<string, readonly string[]> = {
-  evexia: ["chauffeur", "private-chef", "massage"],
-  harmony: ["chauffeur", "private-chef", "massage"],
+  evexia: ["chauffeur", "massage", "wine-tasting"],
+  harmony: ["chauffeur", "massage", "wine-tasting"],
   agapi: ["chauffeur", "rent-a-car", "therapist"],
-  pathos: ["private-chef", "massage", "private-boat-trip"],
-  elpida: ["private-chef", "massage", "wine-tasting"],
+  pathos: ["massage", "private-boat-trip", "wine-tasting"],
+  elpida: ["massage", "wine-tasting", "private-boat-trip"],
   eros: ["chauffeur", "private-boat-trip", "massage"],
   zoi: ["chauffeur", "jeep-safari", "rent-a-car"],
 };

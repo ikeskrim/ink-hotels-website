@@ -157,7 +157,7 @@ export const nl: Messages = {
     stayingEyebrow: "De kunst van het verblijven",
     stayingTitle: "Een kamer verkopen kan iedereen",
     stayingLede:
-      "Het verschil zit in de uren die u erbuiten doorbrengt. Eenentwintig arrangementen — een eigen boot, een kok op de kamer, een ochtend waar niemand anders van weet.",
+      "Het verschil zit in de uren die u erbuiten doorbrengt. Tweeëntwintig arrangementen — een eigen boot, een ochtend waar niemand anders van weet.",
 
     familyEyebrow: "Crete Holiday Home",
     familyTitle: "Een familie, geen keten",
@@ -179,7 +179,7 @@ export const nl: Messages = {
     settingCaptionHarbour: "De Venetiaanse haven en haar vuurtoren",
     arrangeEyebrow: "De kunst van het verblijven",
     arrangeTitle: "Een kamer kan iedereen u verkopen",
-    arrangeLede: "Het verschil zijn de uren die u erbuiten doorbrengt. Eenentwintig arrangementen — een eigen boot, een kok op de kamer, een ochtend waar niemand anders van weet.",
+    arrangeLede: "Het verschil zijn de uren die u erbuiten doorbrengt. Tweeëntwintig arrangementen — een eigen boot, een ochtend waar niemand anders van weet.",
     agapiP1: "Agapi is genoemd naar de zorg die in het ontwerp is gestoken, in het bijzonder voor mensen met een beperking. De suite ligt op de begane grond, met een eigen ingang aan de zijstraat. De badkamer is gebouwd volgens de normen voor veilige en comfortabele hygiënezorg, voor rolstoelgebruikers.",
     agapiP2: "Dertig vierkante meter, marmeren vloeren, een Coco-Mat-matras, en een serene binnenplaats met een schilderachtige oude put — precies het soort plek waar een Kretenzische buurt altijd al buiten zat.",
     agapiFeatureEntrance: "Drempelloze eigen ingang",
@@ -308,7 +308,7 @@ export const nl: Messages = {
   contact: {
     eyebrow: "Contact",
     title: "Waarmee kunnen wij helpen?",
-    lede: "Vraag ons alles — een kamer, een rustige verdieping, een kok, een boot, een rolstoelroute door de oude stad. Wij antwoorden in {languages}.",
+    lede: "Vraag ons alles — een kamer, een rustige verdieping, een boot, een rolstoelroute door de oude stad. Wij antwoorden in {languages}.",
     firstName: "Voornaam",
     lastName: "Achternaam",
     email: "E-mail",
@@ -555,7 +555,7 @@ export const nl: Messages = {
   pageMeta: {
     home: { t: "Ink Hotels — Een klein hotel in de oude stad van Rethymno, Kreta", d: "Klein hotel. Lang verhaal. Zeven suites in House of Europe — drie met eigen bubbelbad, één met verwarmd dompelbad — zeven kamers in Phos, en een residentie bij de Venetiaanse haven, midden in de middeleeuwse oude stad van Rethymno." },
     rooms: { t: "Kamers", d: "Twintig manieren om in de oude stad van Rethymno te verblijven — zeven suites in House of Europe, drie met eigen bubbelbad en één met verwarmd dompelbad, zeven kamers in Phos, en een hele residentie bij de Venetiaanse haven." },
-    experiences: { t: "De kunst van het verblijven", d: "Een eigen boot, een kok op de kamer, wijn in de heuvels boven Rethymno, een therapeut, een stille ochtend. Eenentwintig dingen die de receptie van Ink regelt — de meeste een telefoontje dat we al honderd keer hebben gepleegd." },
+    experiences: { t: "De kunst van het verblijven", d: "Een eigen boot, wijn in de heuvels boven Rethymno, een therapeut, een stille ochtend. Tweeëntwintig dingen die de receptie van Ink regelt — de meeste een telefoontje dat we al honderd keer hebben gepleegd." },
     gallery: { t: "Galerij", d: "{count} foto's van Ink Hotels — het eigen bubbelbad en het dompelbad, de zeven suites, de twee huizen, de Residence of the Old Port, en de middeleeuwse oude stad van Rethymno eromheen." },
     story: { t: "Het verhaal", d: "Ink is genoemd naar een drukpers. Vanuit dit gebouw verscheen de krant ΑΓΩΝ — Strijd. Het middelste huis was het gastenverblijf van de Universiteit van Kreta. Twee historische huizen uit de 18e eeuw in de middeleeuwse oude stad van Rethymno, en een residentie bij de haven." },
     rethymno: { t: "Rethymno", d: "De oude stad, de Venetiaanse haven, de Fortezza, de stranden, het eten en de bergen daarachter — hoe een week in Rethymno er werkelijk uitziet, vanuit een hotel midden in de middeleeuwse wijk." },

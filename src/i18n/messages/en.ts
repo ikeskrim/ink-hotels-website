@@ -173,7 +173,7 @@ export const en = {
     stayingEyebrow: "The art of staying",
     stayingTitle: "Anyone can sell you a room",
     stayingLede:
-      "The difference is the hours you spend outside it. Twenty-one arrangements — a boat of your own, a chef in the room, a morning nobody else knows about.",
+      "The difference is the hours you spend outside it. Twenty-two arrangements — a boat of your own, a morning nobody else knows about.",
 
     familyEyebrow: "Crete Holiday Home",
     familyTitle: "A family, not a chain",
@@ -195,7 +195,7 @@ export const en = {
     settingCaptionHarbour: "The Venetian harbour and its lighthouse",
     arrangeEyebrow: "The art of staying",
     arrangeTitle: "Anyone can sell you a room",
-    arrangeLede: "The difference is the hours you spend outside it. Twenty-one arrangements — a boat of your own, a chef in the room, a morning nobody else knows about.",
+    arrangeLede: "The difference is the hours you spend outside it. Twenty-two arrangements — a boat of your own, a morning nobody else knows about.",
     agapiP1: "Agapi is named for the care invested in its design, particularly for people with special needs. It is on the ground floor, with a private entrance from the side street. The bathroom is built to the standards of safe and comfortable hygiene care, for wheelchair users.",
     agapiP2: "Thirty square metres, marble floors, a Coco-Mat mattress, and a serene inner courtyard with a picturesque old well — the kind of place a Cretan neighbourhood has always sat outside in.",
     agapiFeatureEntrance: "Step-free private entrance",
@@ -324,7 +324,7 @@ export const en = {
   contact: {
     eyebrow: "Contact",
     title: "How can we help?",
-    lede: "Ask us anything — a room, a quiet floor, a chef, a boat, a wheelchair route through the old town. We answer in {languages}.",
+    lede: "Ask us anything — a room, a quiet floor, a boat, a wheelchair route through the old town. We answer in {languages}.",
     firstName: "First name",
     lastName: "Last name",
     email: "Email",
@@ -572,7 +572,7 @@ export const en = {
   pageMeta: {
     home: { t: "Ink Hotels — A small hotel in the old town of Rethymno, Crete", d: "Small hotel. Long story. Seven suites at House of Europe — three with a private hot tub, one with a heated plunge pool — seven rooms at Phos, and a residence by the Venetian harbour, in the medieval old town of Rethymno." },
     rooms: { t: "Rooms", d: "Twenty ways to stay in the old town of Rethymno — seven suites at House of Europe, three with a private hot tub and one with a heated plunge pool, seven rooms at Phos, and one whole residence by the Venetian harbour." },
-    experiences: { t: "The Art of Staying", d: "A boat of your own, a chef in the room, wine in the hills above Rethymno, a therapist, a quiet morning. Twenty-one things the desk at Ink Hotels arranges — most of them a phone call we have made a hundred times." },
+    experiences: { t: "The Art of Staying", d: "A boat of your own, wine in the hills above Rethymno, a therapist, a quiet morning. Twenty-two things the desk at Ink Hotels arranges — most of them a phone call we have made a hundred times." },
     gallery: { t: "Gallery", d: "{count} photographs of Ink Hotels — the private hot tub and plunge pool, the seven suites, the two houses, the Residence of the Old Port, and the medieval old town of Rethymno around them." },
     story: { t: "The story", d: "Ink is named after a printing press. From this building was published the newspaper ΑΓΩΝ — Struggle. The central house was the University of Crete's guest house. Two historic houses of the 1700s in the medieval old town of Rethymno, and a residence by the harbour." },
     rethymno: { t: "Rethymno", d: "The old town, the Venetian harbour, the Fortezza, the beaches, the food and the mountains behind — what a week in Rethymno actually looks like, from a hotel inside the medieval quarter." },

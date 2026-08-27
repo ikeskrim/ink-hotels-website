@@ -94,7 +94,7 @@ export const chapters: Chapter[] = [
     imageAlt: "A table set by the sea in Rethymno",
     notes: [
       { term: "Breakfast", def: "Local cooking, at House of Europe" },
-      { term: "Arranged", def: "Wine tasting, a chef, a farm" },
+      { term: "Arranged", def: "Wine tasting, a farm" },
     ],
   },
   {

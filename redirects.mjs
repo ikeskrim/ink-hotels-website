@@ -67,7 +67,11 @@ export const MAP = [
      "weadding", which is how it is spelled in the indexed URL. Correcting the
      spelling here would simply fail to match. */
   ["/en/biological-vegetable-garden", "/experiences/organic-farm"],
-  ["/en/chef-in-villa", "/experiences/private-chef"],
+  /* The old site published a chef-in-villa page. A private chef is a villa
+     service at Thalasses and is not offered at Ink, so the page is gone and
+     the indexed URL lands on the arrangements index rather than 404ing. The
+     source stays exactly as the old site spelled it. */
+  ["/en/chef-in-villa", "/experiences"],
   ["/en/dream-weadding-on-the-beach", "/experiences/wedding-on-the-beach"],
 
   /* ── Rethymno landmarks ─────────────────────────────────────────────────

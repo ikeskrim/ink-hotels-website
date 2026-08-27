@@ -285,13 +285,6 @@ export const nl: ContentText = {
         "De tuin ligt bij Thalasses Villas, aan de kust ten westen van hier. Het is geen leverancier waar wij inkopen: het is het pand van dezelfde familie, gerund door dezelfde mensen die Ink runnen — en daarom kan wat daar geoogst wordt de volgende ochtend op tafel staan in House of Europe.",
       ],
     },
-    "private-chef": {
-      title: "Een chef, privé",
-      summary: "Een chef komt Kretenzisch koken, voor u alleen.",
-      body: [
-        "Proef de Kretenzische keuken. Een chef kan komen koken voor u alleen.",
-      ],
-    },
     "breakfast-on-the-beach": {
       title: "Ontbijt op het strand",
       summary: "Ontbijt, geregeld op het zand.",
@@ -500,7 +493,7 @@ export const nl: ContentText = {
       imageAlt: "Een gedekte tafel aan zee in Rethymno",
       notes: [
         { term: "Ontbijt", def: "Lokale keuken, in House of Europe" },
-        { term: "Te regelen", def: "Wijnproeverij, een chef, een boerderij" },
+        { term: "Te regelen", def: "Wijnproeverij, een boerderij" },
       ],
     },
     inland: {
@@ -650,7 +643,7 @@ export const nl: ContentText = {
       },
       {
         title: "De dag is van u om in te richten",
-        body: "Een boot, een tafel, een chef, een rolstoelroute, een rustige verdieping, een fles die klaarstaat op de kamer. Vraag het aan de receptie. Het meeste is een telefoontje dat wij al honderd keer hebben gepleegd.",
+        body: "Een boot, een tafel, een rolstoelroute, een rustige verdieping, een fles die klaarstaat op de kamer. Vraag het aan de receptie. Het meeste is een telefoontje dat wij al honderd keer hebben gepleegd.",
       },
     ],
     facts: [

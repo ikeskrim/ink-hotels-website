@@ -43,7 +43,7 @@ export const arrival = {
     },
     {
       title: "The day is yours to arrange",
-      body: "A boat, a table, a chef, a wheelchair route, a quiet floor, a bottle waiting in the room. Ask at the desk. Most of it is a phone call we have already made a hundred times.",
+      body: "A boat, a table, a wheelchair route, a quiet floor, a bottle waiting in the room. Ask at the desk. Most of it is a phone call we have already made a hundred times.",
     },
   ],
 

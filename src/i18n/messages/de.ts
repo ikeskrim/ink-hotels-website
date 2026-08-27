@@ -157,7 +157,7 @@ export const de: Messages = {
     stayingEyebrow: "Die Kunst des Aufenthalts",
     stayingTitle: "Ein Zimmer verkauft Ihnen jeder",
     stayingLede:
-      "Der Unterschied sind die Stunden, die Sie außerhalb davon verbringen. Einundzwanzig Arrangements — ein eigenes Boot, ein Koch im Zimmer, ein Morgen, von dem sonst niemand weiß.",
+      "Der Unterschied sind die Stunden, die Sie außerhalb davon verbringen. Zweiundzwanzig Arrangements — ein eigenes Boot, ein Morgen, von dem sonst niemand weiß.",
 
     familyEyebrow: "Crete Holiday Home",
     familyTitle: "Eine Familie, keine Kette",
@@ -179,7 +179,7 @@ export const de: Messages = {
     settingCaptionHarbour: "Der venezianische Hafen und sein Leuchtturm",
     arrangeEyebrow: "Die Kunst des Bleibens",
     arrangeTitle: "Ein Zimmer kann Ihnen jeder verkaufen",
-    arrangeLede: "Der Unterschied sind die Stunden, die Sie außerhalb davon verbringen. Einundzwanzig Arrangements — ein eigenes Boot, ein Koch im Zimmer, ein Morgen, von dem sonst niemand weiß.",
+    arrangeLede: "Der Unterschied sind die Stunden, die Sie außerhalb davon verbringen. Zweiundzwanzig Arrangements — ein eigenes Boot, ein Morgen, von dem sonst niemand weiß.",
     agapiP1: "Agapi ist nach der Sorgfalt benannt, die in ihre Gestaltung geflossen ist, insbesondere für Menschen mit besonderen Bedürfnissen. Sie liegt im Erdgeschoss und hat einen eigenen Eingang von der Seitenstraße. Das Bad ist nach den Standards sicherer und komfortabler Hygienepflege für Rollstuhlfahrer gebaut.",
     agapiP2: "Dreißig Quadratmeter, Marmorböden, eine Coco-Mat-Matratze und ein stiller Innenhof mit einem malerischen alten Brunnen — die Art von Ort, an dem eine kretische Nachbarschaft schon immer draußen gesessen hat.",
     agapiFeatureEntrance: "Stufenloser eigener Eingang",
@@ -308,7 +308,7 @@ export const de: Messages = {
   contact: {
     eyebrow: "Kontakt",
     title: "Wie können wir helfen?",
-    lede: "Fragen Sie uns alles — ein Zimmer, eine ruhige Etage, einen Koch, ein Boot, einen Weg für Rollstuhlfahrer durch die Altstadt. Wir antworten auf {languages}.",
+    lede: "Fragen Sie uns alles — ein Zimmer, eine ruhige Etage, ein Boot, einen Weg für Rollstuhlfahrer durch die Altstadt. Wir antworten auf {languages}.",
     firstName: "Vorname",
     lastName: "Nachname",
     email: "E-Mail",
@@ -555,7 +555,7 @@ export const de: Messages = {
   pageMeta: {
     home: { t: "Ink Hotels — Ein kleines Hotel in der Altstadt von Rethymno, Kreta", d: "Kleines Hotel. Lange Geschichte. Sieben Suiten im House of Europe — drei mit eigenem Whirlpool, eine mit beheiztem Tauchpool — sieben Zimmer im Phos, und eine Residenz am venezianischen Hafen, mitten in der mittelalterlichen Altstadt von Rethymno." },
     rooms: { t: "Zimmer", d: "Zwanzig Arten, in der Altstadt von Rethymno zu wohnen — sieben Suiten im House of Europe, drei mit eigenem Whirlpool und eine mit beheiztem Tauchpool, sieben Zimmer im Phos, und eine ganze Residenz am venezianischen Hafen." },
-    experiences: { t: "Die Kunst des Bleibens", d: "Ein eigenes Boot, ein Koch im Zimmer, Wein in den Hügeln über Rethymno, ein Therapeut, ein stiller Morgen. Einundzwanzig Dinge, die die Rezeption im Ink arrangiert — die meisten davon ein Anruf, den wir schon hundertmal gemacht haben." },
+    experiences: { t: "Die Kunst des Bleibens", d: "Ein eigenes Boot, Wein in den Hügeln über Rethymno, ein Therapeut, ein stiller Morgen. Zweiundzwanzig Dinge, die die Rezeption im Ink arrangiert — die meisten davon ein Anruf, den wir schon hundertmal gemacht haben." },
     gallery: { t: "Galerie", d: "{count} Fotografien des Ink Hotels — der eigene Whirlpool und der Tauchpool, die sieben Suiten, die beiden Häuser, die Residence of the Old Port, und die mittelalterliche Altstadt von Rethymno ringsum." },
     story: { t: "Die Geschichte", d: "Ink ist nach einer Druckerpresse benannt. Aus diesem Gebäude erschien die Zeitung ΑΓΩΝ — Kampf. Das mittlere Haus war das Gästehaus der Universität Kreta. Zwei historische Häuser aus dem 18. Jahrhundert in der mittelalterlichen Altstadt von Rethymno, und eine Residenz am Hafen." },
     rethymno: { t: "Rethymno", d: "Die Altstadt, der venezianische Hafen, die Fortezza, die Strände, das Essen und die Berge dahinter — wie eine Woche in Rethymno wirklich aussieht, aus einem Hotel mitten im mittelalterlichen Viertel." },

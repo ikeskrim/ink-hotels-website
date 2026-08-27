@@ -280,11 +280,6 @@ export const fr: ContentText = {
         "Le jardin se trouve aux Thalasses Villas, sur la côte à l'ouest d'ici. Ce n'est pas un fournisseur auprès duquel nous achetons : c'est la propriété de la même famille, tenue par les mêmes personnes qui tiennent Ink — et c'est pourquoi ce qui y est cueilli peut être sur la table de House of Europe le lendemain matin.",
       ],
     },
-    "private-chef": {
-      title: "Un chef, en privé",
-      summary: "Un chef vient cuisiner la Crète pour vous seul.",
-      body: ["Goûtez la cuisine crétoise. Un chef peut venir cuisiner pour vous seul."],
-    },
     "breakfast-on-the-beach": {
       title: "Petit-déjeuner sur la plage",
       summary: "Le petit-déjeuner, dressé sur le sable.",
@@ -491,7 +486,7 @@ export const fr: ContentText = {
       imageAlt: "Une table dressée au bord de la mer à Réthymnon",
       notes: [
         { term: "Petit-déjeuner", def: "Cuisine locale, à House of Europe" },
-        { term: "Organisé", def: "Dégustation de vins, un chef, une ferme" },
+        { term: "Organisé", def: "Dégustation de vins, une ferme" },
       ],
     },
     inland: {
@@ -641,7 +636,7 @@ export const fr: ContentText = {
       },
       {
         title: "La journée vous appartient",
-        body: "Un bateau, une table, un chef, un itinéraire accessible en fauteuil, un étage calme, une bouteille qui attend dans la chambre. Demandez à la réception. La plupart du temps, c'est un appel que nous avons déjà passé cent fois.",
+        body: "Un bateau, une table, un itinéraire accessible en fauteuil, un étage calme, une bouteille qui attend dans la chambre. Demandez à la réception. La plupart du temps, c'est un appel que nous avons déjà passé cent fois.",
       },
     ],
     facts: [

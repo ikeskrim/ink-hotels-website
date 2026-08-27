@@ -288,13 +288,6 @@ export const de: ContentText = {
         "Der Garten liegt bei den Thalasses Villas, an der Küste westlich von hier. Es ist kein Lieferant, bei dem wir einkaufen: es ist das Anwesen derselben Familie, geführt von denselben Menschen, die Ink führen — und darum kann, was dort geerntet wird, am nächsten Morgen im House of Europe auf dem Tisch stehen.",
       ],
     },
-    "private-chef": {
-      title: "Ein Koch, privat",
-      summary: "Ein Koch kommt und kocht kretisch nur für Sie.",
-      body: [
-        "Probieren Sie die kretische Küche. Ein Koch kann kommen und nur für Sie kochen.",
-      ],
-    },
     "breakfast-on-the-beach": {
       title: "Frühstück am Strand",
       summary: "Frühstück, im Sand gedeckt.",
@@ -504,7 +497,7 @@ export const de: ContentText = {
       imageAlt: "Ein gedeckter Tisch am Meer in Rethymno",
       notes: [
         { term: "Frühstück", def: "Lokale Küche, im House of Europe" },
-        { term: "Arrangiert", def: "Weinprobe, ein Koch, ein Biohof" },
+        { term: "Arrangiert", def: "Weinprobe, ein Biohof" },
       ],
     },
     inland: {
@@ -654,7 +647,7 @@ export const de: ContentText = {
       },
       {
         title: "Der Tag gehört Ihnen",
-        body: "Ein Boot, ein Tisch, ein Koch, eine Route für den Rollstuhl, eine ruhige Etage, eine Flasche, die im Zimmer wartet. Fragen Sie an der Rezeption. Das meiste ist ein Anruf, den wir schon hundertmal geführt haben.",
+        body: "Ein Boot, ein Tisch, eine Route für den Rollstuhl, eine ruhige Etage, eine Flasche, die im Zimmer wartet. Fragen Sie an der Rezeption. Das meiste ist ein Anruf, den wir schon hundertmal geführt haben.",
       },
     ],
     facts: [
