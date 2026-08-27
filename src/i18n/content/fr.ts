@@ -550,7 +550,7 @@ export const fr: ContentText = {
     {
       question: "Où se trouve exactement l'hôtel ?",
       answer:
-        "Au centre de la vieille ville médiévale de Réthymnon, en Crète, à quelques pas du port vénitien et sous la Fortezza. Vous arrivez à House of Europe, au 4 rue Nikolaou Plastira — c'est là que se trouvent la réception et les sept suites. Phos, le deuxième bâtiment, est au 10 rue Fotaki. L'hôtel possède aussi des adresses au 2 rue Psaron et au 26 rue Damvergi ; on vous accompagne à la vôtre depuis la réception.",
+        "Au centre de la vieille ville médiévale de Réthymnon, en Crète, à quelques pas du port vénitien et sous la Fortezza. Vous arrivez à House of Europe, au 4 rue Nikolaou Plastira — c'est là que se trouvent la réception et les sept suites. Phos, le deuxième bâtiment, est au 10 rue Fotaki. L'hôtel possède aussi des adresses au 2 rue Psaron et au 26 rue Damvergi ; on vous accompagne à la vôtre depuis la réception. L'enregistrement se fait ici pour tous les bâtiments, y compris la Residence du vieux port.",
     },
     {
       question: "Quelle est la différence entre House of Europe et Phos ?",
@@ -633,7 +633,7 @@ export const fr: ContentText = {
       },
       {
         title: "Venez au premier bâtiment",
-        body: "Nikolaou Plastira 4. C'est la réception de tout l'hôtel, et les sept suites y sont. Elle est ouverte jusqu'à 23h00. Un parking gratuit est disponible hors site, à moins de cent mètres, et nous vous dirons exactement où avant votre départ.",
+        body: "Nikolaou Plastira 4. C'est la réception de tout l'hôtel, et les sept suites y sont. Elle est ouverte jusqu'à 23h00. Un parking gratuit est disponible hors site, à moins de cent mètres, et nous vous dirons exactement où avant votre départ. L'enregistrement se fait ici pour tous les bâtiments, y compris la Residence du vieux port.",
       },
       {
         title: "Nous vous accompagnons",

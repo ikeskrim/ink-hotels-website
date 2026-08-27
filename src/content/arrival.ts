@@ -35,7 +35,7 @@ export const arrival = {
     },
     {
       title: "Come to the first building",
-      body: "Nikolaou Plastira 4. It is the reception for the whole hotel, and where all seven suites are. It is open until 23:00. Free parking is available off-site within a hundred metres, and we will tell you exactly where before you set off.",
+      body: "Nikolaou Plastira 4. It is the reception for the whole hotel, and where all seven suites are. It is open until 23:00. Free parking is available off-site within a hundred metres, and we will tell you exactly where before you set off. Check-in is here for every building, including the Residence of the Old Port.",
     },
     {
       title: "We walk you in",

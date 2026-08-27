@@ -24,7 +24,7 @@ export const faqs: Faq[] = [
     topic: "finding",
     question: "Where exactly is the hotel?",
     answer:
-      "In the centre of the medieval old town of Rethymno, Crete, a few steps from the Venetian harbour and under the Fortezza. You arrive at House of Europe, Nikolaou Plastira 4 — that is the reception, and where all seven suites are. Phos, the second building, is on Fotaki 10. The hotel also holds addresses at Psaron 2 and Damvergi 26; you are walked to yours from reception.",
+      "In the centre of the medieval old town of Rethymno, Crete, a few steps from the Venetian harbour and under the Fortezza. You arrive at House of Europe, Nikolaou Plastira 4 — that is the reception, where all seven suites are, and where check-in happens for every building including the Residence. Phos, the second building, is on Fotaki 10. The hotel also holds addresses at Psaron 2 and Damvergi 26; you are walked to yours from reception.",
   },
   {
     topic: "rooms",

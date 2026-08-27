@@ -559,7 +559,7 @@ export const nl: ContentText = {
     {
       question: "Waar ligt het hotel precies?",
       answer:
-        "In het centrum van de middeleeuwse oude stad van Rethymno op Kreta, op een paar stappen van de Venetiaanse haven en onder de Fortezza. U komt aan bij House of Europe, Nikolaou Plastira 4 — daar is de receptie, en daar liggen alle zeven suites. Phos, het tweede gebouw, staat aan de Fotaki 10. Het hotel heeft ook adressen aan de Psaron 2 en de Damvergi 26; vanaf de receptie brengt iemand u naar het uwe.",
+        "In het centrum van de middeleeuwse oude stad van Rethymno op Kreta, op een paar stappen van de Venetiaanse haven en onder de Fortezza. U komt aan bij House of Europe, Nikolaou Plastira 4 — daar is de receptie, en daar liggen alle zeven suites. Phos, het tweede gebouw, staat aan de Fotaki 10. Het hotel heeft ook adressen aan de Psaron 2 en de Damvergi 26; vanaf de receptie brengt iemand u naar het uwe. Het inchecken gebeurt hier voor alle gebouwen, ook voor de Residence aan de oude haven.",
     },
     {
       question: "Wat is het verschil tussen House of Europe en Phos?",
@@ -642,7 +642,7 @@ export const nl: ContentText = {
       },
       {
         title: "Kom naar het eerste gebouw",
-        body: "Nikolaou Plastira 4. Dat is de receptie voor het hele hotel, en daar liggen alle zeven suites. Hij is open tot 23:00 uur. Gratis parkeren is beschikbaar buiten het terrein, binnen honderd meter, en wij vertellen u precies waar voordat u vertrekt.",
+        body: "Nikolaou Plastira 4. Dat is de receptie voor het hele hotel, en daar liggen alle zeven suites. Hij is open tot 23:00 uur. Gratis parkeren is beschikbaar buiten het terrein, binnen honderd meter, en wij vertellen u precies waar voordat u vertrekt. Het inchecken gebeurt hier voor alle gebouwen, ook voor de Residence aan de oude haven.",
       },
       {
         title: "Wij lopen met u mee",
