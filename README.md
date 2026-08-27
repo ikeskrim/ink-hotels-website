@@ -551,6 +551,7 @@ blocking the site; each is a switch that stays off until the input arrives.
 | **`RESEND_API_KEY`** | `/api/contact` returns an honest 503; the footer offers sign-up stays hidden | Vercel env vars, then `NEXT_PUBLIC_OFFERS_SIGNUP=1` |
 | **Xenia chatbot embed** | The concierge slot is built and hidden | `NEXT_PUBLIC_CHAT_*` |
 | **A photograph of the fleet Fiat** | The current one is a licensed placeholder, flagged in `content/experiences.ts` | one line in that file |
+| **A ruling on nine stock photographs** | The arrangement pages carry frames that are not Crete — birch trees, a frangipani spa, a branded gym, a composited vineyard. Listed with routes and confidence in [PHOTO-AUDIT.md](PHOTO-AUDIT.md). Nothing was deleted | say which numbers go |
 | **Six to ten real guest quotes** | `content/reviews.ts` is empty, so the homepage strip and the per-suite quote render nothing. First name, country, platform, year — verbatim, never paraphrased | `content/reviews.ts` |
 | **Phos rename decision** | Two categories differ by one capital letter; a guest can book the wrong room | `PROPOSALS.md` #1 — site **and** WebHotelier admin together |
 | **A lawyer's pass on Terms and Privacy** | Written from scratch, both `noindex` | `/terms`, `/privacy` |
