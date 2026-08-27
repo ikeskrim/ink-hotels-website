@@ -185,6 +185,39 @@ Re-run Lighthouse after each item and log the numbers in the commit body.
 
 ---
 
+## Stage 7 — owner feedback round (27 Aug 2026)
+
+The site was shown to the family; these are their corrections, all shipped.
+One commit each, each pushed, the full sweep green after every one.
+
+| | what changed | where |
+| --- | --- | --- |
+| **A1** | The collection is **The Gateway Suites** — all seven, not the original four | rooms.ts `collection`, schema `isPartOf`, suite eyebrow, five catalogues |
+| **A2** | Check-in is at the first building for **every** building, the Residence included | arrival step 2, first FAQ answer, five locales |
+| **A3** | The chauffeur is **ours** — not "a chauffeur" | arrival, FAQ, the transfer experience, `/location` (a follow-up commit: that page's prose is hardcoded English and the string sweep missed it) |
+| **A4** | The private chef is a **Thalasses villa service** and is gone from Ink. Count corrected 21 → 22, which was already wrong before the change | experiences.ts (23→22), four overlays, rooms cross-sell, four prose strings ×5, `/en/chef-in-villa` → `/experiences` |
+| **A5** | The family list is Thalasses, Thetis, **Ikaros, Casa Vitae** — Villa Mavi out | five catalogues, and `patch-home-copy.mjs`, which would have resurrected Mavi |
+| **A6** | Three Greek offices — **Rethymno, Heraklion, Athens** — and the +44 and +31 numbers withdrawn everywhere | five catalogues, `internationalOffices: []`, the footer's empty-list guard |
+| **B1** | **Check-in 16:00, check-out 11:00**, stated in every place that states them | new `stay` in site.ts, facts list, a new FAQ ×5, arrival facts ×5, `checkinTime`/`checkoutTime`, HANDOVER, and `stay.test.ts` to hold the prose to the constant |
+| **B2** | Parking is **free in the area, in the lot across the street**, and Gateway Suites guests get a **parking card** | facts, FAQ, arrival step and facts, `/location`, the schema amenity — all ×5 |
+| **B3** | **A number never appears alone** — extension and WhatsApp travel with it | new `ReachUs`, thirteen surfaces, and `phone-check.mjs` in CI |
+| **B4** | Housekeeping is **arranged with each stay — typically every two days** | facts and FAQ ×5 |
+| **C1** | A **photo intake**: `incoming/` plus `npm run photos` | new `scripts/photos.mjs`, documented in HANDOVER |
+| **C3** | The **Rethymno-only audit** — nine frames that are not Crete, listed with routes, nothing deleted | [PHOTO-AUDIT.md](PHOTO-AUDIT.md) |
+
+Deferred by the owner: **C2**, the new jacuzzi and breakfast sets, which are
+still being prepared. The intake built in C1 is what they will come in through.
+
+Three new guards were added and each was proved to bite before it was
+committed — a planted regression failed it, and the revert passed:
+
+- `stay.test.ts` — the times in five languages, held to one constant
+- `phone-check.mjs` — extension and WhatsApp, judged per occurrence, by
+  distance in rendered text rather than in markup
+- `photos.mjs` — a referenced photograph with no alt text exits 1
+
+---
+
 ## Measured — full route table (2026-08-23, 3-run medians)
 
 Fresh build, node killed by PID, `Ready in` confirmed before each set.
@@ -247,3 +280,12 @@ floor, established across four sessions.
 - Six to ten real guest reviews
 - The Phos rename decision — the site and the WebHotelier admin together
 - A lawyer's pass on Terms and Privacy
+- **Ikaros or Villa Ikaros?** One word. The family list ships the plain form
+- **Nine stock photographs** — [PHOTO-AUDIT.md](PHOTO-AUDIT.md) lists them with
+  routes and confidence. Nothing was deleted; say which numbers go
+- **The Residence's private parking** — B2 replaced every older parking
+  sentence as instructed, and that clause went with them. The room's own
+  amenity list still carries it. One line to restore
+- **Twelve room notes still say "Housekeeping every two days"** — the flat form
+  B4 softened. Rooms are frozen and the instruction named the facts list and
+  the FAQ, so they were left. One scripted pass if you want them to follow
