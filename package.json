@@ -25,6 +25,8 @@
     "phones": "node scripts/phone-check.mjs",
     "shots": "node scripts/shots.mjs",
     "redirects:doc": "node scripts/write-redirects-doc.mjs",
+    "photos": "node scripts/photos.mjs",
+    "photos:check": "node scripts/photos.mjs --report",
     "blur": "node scripts/build-blur.mjs",
     "og:dims": "tsx scripts/build-og-dims.mjs"
   },

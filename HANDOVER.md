@@ -49,16 +49,44 @@ their translations in `src/i18n/content/`.
 
 ### 2. Add or change a photograph
 
-1. Put the file in `public/media/`.
-2. Reference it from the relevant file in `src/content/`.
-3. If it leads a page (a hero, a room's first frame), run:
-   ```bash
-   npm run blur      # the blur-up placeholder
-   npm run og:dims   # its true size, for social previews
-   ```
-4. Give it a description. Every image needs alt text in all five languages —
-   see `photoAlt` in the message files. `npm run alt` will tell you if one is
-   missing or still in English.
+**A folder and a command.** Put the files — any names, any sizes, straight off
+the camera or the phone — into `incoming/`, then run:
+
+```bash
+npm run photos
+```
+
+That does the whole intake in one pass:
+
+| it does | so that |
+| --- | --- |
+| converts each file to `.webp`, long edge capped at 2400px, quality 82 | a 6000px frame off a camera does not cost every visitor a 4 MB download |
+| names the file after itself, not after a hash | `courtyard-well.webp` is findable a year later; `7a8843db0f09….webp` is not |
+| moves the original into `incoming/_processed` | you can see what has already been through, and nothing is deleted |
+| records it in `src/content/generated/intake.ts` with an empty alt slot per language | the description it owes is written down rather than remembered |
+| rebuilds the blur placeholders | a hero arrives the right colour instead of as a dark rectangle |
+| rebuilds the Open Graph dimensions | a shared link lays out correctly before the photograph loads |
+| runs the media check | a missing file or an undeclared image quality fails here, not in production |
+| rewrites `MEDIA-MANIFEST.md` | the repository stays free of megabytes nothing references |
+
+Then it prints **what is still owed** — the frames with no alt text, and the
+frames nothing references yet. On the day photographs arrive both lists are
+long, and neither is an error.
+
+**One thing is an error:** a photograph that is live on the site with no alt
+text. That fails the command, because a published photograph says something,
+and a reader using a screen reader is entitled to hear it.
+
+So the rest of the job, after the command:
+
+1. **Reference the frame** from the relevant file in `src/content/`.
+2. **Write its alt text** in `src/content/generated/intake.ts` — English
+   first, then the other four. `npm run photos:check` reprints the outstanding
+   list at any time, and `npm run alt` checks the whole site in a browser.
+
+> The originals in `incoming/` are not committed — only the `.webp` the command
+> writes into `public/media`. That is deliberate: the version that ships is the
+> version in the repository.
 
 **Photographs are never padded.** A suite shows its own frames and no others.
 The gallery on a room page shows what exists, whether that is 42 or 4.

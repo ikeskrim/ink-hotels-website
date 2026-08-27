@@ -102,3 +102,9 @@ Thumbs.db
 # expiring artifact. ~18 MB of full-page JPEGs that describe exactly one
 # commit — they do not belong in the history.
 qa/shots/
+
+# The photo drop folder. Originals are large and are not the version that
+# matters — `npm run photos` writes the one that is, into public/media, and
+# moves the original into _processed so you can see what has been through.
+/incoming/*
+!/incoming/README.md
