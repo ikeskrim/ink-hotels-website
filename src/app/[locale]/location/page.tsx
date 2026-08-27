@@ -130,9 +130,9 @@ export default async function LocationPage({
                 <div className="prose-ink measure-wide">
                   <p>
                     Rethymno sits between the airports of Chania and Heraklion,
-                    on the north coast of Crete. A chauffeur can meet you at
-                    either airport, or at the port, and bring you in — tell us
-                    your arrival and we will arrange it.
+                    on the north coast of Crete. Our own chauffeur can meet you
+                    at either airport, or at the port, and bring you in — tell
+                    us your arrival and we will arrange it.
                   </p>
                   <p>
                     The old town is historic and its lanes are narrow and
