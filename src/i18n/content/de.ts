@@ -93,7 +93,7 @@ export const de: ContentText = {
         "Ein warmes Zimmer aus rustikalem Holz und weiß getünchten Wänden, zum Meer hin, mit einem Balkon, von dem aus Sie darauf blicken.",
       notes: [
         "Zimmer zum Meer können lebhaft sein — sie liegen den Cafés und Bars am nächsten.",
-        "Zimmerreinigung alle zwei Tage.",
+        "Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage.",
       ],
       outlook: "Meerblick",
       outdoor: "Balkon",
@@ -104,7 +104,7 @@ export const de: ContentText = {
         "Fünfzehn Quadratmeter zum Wasser hin, in dem Haus, das einst das Gästehaus der Universität Kreta war.",
       notes: [
         "Zimmer zum Meer können lebhaft sein — sie liegen den Cafés und Bars am nächsten.",
-        "Zimmerreinigung alle zwei Tage.",
+        "Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage.",
       ],
       outlook: "Meerblick",
     },
@@ -112,7 +112,7 @@ export const de: ContentText = {
       displayName: "Seitlicher Meerblick mit Balkon",
       description:
         "Das Meer kommt hier schräg ins Bild, gerahmt von den Dächern der Altstadt, mit einem Balkon, von dem aus Sie das Licht wechseln sehen.",
-      notes: ["Zimmerreinigung alle zwei Tage."],
+      notes: ["Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage."],
       outlook: "Seitlicher Meerblick",
       outdoor: "Balkon",
     },
@@ -120,7 +120,7 @@ export const de: ContentText = {
       displayName: "Zimmer mit Balkon",
       description:
         "Ein kompaktes Zimmer, nach innen zur Altstadt gewandt, mit einem Balkon über der Gasse.",
-      notes: ["Zimmerreinigung alle zwei Tage."],
+      notes: ["Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage."],
       outlook: "Über die Altstadt",
       outdoor: "Balkon",
     },
@@ -128,7 +128,7 @@ export const de: ContentText = {
       displayName: "Standardzimmer",
       description:
         "Vierzehn ruhige Quadratmeter im zentralen Haus, eine Minute vom Frühstück.",
-      notes: ["Zimmerreinigung alle zwei Tage."],
+      notes: ["Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage."],
       outlook: "Über die Altstadt",
     },
     "two-bedroom-apartment-house-of-europe": {
@@ -137,7 +137,7 @@ export const de: ContentText = {
         "Dreißig Quadratmeter über zwei Schlafzimmer — das Zimmer für eine Familie oder für zwei Paare, die gemeinsam reisen.",
       notes: [
         "Zimmer zum Meer können lebhaft sein — sie liegen den Cafés und Bars am nächsten.",
-        "Zimmerreinigung alle zwei Tage.",
+        "Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage.",
       ],
       outlook: "Über die Altstadt",
     },
@@ -148,7 +148,7 @@ export const de: ContentText = {
         "Eine kleine Suite, deren eigentlicher Raum draußen liegt — eine private Terrasse über den Dächern der Altstadt.",
       notes: [
         "Das Frühstück wird im House of Europe serviert.",
-        "Zimmerreinigung alle zwei Tage.",
+        "Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage.",
       ],
       outlook: "Über die Altstadt",
       outdoor: "Terrasse",
@@ -159,7 +159,7 @@ export const de: ContentText = {
         "Das größte Zimmer im Phos: achtzehn Quadratmeter und ein Balkon, für drei Personen.",
       notes: [
         "Das Frühstück wird im House of Europe serviert.",
-        "Zimmerreinigung alle zwei Tage.",
+        "Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage.",
       ],
       outlook: "Über die Altstadt",
       outdoor: "Balkon",
@@ -170,7 +170,7 @@ export const de: ContentText = {
         "Zwanzig Quadratmeter mit Balkon, eingerichtet für vier Personen: ein Doppelbett, ein Schlafsofa und ein Etagenbett.",
       notes: [
         "Das Frühstück wird im House of Europe serviert.",
-        "Zimmerreinigung alle zwei Tage.",
+        "Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage.",
       ],
       outlook: "Über die Altstadt",
       outdoor: "Balkon",
@@ -181,7 +181,7 @@ export const de: ContentText = {
         "Fünfzehn Quadratmeter im ruhigeren Haus, Holz und weißer Putz, Fensterläden zur Gasse.",
       notes: [
         "Das Frühstück wird im House of Europe serviert.",
-        "Zimmerreinigung alle zwei Tage.",
+        "Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage.",
       ],
       outlook: "Über die Altstadt",
     },
@@ -191,7 +191,7 @@ export const de: ContentText = {
         "Ein Doppelbett und ein Einzelbett, für drei, die gemeinsam reisen.",
       notes: [
         "Das Frühstück wird im House of Europe serviert.",
-        "Zimmerreinigung alle zwei Tage.",
+        "Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage.",
       ],
       outlook: "Über die Altstadt",
     },
@@ -201,7 +201,7 @@ export const de: ContentText = {
         "Ein Doppelbett und zwei Etagenbetten — das Familienzimmer im Phos.",
       notes: [
         "Das Frühstück wird im House of Europe serviert.",
-        "Zimmerreinigung alle zwei Tage.",
+        "Die Zimmerreinigung wird für jeden Aufenthalt vereinbart — in der Regel alle zwei Tage.",
       ],
       outlook: "Über die Altstadt",
     },

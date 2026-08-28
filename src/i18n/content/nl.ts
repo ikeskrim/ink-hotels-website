@@ -93,7 +93,7 @@ export const nl: ContentText = {
         "Een warme kamer van rustiek hout en witgekalkte muren, op de zee gericht, met een balkon om die vanaf te bekijken.",
       notes: [
         "Kamers aan zeezijde kunnen levendig zijn — ze liggen het dichtst bij de cafés en bars.",
-        "Huishouding om de twee dagen.",
+        "De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen.",
       ],
       outlook: "Zeezicht",
       outdoor: "Balkon",
@@ -104,7 +104,7 @@ export const nl: ContentText = {
         "Vijftien vierkante meter aan het water, in het gebouw dat ooit het gastenverblijf van de Universiteit van Kreta was.",
       notes: [
         "Kamers aan zeezijde kunnen levendig zijn — ze liggen het dichtst bij de cafés en bars.",
-        "Huishouding om de twee dagen.",
+        "De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen.",
       ],
       outlook: "Zeezicht",
     },
@@ -112,7 +112,7 @@ export const nl: ContentText = {
       displayName: "Zijdelings zeezicht met balkon",
       description:
         "De zee komt hier onder een hoek binnen, ingelijst tussen de daken van de oude stad, met een balkon om het licht vanaf te zien veranderen.",
-      notes: ["Huishouding om de twee dagen."],
+      notes: ["De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen."],
       outlook: "Zijdelings zeezicht",
       outdoor: "Balkon",
     },
@@ -120,7 +120,7 @@ export const nl: ContentText = {
       displayName: "Kamer met balkon",
       description:
         "Een compacte kamer die naar de oude stad is gekeerd, met een balkon boven de steeg beneden.",
-      notes: ["Huishouding om de twee dagen."],
+      notes: ["De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen."],
       outlook: "Over de oude stad",
       outdoor: "Balkon",
     },
@@ -128,7 +128,7 @@ export const nl: ContentText = {
       displayName: "Standaardkamer",
       description:
         "Veertien rustige vierkante meter in het centrale gebouw, een minuut van het ontbijt.",
-      notes: ["Huishouding om de twee dagen."],
+      notes: ["De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen."],
       outlook: "Over de oude stad",
     },
     "two-bedroom-apartment-house-of-europe": {
@@ -137,7 +137,7 @@ export const nl: ContentText = {
         "Dertig vierkante meter verdeeld over twee slaapkamers — de kamer voor een gezin, of voor twee stellen die samen reizen.",
       notes: [
         "Kamers aan zeezijde kunnen levendig zijn — ze liggen het dichtst bij de cafés en bars.",
-        "Huishouding om de twee dagen.",
+        "De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen.",
       ],
       outlook: "Over de oude stad",
     },
@@ -148,7 +148,7 @@ export const nl: ContentText = {
         "Een kleine suite waarvan de eigenlijke ruimte buiten ligt — een privéterras boven de daken van de oude stad.",
       notes: [
         "Het ontbijt wordt geserveerd in House of Europe.",
-        "Huishouding om de twee dagen.",
+        "De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen.",
       ],
       outlook: "Over de oude stad",
       outdoor: "Terras",
@@ -159,7 +159,7 @@ export const nl: ContentText = {
         "De grootste kamer in Phos: achttien vierkante meter en een balkon, met slaapplaats voor drie.",
       notes: [
         "Het ontbijt wordt geserveerd in House of Europe.",
-        "Huishouding om de twee dagen.",
+        "De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen.",
       ],
       outlook: "Over de oude stad",
       outdoor: "Balkon",
@@ -170,7 +170,7 @@ export const nl: ContentText = {
         "Twintig vierkante meter met een balkon, ingericht voor vier personen: één tweepersoonsbed, één slaapbank en één stapelbed.",
       notes: [
         "Het ontbijt wordt geserveerd in House of Europe.",
-        "Huishouding om de twee dagen.",
+        "De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen.",
       ],
       outlook: "Over de oude stad",
       outdoor: "Balkon",
@@ -181,7 +181,7 @@ export const nl: ContentText = {
         "Vijftien vierkante meter in het rustigere huis, hout en wit pleisterwerk, luiken die op de steeg uitkomen.",
       notes: [
         "Het ontbijt wordt geserveerd in House of Europe.",
-        "Huishouding om de twee dagen.",
+        "De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen.",
       ],
       outlook: "Over de oude stad",
     },
@@ -191,7 +191,7 @@ export const nl: ContentText = {
         "Een tweepersoonsbed en een eenpersoonsbed, voor drie die samen reizen.",
       notes: [
         "Het ontbijt wordt geserveerd in House of Europe.",
-        "Huishouding om de twee dagen.",
+        "De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen.",
       ],
       outlook: "Over de oude stad",
     },
@@ -201,7 +201,7 @@ export const nl: ContentText = {
         "Eén tweepersoonsbed en twee stapelbedden — de gezinskamer in Phos.",
       notes: [
         "Het ontbijt wordt geserveerd in House of Europe.",
-        "Huishouding om de twee dagen.",
+        "De schoonmaak wordt per verblijf afgesproken — meestal om de twee dagen.",
       ],
       outlook: "Over de oude stad",
     },

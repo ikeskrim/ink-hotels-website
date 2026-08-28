@@ -478,7 +478,7 @@ export const rooms: Room[] = [
       "A warm room of rustic wood and whitewashed wall, facing the sea, with a balcony to take it in from. Open the shutters in the morning and the water is the whole window.",
     notes: [
       "Sea-facing rooms can be lively — they sit closest to the cafés and bars.",
-      "Housekeeping every two days.",
+      "Housekeeping is arranged with each stay — typically every two days.",
     ],
     amenities: [...BASE_AMENITIES, "Balcony"],
     images: ROOM_IMAGES["4079"] ?? [],
@@ -503,7 +503,7 @@ export const rooms: Room[] = [
       "Fifteen square metres facing the water, in the building that was once the University of Crete's guest house.",
     notes: [
       "Sea-facing rooms can be lively — they sit closest to the cafés and bars.",
-      "Housekeeping every two days.",
+      "Housekeeping is arranged with each stay — typically every two days.",
     ],
     amenities: BASE_AMENITIES,
     images: ROOM_IMAGES["4078"] ?? [],
@@ -525,7 +525,7 @@ export const rooms: Room[] = [
     level: null,
     description:
       "The sea arrives at an angle here, framed between old-town roofs, with a balcony to watch the light change from.",
-    notes: ["Housekeeping every two days."],
+    notes: ["Housekeeping is arranged with each stay — typically every two days."],
     amenities: [...BASE_AMENITIES, "Balcony"],
     images: ROOM_IMAGES["4082"] ?? [],
     renovated: "May 2020",
@@ -546,7 +546,7 @@ export const rooms: Room[] = [
     level: null,
     description:
       "A compact room turned inward to the old town, with a balcony over the alley below.",
-    notes: ["Housekeeping every two days."],
+    notes: ["Housekeeping is arranged with each stay — typically every two days."],
     amenities: [...BASE_AMENITIES, "Balcony"],
     images: ROOM_IMAGES["4081"] ?? [],
     renovated: "May 2020",
@@ -567,7 +567,7 @@ export const rooms: Room[] = [
     level: null,
     description:
       "Fourteen quiet square metres in the first building, a minute from breakfast.",
-    notes: ["Housekeeping every two days."],
+    notes: ["Housekeeping is arranged with each stay — typically every two days."],
     amenities: BASE_AMENITIES,
     images: ROOM_IMAGES["4080"] ?? [],
     renovated: "May 2020",
@@ -594,7 +594,7 @@ export const rooms: Room[] = [
       "Thirty square metres across two bedrooms — the room to take for a family, or for two couples travelling together.",
     notes: [
       "Sea-facing rooms can be lively — they sit closest to the cafés and bars.",
-      "Housekeeping every two days.",
+      "Housekeeping is arranged with each stay — typically every two days.",
     ],
     amenities: BASE_AMENITIES,
     images: ROOM_IMAGES["4421"] ?? [],
@@ -621,7 +621,7 @@ export const rooms: Room[] = [
       "Twelve square metres indoors, and a private terrace above the rooftops of the old town that is the better half of it.",
     notes: [
       "Reception and breakfast are at House of Europe, a short walk away.",
-      "Housekeeping every two days.",
+      "Housekeeping is arranged with each stay — typically every two days.",
     ],
     amenities: [...BASE_AMENITIES, "Private terrace"],
     images: ROOM_IMAGES["4077"] ?? [],
@@ -657,7 +657,7 @@ export const rooms: Room[] = [
       "Twenty square metres with a balcony, arranged to sleep four: one double bed, one sofa bed and one bunk bed.",
     notes: [
       "Reception and breakfast are at House of Europe, a short walk away.",
-      "Housekeeping every two days.",
+      "Housekeeping is arranged with each stay — typically every two days.",
     ],
     amenities: [...BASE_AMENITIES, "Balcony"],
     images: ROOM_IMAGES["4418"] ?? [],
@@ -684,7 +684,7 @@ export const rooms: Room[] = [
       "Eighteen square metres and a balcony, sleeping three.",
     notes: [
       "Reception and breakfast are at House of Europe, a short walk away.",
-      "Housekeeping every two days.",
+      "Housekeeping is arranged with each stay — typically every two days.",
     ],
     amenities: [...BASE_AMENITIES, "Balcony"],
     images: ROOM_IMAGES["4076"] ?? [],
@@ -708,7 +708,7 @@ export const rooms: Room[] = [
       "Fifteen square metres in the quieter building, wood and white plaster, shutters onto the alley.",
     notes: [
       "Reception and breakfast are at House of Europe, a short walk away.",
-      "Housekeeping every two days.",
+      "Housekeeping is arranged with each stay — typically every two days.",
     ],
     amenities: BASE_AMENITIES,
     images: ROOM_IMAGES["4074"] ?? [],
@@ -734,7 +734,7 @@ export const rooms: Room[] = [
     description: "A double and a single, for three travelling together.",
     notes: [
       "Reception and breakfast are at House of Europe, a short walk away.",
-      "Housekeeping every two days.",
+      "Housekeeping is arranged with each stay — typically every two days.",
     ],
     amenities: BASE_AMENITIES,
     images: ROOM_IMAGES["4075"] ?? [],
@@ -760,7 +760,7 @@ export const rooms: Room[] = [
     description: "One double bed and two bunk beds — the family room at Phos.",
     notes: [
       "Reception and breakfast are at House of Europe, a short walk away.",
-      "Housekeeping every two days.",
+      "Housekeeping is arranged with each stay — typically every two days.",
     ],
     amenities: BASE_AMENITIES,
     images: ROOM_IMAGES["4419"] ?? [],

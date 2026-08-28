@@ -90,7 +90,7 @@ export const fr: ContentText = {
         "Une chambre chaleureuse de bois rustique et de murs blanchis à la chaux, face à la mer, avec un balcon pour la regarder.",
       notes: [
         "Les chambres côté mer peuvent être animées — ce sont les plus proches des cafés et des bars.",
-        "Ménage tous les deux jours.",
+        "Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",
       ],
       outlook: "Vue mer",
       outdoor: "Balcon",
@@ -101,7 +101,7 @@ export const fr: ContentText = {
         "Quinze mètres carrés face à l'eau, dans le bâtiment qui fut la maison d'hôtes de l'Université de Crète.",
       notes: [
         "Les chambres côté mer peuvent être animées — ce sont les plus proches des cafés et des bars.",
-        "Ménage tous les deux jours.",
+        "Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",
       ],
       outlook: "Vue mer",
     },
@@ -109,7 +109,7 @@ export const fr: ContentText = {
       displayName: "Vue mer latérale avec balcon",
       description:
         "La mer arrive ici de biais, encadrée entre les toits de la vieille ville, avec un balcon d'où regarder la lumière changer.",
-      notes: ["Ménage tous les deux jours."],
+      notes: ["Le ménage est organisé pour chaque séjour — généralement tous les deux jours."],
       outlook: "Vue mer latérale",
       outdoor: "Balcon",
     },
@@ -117,7 +117,7 @@ export const fr: ContentText = {
       displayName: "Chambre avec balcon",
       description:
         "Une chambre compacte tournée vers la vieille ville, avec un balcon au-dessus de la ruelle.",
-      notes: ["Ménage tous les deux jours."],
+      notes: ["Le ménage est organisé pour chaque séjour — généralement tous les deux jours."],
       outlook: "Sur la vieille ville",
       outdoor: "Balcon",
     },
@@ -125,7 +125,7 @@ export const fr: ContentText = {
       displayName: "Chambre standard",
       description:
         "Quatorze mètres carrés tranquilles dans le bâtiment central, à une minute du petit-déjeuner.",
-      notes: ["Ménage tous les deux jours."],
+      notes: ["Le ménage est organisé pour chaque séjour — généralement tous les deux jours."],
       outlook: "Sur la vieille ville",
     },
     "two-bedroom-apartment-house-of-europe": {
@@ -134,7 +134,7 @@ export const fr: ContentText = {
         "Trente mètres carrés répartis sur deux chambres — la formule à retenir pour une famille, ou pour deux couples qui voyagent ensemble.",
       notes: [
         "Les chambres côté mer peuvent être animées — ce sont les plus proches des cafés et des bars.",
-        "Ménage tous les deux jours.",
+        "Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",
       ],
       outlook: "Sur la vieille ville",
     },
@@ -145,7 +145,7 @@ export const fr: ContentText = {
         "Une petite suite dont la vraie pièce est dehors — une terrasse privée au-dessus des toits de la vieille ville.",
       notes: [
         "Le petit-déjeuner est servi à House of Europe.",
-        "Ménage tous les deux jours.",
+        "Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",
       ],
       outlook: "Sur la vieille ville",
       outdoor: "Terrasse",
@@ -156,7 +156,7 @@ export const fr: ContentText = {
         "La plus grande chambre de Phos : dix-huit mètres carrés et un balcon, pour trois personnes.",
       notes: [
         "Le petit-déjeuner est servi à House of Europe.",
-        "Ménage tous les deux jours.",
+        "Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",
       ],
       outlook: "Sur la vieille ville",
       outdoor: "Balcon",
@@ -167,7 +167,7 @@ export const fr: ContentText = {
         "Vingt mètres carrés avec balcon, agencés pour dormir à quatre : un lit double, un canapé-lit et un lit superposé.",
       notes: [
         "Le petit-déjeuner est servi à House of Europe.",
-        "Ménage tous les deux jours.",
+        "Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",
       ],
       outlook: "Sur la vieille ville",
       outdoor: "Balcon",
@@ -178,7 +178,7 @@ export const fr: ContentText = {
         "Quinze mètres carrés dans la maison la plus calme, bois et plâtre blanc, volets sur la ruelle.",
       notes: [
         "Le petit-déjeuner est servi à House of Europe.",
-        "Ménage tous les deux jours.",
+        "Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",
       ],
       outlook: "Sur la vieille ville",
     },
@@ -187,7 +187,7 @@ export const fr: ContentText = {
       description: "Un lit double et un lit simple, pour trois personnes qui voyagent ensemble.",
       notes: [
         "Le petit-déjeuner est servi à House of Europe.",
-        "Ménage tous les deux jours.",
+        "Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",
       ],
       outlook: "Sur la vieille ville",
     },
@@ -196,7 +196,7 @@ export const fr: ContentText = {
       description: "Un lit double et deux lits superposés — la chambre familiale de Phos.",
       notes: [
         "Le petit-déjeuner est servi à House of Europe.",
-        "Ménage tous les deux jours.",
+        "Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",
       ],
       outlook: "Sur la vieille ville",
     },
