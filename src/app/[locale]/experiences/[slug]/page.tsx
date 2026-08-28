@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { NoFrame } from "@/components/media/no-frame";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -101,10 +102,15 @@ export default async function ExperiencePage({
 
       <Section ground="paper" size="none" className="pt-[clamp(2.5rem,5vw,4rem)]">
         <Container>
+          {/* An arrangement whose photograph was withdrawn does not get a
+              large empty rectangle where the picture was — that reads as a
+              page that failed to load. The figure is simply not rendered, and
+              the words take the column back. See WITHDRAWN_FRAMES in
+              content/experiences.ts. */}
           <div className="grid gap-[clamp(2.5rem,6vw,5rem)] lg:grid-cols-12">
-            <figure className="lg:col-span-7">
-              <MaskReveal className="aspect-[3/2]">
-                {exp.image && (
+            {exp.image && (
+              <figure className="lg:col-span-7">
+                <MaskReveal className="aspect-[3/2]">
                   <Image
                     src={exp.image}
                     alt={exp.imageAlt ?? exp.title}
@@ -115,11 +121,11 @@ export default async function ExperiencePage({
                     priority
                     className="h-full w-full object-cover"
                   />
-                )}
-              </MaskReveal>
-            </figure>
+                </MaskReveal>
+              </figure>
+            )}
 
-            <div className="lg:col-span-5">
+            <div className={exp.image ? "lg:col-span-5" : "lg:col-span-8"}>
               <Reveal>
                 <div className="prose-ink measure">
                   {exp.body.map((p) => (
@@ -193,8 +199,8 @@ export default async function ExperiencePage({
                     href={`/experiences/${e.slug}`}
                     className="block focus-visible:outline-offset-4"
                   >
-                    <div className="relative aspect-[3/2] overflow-hidden bg-[color:var(--bg-lift)]">
-                      {e.image && (
+                    <div className="relative aspect-[3/2] overflow-hidden">
+                      {e.image ? (
                         <Image
                           src={e.image}
                           /* The heading directly beneath names it; repeating
@@ -205,6 +211,8 @@ export default async function ExperiencePage({
                           quality={70}
                           className="object-cover transition-transform duration-[1200ms] ease-settle group-hover:scale-[1.04]"
                         />
+                      ) : (
+                        <NoFrame />
                       )}
                     </div>
                     <h3 className="mt-4 font-display text-[length:var(--text-d4)] leading-tight">

@@ -1,10 +1,20 @@
 # Photo audit — is every frame Rethymno, or ours?
 
-**Nothing has been deleted.** This is a list for the owner to rule on. Each
-entry names the frame, where it appears, what is wrong with it, and how
-confident that judgement is.
+> **Ruled on, 27 August 2026: all nine go.** The Rethymno-only rule stands.
+> The nine frames below were deleted from `public/media`, their keys removed
+> from the generated map, and their slugs listed in `WITHDRAWN_FRAMES` in
+> `content/experiences.ts` so a regeneration of that map cannot bring them
+> back. Those nine arrangements are now described in words alone. Git history
+> still holds the files. Replacements arrive through `npm run photos` with the
+> owner's own sets.
+>
+> Items 10–16 were **not** part of that ruling and are unchanged. They stand
+> as open questions.
 
-Run: August 2026, against the 448 files in `public/media`.
+This was the list the owner ruled on. Each entry names the frame, where it
+appeared, what was wrong with it, and how confident the judgement was.
+
+Run: August 2026, against the 448 files in `public/media` (439 after).
 
 ---
 
@@ -33,10 +43,23 @@ question. If you want that swept too, say so.
 
 ---
 
-## Flagged — almost certainly not Crete
+## The nine — removed
 
-These are the ones I would act on. In each case something in the frame is
-inconsistent with Crete, not merely unidentifiable.
+In each case something in the frame was inconsistent with Crete, not merely
+unidentifiable. All nine are gone from the site and from the library.
+
+**What was deliberately not done:** no withdrawn card was given a different
+photograph. A genuine frame of the organic farm on a card headed "Massage" is
+the same lie the stock was, in better clothes. The arrangements keep their own
+picture or none.
+
+**What was done instead**, where the loss was load-bearing: the cross-sell
+strips on room pages are three cards wide, and evexia and harmony had all
+three of theirs withdrawn — a row of three empty frames. Which three
+arrangements each room offers has been rebalanced so every strip carries at
+least two photographs. Nothing was said about any arrangement that was not
+already true; only the order of the shop window changed. See
+`RELATED_BY_SLUG` in `content/rooms.ts`, one line each to put back.
 
 ### 1. Quad safari — birch and poplar
 
@@ -216,10 +239,9 @@ Rethymno question, but the same kind of question.
 
 ---
 
-## If you want them gone
+## What replaces them
 
-Say which numbers and they come out in one pass. What replaces them matters
-more than what leaves: an arrangement with no photograph shows no card at all
+They are out. What replaces them matters more than what left: an arrangement with no photograph shows no card at all
 on `/experiences`, which is honest but quiet. The alternatives, in the order I
 would prefer them:
 

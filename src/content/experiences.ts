@@ -10,6 +10,43 @@ import { EXPERIENCE_IMAGES } from "./generated/images";
  * facility is claimed for the hotel itself that the hotel does not have.
  */
 
+/**
+ * The frames the owner withdrew, 27 August 2026.
+ *
+ * The rule is that a photograph on this site is Rethymno or it is the property.
+ * These nine were neither — they were stock, and each had something in the
+ * frame that gave it away: birch and poplar behind the quad, a frangipani
+ * blossom beside the massage oil, "Spirit / Body / Mind" printed on the
+ * therapist's pebbles, a shirt reading PERSONAL TRAINER. PHOTO-AUDIT.md has
+ * the full account.
+ *
+ * They are named here by slug rather than simply deleted from the generated
+ * map, because `generated/images.ts` is rebuilt from the media mirror and the
+ * mirror still holds them. A list the generator cannot overwrite is the only
+ * kind that survives it, and `frame()` below is the single door every
+ * experience image passes through.
+ *
+ * Replacements arrive through the intake (`npm run photos`) with the owner's
+ * own sets. Until then these arrangements are described in words alone, which
+ * is the honest state and not a broken one.
+ */
+export const WITHDRAWN_FRAMES: ReadonlySet<string> = new Set([
+  "bike-tours",
+  "chauffeur",
+  "massage",
+  "personal-trainer",
+  "quad-safari",
+  "running",
+  "therapist",
+  "wine-production",
+  "wine-tasting",
+]);
+
+/** The generated frame for a slug, unless the owner withdrew it. */
+function frame(slug: string): string {
+  return WITHDRAWN_FRAMES.has(slug) ? "" : (EXPERIENCE_IMAGES[slug] ?? "");
+}
+
 export type ExperienceCategory = "table" | "sea" | "land" | "self";
 
 export interface ExperienceGroup {
@@ -99,7 +136,7 @@ export const experiences: Experience[] = [
     body: [
       "Taste outstanding wines and distinct flavours, and learn about wine, ancient Greek wine culture, and the unique varieties of Greece.",
     ],
-    image: EXPERIENCE_IMAGES["wine-tasting"] ?? "",
+    image: frame("wine-tasting"),
     featured: true,
   },
   {
@@ -110,7 +147,7 @@ export const experiences: Experience[] = [
     body: [
       "The wine of Crete is famous worldwide. Come with us and explore how the production is done in the celebrated wineries around the island.",
     ],
-    image: EXPERIENCE_IMAGES["wine-production"] ?? "",
+    image: frame("wine-production"),
   },
   {
     slug: "organic-farm",
@@ -140,7 +177,7 @@ export const experiences: Experience[] = [
     category: "table",
     summary: "Breakfast, arranged on the sand.",
     body: ["Enjoy your breakfast on the beach. It can be arranged."],
-    image: EXPERIENCE_IMAGES["breakfast-on-the-beach"] ?? "",
+    image: frame("breakfast-on-the-beach"),
   },
 
   // ── On the Water ──────────────────────────────────────────────────────────
@@ -154,7 +191,7 @@ export const experiences: Experience[] = [
       "Our goal is to show you the sights of our island from the comfort of your own private boat. We have boats rented exclusively to you or your company, and we organise cruises all over Crete.",
       "The numerous coves accessible only by boat, the sandy beaches, the marine habitats with their turquoise water and the rocky landscape make an exceptional setting for relaxation, exploration, fishing and pleasure.",
     ],
-    image: EXPERIENCE_IMAGES["private-boat-trip"] ?? "",
+    image: frame("private-boat-trip"),
     featured: true,
   },
   {
@@ -166,7 +203,7 @@ export const experiences: Experience[] = [
       "Crete has enchanting landscapes both on its surface and below the sea.",
       "The clear blue water is tempting enough to swim in. But what happens beneath it? You can find out — and earn a diving qualification while you do.",
     ],
-    image: EXPERIENCE_IMAGES["scuba-diving"] ?? "",
+    image: frame("scuba-diving"),
   },
   {
     slug: "water-sports",
@@ -178,7 +215,7 @@ export const experiences: Experience[] = [
       "We work with the best water sports operator in Rethymno. Our partner provides professional equipment held to high safety standards.",
       "Jet skiing and jet-ski safari, parasailing and water skiing are only some of the activities. A lifeguard is on watch all day, and the equipment is checked daily by specialist staff.",
     ],
-    image: EXPERIENCE_IMAGES["water-sports"] ?? "",
+    image: frame("water-sports"),
   },
   {
     slug: "wedding-on-the-beach",
@@ -188,7 +225,7 @@ export const experiences: Experience[] = [
     body: [
       "Dreaming of a wedding on the beach, with the sand under your feet and the sun above your head? Speak to us, and we will arrange it.",
     ],
-    image: EXPERIENCE_IMAGES["dream-weadding-on-the-beach"] ?? "",
+    image: frame("dream-weadding-on-the-beach"),
   },
 
   // ── Into the Island ───────────────────────────────────────────────────────
@@ -215,7 +252,7 @@ export const experiences: Experience[] = [
     body: [
       "A tour to the hard-to-find places of Crete, away from the crowds: spectacular views and the pleasure of travelling off-road through the landscapes of southern Crete — all in one day.",
     ],
-    image: EXPERIENCE_IMAGES["jeep-safari"] ?? "",
+    image: frame("jeep-safari"),
     featured: true,
   },
   {
@@ -226,7 +263,7 @@ export const experiences: Experience[] = [
     body: [
       "A route that heads up into the mountains of Rethymno, through impressive gorges with remarkable rock formations, crossing shallow rivers on the way.",
     ],
-    image: EXPERIENCE_IMAGES["quad-safari"] ?? "",
+    image: frame("quad-safari"),
   },
   {
     slug: "hiking",
@@ -236,7 +273,7 @@ export const experiences: Experience[] = [
     body: [
       "Ask us for routes across Crete. Explore the enchanting paths and the landscapes they open onto.",
     ],
-    image: EXPERIENCE_IMAGES["hiking"] ?? "",
+    image: frame("hiking"),
   },
   {
     slug: "bike-tours",
@@ -246,7 +283,7 @@ export const experiences: Experience[] = [
     body: [
       "Ask us to provide bicycles, and explore the routes around Crete.",
     ],
-    image: EXPERIENCE_IMAGES["bike-tours"] ?? "",
+    image: frame("bike-tours"),
   },
   {
     slug: "exclusive-tour",
@@ -256,7 +293,7 @@ export const experiences: Experience[] = [
     body: [
       "A personal, private tour through the history, mythology and culture of Crete. Speak to us for details.",
     ],
-    image: EXPERIENCE_IMAGES["exclusive-tour"] ?? "",
+    image: frame("exclusive-tour"),
   },
   {
     slug: "running",
@@ -266,7 +303,7 @@ export const experiences: Experience[] = [
     body: [
       "Ask us for routes across Crete. Explore the enchanting paths and the landscapes they open onto.",
     ],
-    image: EXPERIENCE_IMAGES["running"] ?? "",
+    image: frame("running"),
   },
 
   // ── For Yourself ──────────────────────────────────────────────────────────
@@ -276,7 +313,7 @@ export const experiences: Experience[] = [
     category: "self",
     summary: "Booked for you, in your own room.",
     body: ["Book your appointment for a relaxing massage."],
-    image: EXPERIENCE_IMAGES["massage"] ?? "",
+    image: frame("massage"),
     featured: true,
   },
   {
@@ -287,7 +324,7 @@ export const experiences: Experience[] = [
     body: [
       "Find your healing space. A therapist can help you find inner peace, balance and vitality, in life and in relationships.",
     ],
-    image: EXPERIENCE_IMAGES["therapist"] ?? "",
+    image: frame("therapist"),
   },
   {
     slug: "personal-trainer",
@@ -298,7 +335,7 @@ export const experiences: Experience[] = [
       "Stay fit on your holidays. A personal trainer can come to you, with privacy and safety.",
       "We can also provide TRX equipment, a Pilates ball, or vitamins.",
     ],
-    image: EXPERIENCE_IMAGES["personal-trainer"] ?? "",
+    image: frame("personal-trainer"),
   },
   {
     slug: "rent-a-car",
@@ -372,7 +409,7 @@ export const experiences: Experience[] = [
       "Have you arranged your holiday and not worked out how to get here from the airport or the port? Let us know: our own chauffeur can meet you and bring you in.",
       "The old town's lanes are narrow and mostly one-way, and House of Europe is inside them. Being driven to the right corner with your luggage is worth arranging — it is the difference between arriving and finding your way.",
     ],
-    image: EXPERIENCE_IMAGES["chauffeur"] ?? "",
+    image: frame("chauffeur"),
     seeAlso: "rent-a-car",
   },
   {
@@ -384,7 +421,7 @@ export const experiences: Experience[] = [
     body: [
       "Thalasses Villas — our sister property, which commands sweeping views of the Cretan sea — is the only seafront villa estate on this coast with a private helipad on the property. Arrival can be arranged through us.",
     ],
-    image: EXPERIENCE_IMAGES["private-helipad"] ?? "",
+    image: frame("private-helipad"),
   },
 ];
 

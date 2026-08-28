@@ -280,8 +280,6 @@ floor, established across four sessions.
 - Six to ten real guest reviews
 - The Phos rename decision — the site and the WebHotelier admin together
 - A lawyer's pass on Terms and Privacy
-- **Nine stock photographs** — [PHOTO-AUDIT.md](PHOTO-AUDIT.md) lists them with
-  routes and confidence. Nothing was deleted; say which numbers go
 - **The Residence's private parking** — B2 replaced every older parking
   sentence as instructed, and that clause went with them. The room's own
   amenity list still carries it. One line to restore

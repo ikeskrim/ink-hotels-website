@@ -8,8 +8,8 @@ than writing paths out.
 ## Photography
 
 The photo library was mirrored wholesale from the property's own sites, so
-`public/` holds 448 files (85.3 MB) while the site renders
-439 of them (83.1 MB). The referenced set is committed —
+`public/` holds 439 files (82.7 MB) while the site renders
+430 of them (80.5 MB). The referenced set is committed —
 including the mirrored suite photographs, which the site genuinely uses. The
 remaining 9 files (2.2 MB) are excluded: they are
 duplicates at other crops, frames that lost their edit, and sources that were

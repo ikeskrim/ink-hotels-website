@@ -826,15 +826,30 @@ export const suites = rooms.filter((r) => r.kind === "suite");
  * the unhurried; the two that sleep four lean to the boat and the jeep, which
  * are the things a family actually asks for.
  */
-const RELATED_DEFAULT = ["chauffeur", "rent-a-car", "massage"] as const;
+/* Rebalanced 27 Aug 2026, after nine stock frames were withdrawn.
+ *
+ * Nine arrangements now have no photograph, and these strips are three cards
+ * wide: evexia and harmony had all three of theirs withdrawn and showed a row
+ * of three empty frames, which reads as a page that failed rather than as a
+ * page that is honest. Every strip now carries at least two photographs.
+ *
+ * What was NOT done: giving a withdrawn card somebody else's picture. A
+ * genuine frame of the organic farm on a card headed "Massage" is the same
+ * lie as the stock was, in better clothes. The arrangements keep their own
+ * pictures or none; only which three are offered has changed, and the reasons
+ * below still hold — the adults-only pair lean private and unhurried, the two
+ * that sleep four lean to the boat and the jeep, agapi keeps its transfer.
+ *
+ * One line each to put back. */
+const RELATED_DEFAULT = ["chauffeur", "rent-a-car", "breakfast-on-the-beach"] as const;
 
 const RELATED_BY_SLUG: Record<string, readonly string[]> = {
-  evexia: ["chauffeur", "massage", "wine-tasting"],
-  harmony: ["chauffeur", "massage", "wine-tasting"],
-  agapi: ["chauffeur", "rent-a-car", "therapist"],
-  pathos: ["massage", "private-boat-trip", "wine-tasting"],
-  elpida: ["massage", "wine-tasting", "private-boat-trip"],
-  eros: ["chauffeur", "private-boat-trip", "massage"],
+  evexia: ["breakfast-on-the-beach", "private-boat-trip", "chauffeur"],
+  harmony: ["organic-farm", "breakfast-on-the-beach", "chauffeur"],
+  agapi: ["chauffeur", "rent-a-car", "organic-farm"],
+  pathos: ["massage", "private-boat-trip", "breakfast-on-the-beach"],
+  elpida: ["massage", "organic-farm", "private-boat-trip"],
+  eros: ["private-boat-trip", "scuba-diving", "massage"],
   zoi: ["chauffeur", "jeep-safari", "rent-a-car"],
 };
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { NoFrame } from "@/components/media/no-frame";
 import Link from "next/link";
 
 import { bookingUrlFor, relatedFor, rooms, roomsBySlug } from "@/content/rooms";
@@ -185,13 +186,17 @@ export default async function RoomPage({
                         href={`/experiences/${exp.slug}`}
                         className="group block focus-visible:outline-offset-4"
                       >
-                        {exp.image && (
-                          <div className="relative aspect-[4/3] overflow-hidden">
-                            {/* Decorative: the heading directly beneath is
-                                inside the same link and already names the
-                                experience, so an alt repeating it gives a
-                                screen reader the title twice. axe flags this
-                                as image-redundant-alt, and it is right. */}
+                        {/* The box is rendered either way. Three cards in a
+                            row where one has no picture and therefore no
+                            height above its title look broken; a hairline
+                            frame looks intended. */}
+                        <div className="relative aspect-[4/3] overflow-hidden">
+                          {exp.image ? (
+                            /* Decorative: the heading directly beneath is
+                               inside the same link and already names the
+                               experience, so an alt repeating it gives a
+                               screen reader the title twice. axe flags this
+                               as image-redundant-alt, and it is right. */
                             <Image
                               src={exp.image}
                               alt=""
@@ -200,8 +205,10 @@ export default async function RoomPage({
                               quality={70}
                               className="object-cover transition-transform duration-[1200ms] ease-settle group-hover:scale-[1.04]"
                             />
-                          </div>
-                        )}
+                          ) : (
+                            <NoFrame />
+                          )}
+                        </div>
                         <h3 className="mt-4 font-display text-[length:var(--text-d4)] leading-tight">
                           {exp.title}
                         </h3>
@@ -419,8 +426,8 @@ export default async function RoomPage({
                     href={`/experiences/${exp.slug}`}
                     className="group block focus-visible:outline-offset-4"
                   >
-                    {exp.image && (
-                      <div className="relative aspect-[4/3] overflow-hidden">
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      {exp.image ? (
                         <Image
                           src={exp.image}
                           alt={exp.title}
@@ -429,8 +436,10 @@ export default async function RoomPage({
                           quality={70}
                           className="object-cover transition-transform duration-[1200ms] ease-settle group-hover:scale-[1.04]"
                         />
-                      </div>
-                    )}
+                      ) : (
+                        <NoFrame />
+                      )}
+                    </div>
                     <h3 className="mt-4 font-display text-[length:var(--text-d4)] leading-tight">
                       <span className="relative inline-block">
                         {exp.title}

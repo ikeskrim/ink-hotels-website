@@ -5,6 +5,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/layout/page-hero";
 import { Container, Heading, Section } from "@/components/ui/section";
 import { Gk } from "@/components/ui/greek";
+import { NoFrame } from "@/components/media/no-frame";
 import { InkLink } from "@/components/ui/ink-link";
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -100,8 +101,8 @@ export default async function ExperiencesPage({
                         href={`/experiences/${exp.slug}`}
                         className="block focus-visible:outline-offset-4"
                       >
-                        <div className="relative aspect-[3/2] overflow-hidden bg-[color:var(--bg-lift)]">
-                          {exp.image && (
+                        <div className="relative aspect-[3/2] overflow-hidden">
+                          {exp.image ? (
                             <Image
                               src={exp.image}
                               /* Named by the heading in the same link. */
@@ -111,6 +112,8 @@ export default async function ExperiencesPage({
                               quality={70}
                               className="object-cover transition-transform duration-[1200ms] ease-settle group-hover:scale-[1.04]"
                             />
+                          ) : (
+                            <NoFrame />
                           )}
                         </div>
                         <h3 className="mt-5 font-display text-[length:var(--text-d4)] leading-tight">
