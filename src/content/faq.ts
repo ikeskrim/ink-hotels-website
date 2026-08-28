@@ -73,7 +73,7 @@ export const faqs: Faq[] = [
     topic: "finding",
     question: "Is there parking?",
     answer:
-      "Parking in the area around the hotel is free, in the parking lot across the street. Guests of the Gateway Suites receive a parking card, subject to availability.",
+      "Parking in the area around the hotel is free, in the parking lot across the street. Guests of the Gateway Suites receive a parking card, subject to availability. The Residence of the Old Port has its own private parking.",
   },
   {
     topic: "staying",

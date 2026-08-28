@@ -280,9 +280,6 @@ floor, established across four sessions.
 - Six to ten real guest reviews
 - The Phos rename decision — the site and the WebHotelier admin together
 - A lawyer's pass on Terms and Privacy
-- **The Residence's private parking** — B2 replaced every older parking
-  sentence as instructed, and that clause went with them. The room's own
-  amenity list still carries it. One line to restore
 - **Twelve room notes still say "Housekeeping every two days"** — the flat form
   B4 softened. Rooms are frozen and the instruction named the facts list and
   the FAQ, so they were left. One scripted pass if you want them to follow

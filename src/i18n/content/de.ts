@@ -596,7 +596,7 @@ export const de: ContentText = {
     {
       question: "Gibt es Parkplätze?",
       answer:
-        "Das Parken in der Umgebung des Hauses ist kostenlos, auf dem Parkplatz gegenüber. Gäste der Gateway Suites erhalten nach Verfügbarkeit eine Parkkarte.",
+        "Das Parken in der Umgebung des Hauses ist kostenlos, auf dem Parkplatz gegenüber. Gäste der Gateway Suites erhalten nach Verfügbarkeit eine Parkkarte. Die Residence of the Old Port hat einen eigenen privaten Parkplatz.",
     },
     {
       question: "Darf ich meinen Hund mitbringen?",

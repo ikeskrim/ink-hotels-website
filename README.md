@@ -551,7 +551,6 @@ blocking the site; each is a switch that stays off until the input arrives.
 | **`RESEND_API_KEY`** | `/api/contact` returns an honest 503; the footer offers sign-up stays hidden | Vercel env vars, then `NEXT_PUBLIC_OFFERS_SIGNUP=1` |
 | **Xenia chatbot embed** | The concierge slot is built and hidden | `NEXT_PUBLIC_CHAT_*` |
 | **A photograph of the fleet Fiat** | The current one is a licensed placeholder, flagged in `content/experiences.ts` | one line in that file |
-| **The Residence's private parking** | B2 replaced every older parking sentence, as instructed, and that clause went with them. The room's own amenity list still carries it | one line in `content/faq.ts` and the facts |
 | **Twelve room notes still read "Housekeeping every two days"** | The flat form that B4 softened everywhere else. Rooms are frozen and the instruction named the facts and the FAQ, so they were left alone | one scripted pass |
 | **Six to ten real guest quotes** | `content/reviews.ts` is empty, so the homepage strip and the per-suite quote render nothing. First name, country, platform, year — verbatim, never paraphrased | `content/reviews.ts` |
 | **Phos rename decision** | Two categories differ by one capital letter; a guest can book the wrong room | `PROPOSALS.md` #1 — site **and** WebHotelier admin together |

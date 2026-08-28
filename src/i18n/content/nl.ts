@@ -592,7 +592,7 @@ export const nl: ContentText = {
     {
       question: "Is er parkeergelegenheid?",
       answer:
-        "Parkeren in de buurt van het hotel is gratis, op de parkeerplaats aan de overkant. Gasten van de Gateway Suites krijgen een parkeerkaart, zolang er beschikbaarheid is.",
+        "Parkeren in de buurt van het hotel is gratis, op de parkeerplaats aan de overkant. Gasten van de Gateway Suites krijgen een parkeerkaart, zolang er beschikbaarheid is. The Residence of the Old Port heeft een eigen privéparkeerplaats.",
     },
     {
       question: "Mag mijn hond mee?",

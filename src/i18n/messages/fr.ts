@@ -395,7 +395,7 @@ export const fr: Messages = {
       "La vieille ville est vivante, et c'est une grande part de son charme. Les chambres côté mer sont les plus proches des cafés et des bars. Toutes les chambres ont des fenêtres insonorisées ; dites-nous si vous avez le sommeil léger.",
     factParkingTerm: "Stationnement",
     factParking:
-      "Gratuit dans le quartier de l'hôtel — le parking d'en face. Les clients des Gateway Suites reçoivent une carte de stationnement, selon disponibilité.",
+      "Gratuit dans le quartier de l'hôtel — le parking d'en face. Les clients des Gateway Suites reçoivent une carte de stationnement, selon disponibilité. La Residence of the Old Port dispose de son propre parking privé.",
     factHousekeepingTerm: "Ménage",
     factHousekeeping:
       "Le ménage est organisé pour chaque séjour — généralement tous les deux jours.",

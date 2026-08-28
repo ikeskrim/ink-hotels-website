@@ -585,7 +585,7 @@ export const fr: ContentText = {
     {
       question: "Y a-t-il un parking ?",
       answer:
-        "Le stationnement dans le quartier de l'hôtel est gratuit, sur le parking d'en face. Les clients des Gateway Suites reçoivent une carte de stationnement, selon disponibilité.",
+        "Le stationnement dans le quartier de l'hôtel est gratuit, sur le parking d'en face. Les clients des Gateway Suites reçoivent une carte de stationnement, selon disponibilité. The Residence of the Old Port a son propre parking privé.",
     },
     {
       question: "Puis-je venir avec mon chien ?",
