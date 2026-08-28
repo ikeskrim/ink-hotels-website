@@ -108,3 +108,8 @@ qa/shots/
 # moves the original into _processed so you can see what has been through.
 /incoming/*
 !/incoming/README.md
+
+# Written by `node scripts/media-manifest.mjs` — the lines it suggests adding
+# above. A scratch output, not a source of truth; the manifest itself is
+# MEDIA-MANIFEST.md, which is committed.
+/.gitignore.media
