@@ -208,6 +208,19 @@ One commit each, each pushed, the full sweep green after every one.
 Deferred by the owner: **C2**, the new jacuzzi and breakfast sets, which are
 still being prepared. The intake built in C1 is what they will come in through.
 
+### The four holds, answered 27 Aug 2026
+
+| | the owner's answer | what shipped |
+| --- | --- | --- |
+| **Ikaros** | **Villa Ikaros**, as Crete Holiday Home brands it, parallel to Villa Thetis | five catalogues and the copy patcher |
+| **The nine photographs** | All nine go; the Rethymno-only rule stands | files deleted, keys removed, `WITHDRAWN_FRAMES` added so a regeneration cannot restore them, `NoFrame` for the cards, cross-sell rebalanced so no strip is left picture-less |
+| **Residence parking** | Restore the one line; the B2 facts stay exactly as written | each locale's own sentence recovered from the B2 commit and appended in the three places it was removed from |
+| **Room notes** | Follow the B4 wording — a factual correction, not an inventory change | 60 strings across twelve rooms and five locales, plus a test tying them to the facts line |
+
+A withdrawn arrangement is now described in words alone. No card was given a
+different photograph: a genuine frame of the organic farm on a card headed
+"Massage" is the same lie the stock was, in better clothes.
+
 Three new guards were added and each was proved to bite before it was
 committed — a planted regression failed it, and the revert passed:
 
@@ -215,6 +228,8 @@ committed — a planted regression failed it, and the revert passed:
 - `phone-check.mjs` — extension and WhatsApp, judged per occurrence, by
   distance in rendered text rather than in markup
 - `photos.mjs` — a referenced photograph with no alt text exits 1
+- `housekeeping.test.ts` — sixty room notes held to the facts line they are
+  supposed to agree with, which is how they came to disagree in the first place
 
 ---
 
