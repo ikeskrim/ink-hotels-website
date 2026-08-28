@@ -172,11 +172,11 @@ const KEYS = {
     nl: "Villa's en hotels",
   },
   familyProofVillasBody: {
-    en: "Thalasses Villas, Villa Thetis, Ikaros, Casa Vitae and a dozen more along this coast — the same family, the same standards.",
-    el: "Thalasses Villas, Villa Thetis, Ikaros, Casa Vitae και άλλες δώδεκα σε αυτή την ακτή — η ίδια οικογένεια, οι ίδιες προδιαγραφές.",
-    de: "Thalasses Villas, Villa Thetis, Ikaros, Casa Vitae und ein Dutzend weitere an dieser Küste — dieselbe Familie, dieselben Maßstäbe.",
-    fr: "Thalasses Villas, Villa Thetis, Ikaros, Casa Vitae et une douzaine d'autres sur cette côte — la même famille, les mêmes exigences.",
-    nl: "Thalasses Villas, Villa Thetis, Ikaros, Casa Vitae en een dozijn andere aan deze kust — dezelfde familie, dezelfde maatstaven.",
+    en: "Thalasses Villas, Villa Thetis, Villa Ikaros, Casa Vitae and a dozen more along this coast — the same family, the same standards.",
+    el: "Thalasses Villas, Villa Thetis, Villa Ikaros, Casa Vitae και άλλες δώδεκα σε αυτή την ακτή — η ίδια οικογένεια, οι ίδιες προδιαγραφές.",
+    de: "Thalasses Villas, Villa Thetis, Villa Ikaros, Casa Vitae und ein Dutzend weitere an dieser Küste — dieselbe Familie, dieselben Maßstäbe.",
+    fr: "Thalasses Villas, Villa Thetis, Villa Ikaros, Casa Vitae et une douzaine d'autres sur cette côte — la même famille, les mêmes exigences.",
+    nl: "Thalasses Villas, Villa Thetis, Villa Ikaros, Casa Vitae en een dozijn andere aan deze kust — dezelfde familie, dezelfde maatstaven.",
   },
   familyProofOfficesTerm: {
     en: "Three offices",
