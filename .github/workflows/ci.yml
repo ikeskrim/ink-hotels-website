@@ -117,6 +117,11 @@ jobs:
         env:
           BASE: http://localhost:3000
 
+      - name: Header — the bar follows the ground it is over
+        run: node scripts/header-ground-check.mjs
+        env:
+          BASE: http://localhost:3000
+
       - name: Phones — no number without its extension and WhatsApp
         run: node scripts/phone-check.mjs
         env:

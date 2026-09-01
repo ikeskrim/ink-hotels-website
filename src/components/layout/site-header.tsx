@@ -12,6 +12,7 @@ import { contact, nav } from "@/content/site";
 import { houses, roomsInHouse } from "@/content/rooms";
 import { experienceGroups } from "@/content/experiences";
 import { Wordmark } from "@/components/layout/wordmark";
+import { useGroundUnder, isDarkGround } from "@/components/layout/use-ground-under";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { useI18n } from "@/i18n/provider";
 import { label } from "@/i18n/labels";
@@ -24,39 +25,41 @@ import { EASE } from "@/components/motion/reveal";
  * the moment they scroll up — so the booking action is never more than a
  * flick away, without the bar squatting over the photography.
  */
+/* The bar is 72px on small screens and 80px from `lg`. The detection band is
+   placed at the smaller of the two, so on a wide viewport it sits just inside
+   the bar rather than just below it — which is the right side to err on: the
+   ground that matters is the one the lockup is actually drawn over. */
+const HEADER_HEIGHT = 72;
+
 export function SiteHeader() {
   const pathname = usePathname();
   const { locale, m } = useI18n();
-  const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openPanel, setOpenPanel] = useState<"rooms" | "experiences" | null>(null);
   const lastY = useRef(0);
   const reduced = useReducedMotion();
 
-  /* Compared against the canonical path so the locale prefix does not change
-     which pages are treated as having a full-bleed hero. */
-  const path = stripLocale(pathname).path;
+  /* The bar's colour follows the ground it is standing on, measured rather
+     than assumed.
 
-  /* Pages that open with a full-bleed hero want a transparent bar to begin
-     with — and ONLY those. Over photography the lockup goes white; over the
-     paper ground it must not. The detail pages under /rooms/ and
-     /experiences/ were on this list and open on paper, so the mark was drawn
-     in cream on cream and all but vanished. If a page is added here it must
-     genuinely start with a photograph behind the bar. */
-  const overHero =
-    path === "/" ||
-    path === "/gallery" ||
-    path === "/location" ||
-    path === "/rethymno" ||
-    path === "/arrival" ||
-    path === "/experiences" ||
-    path === "/rooms";
+     This was a hand-maintained list of routes that "open with a full-bleed
+     hero", carrying a comment asking the next person to keep it honest. It was
+     wrong in two ways at once: it goes stale the moment a page is added by
+     somebody who does not read the comment, and it can only describe the top
+     of a page — it had nothing to say about scrolling from a paper section
+     onto an ink one, so the header simply took its paper bar after 24px and
+     stayed there for the rest of every page.
+
+     Every section already declares `data-ground`, and PageHero declares `ink`
+     because a full-bleed photograph is a dark ground. So the answer was
+     already in the DOM. */
+  const ground = useGroundUnder(HEADER_HEIGHT, pathname);
+  const overDark = isDarkGround(ground);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setScrolled(y > 24);
       setHidden(y > 560 && y > lastY.current && !menuOpen && !openPanel);
       lastY.current = y;
     };
@@ -87,7 +90,17 @@ export function SiteHeader() {
     };
   }, [menuOpen]);
 
-  const inked = scrolled || !overHero || openPanel !== null;
+  /* The bar goes solid when it is over a light ground, and whenever a
+     navigation panel is open — a panel needs its own opaque surface whatever
+     is behind it.
+
+     Scroll position no longer decides the colour at all — it used to flip the
+     bar solid after 24px and leave it there. Over a dark section the lockup
+     now stays white however far down the page the reader is, which is the
+     behaviour the route list could not express. Until the observer has reported, `ground` is undefined and
+     `isDarkGround` returns false, so the server-rendered appearance is the
+     solid bar — legible on anything, and no flash of white-on-white. */
+  const inked = !overDark || openPanel !== null;
 
   return (
     <>
@@ -103,6 +116,15 @@ export function SiteHeader() {
             : "border-b border-transparent bg-transparent text-paper",
         )}
         onMouseLeave={() => setOpenPanel(null)}
+        /* What the bar has decided, and what it decided it from. Read by
+           scripts/header-ground-check.mjs, which computes the ground under the
+           bar independently from the DOM and compares. Asserting on the
+           computed background colour instead was flaky: the bar transitions
+           over 700ms and a reading taken mid-transition sees an intermediate
+           alpha, which is neither transparent nor solid. State is a fact;
+           a colour part-way through an animation is not. */
+        data-bar={inked ? "solid" : "transparent"}
+        data-over={ground ?? ""}
       >
         <div className="mx-auto flex h-[72px] w-full max-w-[1680px] items-center justify-between gap-6 px-6 sm:px-8 lg:h-20 lg:px-12">
           <Link

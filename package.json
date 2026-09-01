@@ -23,6 +23,7 @@
     "keyboard": "node scripts/keyboard-check.mjs",
     "schema": "node --import tsx scripts/schema-check.mjs",
     "phones": "node scripts/phone-check.mjs",
+    "header": "node scripts/header-ground-check.mjs",
     "shots": "node scripts/shots.mjs",
     "redirects:doc": "node scripts/write-redirects-doc.mjs",
     "photos": "node scripts/photos.mjs",
