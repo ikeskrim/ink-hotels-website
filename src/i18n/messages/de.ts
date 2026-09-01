@@ -23,6 +23,7 @@ export const de: Messages = {
   },
 
   actions: {
+    checkAvailability: "Verfügbarkeit prüfen",
     bookNow: "Buchen",
     askUs: "Fragen Sie uns",
     seeRooms: "Wo Sie schlafen",

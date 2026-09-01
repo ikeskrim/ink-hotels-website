@@ -23,6 +23,7 @@ export const el: Messages = {
   },
 
   actions: {
+    checkAvailability: "Δείτε διαθεσιμότητα",
     bookNow: "Κράτηση",
     askUs: "Ρωτήστε μας",
     seeRooms: "Πού κοιμάστε",

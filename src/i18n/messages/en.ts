@@ -31,6 +31,7 @@ export const en = {
   },
 
   actions: {
+    checkAvailability: "Check availability",
     bookNow: "Book now",
     askUs: "Ask us",
     seeRooms: "Where you sleep",

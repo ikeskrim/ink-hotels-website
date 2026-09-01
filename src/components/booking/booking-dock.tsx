@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-import { contact } from "@/content/site";
 import { useI18n } from "@/i18n/provider";
 import { Concierge, ConciergeButton, useConcierge } from "./concierge";
 import { EASE } from "@/components/motion/reveal";
 import { useReserveHref } from "@/components/booking/reserve-link";
+import { BookingSheet } from "@/components/booking/booking-sheet";
 
 /**
  * The persistent booking affordance.
@@ -26,6 +26,7 @@ export function BookingDock() {
      engine on that room rather than on the list the reader just left. */
   const { href: reserveHref } = useReserveHref();
   const [visible, setVisible] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const [atBookingSection, setAtBookingSection] = useState(false);
   const { open, setOpen } = useConcierge();
   const reduced = useReducedMotion();
@@ -66,42 +67,17 @@ export function BookingDock() {
             className="fixed inset-x-0 bottom-0 z-[120] lg:hidden"
             style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
           >
-            <div
-              data-ground="ink"
-              className="flex items-stretch border-t border-paper/15"
-            >
-              {/* WhatsApp rather than the concierge panel, on small screens
-                  only. A guest on a phone in a foreign old town wants the
-                  thread they already have open, not a panel inside a website;
-                  and unlike the panel it survives them closing the tab.
-                  The desktop dock keeps the concierge. */}
-              <a
-                href={contact.whatsapp.url(m.concierge.whatsappGreeting)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="label flex w-[40%] items-center justify-center gap-2 py-4 text-paper"
-              >
-                <MessageCircle
-                  className="h-3.5 w-3.5"
-                  strokeWidth={1.75}
-                  aria-hidden="true"
-                />
-                WhatsApp
-              </a>
-              <a
-                href={reserveHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="label flex flex-1 items-center justify-center gap-2 bg-sea py-4 text-paper"
-              >
-                {m.actions.bookNow}
-                <ArrowUpRight
-                  className="h-3.5 w-3.5"
-                  strokeWidth={1.75}
-                  aria-hidden="true"
-                />
-              </a>
-            </div>
+            {/* The mobile affordance is a sheet now, not a bar of two
+                links: the bar is its collapsed state, and dragging it up
+                opens the availability form in place. Replacing the bar rather
+                than sitting beside it, because two floating booking controls
+                on one screen is the noise this component's own note warns
+                about. */}
+            <BookingSheet
+              open={sheetOpen}
+              onOpenChange={setSheetOpen}
+              reserveHref={reserveHref}
+            />
           </motion.div>
         )}
       </AnimatePresence>
