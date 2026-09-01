@@ -14,6 +14,8 @@ import { TourFacade } from "@/components/rooms/tour-facade";
 import { AvailabilityForm } from "@/components/booking/availability-form";
 import { BookDirect } from "@/components/booking/book-direct";
 import { InkAnchor } from "@/components/ui/ink-link";
+import { AmenityGrid } from "@/components/rooms/amenity-grid";
+import { hasAmenityMedia } from "@/content/amenity-media";
 
 /**
  * The suite page, rebuilt on lead-with-distinction.
@@ -222,20 +224,32 @@ export function SuiteTemplate({
                   headingLevel={3}
                   meta={String(room.amenities.length)}
                 >
-                  <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
-                    {room.amenities.map((a) => (
-                      <li
-                        key={a}
-                        className="flex items-baseline gap-3 border-b border-[color:var(--hairline)] pb-3"
-                      >
-                        <span
-                          aria-hidden="true"
-                          className="block h-px w-3 shrink-0 translate-y-[-0.35em] bg-[color:var(--border)]"
-                        />
-                        {a}
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Where a suite has photography that genuinely shows its
+                      features — Evexia's hot tub over the water, Harmony's
+                      plunge pool — the list becomes a grid that reveals them.
+                      It replaces the list rather than joining it: the same
+                      thirteen amenities twice on one page is not richer, it is
+                      just longer. Every other suite keeps the list, because a
+                      grid whose every cell is type is a list with more
+                      chrome. */}
+                  {hasAmenityMedia(room.slug) ? (
+                    <AmenityGrid slug={room.slug} amenities={room.amenities} />
+                  ) : (
+                    <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                      {room.amenities.map((a) => (
+                        <li
+                          key={a}
+                          className="flex items-baseline gap-3 border-b border-[color:var(--hairline)] pb-3"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="block h-px w-3 shrink-0 translate-y-[-0.35em] bg-[color:var(--border)]"
+                          />
+                          {a}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </AccordionItem>
               </Accordion>
 
