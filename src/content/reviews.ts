@@ -114,9 +114,10 @@ export interface Score {
 }
 
 /**
- * Verified by the owner and supplied 1 September 2026. If any of these were
- * actually read off the platform on an earlier date, correct `reviewedOn` —
- * it is the date the number was seen, not the date it was typed here.
+ * Read off the platforms by the owner on 28 August 2026. That is the date the
+ * numbers were seen, not the date they were typed here — the distinction
+ * matters, because the figures move and a page that claims to have checked
+ * today when it checked last week is making a small false claim about itself.
  */
 export const scores: readonly Score[] = [
   {
@@ -125,7 +126,7 @@ export const scores: readonly Score[] = [
     value: 8.8,
     outOf: 10,
     count: 109,
-    reviewedOn: "2026-09-01",
+    reviewedOn: "2026-08-28",
   },
   {
     listing: "Ink Hotel Phos",
@@ -133,7 +134,7 @@ export const scores: readonly Score[] = [
     value: 8.7,
     outOf: 10,
     count: 198,
-    reviewedOn: "2026-09-01",
+    reviewedOn: "2026-08-28",
   },
   {
     listing: "House of Europe",
@@ -141,7 +142,7 @@ export const scores: readonly Score[] = [
     value: 8.3,
     outOf: 10,
     count: 417,
-    reviewedOn: "2026-09-01",
+    reviewedOn: "2026-08-28",
   },
   {
     listing: "Elpida",
@@ -149,7 +150,7 @@ export const scores: readonly Score[] = [
     value: 4.88,
     outOf: 5,
     count: 32,
-    reviewedOn: "2026-09-01",
+    reviewedOn: "2026-08-28",
     roomSlug: "elpida",
   },
   {
@@ -158,7 +159,7 @@ export const scores: readonly Score[] = [
     value: 4.81,
     outOf: 5,
     count: 31,
-    reviewedOn: "2026-09-01",
+    reviewedOn: "2026-08-28",
     roomSlug: "harmony",
   },
   {
@@ -167,7 +168,7 @@ export const scores: readonly Score[] = [
     value: 4.9,
     outOf: 5,
     count: 10,
-    reviewedOn: "2026-09-01",
+    reviewedOn: "2026-08-28",
     roomSlug: "pathos",
   },
 ];
