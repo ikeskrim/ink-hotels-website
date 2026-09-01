@@ -8,6 +8,9 @@ import {
   reviewsForRoom,
   scoreForRoom,
   scores,
+  STRIP_MAX,
+  SUITE_MAX,
+  suiteQuotes,
 } from "@/content/reviews";
 import { rooms } from "@/content/rooms";
 import { localiseReviews } from "@/i18n/content";
@@ -380,5 +383,82 @@ test("elisions survive translation", () => {
         `${locale}: ${r.name} lost its ellipsis in translation`,
       );
     }
+  }
+});
+
+/* ── what each page shows ────────────────────────────────────────────────── */
+
+/**
+ * Two is the owner's number, so it is written here as 2 rather than as
+ * SUITE_MAX. Asserting `length <= SUITE_MAX` would pass at any cap: raise the
+ * constant to three and the bar rises with it, which is a test agreeing with
+ * whatever the code currently does. This one disagrees.
+ */
+test("a suite page shows at most two quotes", () => {
+  assert.equal(SUITE_MAX, 2, "the owner's decision was two per suite");
+  for (const room of rooms) {
+    const shown = suiteQuotes(room.slug);
+    assert.ok(
+      shown.length <= 2,
+      `${room.slug}: ${shown.length} quotes, more than the two the owner asked for`,
+    );
+    for (const r of shown) {
+      assert.equal(
+        r.roomSlug,
+        room.slug,
+        `${room.slug}: showing ${r.name}, who is pinned to ${r.roomSlug ?? "no room"}`,
+      );
+    }
+    assert.equal(
+      new Set(shown).size,
+      shown.length,
+      `${room.slug}: the same quote twice`,
+    );
+  }
+});
+
+/**
+ * The point of capping a suite at two is that the leftover goes to the strip.
+ * If a pinned quote appears on neither, the cap did not free it — it buried
+ * it, and the site is holding a real guest's words where nobody can read them.
+ */
+test("every pinned quote is visible somewhere", () => {
+  const inStrip = new Set(reviews.slice(0, STRIP_MAX));
+  const onSuitePages = new Set(rooms.flatMap((room) => [...suiteQuotes(room.slug)]));
+  for (const r of reviews) {
+    if (!r.roomSlug) continue;
+    assert.ok(
+      inStrip.has(r) || onSuitePages.has(r),
+      `${r.name} is pinned to ${r.roomSlug} but appears in neither the strip nor a suite page`,
+    );
+  }
+});
+
+/**
+ * The selection is deterministic — no clock, no request, no random seed —
+ * because these pages are rendered once at build time. A "rotation" that
+ * changes on redeploy is a shuffle, not a rotation, and the owner ruled it
+ * out. Calling twice must give the same answer.
+ */
+test("the choice is stable", () => {
+  for (const room of rooms) {
+    const a = suiteQuotes(room.slug).map((r) => `${r.name}-${r.year}`);
+    const b = suiteQuotes(room.slug).map((r) => `${r.name}-${r.year}`);
+    assert.deepEqual(a, b, `${room.slug}: two calls, two answers`);
+  }
+});
+
+test("a suite with more quotes than it can show prefers one the strip misses", () => {
+  const inStrip = new Set(reviews.slice(0, STRIP_MAX));
+  for (const room of rooms) {
+    const pinned = reviewsForRoom(room.slug);
+    if (pinned.length <= SUITE_MAX) continue;
+    const missedByStrip = pinned.filter((r) => !inStrip.has(r));
+    if (!missedByStrip.length) continue;
+    const shown = suiteQuotes(room.slug);
+    assert.ok(
+      missedByStrip.some((r) => shown.includes(r)),
+      `${room.slug}: the strip does not reach ${missedByStrip.map((r) => r.name).join(", ")}, and neither does the suite page`,
+    );
   }
 });

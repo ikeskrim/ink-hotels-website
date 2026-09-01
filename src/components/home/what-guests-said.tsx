@@ -1,6 +1,6 @@
 import { Container, Heading, Section } from "@/components/ui/section";
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
-import { hasReviews, STRIP_MAX } from "@/content/reviews";
+import { hasReviews, STRIP_MAX, suiteQuotes } from "@/content/reviews";
 import { localiseReviews, type LocalisedReview } from "@/i18n/content";
 import { getMessages } from "@/i18n";
 import type { Messages } from "@/i18n/messages/en";
@@ -102,19 +102,15 @@ export function WhatGuestsSaid({
 }
 
 /**
- * The quotes on one room's page.
+ * The quotes on one suite's page.
  *
- * All of them, up to three, rather than one at a time. The owner asked for the
- * three Harmony quotes to rotate, and a statically rendered page has nothing
- * to rotate on: no request, no clock, no seed. Anything that looked like
- * rotation would either break static generation or be a random pick that
- * changes on redeploy for no reason a reader could perceive. Three quotes
- * about the same suite, all visible, is the stronger page anyway — one
- * testimonial reads as the one they had, three read as a pattern.
+ * Static, and at most two — the owner's decision of 1 September 2026, which
+ * closed the rotation question: no client-side rotation component. Two quotes
+ * still read as a pattern rather than as the one review they had, and the
+ * quote left over goes to the homepage strip instead of being spent here.
  *
- * If genuine one-at-a-time rotation is wanted later it needs a client
- * component or per-request rendering, and that is a trade worth stating
- * before making.
+ * Which two is `suiteQuotes`, in content/reviews.ts, where it can be tested
+ * without a renderer. This component only draws what it is handed.
  */
 export function RoomQuote({
   slug,
@@ -123,9 +119,14 @@ export function RoomQuote({
   slug: string;
   locale?: Locale;
 }) {
-  const forRoom = localiseReviews(locale)
-    .filter((r) => r.roomSlug === slug)
-    .slice(0, 3);
+  /* Chosen from the source list, then matched up with the reader's language.
+     Selecting on the localised list instead would work today and break the
+     day a gloss is missing and a quote falls back to another language. */
+  const chosen = suiteQuotes(slug).map((r) => `${r.name}-${r.year}`);
+  const localised = localiseReviews(locale);
+  const forRoom = chosen
+    .map((key) => localised.find((r) => `${r.name}-${r.year}` === key))
+    .filter((r): r is NonNullable<typeof r> => Boolean(r));
   if (!forRoom.length) return null;
   const m = getMessages(locale);
 

@@ -288,13 +288,66 @@ export const reviews: readonly Review[] = [
  */
 export const MINIMUM_TO_SHOW = 6;
 
-/** Quotes to show on a given room's page. */
+/** Every quote pinned to a room, in source order. */
 export function reviewsForRoom(slug: string): readonly Review[] {
   return reviews.filter((r) => r.roomSlug === slug);
 }
 
+/**
+ * How many a suite page shows. The owner's decision, 1 September 2026: two,
+ * and static — no client-side rotation component.
+ */
+export const SUITE_MAX = 2;
+
+/**
+ * The quotes a suite page shows.
+ *
+ * Two rules, in order, and the first one is the reason the cap exists.
+ *
+ * A quote the strip is already showing adds nothing on the suite page, so the
+ * ones the strip does NOT reach are preferred. Harmony is the case: three
+ * quotes, of which the strip shows two, and without this rule the suite page
+ * would show those same two and the third would appear nowhere on the site.
+ * With it, the suite page takes the one the strip cannot reach and the strip
+ * keeps the other — every quote has a home, which is what "the third stays
+ * available for the homepage strip" has to mean to be worth saying.
+ *
+ * Then diversity: of the rest, prefer a quote from a different platform or a
+ * different language, so a suite is not represented by two versions of the
+ * same voice. Harmony's three are all English Booking.com reviews, so there is
+ * nothing to choose between them and it falls through to source order — which
+ * is fine, and stated rather than hidden.
+ *
+ * Deterministic throughout. Nothing here depends on a clock, a request or a
+ * random seed, because these pages are rendered once at build time and a
+ * "rotation" that changes on redeploy is not a rotation, it is a shuffle
+ * nobody asked for.
+ */
+export function suiteQuotes(slug: string): readonly Review[] {
+  const mine = reviewsForRoom(slug);
+  if (mine.length <= SUITE_MAX) return mine;
+
+  const inStrip = new Set(reviews.slice(0, STRIP_MAX));
+  /* Stable sort: quotes the strip does not show come first, and ties keep
+     source order. */
+  const ranked = [...mine].sort(
+    (a, b) => Number(inStrip.has(a)) - Number(inStrip.has(b)),
+  );
+
+  const voice = (r: Review) => `${r.platform}|${r.originalLanguage ?? "en"}`;
+  const first = ranked[0]!;
+  const second =
+    ranked.slice(1).find((r) => voice(r) !== voice(first)) ?? ranked[1]!;
+  return [first, second];
+}
+
 /** Whether there is enough to show a strip at all. */
 export const hasReviews = reviews.length >= MINIMUM_TO_SHOW;
+
+/* STRIP_MAX is declared below and used by suiteQuotes above it; both are
+   module-level constants, so the hoisting is safe and the reading order —
+   strip first, then what the suite pages take from what is left — matches the
+   order the decisions were made in. */
 
 /**
  * How many the strip shows, which is a different question from whether it
