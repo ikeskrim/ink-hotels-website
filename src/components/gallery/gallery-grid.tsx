@@ -2,6 +2,10 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import {
+  RippleFilter,
+  useRippleFilter,
+} from "@/components/media/ripple-filter";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 
@@ -44,6 +48,7 @@ export function GalleryGrid({
   const [filter, setFilter] = useState("all");
   const [open, setOpen] = useState<number | null>(null);
   const reduced = useReducedMotion();
+  const { id: rippleId, url: rippleUrl } = useRippleFilter();
   const triggerRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const visible = useMemo(
@@ -140,6 +145,8 @@ export function GalleryGrid({
           3:2 because the library is almost entirely landscape — the ratio the
           photographs were actually shot in, so the crop takes the edges rather
           than the subject. */}
+      <RippleFilter id={rippleId} />
+
       <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         {visible.map((item, i) => (
           <li key={item.src}>
@@ -164,7 +171,29 @@ export function GalleryGrid({
                    for the same pipe. Measured: eight took /gallery to 84, four
                    puts it back. */
                 loading={i < 4 ? "eager" : "lazy"}
-                className="object-cover transition-transform duration-[1100ms] ease-settle group-hover:scale-[1.04]"
+                /* The ripple, on hover, for the water this hotel sells.
+                   One filter is defined for the whole grid and referenced
+                   here, so the page carries a single definition rather than
+                   one per tile, and at most one tile is ever being filtered.
+
+                   Guarded three ways: only where a pointer can actually
+                   hover, so a phone never rasterises it; only on hover, so
+                   nothing is composited at rest; and not at all under reduced
+                   motion.
+
+                   All three live in the one media query that applies the
+                   filter, which took two wrong turns to arrive at. Pairing an
+                   inline `--ripple` with a `motion-reduce:[filter:none]` class
+                   failed because an inline style beats any class. Withholding
+                   the variable from JavaScript failed too — the hook did not
+                   report the preference in the harness, and a guard that
+                   depends on hydration is a guard that is absent on first
+                   paint. The condition is now part of the rule that applies
+                   the effect, so there is nothing to override and nothing to
+                   wait for. Both failures were found by probing with
+                   reducedMotion="reduce", not by reasoning about it. */
+                style={{ ["--ripple" as string]: rippleUrl }}
+                className="object-cover transition-transform duration-[1100ms] ease-settle group-hover:scale-[1.04] [@media(hover:hover)_and_(prefers-reduced-motion:no-preference)]:group-hover:[filter:var(--ripple)]"
               />
               <span className="absolute inset-0 bg-ink/0 transition-colors duration-500 ease-settle group-hover:bg-ink/15" />
 
