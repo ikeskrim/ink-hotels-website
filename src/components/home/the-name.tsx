@@ -7,6 +7,7 @@ import { Container, Heading, Section } from "@/components/ui/section";
 import { InkLink } from "@/components/ui/ink-link";
 import { TheWriting } from "@/components/brand/the-writing";
 import { EASE, useEntrance } from "@/components/motion/reveal";
+import { StampText } from "@/components/motion/stamp-text";
 import { useI18n } from "@/i18n/provider";
 import { localePath } from "@/i18n/config";
 
@@ -83,8 +84,12 @@ export function TheName({ mode = "masthead" }: { mode?: "masthead" | "written" }
             {m.home.pressEyebrow}
           </motion.p>
 
+          {/* The sentence about a printing press is set BY one: struck
+              character by character rather than faded in. The section already
+              locks the word INK into a forme below; this is the same gesture
+              applied to the line that explains it. */}
           <Heading size="d3" className="mb-8 text-balance text-paper">
-            {m.home.pressTitle}
+            <StampText>{m.home.pressTitle}</StampText>
           </Heading>
 
           <p className="font-display text-[length:var(--text-d4)] italic text-phos">
