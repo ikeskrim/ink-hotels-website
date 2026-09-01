@@ -18,7 +18,7 @@
  * and Dutch, German is not a half-finished locale, it is the same locale in
  * the same state as the others.
  */
-import { launch } from "./lib/browser.mjs";
+import { launch, goto } from "./lib/browser.mjs";
 
 const BASE = process.env.BASE ?? "http://localhost:3000";
 const LOCALES = ["el", "de", "fr", "nl"];
@@ -36,15 +36,35 @@ const page = await ctx.newPage();
 
 const rows = [];
 
+/* Navigation goes through the shared helper. It was `page.goto` with
+   Playwright's 30-second default, and /story timed out on CI the day the guest
+   quotes were added to it — a heavier page on a cold runner, exactly the
+   failure lib/browser.mjs was written for. `domcontentloaded` is kept rather
+   than dropped to `commit`: this check counts prose blocks, and a page read
+   half-rendered would report FEWER matching blocks and pass. Slower is fine.
+   Wrong-and-green is not. */
+const NAV = { waitUntil: "domcontentloaded", waitFor: "main" };
+
+/** Below this, the page did not really render and any leakage figure is a lie. */
+const MIN_BLOCKS = 5;
+
 for (const path of PAGES) {
-  await page.goto(BASE + path, { waitUntil: "domcontentloaded" });
+  await goto(page, BASE + path, NAV);
   const en = new Set(await page.evaluate(collect));
+  if (en.size < MIN_BLOCKS) {
+    console.error(`
+${path} yielded only ${en.size} text blocks in English — the page did not render, and every comparison against it would be meaningless.`);
+    process.exit(1);
+  }
 
   for (const locale of LOCALES) {
-    await page.goto(`${BASE}/${locale}${path === "/" ? "" : path}`, {
-      waitUntil: "domcontentloaded",
-    });
+    await goto(page, `${BASE}/${locale}${path === "/" ? "" : path}`, NAV);
     const blocks = await page.evaluate(collect);
+    if (blocks.length < MIN_BLOCKS) {
+      console.error(`
+/${locale}${path} yielded only ${blocks.length} text blocks — the page did not render, so "no leakage" here would be a false pass.`);
+      process.exit(1);
+    }
     const same = blocks.filter((t) => en.has(t));
     rows.push({ path, locale, total: blocks.length, leaked: same.length, samples: same });
   }
