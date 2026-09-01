@@ -548,6 +548,50 @@ export const nl: ContentText = {
     ],
   },
 
+  /* Glosses of the guest quotes, not replacements for them. The English
+     original in content/reviews.ts stays the source of truth; each of these is
+     shown with a line saying it is a translation, because a guest wrote their
+     review in one language and presenting a translation as their words,
+     unmarked, is the same class of problem as writing the review. */
+  reviews: {
+    "Mattias-2024": {
+      text: "Dit was een van de beste hotels waar ik ooit heb gelogeerd. De ligging is perfect, aan de rand van de oude stad, op loopafstand van het strand… Mijn vriendin en ik verbleven in de deluxe suite met het eigen dompelbad, en dat was zowel heel romantisch als heel welkom in de warme Kretenzische zomer.",
+    },
+    "Karla-2024": {
+      text: "Een verborgen parel in de oude stad van Rethymno. Het knusse ontwerp van de suite, het comfortabele bed en het warme dompelbad overtroffen onze verwachtingen. De vriendelijke bediening van het personeel maakte ons verblijf onvergetelijk.",
+    },
+    "Emily-2025": {
+      text: "Ik had de suite met bubbelbad geboekt — gewoon fantastisch. Zo ontspannend. Mooie ligging, dicht bij zee, in een rustige binnenplaats. Vriendelijk personeel dat me erg welkom liet voelen!",
+    },
+    "Miltos-2025": {
+      text: "We hadden een geweldige overnachting… de jacuzzi buiten was het hoogtepunt. Er was op veel details gelet — raki en pinda's, en er stond cake klaar op de kamer, plus volop handdoeken en slippers.",
+    },
+    "Steven-2026": {
+      text: "We werden hartelijk ontvangen door Manu!! De suites liggen aan de rustige kant van Rethymno, in het centrum maar niet dicht bij de clubs. De kamers zijn geweldig, de jacuzzi is top!",
+    },
+    "Alessandra-2025": {
+      text: "Uitzonderlijke plek, met veel aandacht voor de service… Het privébad werd zeer gewaardeerd. Het personeel was heel behulpzaam en vriendelijk en hielp ons zelfs met parkeren.",
+    },
+    "Carole-2025": {
+      text: "Alles was perfect! De kamer met het bubbelbad was echt mooi en comfortabel, de ligging was geweldig en Emmanuel bij de receptie heel behulpzaam en vriendelijk, maar professioneel!",
+    },
+    "Sarah-2025": {
+      text: "De stijl van Gateway Suites, de ligging en het personeel maakten het verblijf perfect! De tweede keer dat ik hier logeer… De bedden zijn supercomfortabel en de kamers brandschoon!",
+    },
+    "Harald-2025": {
+      text: "Heel mooi appartement, pas gerenoveerd en stijlvol. Zeer vriendelijk en behulpzaam personeel. Perfecte ligging om de oude stad te verkennen.",
+    },
+    "Conroy-2024": {
+      text: "Prachtig ingerichte, ongelooflijk schone kamer, met een mooie badkamer en een schitterende buitenruimte! We waren dol op het keukentje, dat volledig was uitgerust, en het personeel was heel gastvrij en vriendelijk.",
+    },
+    "Fabienne-2024": {
+      text: "Ons verblijf in Gateway Suites was alsof je een charmante oase vindt in het hart van de oude stad. Het eigen dompelbad van de suite, perfect verwarmd, was een ontspannen toevluchtsoord.",
+    },
+    "Ankiapp-2024": {
+      text: "Fantastisch hotel in de oude stad… Schone en comfortabele bedden. Het hotelpersoneel stond voor je klaar. Prachtige renovatie… Heerlijke cake en koffie bij de receptie.",
+    },
+  },
+
   faqs: [
     {
       question: "Waar ligt het hotel precies?",

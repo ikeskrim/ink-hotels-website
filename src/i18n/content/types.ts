@@ -77,6 +77,16 @@ export interface ContentText {
   experienceGroups?: Record<string, ExperienceGroupText>;
   places?: Record<string, PlaceText>;
   chapters?: Record<string, ChapterText>;
+  /**
+   * Guest quotes, keyed "Name-Year".
+   *
+   * The English original in content/reviews.ts stays the source of truth and
+   * is never edited by this layer — these are glosses, shown with a line
+   * saying so. A guest wrote their review in one language; presenting a
+   * translation as though it were their words, unmarked, is the same class of
+   * problem as writing the review.
+   */
+  reviews?: Record<string, { text: string }>;
   faqs?: FaqText[];
   arrival?: ArrivalText;
   rethymnoIntro?: { title?: string; lede?: string; body?: string[] };

@@ -541,6 +541,50 @@ export const fr: ContentText = {
     ],
   },
 
+  /* Glosses of the guest quotes, not replacements for them. The English
+     original in content/reviews.ts stays the source of truth; each of these is
+     shown with a line saying it is a translation, because a guest wrote their
+     review in one language and presenting a translation as their words,
+     unmarked, is the same class of problem as writing the review. */
+  reviews: {
+    "Mattias-2024": {
+      text: "C'était l'un des meilleurs hôtels où j'aie séjourné. L'emplacement est parfait, en bordure de la vieille ville, à quelques minutes à pied de la plage… Ma copine et moi étions dans la suite deluxe avec le bassin privé, et c'était à la fois très romantique et très nécessaire dans la chaleur de l'été crétois.",
+    },
+    "Karla-2024": {
+      text: "Un joyau caché dans la vieille ville de Réthymnon. Le design chaleureux de la suite, le lit confortable et le bassin chauffé ont dépassé nos attentes. Le service aimable du personnel a rendu notre séjour mémorable.",
+    },
+    "Emily-2025": {
+      text: "J'avais réservé la suite avec bain à remous — tout simplement fantastique. Si relaxante. Emplacement charmant, près de la mer, dans une cour tranquille. Un personnel aimable qui m'a fait me sentir très bien accueillie !",
+    },
+    "Miltos-2025": {
+      text: "Nous avons passé une excellente nuit… le jacuzzi extérieur était le point fort. Beaucoup de détails ont été soignés — du raki et des cacahuètes, un gâteau qui nous attendait dans la chambre, et des serviettes et chaussons en quantité.",
+    },
+    "Steven-2026": {
+      text: "Nous avons été chaleureusement accueillis par Manu !! Les suites se trouvent du côté calme de Réthymnon, dans le centre mais loin des clubs. Les chambres sont superbes, le jacuzzi au top !",
+    },
+    "Alessandra-2025": {
+      text: "Un endroit exceptionnel, avec beaucoup d'attention portée au service… La baignoire privée a été très appréciée. Le personnel était très serviable et aimable, il nous a même aidés pour le stationnement.",
+    },
+    "Carole-2025": {
+      text: "Tout était parfait ! La chambre avec le balnéo était vraiment agréable et confortable, l'emplacement excellent et Emmanuel à la réception très serviable et sympathique tout en restant professionnel !",
+    },
+    "Sarah-2025": {
+      text: "Le style des Gateway Suites, l'emplacement et le personnel ont rendu le séjour parfait ! C'est la deuxième fois que j'y séjourne… Les lits sont super confortables et les chambres impeccables !",
+    },
+    "Harald-2025": {
+      text: "Très bel appartement, récemment rénové et élégant. Personnel très aimable et serviable. Emplacement parfait pour explorer la vieille ville.",
+    },
+    "Conroy-2024": {
+      text: "Chambre magnifiquement décorée, incroyablement propre, avec une belle salle de bains et un splendide espace extérieur ! Nous avons adoré la kitchenette, entièrement équipée, et le personnel était très accueillant et aimable.",
+    },
+    "Fabienne-2024": {
+      text: "Notre séjour aux Gateway Suites, c'était comme trouver une oasis charmante au cœur de la vieille ville. Le bassin privé de la suite, chauffé à la perfection, offrait une retraite reposante.",
+    },
+    "Ankiapp-2024": {
+      text: "Hôtel fantastique dans la vieille ville… Des lits propres et confortables. Le personnel de l'hôtel était là pour vous. Magnifique rénovation… Un délicieux gâteau et du café à la réception.",
+    },
+  },
+
   faqs: [
     {
       question: "Où se trouve exactement l'hôtel ?",

@@ -385,6 +385,11 @@ export const de: Messages = {
     factReceptionTerm: "Rezeption",
     factReception:
       "Besetzt bis {time}. Spätere Ankünfte werden vorab abgesprochen — nennen Sie uns Ihren Flug, und jemand ist da.",
+    /* Shown under a guest quote that is a gloss rather than the words
+       the guest wrote. The article rides with the language name because
+       the case differs by locale. */
+    translatedFrom: "Aus {language} übersetzt.",
+    langEnglish: "dem Englischen",
     factCheckinTerm: "Check-in & Check-out",
     factCheckin: "Check-in ab {checkin} Uhr. Check-out bis {checkout} Uhr.",
     factBreakfastTerm: "Frühstück",

@@ -57,6 +57,12 @@ export interface Review {
   source?: string;
   /** Optional: also show this on one room's page. */
   roomSlug?: string;
+  /**
+   * The language the guest wrote in, as a locale code. Defaults to English,
+   * which every quote published so far is. It exists so the line under a
+   * translated quote can name the right language rather than assuming.
+   */
+  originalLanguage?: string;
 }
 
 /** Real guest quotes, supplied by the owner. Empty until then. */

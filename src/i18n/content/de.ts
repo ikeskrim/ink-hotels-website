@@ -552,6 +552,50 @@ export const de: ContentText = {
     ],
   },
 
+  /* Glosses of the guest quotes, not replacements for them. The English
+     original in content/reviews.ts stays the source of truth; each of these is
+     shown with a line saying it is a translation, because a guest wrote their
+     review in one language and presenting a translation as their words,
+     unmarked, is the same class of problem as writing the review. */
+  reviews: {
+    "Mattias-2024": {
+      text: "Das war eines der besten Hotels, in denen ich je übernachtet habe. Die Lage ist perfekt, am Rand der Altstadt, zu Fuß zum Strand… Meine Freundin und ich hatten die Deluxe-Suite mit dem privaten Tauchbecken, und das war sowohl sehr romantisch als auch sehr nötig im warmen kretischen Sommer.",
+    },
+    "Karla-2024": {
+      text: "Ein verstecktes Juwel in der Altstadt von Rethymno. Das gemütliche Design der Suite, das bequeme Bett und das warme Tauchbecken haben unsere Erwartungen übertroffen. Der freundliche Service des Personals hat unseren Aufenthalt unvergesslich gemacht.",
+    },
+    "Emily-2025": {
+      text: "Ich hatte die Suite mit Whirlpool gebucht — einfach fantastisch. So erholsam. Schöne Lage, nah am Meer, in einem ruhigen Innenhof. Freundliches Personal, bei dem ich mich sehr willkommen gefühlt habe!",
+    },
+    "Miltos-2025": {
+      text: "Wir hatten eine großartige Übernachtung… der Whirlpool draußen war das Highlight. Auf viele Details wurde geachtet — Raki und Erdnüsse, und im Zimmer wartete Kuchen, dazu reichlich Handtücher und Hausschuhe.",
+    },
+    "Steven-2026": {
+      text: "Wir wurden von Manu herzlich empfangen!! Die Suiten liegen auf der ruhigen Seite von Rethymno, im Zentrum, aber nicht in der Nähe der Clubs. Die Zimmer sind großartig, der Whirlpool ist spitze!",
+    },
+    "Alessandra-2025": {
+      text: "Außergewöhnlicher Ort, mit viel Aufmerksamkeit für den Service… Die private Badewanne wurde sehr geschätzt. Das Personal war sehr hilfsbereit und freundlich und hat uns sogar beim Parken geholfen.",
+    },
+    "Carole-2025": {
+      text: "Alles war perfekt! Das Zimmer mit der Whirlwanne war wirklich schön und bequem, die Lage großartig und Emmanuel an der Rezeption sehr hilfsbereit und freundlich, aber professionell!",
+    },
+    "Sarah-2025": {
+      text: "Der Stil der Gateway Suites, die Lage und das Personal haben den Aufenthalt perfekt gemacht! Das zweite Mal, dass ich hier übernachte… Die Betten sind super bequem und die Zimmer blitzsauber!",
+    },
+    "Harald-2025": {
+      text: "Sehr schöne Wohnung, frisch renoviert und stilvoll. Sehr freundliches und hilfsbereites Personal. Perfekte Lage, um die Altstadt zu erkunden.",
+    },
+    "Conroy-2024": {
+      text: "Wunderschön eingerichtetes, unglaublich sauberes Zimmer, mit einem schönen Bad und einem herrlichen Außenbereich! Die voll ausgestattete Küchenzeile hat uns sehr gefallen, und das Personal war sehr gastfreundlich und nett.",
+    },
+    "Fabienne-2024": {
+      text: "Unser Aufenthalt in den Gateway Suites war, als fände man eine bezaubernde Oase mitten in der Altstadt. Das private Tauchbecken der Suite, perfekt beheizt, war ein erholsamer Rückzugsort.",
+    },
+    "Ankiapp-2024": {
+      text: "Fantastisches Hotel in der Altstadt… Saubere und bequeme Betten. Das Hotelpersonal war für einen da. Wunderschöne Renovierung… Köstlicher Kuchen und Kaffee an der Rezeption.",
+    },
+  },
+
   faqs: [
     {
       question: "Wo genau liegt das Hotel?",

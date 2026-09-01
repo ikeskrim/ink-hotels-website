@@ -383,6 +383,11 @@ export const el: Messages = {
     factReceptionTerm: "Ρεσεψιόν",
     factReception:
       "Ανοιχτά έως τις {time}. Οι αργοπορημένες αφίξεις κανονίζονται εκ των προτέρων — πείτε μας την πτήση σας και κάποιος θα σας περιμένει.",
+    /* Shown under a guest quote that is a gloss rather than the words
+       the guest wrote. The article rides with the language name because
+       the case differs by locale. */
+    translatedFrom: "Μεταφρασμένο από {language}.",
+    langEnglish: "τα αγγλικά",
     factCheckinTerm: "Check-in & check-out",
     factCheckin: "Check-in από τις {checkin}. Check-out έως τις {checkout}.",
     factBreakfastTerm: "Πρωινό",

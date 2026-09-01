@@ -403,6 +403,11 @@ export const en = {
        readable. `{languages}` and `{time}` are filled at render. */
     factReceptionTerm: "Reception",
     factReception: "Open until {time}. Later arrivals are arranged in advance — tell us your flight and somebody will be there.",
+    /* Shown under a guest quote that is a gloss rather than the words
+       the guest wrote. The article rides with the language name because
+       the case differs by locale. */
+    translatedFrom: "Translated from {language}.",
+    langEnglish: "English",
     factCheckinTerm: "Check-in & check-out",
     factCheckin: "Check-in from {checkin}. Check-out by {checkout}.",
     factBreakfastTerm: "Breakfast",

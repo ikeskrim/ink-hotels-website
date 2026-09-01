@@ -10,6 +10,8 @@ import {
   scores,
 } from "@/content/reviews";
 import { rooms } from "@/content/rooms";
+import { localiseReviews } from "@/i18n/content";
+import { locales } from "@/i18n/config";
 
 /**
  * Guest quotes and scores are the one kind of content on this site that a
@@ -272,6 +274,64 @@ test("a quote pinned to a suite is consistent with that suite", () => {
       assert.ok(
         hotTub.has(r.roomSlug),
         `${r.name}: mentions a hot tub but is pinned to ${r.roomSlug}`,
+      );
+    }
+  }
+});
+
+/* ── translations ────────────────────────────────────────────────────────── */
+
+/**
+ * A gloss is shown in place of the guest's words, so two things have to hold:
+ * every locale has one for every quote, and the flag that puts "translated"
+ * under it is set from whether a gloss was actually used rather than from the
+ * locale. The second is the one that could go wrong quietly — a missing
+ * translation falls back to English, and English presented under a line saying
+ * "translated from English" would be absurd.
+ */
+test("every quote is glossed in every locale, and says so", () => {
+  for (const locale of locales) {
+    const localised = localiseReviews(locale);
+    assert.equal(localised.length, reviews.length, `${locale}: lost a quote`);
+
+    for (const r of localised) {
+      const original = reviews.find((x) => x.name === r.name && x.year === r.year);
+      assert.ok(original, `${locale}: ${r.name} is not in the source list`);
+
+      if (locale === "en") {
+        assert.equal(r.translated, false, `${locale}: ${r.name} claims to be translated`);
+        assert.equal(r.text, original.text, `${locale}: ${r.name} was altered`);
+        continue;
+      }
+
+      assert.equal(
+        r.translated,
+        true,
+        `${locale}: ${r.name} has no gloss and falls back to English`,
+      );
+      assert.notEqual(
+        r.text,
+        original.text,
+        `${locale}: ${r.name} is flagged as translated but is the English text`,
+      );
+      assert.ok(r.text.trim().length > 0, `${locale}: ${r.name} has an empty gloss`);
+    }
+  }
+});
+
+/**
+ * An ellipsis marks an elided passage. It has to survive translation, or the
+ * gloss presents an excerpt as a whole review — the same misrepresentation the
+ * verbatim rule exists to prevent, one language over.
+ */
+test("elisions survive translation", () => {
+  for (const locale of locales) {
+    for (const r of localiseReviews(locale)) {
+      const original = reviews.find((x) => x.name === r.name && x.year === r.year);
+      if (!original?.text.includes("…")) continue;
+      assert.ok(
+        r.text.includes("…"),
+        `${locale}: ${r.name} lost its ellipsis in translation`,
       );
     }
   }

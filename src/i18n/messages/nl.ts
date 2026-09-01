@@ -385,6 +385,11 @@ export const nl: Messages = {
     factReceptionTerm: "Receptie",
     factReception:
       "Open tot {time}. Latere aankomsten regelen we vooraf — geef uw vlucht door en er is iemand aanwezig.",
+    /* Shown under a guest quote that is a gloss rather than the words
+       the guest wrote. The article rides with the language name because
+       the case differs by locale. */
+    translatedFrom: "Vertaald uit {language}.",
+    langEnglish: "het Engels",
     factCheckinTerm: "In- en uitchecken",
     factCheckin: "Inchecken vanaf {checkin} uur. Uitchecken vóór {checkout} uur.",
     factBreakfastTerm: "Ontbijt",

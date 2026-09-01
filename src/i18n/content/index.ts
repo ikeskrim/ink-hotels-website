@@ -17,6 +17,7 @@ import { places as enPlaces, history as enHistory, neighbourhood as enNeighbourh
 import { chapters as enChapters, rethymnoIntro as enIntro, type Chapter } from "@/content/rethymno";
 import { faqs as enFaqs, type Faq } from "@/content/faq";
 import { arrival as enArrival } from "@/content/arrival";
+import { reviews as enReviews, type Review } from "@/content/reviews";
 
 /**
  * Content localisation.
@@ -215,6 +216,39 @@ export function localiseArrival(locale: Locale) {
 }
 
 /** Everything a page might need, resolved once. */
+/** A quote and, when it is not in the reader's language, the gloss shown instead. */
+export interface LocalisedReview extends Review {
+  /** True when `text` is a translation rather than what the guest wrote. */
+  translated: boolean;
+  /** The language the guest actually wrote in. */
+  originalLanguage: string;
+}
+
+/**
+ * Quotes in the reader's language.
+ *
+ * English readers get the originals untouched. Everyone else gets the gloss
+ * where one exists and the original where it does not — an untranslated quote
+ * in English is a quote they can still read and check, which is better than a
+ * hole where a guest used to be.
+ *
+ * `translated` drives the line under the quote. It is set from whether a gloss
+ * was actually used, not from the locale, so a quote with no translation does
+ * not claim to be one.
+ */
+export function localiseReviews(locale: Locale): LocalisedReview[] {
+  const t = overlay(locale).reviews ?? {};
+  return enReviews.map((r) => {
+    const gloss = locale === defaultLocale ? undefined : t[`${r.name}-${r.year}`]?.text;
+    return {
+      ...r,
+      text: gloss ?? r.text,
+      translated: Boolean(gloss),
+      originalLanguage: r.originalLanguage ?? "en",
+    };
+  });
+}
+
 export function localisedContent(locale: Locale) {
   return {
     houses: localiseHouses(locale),

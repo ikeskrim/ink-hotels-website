@@ -1,13 +1,9 @@
 import { Container, Heading, Section } from "@/components/ui/section";
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
-import {
-  hasReviews,
-  MINIMUM_TO_SHOW,
-  reviews,
-  reviewsForRoom,
-  type Review,
-} from "@/content/reviews";
+import { hasReviews, MINIMUM_TO_SHOW } from "@/content/reviews";
+import { localiseReviews, type LocalisedReview } from "@/i18n/content";
 import { getMessages } from "@/i18n";
+import type { Messages } from "@/i18n/messages/en";
 import { defaultLocale, type Locale } from "@/i18n/config";
 
 /**
@@ -28,7 +24,22 @@ import { defaultLocale, type Locale } from "@/i18n/config";
  * No star ratings and no aggregate score. Those have to be real numbers the
  * property can evidence; see the note in content/reviews.ts.
  */
-function Quote({ review }: { review: Review }) {
+/** The language names we can say. Only English is needed while every
+ *  published quote is in English; a Greek original adds one line here. */
+const LANGUAGE_NAME: Record<string, (m: Messages) => string> = {
+  en: (m) => m.common.langEnglish,
+};
+
+function Quote({
+  review,
+  locale,
+}: {
+  review: LocalisedReview;
+  locale: Locale;
+}) {
+  const m = getMessages(locale);
+  const language = LANGUAGE_NAME[review.originalLanguage]?.(m);
+
   return (
     <figure className="border-t border-[color:var(--hairline)] pt-6">
       <blockquote className="measure font-display text-[length:var(--text-d4)] leading-snug">
@@ -39,6 +50,19 @@ function Quote({ review }: { review: Review }) {
         <span aria-hidden="true"> · </span>
         {review.platform === "direct" ? null : `${review.platform} `}
         {review.year}
+        {/* Said plainly, under the quote it applies to. A reader who wants the
+            guest's own words knows to look at the source, and a reader who
+            does not at least knows these are not quite them. Only shown when a
+            gloss was actually used — a quote with no translation available is
+            the English original and does not claim otherwise. */}
+        {review.translated && language ? (
+          <>
+            <br />
+            <span className="italic">
+              {m.common.translatedFrom.replace("{language}", language)}
+            </span>
+          </>
+        ) : null}
       </figcaption>
     </figure>
   );
@@ -51,6 +75,7 @@ export function WhatGuestsSaid({
 }) {
   if (!hasReviews) return null;
   const m = getMessages(locale);
+  const shown = localiseReviews(locale).slice(0, MINIMUM_TO_SHOW);
 
   return (
     <Section name="WhatGuestsSaid" ground="sun" size="md">
@@ -59,9 +84,9 @@ export function WhatGuestsSaid({
           {m.home.guestsTitle}
         </Heading>
         <RevealGroup className="grid gap-x-[clamp(2rem,4vw,4rem)] gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {reviews.slice(0, MINIMUM_TO_SHOW).map((r) => (
-            <RevealItem key={`${r.name}-${r.year}-${r.text.slice(0, 12)}`}>
-              <Quote review={r} />
+          {shown.map((r) => (
+            <RevealItem key={`${r.name}-${r.year}`}>
+              <Quote review={r} locale={locale} />
             </RevealItem>
           ))}
         </RevealGroup>
@@ -92,7 +117,9 @@ export function RoomQuote({
   slug: string;
   locale?: Locale;
 }) {
-  const forRoom = reviewsForRoom(slug).slice(0, 3);
+  const forRoom = localiseReviews(locale)
+    .filter((r) => r.roomSlug === slug)
+    .slice(0, 3);
   if (!forRoom.length) return null;
   const m = getMessages(locale);
 
@@ -111,7 +138,7 @@ export function RoomQuote({
         >
           {forRoom.map((r) => (
             <RevealItem key={`${r.name}-${r.year}`}>
-              <Quote review={r} />
+              <Quote review={r} locale={locale} />
             </RevealItem>
           ))}
         </RevealGroup>
