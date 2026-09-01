@@ -1,16 +1,25 @@
 import { Container, Heading, Section } from "@/components/ui/section";
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
-import { reviews, reviewsForRoom, type Review } from "@/content/reviews";
+import {
+  hasReviews,
+  MINIMUM_TO_SHOW,
+  reviews,
+  reviewsForRoom,
+  type Review,
+} from "@/content/reviews";
 import { getMessages } from "@/i18n";
 import { defaultLocale, type Locale } from "@/i18n/config";
 
 /**
  * What guests said.
  *
- * Renders nothing while `src/content/reviews.ts` is empty, which it is. The
- * component ships now so that adding a real quote is a data change rather than
- * a build, and so the layout is designed before the pressure of having
- * something to put in it.
+ * Renders nothing until `src/content/reviews.ts` holds at least six quotes,
+ * which it does not yet. The component ships ahead of them so that adding a
+ * real quote is a data change rather than a build, and so the layout is
+ * designed before the pressure of having something to put in it.
+ *
+ * The threshold is the owner's and lives in the content file, not here: three
+ * quotes in a grid built for six reads as a section that lost something.
  *
  * The quote carries a first name, a country, where it was published and the
  * year — the four things that make a quote checkable. A testimonial without
@@ -40,7 +49,7 @@ export function WhatGuestsSaid({
 }: {
   locale?: Locale;
 }) {
-  if (!reviews.length) return null;
+  if (!hasReviews) return null;
   const m = getMessages(locale);
 
   return (
@@ -50,7 +59,7 @@ export function WhatGuestsSaid({
           {m.home.guestsTitle}
         </Heading>
         <RevealGroup className="grid gap-x-[clamp(2rem,4vw,4rem)] gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {reviews.slice(0, 6).map((r) => (
+          {reviews.slice(0, MINIMUM_TO_SHOW).map((r) => (
             <RevealItem key={`${r.name}-${r.year}-${r.text.slice(0, 12)}`}>
               <Quote review={r} />
             </RevealItem>
