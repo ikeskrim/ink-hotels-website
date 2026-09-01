@@ -209,6 +209,11 @@ const APPROVED: Record<string, string> = {
     "Our stay at Gateway Suites was like finding a charming oasis in the heart of the Old Town. The suite's private plunge pool, heated to perfection, offered a relaxing retreat.",
   "Ankiapp-2024":
     "Fantastic hotel in the old city\u2026 Clean and comfortable beds. Hotel staff was there for you. Beautiful renovation\u2026 Delicious cake and coffee in the front desk.",
+  /* Read off the source page with Tripadvisor's own "Show original", because
+     the site serves a machine translation by default and labels it as one.
+     Zina's "ρεσεψιον" is her spelling, unaccented, and is part of the text. */
+  "Anna-2026": "Ένας πανέμορφος χώρος που ξεχωρίζει για την απόλυτη καθαριότητα, τη μοναδική διακόσμηση με πρωταγωνιστή το ξύλο… Ξεχωριστή πινελιά πολυτέλειας, το πλούσιο πρωινό που σερβίρεται απευθείας στο δωμάτιο.",
+  "Zina-2024": "Πολλές φροντισμένες λεπτομέρειες (πετσέτες για τη θάλασσα, ρακή καλωσορίσματος, μηχανή εσπρέσσο, παντόφλες κλπ). Ωραίο ιδιωτικό βεραντάκι και σε πολύ καλή τοποθεσία… Τα παιδιά στη ρεσεψιον πολύ εξυπηρετικά.",
 };
 
 test("no quote has been altered from the approved text", () => {
@@ -228,20 +233,18 @@ test("every approved quote is published", () => {
 });
 
 /**
- * Three groups were held back by the owner, each for its own reason, and none
- * of them may appear without a further decision:
+ * James names the Pathos suite and praises a hot tub Pathos does not have.
+ * Publishing it would advertise a feature that may not exist, so it waits on
+ * the owner.
  *
- *   James        names the Pathos suite and praises a hot tub Pathos does not
- *                have. Publishing it would advertise a feature that may not
- *                exist.
- *   Anna, Zina   Greek reviews for which only machine-translated glosses were
- *                supplied. A gloss published as somebody's words is not a
- *                quote.
+ * Anna and Zina were held for a different reason — only machine-translated
+ * glosses of their Greek existed — and that reason is gone: the originals were
+ * read off the source page and they are published in Greek.
  *
- * A future session with a helpful instinct is exactly how one of these gets
- * added, so the names are pinned here rather than only described in a comment.
+ * A future session with a helpful instinct is exactly how James gets added, so
+ * the name is pinned here rather than only described in a comment.
  */
-const HELD_BACK = ["James", "Anna", "Zina"];
+const HELD_BACK = ["James"];
 
 test("the held-back quotes have not slipped in", () => {
   for (const name of HELD_BACK) {
@@ -289,7 +292,7 @@ test("a quote pinned to a suite is consistent with that suite", () => {
  * translation falls back to English, and English presented under a line saying
  * "translated from English" would be absurd.
  */
-test("every quote is glossed in every locale, and says so", () => {
+test("every quote reaches every reader, and only claims to be a gloss when it is", () => {
   for (const locale of locales) {
     const localised = localiseReviews(locale);
     assert.equal(localised.length, reviews.length, `${locale}: lost a quote`);
@@ -297,9 +300,15 @@ test("every quote is glossed in every locale, and says so", () => {
     for (const r of localised) {
       const original = reviews.find((x) => x.name === r.name && x.year === r.year);
       assert.ok(original, `${locale}: ${r.name} is not in the source list`);
+      const wroteIn = original.originalLanguage ?? "en";
 
-      if (locale === "en") {
-        assert.equal(r.translated, false, `${locale}: ${r.name} claims to be translated`);
+      if (locale === wroteIn) {
+        /* The reader shares the guest's language: they get the words. */
+        assert.equal(
+          r.translated,
+          false,
+          `${locale}: ${r.name} wrote in ${wroteIn} and is marked as translated`,
+        );
         assert.equal(r.text, original.text, `${locale}: ${r.name} was altered`);
         continue;
       }
@@ -307,15 +316,52 @@ test("every quote is glossed in every locale, and says so", () => {
       assert.equal(
         r.translated,
         true,
-        `${locale}: ${r.name} has no gloss and falls back to English`,
+        `${locale}: ${r.name} has no gloss and falls back to another language unmarked`,
       );
       assert.notEqual(
         r.text,
         original.text,
-        `${locale}: ${r.name} is flagged as translated but is the English text`,
+        `${locale}: ${r.name} is flagged as translated but is the original text`,
       );
       assert.ok(r.text.trim().length > 0, `${locale}: ${r.name} has an empty gloss`);
     }
+  }
+});
+
+/**
+ * A quote not written in English needs an English gloss on the review itself:
+ * English is this site's source language and has no content overlay, so there
+ * is nowhere else for it to live, and without it an English reader would be
+ * shown Greek.
+ */
+test("a non-English quote carries its English gloss", () => {
+  for (const r of reviews) {
+    if ((r.originalLanguage ?? "en") === "en") {
+      assert.equal(
+        r.glossEn,
+        undefined,
+        `${r.name}: wrote in English and does not need an English gloss`,
+      );
+      continue;
+    }
+    assert.ok(r.glossEn?.trim(), `${r.name}: wrote in ${r.originalLanguage} with no English gloss`);
+    assert.notEqual(r.glossEn, r.text, `${r.name}: the English gloss is the original`);
+  }
+});
+
+/**
+ * The line under a gloss is chosen by the language the guest wrote in, and the
+ * component says nothing when it has no sentence for that language. Silence is
+ * the safe failure, but a published quote should never reach it.
+ */
+test("every language a guest wrote in has a translation sentence", () => {
+  const HAVE_SENTENCES = new Set(["en", "el"]);
+  for (const r of reviews) {
+    const wroteIn = r.originalLanguage ?? "en";
+    assert.ok(
+      HAVE_SENTENCES.has(wroteIn),
+      `${r.name} wrote in ${wroteIn}, which has no "translated from" sentence — the gloss would appear unmarked`,
+    );
   }
 });
 

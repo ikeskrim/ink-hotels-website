@@ -1,6 +1,6 @@
 import { Container, Heading, Section } from "@/components/ui/section";
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
-import { hasReviews, MINIMUM_TO_SHOW } from "@/content/reviews";
+import { hasReviews, STRIP_MAX } from "@/content/reviews";
 import { localiseReviews, type LocalisedReview } from "@/i18n/content";
 import { getMessages } from "@/i18n";
 import type { Messages } from "@/i18n/messages/en";
@@ -24,10 +24,18 @@ import { defaultLocale, type Locale } from "@/i18n/config";
  * No star ratings and no aggregate score. Those have to be real numbers the
  * property can evidence; see the note in content/reviews.ts.
  */
-/** The language names we can say. Only English is needed while every
- *  published quote is in English; a Greek original adds one line here. */
-const LANGUAGE_NAME: Record<string, (m: Messages) => string> = {
-  en: (m) => m.common.langEnglish,
+/**
+ * The sentence that goes under a gloss, chosen by what the guest wrote in.
+ *
+ * Whole sentences rather than a language name dropped into a template: French
+ * contracts "de" and "le" into "du", so "Traduit de {language}" cannot be made
+ * to produce "Traduit du grec". A language this map does not know produces no
+ * line at all, which is the safe failure — silence rather than a claim about a
+ * language nobody has written the sentence for.
+ */
+const TRANSLATION_NOTE: Record<string, (m: Messages) => string> = {
+  en: (m) => m.common.translatedFromEnglish,
+  el: (m) => m.common.translatedFromGreek,
 };
 
 function Quote({
@@ -38,7 +46,7 @@ function Quote({
   locale: Locale;
 }) {
   const m = getMessages(locale);
-  const language = LANGUAGE_NAME[review.originalLanguage]?.(m);
+  const note = TRANSLATION_NOTE[review.originalLanguage]?.(m);
 
   return (
     <figure className="border-t border-[color:var(--hairline)] pt-6">
@@ -55,12 +63,10 @@ function Quote({
             does not at least knows these are not quite them. Only shown when a
             gloss was actually used — a quote with no translation available is
             the English original and does not claim otherwise. */}
-        {review.translated && language ? (
+        {review.translated && note ? (
           <>
             <br />
-            <span className="italic">
-              {m.common.translatedFrom.replace("{language}", language)}
-            </span>
+            <span className="italic">{note}</span>
           </>
         ) : null}
       </figcaption>
@@ -75,7 +81,7 @@ export function WhatGuestsSaid({
 }) {
   if (!hasReviews) return null;
   const m = getMessages(locale);
-  const shown = localiseReviews(locale).slice(0, MINIMUM_TO_SHOW);
+  const shown = localiseReviews(locale).slice(0, STRIP_MAX);
 
   return (
     <Section name="WhatGuestsSaid" ground="sun" size="md">

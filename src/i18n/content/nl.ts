@@ -554,6 +554,12 @@ export const nl: ContentText = {
      review in one language and presenting a translation as their words,
      unmarked, is the same class of problem as writing the review. */
   reviews: {
+    "Anna-2026": {
+      text: "Een prachtige plek die opvalt door de absolute netheid en door de unieke inrichting met hout in de hoofdrol… Een aparte toets van luxe: het rijke ontbijt dat rechtstreeks op de kamer wordt geserveerd.",
+    },
+    "Zina-2024": {
+      text: "Veel verzorgde details (strandhanddoeken, welkomstraki, espressomachine, slippers enz.). Mooi eigen terrasje en op een heel goede locatie… De mensen bij de receptie waren erg behulpzaam.",
+    },
     "Mattias-2024": {
       text: "Dit was een van de beste hotels waar ik ooit heb gelogeerd. De ligging is perfect, aan de rand van de oude stad, op loopafstand van het strand… Mijn vriendin en ik verbleven in de deluxe suite met het eigen dompelbad, en dat was zowel heel romantisch als heel welkom in de warme Kretenzische zomer.",
     },

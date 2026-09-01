@@ -403,11 +403,12 @@ export const en = {
        readable. `{languages}` and `{time}` are filled at render. */
     factReceptionTerm: "Reception",
     factReception: "Open until {time}. Later arrivals are arranged in advance — tell us your flight and somebody will be there.",
-    /* Shown under a guest quote that is a gloss rather than the words
-       the guest wrote. The article rides with the language name because
-       the case differs by locale. */
-    translatedFrom: "Translated from {language}.",
-    langEnglish: "English",
+    /* Shown under a guest quote that is a gloss rather than the words the
+       guest wrote. Spelled out per language pair rather than built from a
+       placeholder: French contracts "de" and "le" into "du", German needs the
+       dative, and a sentence assembled from parts gets one of them wrong. */
+    translatedFromEnglish: "Translated from English.",
+    translatedFromGreek: "Translated from Greek.",
     factCheckinTerm: "Check-in & check-out",
     factCheckin: "Check-in from {checkin}. Check-out by {checkout}.",
     factBreakfastTerm: "Breakfast",

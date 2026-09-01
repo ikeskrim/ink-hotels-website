@@ -547,6 +547,12 @@ export const fr: ContentText = {
      review in one language and presenting a translation as their words,
      unmarked, is the same class of problem as writing the review. */
   reviews: {
+    "Anna-2026": {
+      text: "Un lieu magnifique qui se distingue par sa propreté absolue et par sa décoration unique où le bois tient le premier rôle… Une touche de luxe à part : le riche petit-déjeuner servi directement en chambre.",
+    },
+    "Zina-2024": {
+      text: "Beaucoup de détails soignés (serviettes de plage, raki de bienvenue, machine à espresso, chaussons, etc.). Jolie terrasse privée et très bien situé… Les jeunes à la réception étaient très serviables.",
+    },
     "Mattias-2024": {
       text: "C'était l'un des meilleurs hôtels où j'aie séjourné. L'emplacement est parfait, en bordure de la vieille ville, à quelques minutes à pied de la plage… Ma copine et moi étions dans la suite deluxe avec le bassin privé, et c'était à la fois très romantique et très nécessaire dans la chaleur de l'été crétois.",
     },

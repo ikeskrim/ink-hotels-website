@@ -385,11 +385,12 @@ export const de: Messages = {
     factReceptionTerm: "Rezeption",
     factReception:
       "Besetzt bis {time}. Spätere Ankünfte werden vorab abgesprochen — nennen Sie uns Ihren Flug, und jemand ist da.",
-    /* Shown under a guest quote that is a gloss rather than the words
-       the guest wrote. The article rides with the language name because
-       the case differs by locale. */
-    translatedFrom: "Aus {language} übersetzt.",
-    langEnglish: "dem Englischen",
+    /* Shown under a guest quote that is a gloss rather than the words the
+       guest wrote. Spelled out per language pair rather than built from a
+       placeholder: French contracts "de" and "le" into "du", German needs the
+       dative, and a sentence assembled from parts gets one of them wrong. */
+    translatedFromEnglish: "Aus dem Englischen übersetzt.",
+    translatedFromGreek: "Aus dem Griechischen übersetzt.",
     factCheckinTerm: "Check-in & Check-out",
     factCheckin: "Check-in ab {checkin} Uhr. Check-out bis {checkout} Uhr.",
     factBreakfastTerm: "Frühstück",

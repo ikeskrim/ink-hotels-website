@@ -558,6 +558,12 @@ export const de: ContentText = {
      review in one language and presenting a translation as their words,
      unmarked, is the same class of problem as writing the review. */
   reviews: {
+    "Anna-2026": {
+      text: "Ein wunderschöner Ort, der sich durch absolute Sauberkeit auszeichnet und durch die einzigartige Einrichtung mit dem Holz in der Hauptrolle… Ein besonderer Hauch von Luxus: das reichhaltige Frühstück, direkt aufs Zimmer serviert.",
+    },
+    "Zina-2024": {
+      text: "Viele liebevolle Details (Strandtücher, Willkommens-Raki, Espressomaschine, Hausschuhe usw.). Schöne private Terrasse und in sehr guter Lage… Die jungen Leute an der Rezeption waren sehr hilfsbereit.",
+    },
     "Mattias-2024": {
       text: "Das war eines der besten Hotels, in denen ich je übernachtet habe. Die Lage ist perfekt, am Rand der Altstadt, zu Fuß zum Strand… Meine Freundin und ich hatten die Deluxe-Suite mit dem privaten Tauchbecken, und das war sowohl sehr romantisch als auch sehr nötig im warmen kretischen Sommer.",
     },

@@ -227,24 +227,36 @@ export interface LocalisedReview extends Review {
 /**
  * Quotes in the reader's language.
  *
- * English readers get the originals untouched. Everyone else gets the gloss
- * where one exists and the original where it does not — an untranslated quote
- * in English is a quote they can still read and check, which is better than a
- * hole where a guest used to be.
+ * A reader in the language the guest wrote in gets the guest's own words and
+ * no translation line — that is true for an English reader of an English
+ * review and equally for a Greek reader of a Greek one. Everybody else gets
+ * the gloss, marked as one.
  *
- * `translated` drives the line under the quote. It is set from whether a gloss
- * was actually used, not from the locale, so a quote with no translation does
- * not claim to be one.
+ * The glosses live in the content overlays with every other translation,
+ * except the English gloss of a non-English quote: English is the source
+ * language of this site and has no overlay, so that one rides on the review
+ * itself as `glossEn`.
+ *
+ * `translated` is set from whether a gloss was actually used, never from the
+ * locale. A quote with no translation available falls back to something the
+ * reader can still read rather than to a hole, and does not claim to be a
+ * translation of anything.
  */
 export function localiseReviews(locale: Locale): LocalisedReview[] {
   const t = overlay(locale).reviews ?? {};
   return enReviews.map((r) => {
-    const gloss = locale === defaultLocale ? undefined : t[`${r.name}-${r.year}`]?.text;
+    const original = r.originalLanguage ?? defaultLocale;
+    const gloss =
+      locale === original
+        ? undefined
+        : locale === defaultLocale
+          ? r.glossEn
+          : (t[`${r.name}-${r.year}`]?.text ?? r.glossEn);
     return {
       ...r,
       text: gloss ?? r.text,
       translated: Boolean(gloss),
-      originalLanguage: r.originalLanguage ?? "en",
+      originalLanguage: original,
     };
   });
 }

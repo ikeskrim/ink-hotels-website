@@ -58,11 +58,19 @@ export interface Review {
   /** Optional: also show this on one room's page. */
   roomSlug?: string;
   /**
-   * The language the guest wrote in, as a locale code. Defaults to English,
-   * which every quote published so far is. It exists so the line under a
-   * translated quote can name the right language rather than assuming.
+   * The language the guest wrote in, as a locale code. Defaults to English.
+   * It decides which reader sees the original and which sees a gloss.
    */
   originalLanguage?: string;
+  /**
+   * The English rendering of a quote that was not written in English.
+   *
+   * The other four languages keep their glosses in the content overlays with
+   * every other translation, but English has no overlay — it is the source
+   * language of the site — so a Greek guest's English gloss has nowhere else
+   * to live. Only set it when `originalLanguage` is not "en".
+   */
+  glossEn?: string;
 }
 
 /** Real guest quotes, supplied by the owner. Empty until then. */
@@ -99,14 +107,22 @@ export const reviews: readonly Review[] = [
     roomSlug: "harmony",
   },
   {
+    /* Written in Greek. `text` is what she wrote, read off the source page
+       with Tripadvisor's own "Show original" — the site labels its English
+       version "Machine Translated", which is exactly why the gloss in the
+       research report could not be published as her words. Displayed under the
+       first name only; Tripadvisor shows her full name, which is more than she
+       agreed to when she wrote a review somewhere else. */
     text:
-      "A hidden gem in Rethymno's Old Town. The suite's cozy design, comfortable bed, and warm plunge pool exceeded expectations. The staff's friendly service made our stay memorable.",
-    name: "Karla",
-    country: "Croatia",
-    platform: "Booking.com",
-    year: 2024,
-    source: "https://www.booking.com/hotel/gr/gateway-suites.html",
-    roomSlug: "harmony",
+      "Ένας πανέμορφος χώρος που ξεχωρίζει για την απόλυτη καθαριότητα, τη μοναδική διακόσμηση με πρωταγωνιστή το ξύλο… Ξεχωριστή πινελιά πολυτέλειας, το πλούσιο πρωινό που σερβίρεται απευθείας στο δωμάτιο.",
+    glossEn:
+      "A beautiful space that stands out for its absolute cleanliness, unique decoration with wood as the star… A separate brushstroke of luxury, the rich breakfast served directly to the room.",
+    name: "Anna",
+    country: "Greece",
+    platform: "Tripadvisor",
+    year: 2026,
+    source: "https://www.tripadvisor.com/Hotel_Review-g189421-d22551444-Reviews-Ink_Hotels_House_of_Europe-Rethymnon_Rethymnon_Prefecture_Crete.html",
+    originalLanguage: "el",
   },
   {
     /* The excerpt says only "the suite with hot tub", which four suites have.
@@ -122,16 +138,43 @@ export const reviews: readonly Review[] = [
     roomSlug: "eros",
   },
   {
-    /* Published on Booking under the handle "MiltosThes". The owner's
-       instruction is to show the first name; the handle is recorded here so
-       the quote can still be found at source. */
+    /* Published under the handle "Ankiapp", which is what Tripadvisor shows.
+       Verified on Tripadvisor, so it is labelled Tripadvisor and not Google. */
     text:
-      "We had a great one night stay… the jacuzzi outside was the highlight. Detail was paid to a lot of things — raki and peanuts, and cake was waiting in the room, plenty of towels and slippers provided.",
-    name: "Miltos",
-    country: "Greece",
+      "Fantastic hotel in the old city… Clean and comfortable beds. Hotel staff was there for you. Beautiful renovation… Delicious cake and coffee in the front desk.",
+    name: "Ankiapp",
+    country: "Norway",
+    platform: "Tripadvisor",
+    year: 2024,
+    source: "https://www.tripadvisor.com/Hotel_Review-g189421-d22551444-Reviews-Ink_Hotels_House_of_Europe-Rethymnon_Rethymnon_Prefecture_Crete.html",
+  },
+  {
+    text:
+      "A hidden gem in Rethymno's Old Town. The suite's cozy design, comfortable bed, and warm plunge pool exceeded expectations. The staff's friendly service made our stay memorable.",
+    name: "Karla",
+    country: "Croatia",
     platform: "Booking.com",
-    year: 2025,
-    source: "https://en.planetofhotels.com/greece/rethymno-town/gateway-suites",
+    year: 2024,
+    source: "https://www.booking.com/hotel/gr/gateway-suites.html",
+    roomSlug: "harmony",
+  },
+  {
+    /* Also Greek, and read the same way. "ρεσεψιον" is her spelling, without
+       the accent, and it stays — the rule is verbatim including typos.
+       Her review also praises the car park opposite "at a very good price (I
+       think we paid 15 euro)". That sentence is outside the approved excerpt,
+       but the owner should know it exists: the site now says parking in the
+       area is free. See the note in the end-of-run report. */
+    text:
+      "Πολλές φροντισμένες λεπτομέρειες (πετσέτες για τη θάλασσα, ρακή καλωσορίσματος, μηχανή εσπρέσσο, παντόφλες κλπ). Ωραίο ιδιωτικό βεραντάκι και σε πολύ καλή τοποθεσία… Τα παιδιά στη ρεσεψιον πολύ εξυπηρετικά.",
+    glossEn:
+      "Many careful details (sea towels, welcome raki, espresso machine, slippers etc). Nice private terrace and in very good location… Kids at the reception very helpful.",
+    name: "Zina",
+    country: "Greece",
+    platform: "Tripadvisor",
+    year: 2024,
+    source: "https://www.tripadvisor.com/Hotel_Review-g189421-d22551444-Reviews-Ink_Hotels_House_of_Europe-Rethymnon_Rethymnon_Prefecture_Crete.html",
+    originalLanguage: "el",
   },
   {
     text:
@@ -152,21 +195,33 @@ export const reviews: readonly Review[] = [
     source: "https://en.planetofhotels.com/greece/rethymno-town/gateway-suites",
   },
   {
+    text:
+      "The style of Gateway Suites, the location and the staff made the stay perfect! Second time I have stayed here… Beds are super comfy and the rooms are spotless!",
+    name: "Sarah",
+    country: "United Kingdom",
+    platform: "Booking.com",
+    year: 2025,
+    source: "https://en.planetofhotels.com/greece/rethymno-town/gateway-suites",
+  },
+  {
+    /* Published on Booking under the handle "MiltosThes". The owner's
+       instruction is to show the first name; the handle is recorded here so
+       the quote can still be found at source. */
+    text:
+      "We had a great one night stay… the jacuzzi outside was the highlight. Detail was paid to a lot of things — raki and peanuts, and cake was waiting in the room, plenty of towels and slippers provided.",
+    name: "Miltos",
+    country: "Greece",
+    platform: "Booking.com",
+    year: 2025,
+    source: "https://en.planetofhotels.com/greece/rethymno-town/gateway-suites",
+  },
+  {
     /* "balnéo" is the guest's own word, written in French inside an otherwise
        English review. It stays. */
     text:
       "Everything was perfect! The room with the balnéo was really nice and comfortable, the location was great and Emmanuel at the reception very helpful and friendly but professional!",
     name: "Carole",
     country: "France",
-    platform: "Booking.com",
-    year: 2025,
-    source: "https://en.planetofhotels.com/greece/rethymno-town/gateway-suites",
-  },
-  {
-    text:
-      "The style of Gateway Suites, the location and the staff made the stay perfect! Second time I have stayed here… Beds are super comfy and the rooms are spotless!",
-    name: "Sarah",
-    country: "United Kingdom",
     platform: "Booking.com",
     year: 2025,
     source: "https://en.planetofhotels.com/greece/rethymno-town/gateway-suites",
@@ -199,17 +254,6 @@ export const reviews: readonly Review[] = [
     year: 2024,
     source: "https://en.planetofhotels.com/greece/rethymno-town/gateway-suites",
     roomSlug: "harmony",
-  },
-  {
-    /* Published under the handle "Ankiapp", which is what Tripadvisor shows.
-       Verified on Tripadvisor, so it is labelled Tripadvisor and not Google. */
-    text:
-      "Fantastic hotel in the old city… Clean and comfortable beds. Hotel staff was there for you. Beautiful renovation… Delicious cake and coffee in the front desk.",
-    name: "Ankiapp",
-    country: "Norway",
-    platform: "Tripadvisor",
-    year: 2024,
-    source: "https://www.tripadvisor.com/Hotel_Review-g189421-d22551444-Reviews-Ink_Hotels_House_of_Europe-Rethymnon_Rethymnon_Prefecture_Crete.html",
   },
 ];
 
@@ -251,6 +295,18 @@ export function reviewsForRoom(slug: string): readonly Review[] {
 
 /** Whether there is enough to show a strip at all. */
 export const hasReviews = reviews.length >= MINIMUM_TO_SHOW;
+
+/**
+ * How many the strip shows, which is a different question from whether it
+ * shows at all — they were the same constant until fourteen quotes arrived and
+ * the last eight of them, including both Greek ones, appeared nowhere on the
+ * site.
+ *
+ * Nine is three full rows of the three-column grid. The file's older note that
+ * "above ten nobody reads to the end" still holds; the quotes past nine are not
+ * wasted, because the ones pinned to a suite show on that suite's page.
+ */
+export const STRIP_MAX = 9;
 
 /* ── Aggregate scores ───────────────────────────────────────────────────────
  *
