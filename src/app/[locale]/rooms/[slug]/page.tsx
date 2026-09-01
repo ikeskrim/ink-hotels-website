@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { NoFrame } from "@/components/media/no-frame";
+import { RoomQuote } from "@/components/home/what-guests-said";
 import Link from "next/link";
 
 import { bookingUrlFor, relatedFor, rooms, roomsBySlug } from "@/content/rooms";
@@ -166,6 +167,10 @@ export default async function RoomPage({
           locale={locale}
           standout={STANDOUT[room.slug] ? m.voice[STANDOUT[room.slug]!] : undefined}
         >
+          {/* What a guest said about this suite, where one did. Renders
+              nothing for a room with no quote of its own. */}
+          <RoomQuote slug={room.slug} locale={locale} />
+
           {/* Deliberately re-stated rather than hoisted out of the block
               below. Hoisting would edit the page that is still live for the
               other nineteen rooms, and the guardrail on this rebuild is that
@@ -407,6 +412,8 @@ export default async function RoomPage({
       </Section>
 
       {/* ── Often arranged with it ─────────────────────────────────────── */}
+      <RoomQuote slug={room.slug} locale={locale} />
+
       {related.length > 0 && (
         <Section ground="sun" size="md">
           <Container>

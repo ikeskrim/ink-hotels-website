@@ -29,13 +29,16 @@ import { rooms } from "@/content/rooms";
  *   no Google figure exists            until the owner reads the two
  *                                      outstanding ones off Google Maps
  *
- * The list is empty today, so the quote assertions are vacuous — and that is
- * fine. They exist to bite on the day somebody adds the first one, which is
- * the day the risk starts.
  *
- * NOT YET HERE: the verbatim check. The owner's brief asks that no quote text
- * be altered from the approved list, which needs the approved list to compare
- * against. It lands in the same commit as the quotes.
+ * The verbatim check below is a SECOND transcription of the owner's approved
+ * rows, typed independently of the one in content/reviews.ts. That is the
+ * point of it: a single copy checked against itself proves only that nobody
+ * edited it since, and would happily lock in a typo made on the way in. Two
+ * copies from the same source disagree the moment either drifts.
+ *
+ * An ellipsis marks a passage of the original review that was left out. It is
+ * part of the approved text and must match exactly — a quote that quietly
+ * loses its ellipsis is a quote presenting an excerpt as the whole thing.
  */
 
 const CURRENT_YEAR = 2026;
@@ -167,5 +170,109 @@ test("a score pinned to a room names a room that exists", () => {
     if (!s.roomSlug) continue;
     assert.ok(slugs.has(s.roomSlug), `${s.listing}: no room "${s.roomSlug}"`);
     assert.equal(scoreForRoom(s.roomSlug), s);
+  }
+});
+
+/* ── verbatim ────────────────────────────────────────────────────────────── */
+
+/**
+ * The approved texts, keyed by who said them and when.
+ *
+ * Typed from the owner's rows a second time, deliberately not copied from
+ * content/reviews.ts. If the two ever disagree, one of them has drifted and
+ * this says which quote.
+ */
+const APPROVED: Record<string, string> = {
+  "Mattias-2024":
+    "This was one of the best hotels I've ever stayed at. The location is perfectly located at the edge of the old town, walking distance from the beach\u2026 My girlfriend and I stayed in the deluxe suite with the private plunge pool, and this was both very romantic and very needed in the warm Cretan summer.",
+  "Karla-2024":
+    "A hidden gem in Rethymno's Old Town. The suite's cozy design, comfortable bed, and warm plunge pool exceeded expectations. The staff's friendly service made our stay memorable.",
+  "Emily-2025":
+    "Booked the suite with hot tub \u2014 just fantastic. So relaxing. Lovely location, near the sea, in a quiet courtyard. Friendly staff who made me feel so welcome!",
+  "Miltos-2025":
+    "We had a great one night stay\u2026 the jacuzzi outside was the highlight. Detail was paid to a lot of things \u2014 raki and peanuts, and cake was waiting in the room, plenty of towels and slippers provided.",
+  "Steven-2026":
+    "We received a warm welcome from Manu!! The suites are located at the quiet side of Rethymno, in the center but not close to the clubs. Rooms are great, jacuzzi is top!",
+  "Alessandra-2025":
+    "Exceptional place, with a lot of attention to customer service\u2026 The private bathtub was greatly appreciated. The staff was very helpful and kind, even assisting us with parking.",
+  "Carole-2025":
+    "Everything was perfect! The room with the baln\u00e9o was really nice and comfortable, the location was great and Emmanuel at the reception very helpful and friendly but professional!",
+  "Sarah-2025":
+    "The style of Gateway Suites, the location and the staff made the stay perfect! Second time I have stayed here\u2026 Beds are super comfy and the rooms are spotless!",
+  "Harald-2025":
+    "Very nice apartment, newly renovated and stylish. Very friendly and helpful personnel. Perfect location to explore the old town.",
+  "Conroy-2024":
+    "Beautifully decorated, incredibly clean room, with a lovely bathroom and splendid outside area! We loved the kitchenette which was fully equipped, and the staff were very welcoming and friendly.",
+  "Fabienne-2024":
+    "Our stay at Gateway Suites was like finding a charming oasis in the heart of the Old Town. The suite's private plunge pool, heated to perfection, offered a relaxing retreat.",
+  "Ankiapp-2024":
+    "Fantastic hotel in the old city\u2026 Clean and comfortable beds. Hotel staff was there for you. Beautiful renovation\u2026 Delicious cake and coffee in the front desk.",
+};
+
+test("no quote has been altered from the approved text", () => {
+  for (const r of reviews) {
+    const key = `${r.name}-${r.year}`;
+    const approved = APPROVED[key];
+    assert.ok(approved, `${key}: published but not on the approved list`);
+    assert.equal(r.text, approved, `${key}: the published text differs from the approved one`);
+  }
+});
+
+test("every approved quote is published", () => {
+  const published = new Set(reviews.map((r) => `${r.name}-${r.year}`));
+  for (const key of Object.keys(APPROVED)) {
+    assert.ok(published.has(key), `${key}: approved but missing from the site`);
+  }
+});
+
+/**
+ * Three groups were held back by the owner, each for its own reason, and none
+ * of them may appear without a further decision:
+ *
+ *   James        names the Pathos suite and praises a hot tub Pathos does not
+ *                have. Publishing it would advertise a feature that may not
+ *                exist.
+ *   Anna, Zina   Greek reviews for which only machine-translated glosses were
+ *                supplied. A gloss published as somebody's words is not a
+ *                quote.
+ *
+ * A future session with a helpful instinct is exactly how one of these gets
+ * added, so the names are pinned here rather than only described in a comment.
+ */
+const HELD_BACK = ["James", "Anna", "Zina"];
+
+test("the held-back quotes have not slipped in", () => {
+  for (const name of HELD_BACK) {
+    const found = reviews.find((r) => r.name === name);
+    assert.equal(
+      found,
+      undefined,
+      `${name} is held pending the owner and must not be published`,
+    );
+  }
+});
+
+test("a quote pinned to a suite is consistent with that suite", () => {
+  /* Harmony is the only plunge pool on the property; the hot tubs are Evexia,
+     Eros and Zoi. A quote about a plunge pool pinned to a hot-tub suite, or
+     the reverse, is a mapping error that would put a wrong claim on a room
+     page — which is the same failure that holds James back. */
+  const plungePool = new Set(["harmony"]);
+  const hotTub = new Set(["evexia", "eros", "zoi"]);
+  for (const r of reviews) {
+    if (!r.roomSlug) continue;
+    const t = r.text.toLowerCase();
+    if (t.includes("plunge pool")) {
+      assert.ok(
+        plungePool.has(r.roomSlug),
+        `${r.name}: mentions a plunge pool but is pinned to ${r.roomSlug}`,
+      );
+    }
+    if (t.includes("hot tub")) {
+      assert.ok(
+        hotTub.has(r.roomSlug),
+        `${r.name}: mentions a hot tub but is pinned to ${r.roomSlug}`,
+      );
+    }
   }
 });

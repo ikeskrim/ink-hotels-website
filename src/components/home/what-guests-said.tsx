@@ -70,7 +70,21 @@ export function WhatGuestsSaid({
   );
 }
 
-/** One quote on a room page, where the room has one. */
+/**
+ * The quotes on one room's page.
+ *
+ * All of them, up to three, rather than one at a time. The owner asked for the
+ * three Harmony quotes to rotate, and a statically rendered page has nothing
+ * to rotate on: no request, no clock, no seed. Anything that looked like
+ * rotation would either break static generation or be a random pick that
+ * changes on redeploy for no reason a reader could perceive. Three quotes
+ * about the same suite, all visible, is the stronger page anyway — one
+ * testimonial reads as the one they had, three read as a pattern.
+ *
+ * If genuine one-at-a-time rotation is wanted later it needs a client
+ * component or per-request rendering, and that is a trade worth stating
+ * before making.
+ */
 export function RoomQuote({
   slug,
   locale = defaultLocale,
@@ -78,9 +92,8 @@ export function RoomQuote({
   slug: string;
   locale?: Locale;
 }) {
-  const forRoom = reviewsForRoom(slug);
-  const first = forRoom[0];
-  if (!first) return null;
+  const forRoom = reviewsForRoom(slug).slice(0, 3);
+  if (!forRoom.length) return null;
   const m = getMessages(locale);
 
   return (
@@ -89,7 +102,19 @@ export function RoomQuote({
         <p className="label mb-6 text-[color:var(--fg-3)]">
           {m.home.guestsTitle}
         </p>
-        <Quote review={first} />
+        <RevealGroup
+          className={
+            forRoom.length > 1
+              ? "grid gap-x-[clamp(2rem,4vw,4rem)] gap-y-10 sm:grid-cols-2 lg:grid-cols-3"
+              : undefined
+          }
+        >
+          {forRoom.map((r) => (
+            <RevealItem key={`${r.name}-${r.year}`}>
+              <Quote review={r} />
+            </RevealItem>
+          ))}
+        </RevealGroup>
       </Container>
     </Section>
   );
