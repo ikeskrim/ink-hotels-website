@@ -48,6 +48,24 @@ const NAV = { waitUntil: "domcontentloaded", waitFor: "main" };
 /** Below this, the page did not really render and any leakage figure is a lie. */
 const MIN_BLOCKS = 5;
 
+/* Warm every URL once, and throw the pass away.
+
+   This check timed out on /nl/rooms/evexia — the fifth locale of the heaviest
+   route, two minutes into a cold run, after the shared helper had already
+   retried it once at sixty seconds. The room pages carry full galleries, and
+   the first render of each on a cold server is the server compiling the route
+   while the browser waits.
+
+   Warming is not weakening: every assertion below is untouched, and the pass
+   that measures is the second one. The same remedy took header-ground-check
+   from failing on its first cold run to four clean runs in a row. */
+for (const path of PAGES) {
+  for (const locale of ["", ...LOCALES.map((l) => `/${l}`)]) {
+    const url = `${BASE}${locale}${path === "/" ? "" : path}` || BASE;
+    await goto(page, url || BASE, NAV).catch(() => {});
+  }
+}
+
 for (const path of PAGES) {
   await goto(page, BASE + path, NAV);
   const en = new Set(await page.evaluate(collect));
