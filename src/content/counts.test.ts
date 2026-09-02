@@ -5,6 +5,7 @@ import { rooms, counts } from "./rooms";
 import { places } from "./place";
 import { getMessages } from "@/i18n";
 import { locales } from "@/i18n/config";
+import { localiseRooms } from "@/i18n/content";
 
 /**
  * The site counts itself in prose, in five languages, in places nobody reads
@@ -35,12 +36,20 @@ const PLUNGE = rooms.filter((r) => r.plungePool).length;
 const w = (word: string) => new RegExp(`(^|[^\\p{L}])${word}([^\\p{L}]|$)`, "iu");
 
 const NUMERAL: Record<string, Record<number, RegExp>> = {
-  en: { 1: w("one"), 3: w("three"), 6: w("six"), 7: w("seven") },
-  /* Greek inflects the numeral by gender: τρεις σουίτες but τρία υδρομασάζ. */
-  el: { 1: w("μία"), 3: w("(τρεις|τρία)"), 6: w("έξι"), 7: w("επτά") },
-  de: { 1: w("eine"), 3: w("drei"), 6: w("sechs"), 7: w("sieben") },
-  fr: { 1: w("une"), 3: w("trois"), 6: w("six"), 7: w("sept") },
-  nl: { 1: w("één"), 3: w("drie"), 6: w("zes"), 7: w("zeven") },
+  en: { 1: w("one"), 3: w("three"), 4: w("four"), 5: w("five"), 6: w("six"), 7: w("seven") },
+  /* Greek inflects the numeral by gender: τρεις σουίτες but τρία υδρομασάζ.
+     Four and five inflect the same way — τέσσερις/τέσσερα, πέντε does not. */
+  el: {
+    1: w("μία"),
+    3: w("(τρεις|τρία)"),
+    4: w("(τέσσερις|τέσσερα)"),
+    5: w("πέντε"),
+    6: w("έξι"),
+    7: w("επτά"),
+  },
+  de: { 1: w("eine"), 3: w("drei"), 4: w("vier"), 5: w("fünf"), 6: w("sechs"), 7: w("sieben") },
+  fr: { 1: w("une"), 3: w("trois"), 4: w("quatre"), 5: w("cinq"), 6: w("six"), 7: w("sept") },
+  nl: { 1: w("één"), 3: w("drie"), 4: w("vier"), 5: w("vijf"), 6: w("zes"), 7: w("zeven") },
 };
 
 /** Every sentence on the site that puts a numeral in front of "hot tub". */
@@ -56,8 +65,12 @@ function countingSentences(locale: (typeof locales)[number]): string[] {
   ];
 }
 
-test("the records are the three hot tubs and one plunge pool the site claims", () => {
-  assert.equal(HOT_TUBS, 3, "expected three suites with a hot tub");
+test("the records are the four hot tubs and one plunge pool the site claims", () => {
+  /* Three until 2 September 2026, when the owner corrected the record: Pathos
+     has a private hot tub in its courtyard. The number is written here as a
+     literal rather than derived, so that adding or losing a tub has to be a
+     deliberate edit in two places. */
+  assert.equal(HOT_TUBS, 4, "expected four suites with a hot tub");
   assert.equal(PLUNGE, 1, "expected one suite with a plunge pool");
   assert.equal(counts.suites, 7);
 });
@@ -99,17 +112,17 @@ function summarySentences(locale: (typeof locales)[number]): string[] {
   ];
 }
 
-test("every summary that counts hot tubs counts three", () => {
+test("every summary that counts hot tubs counts four", () => {
   for (const locale of locales) {
-    const three = NUMERAL[locale]![3]!;
+    const four = NUMERAL[locale]![4]!;
     const counted = summarySentences(locale).filter((s) =>
       /hot tub|υδρομασάζ|Whirlpool|bain à remous|bubbelbad/i.test(s),
     );
     assert.ok(counted.length > 0, `${locale}: no summary mentions a hot tub`);
     for (const s of counted) {
       assert.ok(
-        three.test(s),
-        `${locale}: counts hot tubs without saying three — "${s.slice(0, 90)}…"`,
+        four.test(s),
+        `${locale}: counts hot tubs without saying four — "${s.slice(0, 90)}…"`,
       );
     }
   }
@@ -149,6 +162,75 @@ test("the landmark heading counts the landmarks it lists", () => {
     assert.ok(
       word!.test(m.home.landmarksTitle),
       `${locale}: landmarksTitle does not say ${places.length} — "${m.home.landmarksTitle}"`,
+    );
+  }
+});
+
+/**
+ * The water section's title counts the suites that come with water of their
+ * own — the hot tubs plus the plunge pool. It said four when there were three
+ * tubs and one pool; with Pathos it is five, and that is a different sentence
+ * from the one counting tubs, in a different place, which is exactly how these
+ * numbers drifted apart the first time.
+ */
+test("the water title counts every suite that has its own water", () => {
+  const WATER = rooms.filter((r) => r.hotTub || r.plungePool).length;
+  assert.equal(WATER, 5, "expected five suites with water of their own");
+
+  for (const locale of locales) {
+    const five = NUMERAL[locale]![5]!;
+    const title = getMessages(locale).home.waterTitle;
+    assert.ok(
+      five.test(title),
+      `${locale}: the water title does not count five — "${title}"`,
+    );
+  }
+});
+
+/**
+ * The Jacuzzi / hot-tub filter, in every language.
+ *
+ * The filter reads `room.hotTub`, but what a reader filters is the LOCALISED
+ * room list, and that list is rebuilt per locale from the content overlays. An
+ * overlay that dropped or renamed a room would take a suite out of the results
+ * in one language and not the others, and nothing else on the site would
+ * notice. So the predicate is run against each locale's own list.
+ *
+ * Pathos joined this set on 2 September 2026.
+ */
+test("the hot-tub filter returns the same four suites in every language", () => {
+  const EXPECTED = ["evexia", "eros", "pathos", "zoi"];
+
+  for (const locale of locales) {
+    const matching = localiseRooms(locale)
+      .filter((r) => r.hotTub === true)
+      .map((r) => r.slug)
+      .sort();
+    assert.deepEqual(
+      matching,
+      [...EXPECTED].sort(),
+      `${locale}: the hot-tub filter returns a different set`,
+    );
+  }
+});
+
+/**
+ * The water filter is the union — anything with a tub or the plunge pool.
+ * Stated separately because it is a different question from "how many tubs",
+ * and the two numbers are printed in different sentences on the same page.
+ */
+test("the water filter returns all five suites with their own water", () => {
+  const EXPECTED = ["evexia", "eros", "harmony", "pathos", "zoi"];
+
+  for (const locale of locales) {
+    const matching = localiseRooms(locale)
+      .filter((r) => r.hotTub === true || r.plungePool === true)
+      .map((r) => r.slug)
+      .sort();
+    assert.deepEqual(
+      matching,
+      [...EXPECTED].sort(),
+      `${locale}: the water filter returns a different set`,
     );
   }
 });

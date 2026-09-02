@@ -41,23 +41,41 @@ export function RoomBadges({
 }) {
   const { m } = useI18n();
 
-  /* Ordered by how much each fact decides a booking, not alphabetically.
-     A private hot tub or a heated plunge pool is why someone chooses this
-     hotel at all. Step-free access is not a luxury but a requirement: for the
-     guest who needs it, it outranks everything except the water they came
-     for. Adults-only is last because it excludes rather than attracts. */
-  const badges: { key: string; label: string; icon: typeof Waves }[] = [];
-  if (room.hotTub) badges.push({ key: "hotTub", label: m.rooms.badgeHotTub, icon: Waves });
+  /* Two kinds of badge, and they behave differently under `limit`.
+
+     DRAWS are ordered by how much each fact decides a booking, not
+     alphabetically. A private hot tub or a heated plunge pool is why someone
+     chooses this hotel at all. Step-free access is not a luxury but a
+     requirement: for the guest who needs it, it outranks everything except the
+     water they came for.
+
+     CONSTRAINTS are not competing for that attention — they are the thing a
+     reader needs to know before they get attached. Adults-only is the only one
+     today, and it survives `limit`: a card shows one draw, but a couple
+     scanning for a family room should not have to open the page to find out
+     that this suite is not one.
+
+     Pathos is why this distinction exists. It had exactly one badge — adults
+     only — until the owner confirmed its courtyard hot tub on 2 September
+     2026. With a single slot the tub would have pushed the constraint off the
+     card, trading a fact the reader needs for one that sells. */
+  const draws: { key: string; label: string; icon: typeof Waves }[] = [];
+  if (room.hotTub) draws.push({ key: "hotTub", label: m.rooms.badgeHotTub, icon: Waves });
   if (room.plungePool)
-    badges.push({ key: "pool", label: m.rooms.badgePlungePool, icon: Droplets });
+    draws.push({ key: "pool", label: m.rooms.badgePlungePool, icon: Droplets });
   if (room.accessible)
-    badges.push({ key: "a11y", label: m.rooms.badgeAccessible, icon: Accessibility });
+    draws.push({ key: "a11y", label: m.rooms.badgeAccessible, icon: Accessibility });
+
+  const constraints: { key: string; label: string; icon: typeof Waves }[] = [];
   if (room.adultsOnly)
-    badges.push({ key: "adults", label: m.rooms.badgeAdultsOnly, icon: Waves });
+    constraints.push({ key: "adults", label: m.rooms.badgeAdultsOnly, icon: Waves });
 
-  if (!badges.length) return null;
+  if (!draws.length && !constraints.length) return null;
 
-  const shown = typeof limit === "number" ? badges.slice(0, limit) : badges;
+  const shown = [
+    ...(typeof limit === "number" ? draws.slice(0, limit) : draws),
+    ...constraints,
+  ];
 
   return (
     <ul className={cn("flex flex-wrap gap-1.5", className)}>

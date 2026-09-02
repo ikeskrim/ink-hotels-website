@@ -105,7 +105,7 @@ export const en = {
     heroTitleLine1: "The Gateway Suites.",
     heroTitleLine2: "Seven of them, in the old town.",
     heroLede:
-      "All seven are at House of Europe, on Nikolaou Plastira — three with a private hot tub, one with a plunge pool in its own courtyard. Phos, a few steps away, has seven rooms of its own. Both are houses of the 1700s, under the Fortezza, minutes from the Venetian harbour. One of them was a printing press: it gave the hotel its name.",
+      "All seven are at House of Europe, on Nikolaou Plastira — four with a private hot tub, one with a plunge pool in its own courtyard. Phos, a few steps away, has seven rooms of its own. Both are houses of the 1700s, under the Fortezza, minutes from the Venetian harbour. One of them was a printing press: it gave the hotel its name.",
 
     pressEyebrow: "The name",
     pressTitle: "A hotel named after what the building used to make",
@@ -150,7 +150,7 @@ export const en = {
     roomsLede:
       "Seven suites at House of Europe, seven rooms at Phos, and one whole residence by the harbour — from twelve square metres under the roof to forty with a heated courtyard pool.",
     promiseHouseOfEurope:
-      "The first building, and the reception. All seven suites are here — three with a private hot tub, one of them above the water, and one with a heated plunge pool in its own courtyard — along with the sea-facing rooms and breakfast.",
+      "The first building, and the reception. All seven suites are here — four with a private hot tub, one of them above the water, and one with a heated plunge pool in its own courtyard — along with the sea-facing rooms and breakfast.",
     promisePhos:
       "The quieter building. Seven rooms, numbered one to seven, and terraces that open over the rooftops of the old town.",
     promiseResidence:
@@ -158,10 +158,10 @@ export const en = {
     roomsRenovated: "Renovated 2019 · 2020",
 
     waterEyebrow: "The water",
-    waterTitle: "Four of the seven come with their own water.",
+    waterTitle: "Five of the seven come with their own water.",
     waterBody:
-      "Evexia has a private hot tub set into its terrace, with the sea running the full width of the view behind it. Eros and Zoi each have one in a courtyard of their own. Harmony has a heated plunge pool in a secluded interior courtyard — the water is warm whatever the month — forty square metres on the ground floor, with a king bed, a lounge and marble underfoot. Not one of them is shared with anybody.",
-    waterSpec: "Three private hot tubs · one heated private plunge pool",
+      "Evexia has a private hot tub set into its terrace, with the sea running the full width of the view behind it. Eros and Zoi each have one in a courtyard of their own, and Pathos has one in its courtyard too. Harmony has a heated plunge pool in a secluded interior courtyard — the water is warm whatever the month — forty square metres on the ground floor, with a king bed, a lounge and marble underfoot. Not one of them is shared with anybody.",
+    waterSpec: "Four private hot tubs · one heated private plunge pool",
 
     agapiEyebrow: "Agapi",
     agapiMeaning: "love",
@@ -493,7 +493,7 @@ export const en = {
     pressPressedTerm: "Pressed",
     pressPressedBody:
       "Three buildings of the 1700s, still standing, now a hotel. The press is gone; the impression it left is the name over the door.",
-    waterStripTitle: "Four come with their own water",
+    waterStripTitle: "Five come with their own water",
     waterHotTub: "Private hot tub",
     waterPlunge: "Heated plunge pool",
     diptychTitle: "Light and ink",
@@ -580,8 +580,8 @@ export const en = {
   },
 
   pageMeta: {
-    home: { t: "Ink Hotels — A small hotel in the old town of Rethymno, Crete", d: "Small hotel. Long story. Seven suites at House of Europe — three with a private hot tub, one with a heated plunge pool — seven rooms at Phos, and a residence by the Venetian harbour, in the medieval old town of Rethymno." },
-    rooms: { t: "Rooms", d: "Twenty ways to stay in the old town of Rethymno — seven suites at House of Europe, three with a private hot tub and one with a heated plunge pool, seven rooms at Phos, and one whole residence by the Venetian harbour." },
+    home: { t: "Ink Hotels — A small hotel in the old town of Rethymno, Crete", d: "Small hotel. Long story. Seven suites at House of Europe — four with a private hot tub, one with a heated plunge pool — seven rooms at Phos, and a residence by the Venetian harbour, in the medieval old town of Rethymno." },
+    rooms: { t: "Rooms", d: "Twenty ways to stay in the old town of Rethymno — seven suites at House of Europe, four with a private hot tub and one with a heated plunge pool, seven rooms at Phos, and one whole residence by the Venetian harbour." },
     experiences: { t: "The Art of Staying", d: "A boat of your own, wine in the hills above Rethymno, a therapist, a quiet morning. Twenty-two things the desk at Ink Hotels arranges — most of them a phone call we have made a hundred times." },
     gallery: { t: "Gallery", d: "{count} photographs of Ink Hotels — the private hot tub and plunge pool, the seven suites, the two houses, the Residence of the Old Port, and the medieval old town of Rethymno around them." },
     story: { t: "The story", d: "Ink is named after a printing press. From this building was published the newspaper ΑΓΩΝ — Struggle. The central house was the University of Crete's guest house. Two historic houses of the 1700s in the medieval old town of Rethymno, and a residence by the harbour." },

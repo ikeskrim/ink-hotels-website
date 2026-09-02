@@ -24,3 +24,16 @@ a photograph that is live on the site with no alt text. That fails the command,
 because a published photograph says something.
 
 `npm run photos:check` prints the same report without ingesting anything.
+
+## Wanted
+
+**Pathos: the private hot tub in its courtyard.** Confirmed by the owner on
+2 September 2026 and now stated on the site, in the amenity list, the badge and
+the water section — with no photograph of it anywhere in the library. Pathos
+still leads with the glass shower cabin, which is its signature and the right
+lead, but the amenity grid on `/rooms/pathos` shows the hot tub as type on a
+hairline frame because nothing depicts it.
+
+One unpeopled frame of the tub in the courtyard closes it. Drop it here, run
+`npm run photos`, and map it in `src/content/amenity-media.ts` — the rule there
+is that somebody opens the frame and looks before writing what it shows.

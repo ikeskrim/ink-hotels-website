@@ -93,7 +93,7 @@ export const nl: Messages = {
     heroTitleLine1: "De Gateway Suites.",
     heroTitleLine2: "Zeven, in de oude stad.",
     heroLede:
-      "Alle zeven liggen in House of Europe aan de Nikolaou Plastira — drie met een eigen bubbelbad, één met een plunge pool op een eigen binnenplaats. Phos, een paar stappen verderop, heeft zeven eigen kamers. Beide zijn huizen uit de jaren 1700, onder de Fortezza, minuten van de Venetiaanse haven. Een ervan was een drukkerij: daar dankt het hotel zijn naam aan.",
+      "Alle zeven liggen in House of Europe aan de Nikolaou Plastira — vier met een eigen bubbelbad, één met een plunge pool op een eigen binnenplaats. Phos, een paar stappen verderop, heeft zeven eigen kamers. Beide zijn huizen uit de jaren 1700, onder de Fortezza, minuten van de Venetiaanse haven. Een ervan was een drukkerij: daar dankt het hotel zijn naam aan.",
 
     pressEyebrow: "De naam",
     pressTitle: "Een hotel vernoemd naar wat het gebouw ooit maakte",
@@ -134,7 +134,7 @@ export const nl: Messages = {
     roomsLede:
       "Zeven suites in House of Europe, zeven kamers in Phos en één heel woonhuis bij de haven — van twaalf vierkante meter onder het dak tot veertig met een verwarmd zwembad op de binnenplaats.",
     promiseHouseOfEurope:
-      "Het eerste gebouw, en de receptie. Alle zeven suites liggen hier — drie met een eigen bubbelbad, waarvan één boven het water, en één met een verwarmd dompelbad op een eigen binnenplaats — samen met de kamers aan zeezijde en het ontbijt.",
+      "Het eerste gebouw, en de receptie. Alle zeven suites liggen hier — vier met een eigen bubbelbad, waarvan één boven het water, en één met een verwarmd dompelbad op een eigen binnenplaats — samen met de kamers aan zeezijde en het ontbijt.",
     promisePhos:
       "Het stillere gebouw. Zeven kamers, genummerd van één tot zeven, en terrassen die uitkomen boven de daken van de oude stad.",
     promiseResidence:
@@ -142,10 +142,10 @@ export const nl: Messages = {
     roomsRenovated: "Gerenoveerd 2019 · 2020",
 
     waterEyebrow: "Het water",
-    waterTitle: "Vier van de zeven hebben hun eigen water.",
+    waterTitle: "Vijf van de zeven hebben hun eigen water.",
     waterBody:
-      "Evexia heeft een eigen bubbelbad in het terras, met de zee over de volle breedte van het uitzicht erachter. Eros en Zoi hebben er elk een in een eigen binnenplaats. Harmony heeft een verwarmd dompelbad op een afgelegen binnenplaats — het water is warm, welke maand het ook is — veertig vierkante meter op de begane grond, met een kingsize bed, een zithoek en marmer onder de voeten. Geen ervan wordt met iemand gedeeld.",
-    waterSpec: "Drie eigen bubbelbaden · één verwarmd eigen dompelbad",
+      "Evexia heeft een eigen bubbelbad in het terras, met de zee over de volle breedte van het uitzicht erachter. Eros en Zoi hebben er elk een in een eigen binnenplaats, en Pathos een op de hare. Harmony heeft een verwarmd dompelbad op een afgelegen binnenplaats — het water is warm, welke maand het ook is — veertig vierkante meter op de begane grond, met een kingsize bed, een zithoek en marmer onder de voeten. Geen ervan wordt met iemand gedeeld.",
+    waterSpec: "Vier eigen bubbelbaden · één verwarmd eigen dompelbad",
 
     agapiEyebrow: "Agapi",
     agapiMeaning: "liefde",
@@ -476,7 +476,7 @@ export const nl: Messages = {
     pressPressedTerm: "Gedrukt",
     pressPressedBody:
       "Drie gebouwen uit de jaren 1700, nog altijd overeind, nu een hotel. De pers is weg; de afdruk die zij achterliet is de naam boven de deur.",
-    waterStripTitle: "Vier hebben hun eigen water",
+    waterStripTitle: "Vijf hebben hun eigen water",
     waterHotTub: "Eigen bubbelbad",
     waterPlunge: "Verwarmd dompelbad",
     diptychTitle: "Licht en inkt",
@@ -563,8 +563,8 @@ export const nl: Messages = {
   },
 
   pageMeta: {
-    home: { t: "Ink Hotels — Een klein hotel in de oude stad van Rethymno, Kreta", d: "Klein hotel. Lang verhaal. Zeven suites in House of Europe — drie met eigen bubbelbad, één met verwarmd dompelbad — zeven kamers in Phos, en een residentie bij de Venetiaanse haven, midden in de middeleeuwse oude stad van Rethymno." },
-    rooms: { t: "Kamers", d: "Twintig manieren om in de oude stad van Rethymno te verblijven — zeven suites in House of Europe, drie met eigen bubbelbad en één met verwarmd dompelbad, zeven kamers in Phos, en een hele residentie bij de Venetiaanse haven." },
+    home: { t: "Ink Hotels — Een klein hotel in de oude stad van Rethymno, Kreta", d: "Klein hotel. Lang verhaal. Zeven suites in House of Europe — vier met eigen bubbelbad, één met verwarmd dompelbad — zeven kamers in Phos, en een residentie bij de Venetiaanse haven, midden in de middeleeuwse oude stad van Rethymno." },
+    rooms: { t: "Kamers", d: "Twintig manieren om in de oude stad van Rethymno te verblijven — zeven suites in House of Europe, vier met eigen bubbelbad en één met verwarmd dompelbad, zeven kamers in Phos, en een hele residentie bij de Venetiaanse haven." },
     experiences: { t: "De kunst van het verblijven", d: "Een eigen boot, wijn in de heuvels boven Rethymno, een therapeut, een stille ochtend. Tweeëntwintig dingen die de receptie van Ink regelt — de meeste een telefoontje dat we al honderd keer hebben gepleegd." },
     gallery: { t: "Galerij", d: "{count} foto's van Ink Hotels — het eigen bubbelbad en het dompelbad, de zeven suites, de twee huizen, de Residence of the Old Port, en de middeleeuwse oude stad van Rethymno eromheen." },
     story: { t: "Het verhaal", d: "Ink is genoemd naar een drukpers. Vanuit dit gebouw verscheen de krant ΑΓΩΝ — Strijd. Het middelste huis was het gastenverblijf van de Universiteit van Kreta. Twee historische huizen uit de 18e eeuw in de middeleeuwse oude stad van Rethymno, en een residentie bij de haven." },

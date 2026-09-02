@@ -93,7 +93,7 @@ export const fr: Messages = {
     heroTitleLine1: "Les Gateway Suites.",
     heroTitleLine2: "Sept, dans la vieille ville.",
     heroLede:
-      "Les sept se trouvent à House of Europe, rue Nikolaou Plastira — trois avec un bain à remous privé, une avec un bassin dans sa propre cour. Phos, à quelques pas, compte sept chambres. Les deux sont des maisons des années 1700, sous la Fortezza, à quelques minutes du port vénitien. L'une d'elles abritait une imprimerie : elle a donné son nom à l'hôtel.",
+      "Les sept se trouvent à House of Europe, rue Nikolaou Plastira — quatre avec un bain à remous privé, une avec un bassin dans sa propre cour. Phos, à quelques pas, compte sept chambres. Les deux sont des maisons des années 1700, sous la Fortezza, à quelques minutes du port vénitien. L'une d'elles abritait une imprimerie : elle a donné son nom à l'hôtel.",
 
     pressEyebrow: "Le nom",
     pressTitle: "Un hôtel nommé d'après ce que le bâtiment fabriquait",
@@ -134,7 +134,7 @@ export const fr: Messages = {
     roomsLede:
       "Sept suites à House of Europe, sept chambres à Phos et une résidence entière près du port — de douze mètres carrés sous les toits à quarante avec un bassin chauffé dans la cour.",
     promiseHouseOfEurope:
-      "Le premier bâtiment, et la réception. Les sept suites sont ici — trois avec un bain à remous privé, dont une au-dessus de l'eau, et une avec une petite piscine chauffée dans sa propre cour — avec les chambres côté mer et le petit-déjeuner.",
+      "Le premier bâtiment, et la réception. Les sept suites sont ici — quatre avec un bain à remous privé, dont une au-dessus de l'eau, et une avec une petite piscine chauffée dans sa propre cour — avec les chambres côté mer et le petit-déjeuner.",
     promisePhos:
       "Le bâtiment le plus calme. Sept chambres, numérotées de un à sept, et des terrasses qui s'ouvrent sur les toits de la vieille ville.",
     promiseResidence:
@@ -142,10 +142,10 @@ export const fr: Messages = {
     roomsRenovated: "Rénovées 2019 · 2020",
 
     waterEyebrow: "L'eau",
-    waterTitle: "Quatre des sept ont leur propre eau.",
+    waterTitle: "Cinq des sept ont leur propre eau.",
     waterBody:
-      "Evexia a un bain à remous privé encastré dans sa terrasse, la mer occupant toute la largeur de la vue derrière. Eros et Zoi en ont chacun un dans une cour qui leur est propre. Harmony a une petite piscine chauffée dans une cour intérieure retirée — l'eau est chaude quel que soit le mois — quarante mètres carrés au rez-de-chaussée, avec un lit king-size, un salon et du marbre au sol. Aucun d'eux n'est partagé avec qui que ce soit.",
-    waterSpec: "Trois bains à remous privés · une petite piscine privée chauffée",
+      "Evexia a un bain à remous privé encastré dans sa terrasse, la mer occupant toute la largeur de la vue derrière. Eros et Zoi en ont chacun un dans une cour qui leur est propre, et Pathos un dans la sienne. Harmony a une petite piscine chauffée dans une cour intérieure retirée — l'eau est chaude quel que soit le mois — quarante mètres carrés au rez-de-chaussée, avec un lit king-size, un salon et du marbre au sol. Aucun d'eux n'est partagé avec qui que ce soit.",
+    waterSpec: "Quatre bains à remous privés · une petite piscine privée chauffée",
 
     agapiEyebrow: "Agapi",
     agapiMeaning: "amour",
@@ -476,7 +476,7 @@ export const fr: Messages = {
     pressPressedTerm: "Imprimé",
     pressPressedBody:
       "Trois bâtiments des années 1700, toujours debout, aujourd'hui un hôtel. La presse est partie ; l'empreinte qu'elle a laissée est le nom au-dessus de la porte.",
-    waterStripTitle: "Quatre ont leur propre eau",
+    waterStripTitle: "Cinq ont leur propre eau",
     waterHotTub: "Bain à remous privé",
     waterPlunge: "Bassin chauffé",
     diptychTitle: "Lumière et encre",
@@ -563,8 +563,8 @@ export const fr: Messages = {
   },
 
   pageMeta: {
-    home: { t: "Ink Hotels — Un petit hôtel dans la vieille ville de Réthymnon, Crète", d: "Petit hôtel. Longue histoire. Sept suites au House of Europe — trois avec bain à remous privé, une avec petite piscine chauffée — sept chambres au Phos, et une résidence près du port vénitien, au cœur de la vieille ville médiévale de Réthymnon." },
-    rooms: { t: "Chambres", d: "Vingt façons de séjourner dans la vieille ville de Réthymnon — sept suites au House of Europe, trois avec bain à remous privé et une avec petite piscine chauffée, sept chambres au Phos, et une résidence entière près du port vénitien." },
+    home: { t: "Ink Hotels — Un petit hôtel dans la vieille ville de Réthymnon, Crète", d: "Petit hôtel. Longue histoire. Sept suites au House of Europe — quatre avec bain à remous privé, une avec petite piscine chauffée — sept chambres au Phos, et une résidence près du port vénitien, au cœur de la vieille ville médiévale de Réthymnon." },
+    rooms: { t: "Chambres", d: "Vingt façons de séjourner dans la vieille ville de Réthymnon — sept suites au House of Europe, quatre avec bain à remous privé et une avec petite piscine chauffée, sept chambres au Phos, et une résidence entière près du port vénitien." },
     experiences: { t: "L'art du séjour", d: "Un bateau à vous, du vin dans les collines au-dessus de Réthymnon, un thérapeute, un matin tranquille. Vingt-deux choses que la réception d'Ink organise — pour la plupart un appel que nous avons passé cent fois." },
     gallery: { t: "Galerie", d: "{count} photographies d'Ink Hotels — le bain à remous privé et la petite piscine, les sept suites, les deux maisons, la Residence of the Old Port, et la vieille ville médiévale de Réthymnon tout autour." },
     story: { t: "L'histoire", d: "Ink tient son nom d'une presse d'imprimerie. De ce bâtiment était publié le journal ΑΓΩΝ — Combat. La maison centrale était la maison d'hôtes de l'Université de Crète. Deux maisons historiques du XVIIIe siècle dans la vieille ville médiévale de Réthymnon, et une résidence près du port." },

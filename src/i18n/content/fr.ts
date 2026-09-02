@@ -547,6 +547,9 @@ export const fr: ContentText = {
      review in one language and presenting a translation as their words,
      unmarked, is the same class of problem as writing the review. */
   reviews: {
+    "James-2025": {
+      text: "Notre séjour dans la suite « Pathos » a été vraiment spécial… Le bain à remous était un vrai plaisir après une longue journée de travail éreintante. L'accueil avec des fruits frais était un parfait exemple d'hospitalité sincère.",
+    },
     "Anna-2026": {
       text: "Un lieu magnifique qui se distingue par sa propreté absolue et par sa décoration unique où le bois tient le premier rôle… Une touche de luxe à part : le riche petit-déjeuner servi directement en chambre.",
     },

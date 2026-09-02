@@ -327,17 +327,28 @@ export const rooms: Room[] = [
     bathrooms: 1,
     beds: [{ label: "King bed", count: 1 }],
     outlook: "Exterior courtyard",
-    outdoor: "Terrace",
+    outdoor: "Terrace, and a private hot tub in the courtyard",
     level: "Upper level",
+    hotTub: true,
     description:
       "Pathos means passion, and the room is arranged around one piece of nerve: a glass double shower cabin standing beside the bed rather than hidden behind a door. It is the whole design — nothing else in the suite competes with it — and it is why this is the one couples ask for by name. An intimate junior suite in a private, secluded corner of the hotel, with a courtyard just outside for morning coffee under the bright Greek sun, or a drink in the moonlight. Adults only: the layout is built around two people and no third.",
     notes: ["All bathroom amenities are eco-friendly."],
-    /* The shower cabin leads the list because it leads the room. It is not a
-       jacuzzi and is never described as one — the property publishes no
-       hydromassage here, and inventing one would be the easiest lie on the
-       site to tell and the worst one to be caught in at check-in. */
+    /* The shower cabin still leads the list because it still leads the room —
+       it is the whole design, and it is what couples ask for by name.
+
+       The hot tub was added on 2 September 2026 on the owner's correction.
+       Until then this comment said the property published no hydromassage
+       here and that inventing one would be the easiest lie on the site to
+       tell. That was the right instinct against the record we had, and the
+       record was simply incomplete: there is a private hot tub in the
+       courtyard. Nothing about it is described beyond that, because nothing
+       more has been supplied — no size, no heating, no seating count.
+
+       It is also why a real guest review was held back for a fortnight. See
+       James in content/reviews.ts. */
     amenities: [
       "Glass double shower cabin beside the bed",
+      "Private hot tub",
       ...SUITE_AMENITIES,
       "Terrace",
       "Room closet",

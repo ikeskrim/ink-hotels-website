@@ -93,7 +93,7 @@ export const de: Messages = {
     heroTitleLine1: "Die Gateway Suites.",
     heroTitleLine2: "Sieben davon, in der Altstadt.",
     heroLede:
-      "Alle sieben liegen im House of Europe an der Nikolaou Plastira — drei mit eigenem Whirlpool, eine mit Plunge Pool im eigenen Innenhof. Phos, wenige Schritte entfernt, hat sieben eigene Zimmer. Beide sind Häuser aus den 1700er-Jahren, unterhalb der Fortezza, Minuten vom venezianischen Hafen. Eines davon war eine Druckerei: Sie gab dem Hotel seinen Namen.",
+      "Alle sieben liegen im House of Europe an der Nikolaou Plastira — vier mit eigenem Whirlpool, eine mit Plunge Pool im eigenen Innenhof. Phos, wenige Schritte entfernt, hat sieben eigene Zimmer. Beide sind Häuser aus den 1700er-Jahren, unterhalb der Fortezza, Minuten vom venezianischen Hafen. Eines davon war eine Druckerei: Sie gab dem Hotel seinen Namen.",
 
     pressEyebrow: "Der Name",
     pressTitle: "Ein Hotel, benannt nach dem, was das Haus einst herstellte",
@@ -134,7 +134,7 @@ export const de: Messages = {
     roomsLede:
       "Sieben Suiten im House of Europe, sieben Zimmer im Phos und eine ganze Residenz am Hafen — von zwölf Quadratmetern unter dem Dach bis vierzig mit beheiztem Pool im Innenhof.",
     promiseHouseOfEurope:
-      "Das erste Gebäude, und die Rezeption. Alle sieben Suiten liegen hier — drei mit eigenem Whirlpool, einer davon über dem Wasser, und eine mit beheiztem Tauchpool im eigenen Innenhof — dazu die Zimmer zum Meer und das Frühstück.",
+      "Das erste Gebäude, und die Rezeption. Alle sieben Suiten liegen hier — vier mit eigenem Whirlpool, einer davon über dem Wasser, und eine mit beheiztem Tauchpool im eigenen Innenhof — dazu die Zimmer zum Meer und das Frühstück.",
     promisePhos:
       "Das ruhigere Gebäude. Sieben Zimmer, von eins bis sieben nummeriert, und Terrassen, die sich über die Dächer der Altstadt öffnen.",
     promiseResidence:
@@ -142,10 +142,10 @@ export const de: Messages = {
     roomsRenovated: "Renoviert 2019 · 2020",
 
     waterEyebrow: "Das Wasser",
-    waterTitle: "Vier der sieben haben ihr eigenes Wasser.",
+    waterTitle: "Fünf der sieben haben ihr eigenes Wasser.",
     waterBody:
-      "Evexia hat einen eigenen Whirlpool in der Terrasse, mit dem Meer über die ganze Breite des Blicks dahinter. Eros und Zoi haben je einen in einem eigenen Innenhof. Harmony hat einen beheizten Tauchpool in einem abgeschiedenen Innenhof — das Wasser ist warm, in welchem Monat auch immer — vierzig Quadratmeter im Erdgeschoss, mit Kingsize-Bett, Lounge und Marmor unter den Füßen. Keiner davon wird mit irgendjemandem geteilt.",
-    waterSpec: "Drei eigene Whirlpools · ein beheizter eigener Tauchpool",
+      "Evexia hat einen eigenen Whirlpool in der Terrasse, mit dem Meer über die ganze Breite des Blicks dahinter. Eros und Zoi haben je einen in einem eigenen Innenhof, und Pathos einen in ihrem. Harmony hat einen beheizten Tauchpool in einem abgeschiedenen Innenhof — das Wasser ist warm, in welchem Monat auch immer — vierzig Quadratmeter im Erdgeschoss, mit Kingsize-Bett, Lounge und Marmor unter den Füßen. Keiner davon wird mit irgendjemandem geteilt.",
+    waterSpec: "Vier eigene Whirlpools · ein beheizter eigener Tauchpool",
 
     agapiEyebrow: "Agapi",
     agapiMeaning: "Liebe",
@@ -476,7 +476,7 @@ export const de: Messages = {
     pressPressedTerm: "Gedruckt",
     pressPressedBody:
       "Drei Häuser aus dem 18. Jahrhundert, noch immer da, heute ein Hotel. Die Presse ist fort; der Abdruck, den sie hinterließ, ist der Name über der Tür.",
-    waterStripTitle: "Vier haben ihr eigenes Wasser",
+    waterStripTitle: "Fünf haben ihr eigenes Wasser",
     waterHotTub: "Privater Whirlpool",
     waterPlunge: "Beheiztes Tauchbecken",
     diptychTitle: "Licht und Tinte",
@@ -563,8 +563,8 @@ export const de: Messages = {
   },
 
   pageMeta: {
-    home: { t: "Ink Hotels — Ein kleines Hotel in der Altstadt von Rethymno, Kreta", d: "Kleines Hotel. Lange Geschichte. Sieben Suiten im House of Europe — drei mit eigenem Whirlpool, eine mit beheiztem Tauchpool — sieben Zimmer im Phos, und eine Residenz am venezianischen Hafen, mitten in der mittelalterlichen Altstadt von Rethymno." },
-    rooms: { t: "Zimmer", d: "Zwanzig Arten, in der Altstadt von Rethymno zu wohnen — sieben Suiten im House of Europe, drei mit eigenem Whirlpool und eine mit beheiztem Tauchpool, sieben Zimmer im Phos, und eine ganze Residenz am venezianischen Hafen." },
+    home: { t: "Ink Hotels — Ein kleines Hotel in der Altstadt von Rethymno, Kreta", d: "Kleines Hotel. Lange Geschichte. Sieben Suiten im House of Europe — vier mit eigenem Whirlpool, eine mit beheiztem Tauchpool — sieben Zimmer im Phos, und eine Residenz am venezianischen Hafen, mitten in der mittelalterlichen Altstadt von Rethymno." },
+    rooms: { t: "Zimmer", d: "Zwanzig Arten, in der Altstadt von Rethymno zu wohnen — sieben Suiten im House of Europe, vier mit eigenem Whirlpool und eine mit beheiztem Tauchpool, sieben Zimmer im Phos, und eine ganze Residenz am venezianischen Hafen." },
     experiences: { t: "Die Kunst des Bleibens", d: "Ein eigenes Boot, Wein in den Hügeln über Rethymno, ein Therapeut, ein stiller Morgen. Zweiundzwanzig Dinge, die die Rezeption im Ink arrangiert — die meisten davon ein Anruf, den wir schon hundertmal gemacht haben." },
     gallery: { t: "Galerie", d: "{count} Fotografien des Ink Hotels — der eigene Whirlpool und der Tauchpool, die sieben Suiten, die beiden Häuser, die Residence of the Old Port, und die mittelalterliche Altstadt von Rethymno ringsum." },
     story: { t: "Die Geschichte", d: "Ink ist nach einer Druckerpresse benannt. Aus diesem Gebäude erschien die Zeitung ΑΓΩΝ — Kampf. Das mittlere Haus war das Gästehaus der Universität Kreta. Zwei historische Häuser aus dem 18. Jahrhundert in der mittelalterlichen Altstadt von Rethymno, und eine Residenz am Hafen." },

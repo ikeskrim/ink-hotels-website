@@ -210,6 +210,10 @@ const APPROVED: Record<string, string> = {
     "Beautifully decorated, incredibly clean room, with a lovely bathroom and splendid outside area! We loved the kitchenette which was fully equipped, and the staff were very welcoming and friendly.",
   "Fabienne-2024":
     "Our stay at Gateway Suites was like finding a charming oasis in the heart of the Old Town. The suite's private plunge pool, heated to perfection, offered a relaxing retreat.",
+  /* Approved 1 September, published 2 September once the room record caught
+     up with what he wrote. */
+  "James-2025":
+    "Our stay in the 'Pathos' suite was truly special… The hot tub was a real treat after a long and tiring day at work. The welcome with fresh fruit was a perfect example of genuine hospitality.",
   "Ankiapp-2024":
     "Fantastic hotel in the old city\u2026 Clean and comfortable beds. Hotel staff was there for you. Beautiful renovation\u2026 Delicious cake and coffee in the front desk.",
   /* Read off the source page with Tripadvisor's own "Show original", because
@@ -236,18 +240,25 @@ test("every approved quote is published", () => {
 });
 
 /**
- * James names the Pathos suite and praises a hot tub Pathos does not have.
- * Publishing it would advertise a feature that may not exist, so it waits on
- * the owner.
+ * Nobody is held back any more. The list stays because its shape is the point:
+ * a name in it cannot be published by accident, and the next hold has somewhere
+ * to go.
  *
- * Anna and Zina were held for a different reason — only machine-translated
- * glosses of their Greek existed — and that reason is gone: the originals were
- * read off the source page and they are published in Greek.
+ * James was held because he praised a hot tub in Pathos and the room record
+ * said Pathos had none. The owner corrected the record on 2 September 2026 —
+ * there is a private hot tub in its courtyard — so the reason evaporated and he
+ * is published, pinned to pathos. The guest was right and the inventory was
+ * incomplete, which is worth remembering the next time a review disagrees with
+ * the site.
  *
- * A future session with a helpful instinct is exactly how James gets added, so
- * the name is pinned here rather than only described in a comment.
+ * Anna and Zina were held because only machine-translated glosses of their
+ * Greek existed; the originals were read off the source page and both are
+ * published in Greek.
+ *
+ * The two nameless Booking snippets are not listed here because they have no
+ * name to list — they fail the attribution rule on their own.
  */
-const HELD_BACK = ["James"];
+const HELD_BACK: string[] = [];
 
 test("the held-back quotes have not slipped in", () => {
   for (const name of HELD_BACK) {
@@ -266,7 +277,7 @@ test("a quote pinned to a suite is consistent with that suite", () => {
      the reverse, is a mapping error that would put a wrong claim on a room
      page — which is the same failure that holds James back. */
   const plungePool = new Set(["harmony"]);
-  const hotTub = new Set(["evexia", "eros", "zoi"]);
+  const hotTub = new Set(["evexia", "eros", "zoi", "pathos"]);
   for (const r of reviews) {
     if (!r.roomSlug) continue;
     const t = r.text.toLowerCase();

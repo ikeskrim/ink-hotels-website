@@ -286,6 +286,26 @@ floor, established across four sessions.
 | "The Gateway Suites" | **Superseded 24 Aug.** It was a heritage label on the original four; the owner's decision is that all seven are presented under it. Engine names untouched — four still spell it verbatim, and that is what a guest reserves. |
 | Locale round-trip | Fixed; CI keeps it honest. |
 
+## Superseded — the wellness facts
+
+The note that Pathos has no hydromassage is **superseded, 2 September 2026**.
+The owner confirmed a private hot tub in its courtyard. The jacuzzi set is now
+**Evexia, Eros, Zoi and Pathos** — four — and the suites with water of their
+own are **five**, those four plus Harmony's heated plunge pool.
+
+Pathos keeps the glass double shower cabin as its signature and stays adults
+only; the hot tub was added, nothing was removed. Its card now shows the tub as
+the draw and adults-only as a constraint tag, which is a distinction
+`room-badges.tsx` did not previously make — with one badge slot the tub would
+have pushed the constraint off the card.
+
+The correction released a real guest review that had been held for a fortnight:
+James praised "the hot tub" in Pathos, the record said there was none, and the
+site treated the guest as the error. Worth remembering the next time a review
+disagrees with the inventory.
+
+No photograph of it exists. Recorded in `incoming/README.md` under Wanted.
+
 ## Waiting on owner
 
 - Reservation ids for Evexia, Eros and Zoi

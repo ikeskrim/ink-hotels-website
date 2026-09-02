@@ -558,6 +558,9 @@ export const de: ContentText = {
      review in one language and presenting a translation as their words,
      unmarked, is the same class of problem as writing the review. */
   reviews: {
+    "James-2025": {
+      text: "Unser Aufenthalt in der Suite Pathos war wirklich besonders… Der Whirlpool war eine echte Wohltat nach einem langen, anstrengenden Arbeitstag. Der Empfang mit frischem Obst war ein perfektes Beispiel für echte Gastfreundschaft.",
+    },
     "Anna-2026": {
       text: "Ein wunderschöner Ort, der sich durch absolute Sauberkeit auszeichnet und durch die einzigartige Einrichtung mit dem Holz in der Hauptrolle… Ein besonderer Hauch von Luxus: das reichhaltige Frühstück, direkt aufs Zimmer serviert.",
     },

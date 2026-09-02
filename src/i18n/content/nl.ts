@@ -554,6 +554,9 @@ export const nl: ContentText = {
      review in one language and presenting a translation as their words,
      unmarked, is the same class of problem as writing the review. */
   reviews: {
+    "James-2025": {
+      text: "Ons verblijf in de suite 'Pathos' was echt bijzonder… Het bubbelbad was een waar genot na een lange en vermoeiende werkdag. De ontvangst met vers fruit was een perfect voorbeeld van oprechte gastvrijheid.",
+    },
     "Anna-2026": {
       text: "Een prachtige plek die opvalt door de absolute netheid en door de unieke inrichting met hout in de hoofdrol… Een aparte toets van luxe: het rijke ontbijt dat rechtstreeks op de kamer wordt geserveerd.",
     },

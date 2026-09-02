@@ -255,6 +255,25 @@ export const reviews: readonly Review[] = [
     source: "https://en.planetofhotels.com/greece/rethymno-town/gateway-suites",
     roomSlug: "harmony",
   },
+  {
+    /* Held from 1 to 2 September 2026, and the hold was right at the time.
+       He names the Pathos suite and praises "the hot tub"; the room record
+       said Pathos had none, so publishing this would have advertised a
+       feature the site itself denied. The record was the thing that was
+       wrong — the owner has since confirmed a private hot tub in the
+       courtyard — and the review reads as it always did.
+
+       Worth keeping in view: a guest's words were the first evidence that the
+       inventory was incomplete, and the site treated the guest as the error. */
+    text:
+      "Our stay in the 'Pathos' suite was truly special… The hot tub was a real treat after a long and tiring day at work. The welcome with fresh fruit was a perfect example of genuine hospitality.",
+    name: "James",
+    country: "United Kingdom",
+    platform: "Booking.com",
+    year: 2025,
+    source: "https://en.planetofhotels.com/greece/rethymno-town/gateway-suites",
+    roomSlug: "pathos",
+  },
 ];
 
 /* ── Held back, deliberately ────────────────────────────────────────────────
@@ -266,13 +285,6 @@ export const reviews: readonly Review[] = [
  * a machine translation as though it were somebody's words is exactly the
  * thing the rule forbids. They go in when the Greek originals are read off
  * the source page.
- *
- * One review from James (United Kingdom, Booking.com, 2025) names the Pathos
- * suite and praises "the hot tub". Pathos has no hot tub — its signature is
- * the glass double shower cabin beside the bed; the suites with hot tubs are
- * Evexia, Eros and Zoi, and Harmony has the plunge pool. Confirmed against
- * content/rooms.ts. Publishing it would advertise a feature that suite may not
- * have, so it waits on the owner.
  *
  * Two nameless Booking snippets — one for House of Europe, one for Phos — wait
  * on confirmation in the extranet. A quote with no name fails the attribution
