@@ -34,6 +34,25 @@ const browser = await launch();
 const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
 const page = await ctx.newPage();
 
+/* No images. This check reads text blocks; it has no use for a single
+   photograph, and the photographs were what was killing it on CI.
+
+   Attributed before touching it: /el/rooms/evexia serves in 0.76s with a 200
+   on a cold local server, and this whole check ran cold in 13 seconds with
+   the same ten-or-eleven leaked blocks per locale it has always reported. On
+   the runner the same page timed out at sixty seconds — twice, once on retry
+   — and warming it first did not help, because the warm-up was the problem:
+   a room page carries 41 <img> tags, five locales times two passes is over
+   four hundred image transforms queued on a single-process optimizer, and
+   the next HTML response waits behind them. booking-check.mjs hit the
+   identical wall and fixed it the identical way. Aborting the requests
+   changes what the browser downloads, not what the check asserts. */
+await page.route("**/*", (route) => {
+  const type = route.request().resourceType();
+  if (type === "image" || type === "media" || type === "font") return route.abort();
+  return route.continue();
+});
+
 const rows = [];
 
 /* Navigation goes through the shared helper. It was `page.goto` with
