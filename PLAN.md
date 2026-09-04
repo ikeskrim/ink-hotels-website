@@ -233,6 +233,55 @@ committed — a planted regression failed it, and the revert passed:
 
 ---
 
+## Measured — full route table (2026-09-04, 3-run medians)
+
+Fresh build, node killed by PID, `Ready in` confirmed before each set. Taken
+after the five motion features (StampText heading, ground-aware header, amenity
+bento grid, drag-up booking sheet, gallery ripple) and the Pathos correction,
+against the 2026-08-23 table below.
+
+| route | min/med/max | LCP | FCP | TBT | vs 08-23 |
+|---|---|---|---|---|---|
+| `/` | 76/**81**/81 | 4.37s | 2.56s | 53ms | +2 |
+| `/rooms` | 80/**89**/89 | 3.76s | 1.21s | 41ms | 0 |
+| `/rooms/evexia` | 81/**86**/93 | 4.00s | 1.66s | 99ms | −5, see below |
+| `/story` | 81/**81**/89 | 4.37s | 2.56s | 79ms | −2 |
+| `/gallery` | 81/**82**/86 | 4.37s | 2.11s | 93ms | 0 |
+| `/rethymno` | 81/**83**/86 | 4.22s | 2.26s | 90ms | −1 |
+| `/location` | 87/**87**/90 | 3.76s | 1.96s | 82ms | 0 |
+| `/arrival` | 86/**86**/90 | 3.91s | 1.96s | 42ms | −1 |
+| `/faq` | 86/**90**/92 | 3.47s | 1.96s | 56ms | +3 |
+| `/experiences` | 86/**86**/92 | 3.92s | 2.26s | 34ms | +3 |
+| `/contact` | 86/**90**/90 | 3.47s | 1.96s | 32ms | +3 |
+
+Ten of eleven routes are within two points of the baseline in either
+direction; the gallery ripple, which lives on `/gallery`, cost nothing.
+
+**`/rooms/evexia` was attributed before anything was touched, and nothing was
+touched.** Four A/B legs on the identical machine, same evening:
+
+| leg | build | runs | min/med/max | LCP | FCP |
+|---|---|---|---|---|---|
+| A | shipped | 3 | 81/**86**/93 | 4.00s | 1.66s |
+| A′ | + booking-sheet focus trap | 3 | 83/**84**/90 | 4.29s | 2.11s |
+| B | A′ + sheet loaded on demand (`next/dynamic`) | 3 | 82/**83**/92 | 4.37s | 1.67s |
+| C | A′ with Evexia's amenity grid off | 5 | 82/**90**/93 | 3.54s | 1.21s |
+| D | A′ + grid code-split | 5 | 82/**83**/94 | 4.38s | 2.12s |
+| D again | same build, twenty minutes later | 9 | 82/**89**/93 | 3.54s | 1.21s |
+
+The last row is the finding. The same build reads 83 and 89 depending on when
+it is measured; the simulated LCP is always exactly 3.54s or exactly 4.37s and
+never in between. This machine has two modes for this route, the 08-23 baseline
+of 91 was taken in the high one (its own min was 83), and every leg, including
+the one with the grid removed, lands in both. Neither the sheet's static import
+(B) nor the grid's module weight (D) moves the median; both edits were reverted
+rather than kept without evidence. TBT, which looked like the tell in the first
+table (15→99ms), swung 26–98ms across builds with no relevant change and is
+noise at this level.
+
+Nothing was "fixed" for `/rooms/evexia`, because nothing about it was shown to
+be broken. The next session should read that row against both modes.
+
 ## Measured — full route table (2026-08-23, 3-run medians)
 
 Fresh build, node killed by PID, `Ready in` confirmed before each set.
