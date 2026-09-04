@@ -1,14 +1,18 @@
 # Ink Hotels — consolidated plan
 
-> **PROGRESS (2026-08-23, owner decisions).** Both open decisions are CLOSED.
-> The homepage trailer is LIVE — `TRAILER` is on, seven beats on `/`, eight
-> sections relocated to /rooms, /story and /rethymno, guarded by
-> `trailer-parity.mjs` in CI. The Archaeological Museum is on the map at its
-> OSM-verified current site; seven landmarks, five pinned. `cross-browser` is
-> now a blocking gate after two clean passes.
-> **Next session picks up at the remaining owner list** — reservation ids for
-> Evexia/Eros/Zoi, real reviews, and the lawyer's pass on Terms and Privacy.
-> Nothing in the plan is blocked on a decision any more.
+> **PROGRESS (2026-09-04, consolidation).** The five motion features shipped
+> on 1 September are consolidated: measured (table below, no regression
+> attributable to any of them), made to hold up under a keyboard and under
+> reduced motion (`features-check.mjs` in CI — it found and fixed a booking
+> sheet that Tab could walk out of), and the amenity bento grid now covers all
+> seven Gateway suites with thirteen verified frames described in five
+> languages (`grid-check.mjs` in CI — it found that the grid had been showing
+> no photographs at all in four of the five languages since it shipped). The
+> Pathos correction (private hot tub in the courtyard) is in: four hot tubs,
+> five suites with their own water, James published. Screenshots refreshed,
+> nine routes × five languages, Pathos added to the set.
+> **Parking copy is untouched — still waiting on the owner's wording.**
+> **Next session picks up at the owner list below.**
 
 Supersedes every previous round document. Repo:
 [ikeskrim/ink-hotels-website](https://github.com/ikeskrim/ink-hotels-website) ·
@@ -357,10 +361,16 @@ No photograph of it exists. Recorded in `incoming/README.md` under Wanted.
 
 ## Waiting on owner
 
+Updated 2026-09-04. Real guest reviews are no longer on this list — fourteen
+approved rows are published, James among them since the Pathos correction.
+
+- The parking wording — the copy on the site is untouched until it arrives
+- The two Google figures (rating and review count) for the scores strip
 - Reservation ids for Evexia, Eros and Zoi
 - `RESEND_API_KEY`
+- The Lightroom export folder — and, from it, a frame of the Pathos courtyard
+  hot tub, which is the one amenity in the grid still rendered as type
 - The Xenia chatbot embed snippet
-- A photograph of the fleet Fiat 500
-- Six to ten real guest reviews
 - The Phos rename decision — the site and the WebHotelier admin together
 - A lawyer's pass on Terms and Privacy
+- A photograph of the fleet Fiat 500
