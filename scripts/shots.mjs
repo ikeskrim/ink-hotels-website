@@ -3,7 +3,7 @@
  *
  *   BASE=http://localhost:3000 node scripts/shots.mjs [outDir]
  *
- * For the owner's morning review: eight routes × five languages, one JPEG
+ * For the owner's morning review: nine routes × five languages, one JPEG
  * each, full page rather than viewport so a whole page can be read in one
  * image.
  *
@@ -40,6 +40,7 @@ const ROUTES = [
   ["/", "home"],
   ["/rooms", "rooms"],
   ["/rooms/evexia", "suite-evexia"],
+  ["/rooms/pathos", "suite-pathos"],
   ["/story", "story"],
   ["/rethymno", "rethymno"],
   ["/gallery", "gallery"],
