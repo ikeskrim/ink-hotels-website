@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { ArrowUpRight, MessageCircle, X } from "lucide-react";
 
 import { AvailabilityForm } from "@/components/booking/availability-form";
 import { EASE } from "@/components/motion/reveal";
@@ -32,10 +32,22 @@ import { useI18n } from "@/i18n/provider";
  *
  * ── It is a dialog ─────────────────────────────────────────────────────────
  *
- * Focus moves into it, Escape closes it, the page behind it does not scroll,
- * and closing returns focus to the control that opened it. Same contract as
- * the concierge panel, because a thing that covers the page owes the reader
- * the same courtesies whether it arrived by drag or by click.
+ * Focus moves into it and STAYS in it — Tab from the last control wraps to
+ * the first, Shift+Tab from the first wraps to the last — Escape closes it,
+ * the page behind it does not scroll, and closing returns focus to the
+ * control that opened it. Same contract as the concierge panel, because a
+ * thing that covers the page owes the reader the same courtesies whether it
+ * arrived by drag or by click.
+ *
+ * The trap was missing when this shipped. Focus went in and came back, and
+ * nobody pressed Tab twenty times to see where it went: out of the dialog and
+ * into the page it was covering, where every link was still live but nothing
+ * was visible. scripts/features-check.mjs presses Tab twenty-five times now.
+ *
+ * There is a close button inside the sheet, so a reader with no gesture and
+ * no Escape key still has a way out. The backdrop closes on a click, but it is
+ * not a control: a full-screen focusable button is one more Tab stop that
+ * announces "Close" with nothing to see.
  *
  * ── The price ──────────────────────────────────────────────────────────────
  *
@@ -50,6 +62,10 @@ import { useI18n } from "@/i18n/provider";
  * leads with what is true, which is that the desk answers until reception
  * closes. Nothing here has to change on the day the number arrives.
  */
+/** What Tab can land on, inside the sheet. */
+const FOCUSABLE =
+  'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 export function BookingSheet({
   open,
   onOpenChange,
@@ -70,7 +86,35 @@ export function BookingSheet({
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onOpenChange(false);
+      if (e.key === "Escape") {
+        onOpenChange(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const sheet = sheetRef.current;
+      if (!sheet) return;
+      const stops = Array.from(sheet.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
+        (n) => n.offsetParent !== null,
+      );
+      if (stops.length === 0) {
+        e.preventDefault();
+        sheet.focus();
+        return;
+      }
+      const first = stops[0];
+      const last = stops[stops.length - 1];
+      if (!first || !last) return;
+      const active = document.activeElement;
+      if (e.shiftKey && (active === first || active === sheet)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      } else if (!sheet.contains(active)) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     window.addEventListener("keydown", onKey);
     sheetRef.current?.focus();
@@ -132,9 +176,8 @@ export function BookingSheet({
       <AnimatePresence>
         {open && (
           <>
-            <motion.button
-              type="button"
-              aria-label={m.actions.close}
+            <motion.div
+              aria-hidden="true"
               onClick={() => onOpenChange(false)}
               initial={reduced ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -176,6 +219,15 @@ export function BookingSheet({
                 aria-hidden="true"
                 className="mx-auto mb-6 h-1 w-10 rounded-full bg-paper/30"
               />
+
+              <button
+                type="button"
+                onClick={() => onOpenChange(false)}
+                aria-label={m.actions.close}
+                className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center text-paper/70 hover:text-paper"
+              >
+                <X className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
+              </button>
 
               <p className="label mb-5 text-phos">{m.home.datesTitle}</p>
 
