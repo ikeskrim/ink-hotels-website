@@ -713,6 +713,34 @@ export const fr: ContentText = {
       "La famille qui tient Ink loue des chambres et des maisons dans cette partie de la Crète depuis des années, sous le nom de Crete Holiday Home. Concrètement, cela veut dire que la personne qui vous remet une clé sait quelle taverne vaut le déplacement en février, et quelle plage est vide le dimanche.",
   },
 
+  amenityFrames: {
+    "/media/9053c1c0aa924fb16769460a7c06ae29.webp":
+      "La petite piscine chauffée dans la cour d'Harmony, des serviettes pliées sur la margelle",
+    "/media/5338a6f7e902dcf2a9d75f773dc0f09a.webp":
+      "Le coin salon d'Harmony — deux fauteuils et une table basse sur le marbre, les volets ouverts sur la cour",
+    "/media/c1d3015d10dbf89fdc5a854450a3d4c2.webp":
+      "Le bain à remous privé d'Evexia sur la terrasse, la mer ouverte derrière",
+    "/media/8e76866167b3779ada4139c6c418fdbc.webp":
+      "La terrasse d'Agapi par les portes ouvertes — un transat sur le carrelage, une vieille porte de l'autre côté de la ruelle",
+    "/media/29a58ddec0a53c44cb46383fcd5edfcf.webp":
+      "La machine Nespresso et la bouilloire sur le bureau d'Agapi, les portes de la terrasse ouvertes derrière",
+    "/media/259cebe3b62e64b5834bdfc394fdea91.webp":
+      "La banquette intégrée d'Elpida sous les volets ouverts, des coussins tout le long",
+    "/media/c106dfa69cae9a90fd7893c48b2d6581.webp":
+      "Le plan-vasque en béton et la vasque noire d'Elpida sous un miroir en laiton, la kitchenette au fond",
+    "/media/5561be9a4b7a1d50a0a442cb221cb185.webp":
+      "La cabine de douche en verre de Pathos près du lit, robinetterie noire, la porte de la salle de bains ouverte derrière",
+    "/media/c0a38a892dbed31350857c9c38c71097.webp":
+      "Le bain à remous d'Eros sur le patio gazonné, un plateau de fruits sur le rebord, le portail en bois derrière",
+    "/media/30492ae8c18483102f4d79f00f39fad7.webp":
+      "Le patio d'Eros depuis son portail — le bain à remous, une voile d'ombrage au-dessus, un transat contre la cloison en bois",
+    "/media/0a193d645f4e57add2197fa6850cceae.webp":
+      "Le bain à remous de Zoi dans sa cour arrière lambrissée de bois, fruits et vin sur le plateau",
+    "/media/38f5821ccb89087cc3fa478c5d16740e.webp":
+      "L'une des deux chambres de Zoi — deux lits jumeaux réunis en un grand lit, sol en terre cuite",
+    "/media/581cc04206e899915675ca034a11965b.webp":
+      "La seconde chambre de Zoi, le mini-réfrigérateur sous l'étagère près du bureau",
+  },
   amenities: {
     "Air conditioning": "Climatisation",
     "Free Wi-Fi": "Wi-Fi gratuit",

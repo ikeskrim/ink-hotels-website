@@ -94,4 +94,10 @@ export interface ContentText {
   neighbourhood?: { title?: string; paragraphs?: string[] };
   /** Shared amenity strings, keyed by their English form. */
   amenities?: Record<string, string>;
+  /**
+   * What a verified amenity photograph shows, in this language. Keyed by the
+   * media path so a frame reused across suites is described once. Falls back
+   * to the English description in content/amenity-media.ts.
+   */
+  amenityFrames?: Record<string, string>;
 }

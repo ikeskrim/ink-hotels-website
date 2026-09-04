@@ -724,6 +724,34 @@ export const de: ContentText = {
       "Die Familie, die Ink führt, vermietet seit Jahren Zimmer und Häuser in diesem Teil Kretas, unter dem Namen Crete Holiday Home. In der Praxis heißt das: Wer Ihnen den Schlüssel gibt, weiß, welche Taverne im Februar den Weg lohnt und welcher Strand sonntags leer ist.",
   },
 
+  amenityFrames: {
+    "/media/9053c1c0aa924fb16769460a7c06ae29.webp":
+      "Der beheizte Tauchpool im Innenhof der Harmony, gefaltete Handtücher auf dem Beckenrand",
+    "/media/5338a6f7e902dcf2a9d75f773dc0f09a.webp":
+      "Der Wohnbereich der Harmony – zwei Sessel und ein niedriger Tisch auf Marmor, die Läden zum Innenhof geöffnet",
+    "/media/c1d3015d10dbf89fdc5a854450a3d4c2.webp":
+      "Der eigene Whirlpool der Evexia auf der Terrasse, dahinter das offene Meer",
+    "/media/8e76866167b3779ada4139c6c418fdbc.webp":
+      "Die Terrasse der Agapi durch die offenen Türen – ein Liegestuhl auf den Fliesen, eine alte Tür gegenüber in der Gasse",
+    "/media/29a58ddec0a53c44cb46383fcd5edfcf.webp":
+      "Nespresso-Maschine und Wasserkocher auf dem Schreibtisch der Agapi, dahinter die offenen Terrassentüren",
+    "/media/259cebe3b62e64b5834bdfc394fdea91.webp":
+      "Die eingebaute Fensterbank der Elpida unter den offenen Läden, Kissen entlang der Bank",
+    "/media/c106dfa69cae9a90fd7893c48b2d6581.webp":
+      "Waschtisch aus Beton und schwarzes Becken der Elpida unter einem Messingspiegel, dahinter die Küchenzeile",
+    "/media/5561be9a4b7a1d50a0a442cb221cb185.webp":
+      "Die gläserne Duschkabine der Pathos neben dem Bett, schwarze Armaturen, dahinter die offene Badezimmertür",
+    "/media/c0a38a892dbed31350857c9c38c71097.webp":
+      "Der Whirlpool der Eros auf der Rasenterrasse, ein Tablett mit Obst auf dem Rand, dahinter das Holztor",
+    "/media/30492ae8c18483102f4d79f00f39fad7.webp":
+      "Der Patio der Eros vom Tor aus – der Whirlpool, ein Sonnensegel darüber, ein Liegestuhl an der Holzwand",
+    "/media/0a193d645f4e57add2197fa6850cceae.webp":
+      "Der Whirlpool der Zoi im holzverkleideten Hinterhof, Obst und Wein auf dem Tablett",
+    "/media/38f5821ccb89087cc3fa478c5d16740e.webp":
+      "Eines der beiden Schlafzimmer der Zoi – zwei Einzelbetten als Doppelbett gemacht, Terrakottaboden",
+    "/media/581cc04206e899915675ca034a11965b.webp":
+      "Das zweite Schlafzimmer der Zoi, der Minikühlschrank unter dem Regal neben dem Schreibtisch",
+  },
   amenities: {
     "Air conditioning": "Klimaanlage",
     "Free Wi-Fi": "Kostenloses WLAN",

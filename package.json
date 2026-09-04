@@ -22,6 +22,7 @@
     "parity": "node --import tsx scripts/trailer-parity.mjs",
     "keyboard": "node scripts/keyboard-check.mjs",
     "features": "node scripts/features-check.mjs",
+    "grid": "node --import tsx scripts/grid-check.mjs",
     "schema": "node --import tsx scripts/schema-check.mjs",
     "phones": "node scripts/phone-check.mjs",
     "header": "node scripts/header-ground-check.mjs",

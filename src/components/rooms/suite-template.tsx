@@ -16,6 +16,7 @@ import { BookDirect } from "@/components/booking/book-direct";
 import { InkAnchor } from "@/components/ui/ink-link";
 import { AmenityGrid } from "@/components/rooms/amenity-grid";
 import { hasAmenityMedia } from "@/content/amenity-media";
+import { localiseAmenityItems } from "@/i18n/content";
 
 /**
  * The suite page, rebuilt on lead-with-distinction.
@@ -233,7 +234,7 @@ export function SuiteTemplate({
                       grid whose every cell is type is a list with more
                       chrome. */}
                   {hasAmenityMedia(room.slug) ? (
-                    <AmenityGrid slug={room.slug} amenities={room.amenities} />
+                    <AmenityGrid items={localiseAmenityItems(locale, room.slug)} />
                   ) : (
                     <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
                       {room.amenities.map((a) => (

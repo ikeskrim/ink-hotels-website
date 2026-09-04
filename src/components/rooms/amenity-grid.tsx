@@ -6,7 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 import { EASE } from "@/components/motion/reveal";
 import { NoFrame } from "@/components/media/no-frame";
-import { amenityFrame } from "@/content/amenity-media";
+import type { AmenityItem } from "@/content/amenity-media";
 import { cn } from "@/lib/utils";
 
 /**
@@ -44,19 +44,20 @@ import { cn } from "@/lib/utils";
  * no dimming transition. The information is the point; the movement is not.
  */
 export function AmenityGrid({
-  slug,
-  amenities,
+  items,
   heading,
 }: {
-  slug: string;
-  amenities: readonly string[];
+  /* Resolved by the server for the reader's language — see
+     localiseAmenityItems. The grid never looks anything up itself, which is
+     how it stopped looking things up by a translated label. */
+  items: readonly AmenityItem[];
   /** Omitted when the grid sits inside a panel that already has one. */
   heading?: string;
 }) {
   const [active, setActive] = useState<string | null>(null);
   const reduced = useReducedMotion();
 
-  if (!amenities.length) return null;
+  if (!items.length) return null;
 
   return (
     <div>
@@ -70,8 +71,7 @@ export function AmenityGrid({
            persist after the pointer has gone. */
         onMouseLeave={() => setActive(null)}
       >
-        {amenities.map((amenity) => {
-          const frame = amenityFrame(slug, amenity);
+        {items.map(({ key: amenity, label, frame }) => {
           const isActive = active === amenity;
           const dimmed = active !== null && !isActive;
 
@@ -137,7 +137,7 @@ export function AmenityGrid({
                     isActive && frame ? "text-paper" : "",
                   )}
                 >
-                  {amenity}
+                  {label}
                 </span>
               </motion.button>
             </motion.li>

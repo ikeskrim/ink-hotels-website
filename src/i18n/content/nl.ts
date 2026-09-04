@@ -720,6 +720,34 @@ export const nl: ContentText = {
       "De familie die Ink runt, verhuurt al jaren kamers en huizen in dit deel van Kreta, onder de naam Crete Holiday Home. Wat dat in de praktijk betekent: de persoon die u een sleutel overhandigt, weet welke taverna in februari de wandeling waard is en welk strand op zondag leeg is.",
   },
 
+  amenityFrames: {
+    "/media/9053c1c0aa924fb16769460a7c06ae29.webp":
+      "Het verwarmde dompelbad op de binnenplaats van Harmony, opgevouwen handdoeken op de rand",
+    "/media/5338a6f7e902dcf2a9d75f773dc0f09a.webp":
+      "De zithoek van Harmony — twee fauteuils en een lage tafel op marmer, de luiken open naar de binnenplaats",
+    "/media/c1d3015d10dbf89fdc5a854450a3d4c2.webp":
+      "Het eigen bubbelbad van Evexia op het terras, de open zee erachter",
+    "/media/8e76866167b3779ada4139c6c418fdbc.webp":
+      "Het terras van Agapi door de open deuren — een ligstoel op de tegels, een oude deur aan de overkant van het steegje",
+    "/media/29a58ddec0a53c44cb46383fcd5edfcf.webp":
+      "Het Nespresso-apparaat en de waterkoker op het bureau van Agapi, de terrasdeuren open erachter",
+    "/media/259cebe3b62e64b5834bdfc394fdea91.webp":
+      "De ingebouwde vensterbank van Elpida onder de open luiken, kussens langs de bank",
+    "/media/c106dfa69cae9a90fd7893c48b2d6581.webp":
+      "Het betonnen wastafelmeubel en de zwarte wasbak van Elpida onder een messing spiegel, de keukenhoek erachter",
+    "/media/5561be9a4b7a1d50a0a442cb221cb185.webp":
+      "De glazen douchecabine van Pathos naast het bed, zwarte kranen, de badkamerdeur open erachter",
+    "/media/c0a38a892dbed31350857c9c38c71097.webp":
+      "Het bubbelbad van Eros op de patio met kunstgras, een schaal fruit op de rand, het houten hek erachter",
+    "/media/30492ae8c18483102f4d79f00f39fad7.webp":
+      "De patio van Eros vanaf het hek — het bubbelbad, een schaduwdoek erboven, een ligstoel tegen het houten scherm",
+    "/media/0a193d645f4e57add2197fa6850cceae.webp":
+      "Het bubbelbad van Zoi op de met hout beklede achterplaats, fruit en wijn op het dienblad",
+    "/media/38f5821ccb89087cc3fa478c5d16740e.webp":
+      "Een van de twee slaapkamers van Zoi — twee eenpersoonsbedden opgemaakt als tweepersoonsbed, terracottavloer",
+    "/media/581cc04206e899915675ca034a11965b.webp":
+      "De tweede slaapkamer van Zoi, het koelkastje onder de plank bij het bureau",
+  },
   amenities: {
     "Air conditioning": "Airconditioning",
     "Free Wi-Fi": "Gratis wifi",

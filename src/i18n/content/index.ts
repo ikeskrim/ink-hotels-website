@@ -18,6 +18,7 @@ import { chapters as enChapters, rethymnoIntro as enIntro, type Chapter } from "
 import { faqs as enFaqs, type Faq } from "@/content/faq";
 import { arrival as enArrival } from "@/content/arrival";
 import { reviews as enReviews, type Review } from "@/content/reviews";
+import { amenityFrame, type AmenityFrame, type AmenityItem } from "@/content/amenity-media";
 
 /**
  * Content localisation.
@@ -81,6 +82,30 @@ export function localiseRooms(locale: Locale): Room[] {
         (a) => o?.amenities?.[a] ?? amenityMap[a] ?? a,
       ),
     };
+  });
+}
+
+/**
+ * A suite's amenities as the grid needs them: the English string the media
+ * map is keyed by, the label in the reader's language, and — where one has
+ * been verified — the frame, described in that language.
+ *
+ * The two arrays are zipped by index because localiseRooms translates
+ * amenities positionally, so the i-th translated label IS the i-th English
+ * amenity. Looking the frame up by the translated label was the bug: four of
+ * the five languages got a grid with no photographs in it.
+ */
+export function localiseAmenityItems(locale: Locale, slug: string): AmenityItem[] {
+  const en = enRooms.find((r) => r.slug === slug);
+  const local = localiseRooms(locale).find((r) => r.slug === slug);
+  if (!en || !local) return [];
+  const described = overlay(locale).amenityFrames ?? {};
+  return en.amenities.map((key, i) => {
+    const frame = amenityFrame(slug, key);
+    const localised: AmenityFrame | undefined = frame
+      ? { src: frame.src, alt: pick(described[frame.src], frame.alt) }
+      : undefined;
+    return { key, label: local.amenities[i] ?? key, frame: localised };
   });
 }
 
