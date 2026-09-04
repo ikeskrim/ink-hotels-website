@@ -76,7 +76,33 @@ for (const reduced of [false, true]) {
     const h = [...document.querySelectorAll("h2")].find((el) => /named after/i.test(el.textContent || ""));
     h?.scrollIntoView();
   });
-  await page.waitForTimeout(1600);
+  /* The strike is 0.028s of stagger per character plus a 0.26s hit, and it
+     starts only once the heading is in view after the smooth-scroll glide. A
+     fixed wait was a guess at that sum; on a cold CI runner it guessed wrong
+     by seven characters. So: wait until every character is opaque, with a
+     ceiling of three times the animation's own length plus two seconds. A
+     character that never lands still fails; a slow machine does not. */
+  const charCount = await page.evaluate(() => {
+    const h = [...document.querySelectorAll("h2")].find((el) => /named after/i.test(el.textContent || ""));
+    return h?.querySelectorAll('[aria-hidden="true"] span span').length ?? 0;
+  });
+  const ceiling = Math.ceil((charCount * 0.028 + 0.26) * 3 * 1000) + 2000;
+  const t0 = Date.now();
+  const landed = reduced
+    ? (await page.waitForTimeout(300), true)
+    : await page
+        .waitForFunction(
+          () => {
+            const h = [...document.querySelectorAll("h2")].find((el) => /named after/i.test(el.textContent || ""));
+            const chars = [...(h?.querySelectorAll('[aria-hidden="true"] span span') ?? [])];
+            return chars.length > 0 && chars.every((c) => parseFloat(getComputedStyle(c).opacity) >= 0.99);
+          },
+          undefined,
+          { timeout: ceiling, polling: 100 },
+        )
+        .then(() => true)
+        .catch(() => false);
+  const landedIn = ((Date.now() - t0) / 1000).toFixed(1);
 
   const heading = await page.evaluate(() => {
     const h = [...document.querySelectorAll("h2")].find((el) => /named after/i.test(el.textContent || ""));
@@ -104,7 +130,7 @@ for (const reduced of [false, true]) {
       report(heading.splitSpans === 0, `${mode} heading: renders as plain text, no split`, `${heading.splitSpans} split spans`);
     } else {
       report(heading.splitSpans > 20 && heading.hiddenSplitIsAriaHidden, `${mode} heading: split is aria-hidden`, `${heading.splitSpans} spans`);
-      report(heading.stuckInvisible === 0, `${mode} heading: every character has landed`, `${heading.stuckInvisible} still invisible after 1.6s`);
+      report(landed && heading.stuckInvisible === 0, `${mode} heading: every character has landed`, landed ? `in ${landedIn}s of a ${(ceiling / 1000).toFixed(1)}s ceiling` : `${heading.stuckInvisible} still invisible after ${landedIn}s`);
     }
   }
 
